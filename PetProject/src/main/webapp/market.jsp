@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<h1><a href="order.html">商品管理</a></h1>
+<h1><a href="order.jsp">商品管理</a></h1>
 
 </body>
 </html>
