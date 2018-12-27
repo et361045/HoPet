@@ -96,9 +96,7 @@ body {
 }
 
 .container_12 .grid_6 {
-  display:flex;
   width: 460px;
-    justify-content:center;
 }
 
 .container_12 .grid_7 {
