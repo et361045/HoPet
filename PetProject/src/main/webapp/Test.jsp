@@ -16,13 +16,11 @@
 <script src="js/jquery.equalheights.js"></script>
 <script src="js/jquery.easing.1.3.js"></script>
 <script src="js/jquery.ui.totop.js"></script>
-
-</head>
 <body>
 <header>
   <div class="container_12">
     <div class="grid_12">
-      <h1><a href="index.html"><img src="images/logo.png"alt=""></a> </h1>
+      <h1><a href="index.jsp"><img src="images/logo.png"alt=""></a> </h1>
       <div class="menu_block">
         <nav>
           <ul class="sf-menu">
@@ -30,7 +28,7 @@
             <li><a href="http://www.i-furkid.com/LifeData/Store_Search.aspx?CID=7">寵生活</a> </li>
             <li><a href="">寵百科</a>
               <ul>
-                <li><a href="Dog.html">Dog</a></li>
+                <li><a href="dog.jsp">Dog</a></li>
                 <li><a href="#">Cat</a></li>
               </ul>
             </li>
@@ -41,7 +39,11 @@
               </ul>
             </li>
             <li><a href="">寵旅遊</a></li>
-            <li><a href="">商城</a></li>
+            <li><a href="market.jsp">商城</a></li>
+            	<ul>
+	            		<li><a href="">買東西</a></li>
+	            		<li><a href="">賣東西</a></li>
+	            </ul>
             <li><a href="">活動</a></li>
 
         </nav>
@@ -51,27 +53,29 @@
     </div>
      <div class="menu_block1">
         <ul class="sf-menu">
-           <li><a href="">登入</a></li>
+           <li><a href="login.jsp">登入</a></li>
         </ul>
      </div>
   </div>
 </header>
-
-<!-- <div class="content pt1"> -->
-<!--   <div class="container_12"> -->
-<!-- <!--     <div class="grid_6"> -->
-<!--       <h2>Contact Info</h2> -->
-<!--       <br> -->
-<!--       <div class="map"> -->
-<!--         <figure class="img_inner" id="map_canvas"> -->
-<!--           <iframe src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Brooklyn,+New+York,+NY,+United+States&amp;aq=0&amp;sll=37.0625,-95.677068&amp;sspn=61.282355,146.513672&amp;ie=UTF8&amp;hq=&amp;hnear=Brooklyn,+Kings,+New+York&amp;ll=40.649974,-73.950005&amp;spn=0.01628,0.025663&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe> -->
-<!--         </figure> -->
-<!--       </div> -->
-<!-- <!--     </div> -->
+<div class="content pt1">
+  <div class="container_12">
+<!--     <div class="grid_6"> -->
+      <h2>Contact Info</h2>
+      <br>
+      <div class="map">
+        <figure class="img_inner" id="map_canvas">
+          <iframe  src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Brooklyn,+New+York,+NY,+United+States&amp;aq=0&amp;sll=37.0625,-95.677068&amp;sspn=61.282355,146.513672&amp;ie=UTF8&amp;hq=&amp;hnear=Brooklyn,+Kings,+New+York&amp;ll=40.649974,-73.950005&amp;spn=0.01628,0.025663&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>
+        </figure>
+        
+      </div>
 <!--     </div> -->
-<!--   </div> -->
-
-
+    </div>
+  </div>
+<!-- 此處新增 -->
+<!--       -->
+<!--       -->
+<!-- 此處新增 -->
 <footer>
   <div class="container_12">
     <div class="grid_12">

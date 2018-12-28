@@ -75,7 +75,7 @@ body {
 							</li>
 							<li><a href="">寵百科</a>
 								<ul>
-									<li><a href="Dog.html">Dog</a></li>
+									<li><a href="dog.jsp">Dog</a></li>
 									<li><a href="#">Cat</a></li>
 								</ul></li>
 							<li><a href="">寵 寄&送養</a>
@@ -85,6 +85,10 @@ body {
 								</ul></li>
 							<li><a href="">寵旅遊</a></li>
 							<li><a href="">商城</a></li>
+								<ul>
+									<li><a href="#">買東西</a></li>
+									<li><a href="#">賣東西</a></li>
+								</ul></li>
 							<li><a href="">活動</a></li>
 					</nav>
 					<div class="clear"></div>

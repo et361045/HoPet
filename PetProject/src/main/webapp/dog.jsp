@@ -66,51 +66,53 @@
 	});
 </script>
 </head>
-<body>
-	<header>
-		<div class="container_12">
-			<div class="grid_12">
-				<h1>
-					<a href="index.html"><img src="images/logo.png" alt=""></a>
-				</h1>
-				<div class="menu_block">
-					<nav>
-						<ul class="sf-menu">
-							<li><a href="">會員</a></li>
-							<li><a
-								href="http://www.i-furkid.com/LifeData/Store_Search.aspx?CID=7">寵生活</a>
-							</li>
-							<li><a href="">寵百科</a>
-								<ul>
-									<li><a href="Dog.html">Dog</a></li>
-									<li><a href="#">Cat</a></li>
-								</ul></li>
-							<li><a href="">寵 寄&送養</a>
-								<ul>
-									<li><a href="#">寄養</a></li>
-									<li><a href="#">送養</a></li>
-								</ul></li>
-							<li><a href="">寵旅遊</a></li>
-							<li><a href="">商城</a></li>
-							<li><a href="">活動</a></li>
-					</nav>
-					<div class="clear"></div>
-				</div>
-				<div class="clear"></div>
-			</div>
-			<div class="menu_block1">
-				<ul class="sf-menu">
-					<li><a href="">登入</a></li>
-				</ul>
-			</div>
-		</div>
-	</header>
+<body class="page1">
+<header>
+  <div class="container_12">
+    <div class="grid_12_1">
+      <h1><a href="index.jsp"><img src="images/logo.png"alt=""></a> </h1>
+      <div class="menu_block1">
+        <nav>
+          <ul class="sf-menu">
+            <li><a href="">會員</a></li>
+            <li><a href="">寵生活</a> </li>
+            <li><a href="">寵百科</a>
+              <ul>
+                <li><a href="dog.jsp">Dog</a></li>
+                <li><a href="#">Cat</a></li>
+              </ul>
+            </li>
+            <li><a href="">寵 寄&送養</a>
+               <ul>
+                <li><a href="#">寄養</a></li>
+                <li><a href="#">送養</a></li>
+              </ul>
+            </li>
+            <li><a href="">寵旅遊</a></li>
+            <li><a href="market.jsp">商城</a></li>
+            <li><a href="">活動</a></li>
+            </ul>
+
+        </nav>
+        <div class="clear"></div>
+      </div>
+      <div class="clear"></div>
+    </div>
+     <div class="menu_block2">
+        <ul class="sf-menu">
+           <li><a href="signin.jsp">註冊</a></li>
+           <li><a href="signin.jsp">登入</a></li>
+        </ul>    
+     </div>
+  </div>
+</header>
 	<div class="content_dog">
 		<div class="container_12">
 			<table>
 				<tbody>
 					<tr>
 						<h2 class="dog_h2">小型犬</h2>
+						<img src="images/footprint.png" width="52" height="52" border="0">
 					</tr>
 					<tr>
 						<td bgcolor="#FFFFFF" class="wiki_title_memo  t3"><ul>
@@ -278,6 +280,7 @@
 				<tbody>
 					<tr>
 						<h2 class="dog_h2">中型犬</h2>
+						<img src="images/footprint.png" width="52" height="52" border="0">
 					</tr>
 					<tr>
 						<td bgcolor="#FFFFFF" class="wiki_title_memo  t3"><ul>
@@ -373,6 +376,7 @@
 				<tbody>
 					<tr>
 						<h2 class="dog_h2">大型犬</h2>
+						<img src="images/footprint.png" width="52" height="52" border="0">
 					</tr>
 					<tr>
 						<td bgcolor="#FFFFFF" class="wiki_title_memo  t3"><ul>
@@ -498,6 +502,7 @@
 				<tbody>
 					<tr>
 						<h2 class="dog_h2">超大型犬</h2>
+						<img src="images/footprint.png" width="52" height="52" border="0">
 					</tr>
 					<tr>
 						<td bgcolor="#FFFFFF" class="wiki_title_memo  t3"><ul>
