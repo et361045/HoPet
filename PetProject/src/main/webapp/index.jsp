@@ -82,7 +82,7 @@ jQuery(document).ready(function () {
             <li><a href="http://www.i-furkid.com/LifeData/Store_Search.aspx?CID=7">寵生活</a> </li>
             <li><a href="">寵百科</a>
               <ul>
-                <li><a href="Dog.jsp">Dog</a></li>
+                <li><a href="dog.jsp">Dog</a></li>
                 <li><a href="#">Cat</a></li>
               </ul>
             </li>

@@ -75,7 +75,7 @@ body {
 							</li>
 							<li><a href="">寵百科</a>
 								<ul>
-									<li><a href="Dog.html">Dog</a></li>
+									<li><a href="dog.jsp">Dog</a></li>
 									<li><a href="#">Cat</a></li>
 								</ul></li>
 							<li><a href="">寵 寄&送養</a>
