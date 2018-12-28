@@ -69,7 +69,7 @@
 <body class="page1">
 <header>
   <div class="container_12">
-    <div class="grid_12">
+    <div class="grid_12_1">
       <h1><a href="index.jsp"><img src="images/logo.png"alt=""></a> </h1>
       <div class="menu_block1">
         <nav>
@@ -91,17 +91,18 @@
             <li><a href="">寵旅遊</a></li>
             <li><a href="market.jsp">商城</a></li>
             <li><a href="">活動</a></li>
+            </ul>
 
         </nav>
         <div class="clear"></div>
       </div>
       <div class="clear"></div>
     </div>
-     <div class="menu_block1">
+     <div class="menu_block2">
         <ul class="sf-menu">
-           <li><a href="signin.jsp">註冊會員 </a></li>
-           <li><a href="">登入</a></li>
-        </ul>
+           <li><a href="signin.jsp">註冊</a></li>
+           <li><a href="signin.jsp">登入</a></li>
+        </ul>    
      </div>
   </div>
 </header>

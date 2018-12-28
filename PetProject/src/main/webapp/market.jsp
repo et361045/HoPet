@@ -23,7 +23,7 @@
 	<header>
 	  <div class="container_12">
 	    <div class="grid_12">
-	      <h1><a href="index.html"><img src="images/logo.png"alt=""></a> </h1>
+	      <h1><a href="index.jsp"><img src="images/logo.png"alt=""></a> </h1>
 	      <div class="menu_block">
 	        <nav>
 	          <ul class="sf-menu">
@@ -31,7 +31,7 @@
 	            <li><a href="http://www.i-furkid.com/LifeData/Store_Search.aspx?CID=7">寵生活</a> </li>
 	            <li><a href="">寵百科</a>
 	              <ul>
-	                <li><a href="Dog.html">Dog</a></li>
+	                <li><a href="dog.jsp">Dog</a></li>
 	                <li><a href="#">Cat</a></li>
 	              </ul>
 	            </li>
@@ -42,7 +42,12 @@
 	              </ul>
 	            </li>
 	            <li><a href="">寵旅遊</a></li>
-	            <li><a href="">商城</a></li>
+	            <li><a href="market.jsp">商城</a>
+	            	<ul>
+	            		<li><a href="">買東西</a></li>
+	            		<li><a href="">賣東西</a></li>
+	            	</ul>
+	            </li>
 	            <li><a href="">活動</a></li>
 	        </nav>
 	        <div class="clear"></div>
@@ -57,9 +62,10 @@
 	  </div>
 	</header>
 	
-	<div>
-		<h2><a href="order.jsp" class="market-div">商品管理</a></h2>
+	<div class="index-header-search">
+			<input placeholder="搜尋" class="rt-header-search">
 	</div>
+	
 
 	<footer>
 	  <div class="container_12">
