@@ -73,16 +73,16 @@ jQuery(document).ready(function () {
 <body class="page1">
 <header>
   <div class="container_12">
-    <div class="grid_12">
+    <div class="grid_12_1">
       <h1><a href="index.jsp"><img src="images/logo.png"alt=""></a> </h1>
-      <div class="menu_block">
+      <div class="menu_block1">
         <nav>
           <ul class="sf-menu">
             <li><a href="">會員</a></li>
-            <li><a href="http://www.i-furkid.com/LifeData/Store_Search.aspx?CID=7">寵生活</a> </li>
+            <li><a href="">寵生活</a> </li>
             <li><a href="">寵百科</a>
               <ul>
-                <li><a href="Dog.jsp">Dog</a></li>
+                <li><a href="dog.jsp">Dog</a></li>
                 <li><a href="#">Cat</a></li>
               </ul>
             </li>
@@ -101,11 +101,9 @@ jQuery(document).ready(function () {
       </div>
       <div class="clear"></div>
     </div>
-     <div class="menu_block1">
-      <ul class="sf-menu">
-           <li><a href="signin.jsp" style="margin-right: 50px">註冊會員 </a></li>
-        </ul>
+     <div class="menu_block2">
         <ul class="sf-menu">
+           <li><a href="signin.jsp">註冊</a></li>
            <li><a href="">登入</a></li>
         </ul>
      </div>
