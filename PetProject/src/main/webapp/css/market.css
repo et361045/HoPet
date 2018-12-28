@@ -1,3 +1,7 @@
 @charset "UTF-8";
 
-.market-div{color: black}
+.index-header-search{margin:0 auto;width:58%}
+.index-header-search .rt-header-search{margin-left:0;padding:6px 8px;line-height:35px}
+.index-header-search .rt-header-search-input,.index-header-search .rt-header-search-select{font-size:15px;height:35px}
+.index-header-search .search-bar-keyword-list{margin-top:6px}
+.index-header-search .rt-header-search-submit{width:28px;height:28px}

@@ -62,6 +62,9 @@
 	  </div>
 	</header>
 	
+	<div class="index-header-search">
+			<input placeholder="搜尋" class="rt-header-search">
+	</div>
 	
 
 	<footer>

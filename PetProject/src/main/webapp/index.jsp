@@ -16,7 +16,7 @@
 <script src="js/jquery.equalheights.js"></script>
 <script src="js/jquery.easing.1.3.js"></script>
 <script src="js/tms-0.4.1.js"></script>
-<script src="js/jquery.ui.totop.js"></script>
+<script src="js/jquery.ui.totop.js"></script> 
 <script>
 $(window).load(function () {
     $('.slider')._TMS({
@@ -95,17 +95,22 @@ jQuery(document).ready(function () {
             <li><a href="">寵旅遊</a></li>
             <li><a href="market.jsp">商城</a></li>
             <li><a href="">活動</a></li>
+            </ul>
 
         </nav>
         <div class="clear"></div>
       </div>
       <div class="clear"></div>
     </div>
+    
      <div class="menu_block1">
         <ul class="sf-menu">
-           <li><a href="">登入</a></li>
+       <li><a href="" >登入</a><a href="signin.jsp"style="margin-left: 25px">註冊 </a></li> 
         </ul>
+           
+      
      </div>
+     
   </div>
 </header>
 <div class="top_block">
