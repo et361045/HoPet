@@ -11,13 +11,13 @@
 <link rel="shortcut icon" href="images/favicon.ico">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/form.css">
-<script src="js/jquery.js"></script>
-<script src="js/forms.js"></script>
-<script src="js/jquery-migrate-1.1.1.js"></script>
-<script src="js/superfish.js"></script>
-<script src="js/jquery.equalheights.js"></script>
-<script src="js/jquery.easing.1.3.js"></script>
-<script src="js/jquery.ui.totop.js"></script>
+<!-- <script src="js/jquery.js"></script> -->
+<!-- <script src="js/forms.js"></script> -->
+<!-- <script src="js/jquery-migrate-1.1.1.js"></script> -->
+<!-- <script src="js/superfish.js"></script> -->
+<!-- <script src="js/jquery.equalheights.js"></script> -->
+<!-- <script src="js/jquery.easing.1.3.js"></script> -->
+<!-- <script src="js/jquery.ui.totop.js"></script> -->
 
 <script>
 	jQuery(document).ready(function() {
@@ -100,41 +100,55 @@ body {
 	</header>
 	<!-- LOGIN -->
 <body>
-	<div class="login">
-		<fieldset>
-			<legend>加入會員</legend>
+	<div class="page1_block">
+		<div class="container_12">
+			<div class="View">
+
+			</div>
+			<div class="login">
+				<fieldset>
+					<legend>加入會員</legend>
 
 
-			<form action="#" method="post">
-				<br>
-				<p>
-					<label for="name"> 暱稱:</label> <br> <input type="text"
-						id="name">
-				</p>
-				<p>
-					<label for="account"> 帳號:</label> <br> <input type="text"
-						id="account" required autocomplete="off" autofocus
-						placeholder="電子郵件信箱" size="10">
-				</p>
-				<label for="pew"> 密碼:</label> <br> <input type="text" id="pew"
-					required autocomplete="off" autofocus placeholder="password">
-				<p style="color: #ff9797; font-size: 16px">(至少8字且必須包含英文大小寫、數字)</p>
+					<form action="#" method="post">
+						<br>
+						<p>
+							<label for="name"> 暱稱:</label> <br> <input type="text"
+								id="name">
+						</p>
+						<p>
+							<label for="account"> 帳號:</label> <br> <input type="text"
+								id="account" required autocomplete="off" autofocus
+								placeholder="電子郵件信箱" size="10">
+						</p>
+						<label for="pew"> 密碼:</label> <br> <input type="password"
+							id="pew" required autocomplete="off" autofocus
+							placeholder="password" class="password"
+							style="padding: 5px 15px; border: 2px black solid; cursor: pointer; -webkit-border-radius: 5px; border-radius: 5px; font-size: 16px; font-family: 'cwTeXYen', sans-serif; background: #d1e9e9; border-style: dashed; border-width: 3px; border-color: #b3d9d9; outline: none; width: 8cm; height: 20px">
+						<p style="color: #ff9797; font-size: 16px">(至少8字且必須包含英文大小寫、數字)</p>
 
-				<label for="checkpew"> 確認密碼:</label> <br> <input type="text"
-					id="checkpew" required autocomplete="off" autofocus
-					placeholder="checkpassword">
-				<p style="color: #ff9797; font-size: 16px">(必須完全與密碼相同)</p>
-				<p>
-					<label for="phone"> 手機號碼:</label> <br> <input type="text"
-						id="phone" autofocus placeholder="09xxxxxxxx">
-				</p>
-				
-				<p>
-				 <label for="address"> 地址:</label> <br> <input type="text"
-						id="address" autofocus placeholder="XX市XX區XX路XX">
-                </p>
-			</form>
-		</fieldset>
+						<label for="checkpew"> 確認密碼:</label> <br> <input
+							type="password" id="checkpew" required autocomplete="off"
+							autofocus placeholder="checkpassword"
+							style="padding: 5px 15px; border: 2px black solid; cursor: pointer; -webkit-border-radius: 5px; border-radius: 5px; font-size: 16px; font-family: 'cwTeXYen', sans-serif; background: #d1e9e9; border-style: dashed; border-width: 3px; border-color: #b3d9d9; outline: none; width: 8cm; height: 20px">
+						
+						<p style="color: #ff9797; font-size: 16px">(必須完全與密碼相同)</p>
+						<p>
+							<label for="phone"> 手機號碼:</label> <br> <input type="text"
+								id="phone" autofocus placeholder="09xxxxxxxx">
+						</p>
+
+						<p>
+							<label for="address"> 地址:</label> <br> <input type="text"
+								id="address" autofocus placeholder="XX市XX區XX路XX">
+						</p>
+						<input type="submit" value="註冊" class="button" > 
+						<input type="reset"	value="取消" class="button" style="margin-left :20px" >
+							
+					</form>
+				</fieldset>
+			</div>
+		</div>
 	</div>
 
 </body>
