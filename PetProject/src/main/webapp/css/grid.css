@@ -21,9 +21,9 @@ body {
 ----------------------------------------------------------------------------------------------------*/
 
 .container_12 {
-  margin-left: auto;
-  margin-right: auto;
-  width: 1500px;
+/*   margin-left: auto; */
+/*   margin-right: auto; */
+  width: auto;
 }
 .container_12_new {
   margin-left: auto;
@@ -101,9 +101,7 @@ body {
 }
 
 .container_12 .grid_6 {
-  display:flex;
   width: 460px;
-    justify-content:center;
 }
 
 .container_12 .grid_7 {
@@ -127,7 +125,7 @@ body {
 }
 
 .container_12 .grid_12 {
-  width: 1350px;
+  width: auto;
   height: 100px;
 }
 

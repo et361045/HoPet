@@ -1,5 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-tw">
 <head>
 <title>HoPet</title>
 <meta charset="utf-8">
@@ -72,7 +74,7 @@ jQuery(document).ready(function () {
 <header>
   <div class="container_12">
     <div class="grid_12">
-      <h1><a href="index.html"><img src="images/logo.png"alt=""></a> </h1>
+      <h1><a href="index.jsp"><img src="images/logo.png"alt=""></a> </h1>
       <div class="menu_block">
         <nav>
           <ul class="sf-menu">
@@ -80,7 +82,7 @@ jQuery(document).ready(function () {
             <li><a href="http://www.i-furkid.com/LifeData/Store_Search.aspx?CID=7">寵生活</a> </li>
             <li><a href="">寵百科</a>
               <ul>
-                <li><a href="Dog.html">Dog</a></li>
+                <li><a href="Dog.jsp">Dog</a></li>
                 <li><a href="#">Cat</a></li>
               </ul>
             </li>
@@ -91,7 +93,7 @@ jQuery(document).ready(function () {
               </ul>
             </li>
             <li><a href="">寵旅遊</a></li>
-            <li><a href="">商城</a></li>
+            <li><a href="market.jsp">商城</a></li>
             <li><a href="">活動</a></li>
 
         </nav>
@@ -139,7 +141,7 @@ jQuery(document).ready(function () {
 <div class="page1_block">
   <div class="container_12">
     <div class="grid_6">
-      <h2>Welcome to Our Site</h2>
+      <h2>劉德安</h2>
       <br>
       <img src="images/page1_img5.jpg" alt="" class="img_inner fleft">
       <div class="extra_wrapper style1">
@@ -149,7 +151,7 @@ jQuery(document).ready(function () {
       Praesent quis orci eget diam viverra consequat. Fusce sagittis quam in pulvinar sollicitudin velit velit cursus nibh ullamcorper accumsan sem lectus ut sapien. Donec venenatis posuere velit aty convallis neque ullamcorper quis. Integer posuere ipsum eu risus sollicitudin nec varius eratylo luctus. Fusce fringilla erat ac urna pe llentesque congue. Nunc fringilla diam sit amet adipi scing bibendum turpis velit feugiat urna et pharetra neque nisi ac nunc. Vivamus est quam dapibuslok. ..ullamco rper imperdiet nec euismod ut arcu. Nulla facilisi. Etiam mauris lorem pulvinar vel con sequat ut pretium ac erat. Morbi facilisis elit eu nisl blandit ac blandit enim faucibu. Praesent quis orci eget diam viverra consequat. Fusce sagittis.<br>
       <a href="#" class="btn">More</a> </div>
     <div class="grid_5 prefix_1">
-      <h2 class="ic1">Latest News</h2>
+      <h2 class="ic1">劉偉詩</h2>
       <ul class="list">
         <li> <span>
           <time datetime="2045-01-01">27<span>APR</span></time>
@@ -180,62 +182,6 @@ jQuery(document).ready(function () {
         </li>
       </ul>
     </div>
-  </div>
-</div>
-<div class="content page1">
-  <div class="container_12">
-    <div class="grid_12"> <a href="#" class="next"></a><a href="#" class="prev"></a>
-      <h2>Pets for Adoption</h2>
-    </div>
-    <div class="clear"></div>
-    <ul class="carousel1">
-      <li class="grid_4"> <img src="images/carousel1_img1.jpg" alt="" class="img_inner fleft">
-        <div class="extra_wrapper pad1">
-          <p class="col2"><a href="#">Praesent quis orcidiam viverralopr </a></p>
-          Raes quis orci eget diam viverralopr con equat. Fusce sagit quam ihui hyhy kolo opirlo pulvinarhjkjo. </div>
-      </li>
-      <li class="grid_4"> <img src="images/carousel1_img2.jpg" alt="" class="img_inner fleft">
-        <div class="extra_wrapper pad1">
-          <p class="col2"><a href="#">Aeraesent quis hoj rcieget diam iverral.</a></p>
-          Loaesent quis orci diam viverralopr con equat. Lusce sagittis quam ihui hyhy opir pulvinarhjk velit. </div>
-      </li>
-      <li class="grid_4"> <img src="images/carousel1_img3.jpg" alt="" class="img_inner fleft">
-        <div class="extra_wrapper pad1">
-          <p class="col2"><a href="#">Tyeraesent quis hojo rcieget iam iverralji.</a></p>
-          Eroaesent quis orci ediam viverralopr con jikjulo poiu retyulo hyk equat. Usce sagittis ki quam ihui hyhy opirp. </div>
-      </li>
-      <li class="grid_4"> <img src="images/carousel1_img4.jpg" alt="" class="img_inner fleft">
-        <div class="extra_wrapper pad1">
-          <p class="col2"><a href="#">Aeraesent quis hoj rcieget diam iverral.</a></p>
-          Loaesent quis orci diam viverralopr con equat. Lusce sagittis quam ihui hyhy opir pulvinarhjk velit. </div>
-      </li>
-      <li class="grid_4"> <img src="images/carousel1_img5.jpg" alt="" class="img_inner fleft">
-        <div class="extra_wrapper pad1">
-          <p class="col2"><a href="#">Aeraesent quis hoj rcieget diam iverral.</a></p>
-          Loaesent quis orci diam viverralopr con equat. Lusce sagittis quam ihui hyhy opir pulvinarhjk velit. </div>
-      </li>
-      <li class="grid_4"> <img src="images/carousel1_img6.jpg" alt="" class="img_inner fleft">
-        <div class="extra_wrapper pad1">
-          <p class="col2"><a href="#">Aeraesent quis hoj rcieget diam iverral.</a></p>
-          Loaesent quis orci diam viverralopr con equat. Lusce sagittis quam ihui hyhy opir pulvinarhjk velit. </div>
-      </li>
-    </ul>
-  </div>
-</div>
-<div class="bottom_block">
-  <div class="container_12">
-    <div class="grid_6">
-      <h2>Pet Care Tips </h2>
-      <br>
-      Praesent quis orci eget diam viverra consequat. Fusce sagittis quam in pulvinar sollicitudin velit velit cursus nibh ullamcorper accumsan sem lectus ut sapien. Donec venenatis posuere velit a convallis neque ullamcorper quis. Integer posuere ipsum eu risus sollicitudin nec varius erat luctus. Fusce fringilla erat ac urna pe llentesque congue. Nunc fringilla, diam sit amet adipi scing bibendum turpis velit feugiat urna, et pharetra neque nisi ac nunc. Vivamus est quam dapibus ullamco rper imperdiet nec, euismod ut arcu. Nulla facilisi. Etiam mauris lorem pulvinar vel con sequat ut pretium ac erat. Morbi facilisis elit eu nisl blandit ac blandit enim faucibus. Praesent quis orci eget diam viverra consequat. Fusce sagittis. </div>
-    <div class="grid_4 prefix_2">
-      <h2 class="ic1">Any Question?</h2>
-      <img src="images/page1_img4.jpg" alt="" class="fleft img_inner">
-      <div class="extra_wrapper">
-        <div class="cont"> Call Us Free: <span>+1 800 559 6580</span> </div>
-      </div>
-      <div class="clear"></div>
-      Nunc fringilla, diam sit amet adipi scing bibendum turpis velit feugiat urna, et pharetra neque nisi ac nunc. Viv amus est quam dapibus ullamco rper imperdiet nec euismod ut arcu. Nulla facilisi. Etiam mauris. </div>
   </div>
 </div>
 <footer>

@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+
+.bd{padding-right: 200px;padding-left: 200px}
+
+.bottom-wrapper{margin:15px 0}
+.bottom-wrapper .function{float:left}
+.bottom-wrapper .wrapper-content{overflow:hidden;text-align:right}
+
+
+.table{width:100%;margin: 10px 0;border-collapse: collapse;line-height: 100%;color: black;}
+.table td,.table th{padding:5px;border:1px solid #ddd;vertical-align:middle}
+.table thead td{height:24px;text-align:center;background-color:#eee;white-space:nowral;background-color: #DDDDDD;}
+
+.mybid-pagination{text-align:center;font-family:Verdana}
+.mybid-pagination .page-link-list{white-space:nowrap}
+.mybid-pagination .page-link-list.page-lock .active a{color:transparent}
+.mybid-pagination .page-link-list.page-lock .active a:before{content:' ';position:absolute;display:inline-block;width:16px;height:16px;vertical-align:middle;background:url(/images/ajax-loader.gif)}
+.mybid-pagination li{display:inline-block}
+.mybid-pagination li a:after,.mybid-pagination li a:before{font-family:Georgia;font-size:140%}
+.mybid-pagination .page-to{margin:0 1px}
+.mybid-pagination .page-to a{padding:3px 8px}
+.mybid-pagination .prev,.mybid-pagination .prev-10{margin-right:20px}
+.mybid-pagination .next,.mybid-pagination .next-10{margin-left:20px}
+.mybid-pagination .prev a:before{content:'\2039'}
+.mybid-pagination .next a:after{content:'\203A'}
+.mybid-pagination .prev-10 a:before{content:'\AB'}
+.mybid-pagination .next-10 a:after{content:'\BB'}
+.mybid-pagination .active a,.mybid-pagination .current a{text-decoration:none;cursor:default}
+.mybid-pagination .active a{font-weight:700;color:#333}
+.mybid-pagination .current a{color:#999}
+.mybid-pagination .disable{position:relative;left:-50000px}
