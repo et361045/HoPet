@@ -93,7 +93,7 @@ jQuery(document).ready(function () {
               </ul>
             </li>
             <li><a href="">寵旅遊</a></li>
-            <li><a href="market.html">商城</a></li>
+            <li><a href="market.jsp">商城</a></li>
             <li><a href="">活動</a></li>
 
         </nav>
