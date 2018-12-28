@@ -95,20 +95,23 @@ jQuery(document).ready(function () {
             <li><a href="">寵旅遊</a></li>
             <li><a href="market.jsp">商城</a></li>
             <li><a href="">活動</a></li>
+            </ul>
 
         </nav>
         <div class="clear"></div>
       </div>
       <div class="clear"></div>
     </div>
+    
      <div class="menu_block1">
-      <ul class="sf-menu">
-           <li><a href="signin.jsp" style="margin-right: 50px">註冊會員 </a></li>
-        </ul>
         <ul class="sf-menu">
-           <li><a href="">登入</a></li>
+           <li><a href="" >登入</a></li>
+             <li><a href="signin.jsp" style="margin-right: 20px">註冊會員 </a></li>
         </ul>
+           
+      
      </div>
+     
   </div>
 </header>
 <div class="top_block">
