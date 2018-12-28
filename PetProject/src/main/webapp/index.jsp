@@ -105,8 +105,7 @@ jQuery(document).ready(function () {
     
      <div class="menu_block1">
         <ul class="sf-menu">
-           <li><a href="" >登入</a></li>
-             <li><a href="signin.jsp" style="margin-right: 20px">註冊會員 </a></li>
+       <li><a href="" >登入</a><a href="signin.jsp"style="margin-left: 25px">註冊 </a></li> 
         </ul>
            
       
