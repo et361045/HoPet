@@ -7,8 +7,8 @@
 <meta charset="utf-8">
 <link rel="icon" href="images/favicon.ico">
 <link rel="shortcut icon" href="images/favicon.ico">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/slider.css">
+<link rel="stylesheet" href="css/style.css"> 
+<link rel="stylesheet" href="css/slider.css"> 
 <script src="js/jquery.js"></script>
 <script src="js/jquery-migrate-1.1.1.js"></script>
 <script src="js/superfish.js"></script>
@@ -17,6 +17,9 @@
 <script src="js/jquery.easing.1.3.js"></script>
 <script src="js/tms-0.4.1.js"></script>
 <script src="js/jquery.ui.totop.js"></script> 
+
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 <script>
 $(window).load(function () {
     $('.slider')._TMS({
@@ -78,23 +81,28 @@ jQuery(document).ready(function () {
       <div class="menu_block1">
         <nav>
           <ul class="sf-menu">
-            <li><a href="">會員</a></li>
-            <li><a href="">寵生活</a> </li>
-            <li><a href="">寵百科</a>
+            <li><a href="">會員中心</a>
+             <ul>
+                <li><a href="">修改會員資料</a></li>
+                 <li><a href="">搜尋好友</a></li>
+              </ul>
+              </li>
+            <li><a href="">寵物生活館</a> </li>
+            <li><a href="">寵物百科</a>
               <ul>
                 <li><a href="dog.jsp">Dog</a></li>
                 <li><a href="#">Cat</a></li>
               </ul>
             </li>
-            <li><a href="">寵 寄&送養</a>
+            <li><a href="">寄養&送養</a>
                <ul>
                 <li><a href="#">寄養</a></li>
                 <li><a href="#">送養</a></li>
               </ul>
             </li>
-            <li><a href="">寵旅遊</a></li>
-            <li><a href="market.jsp">商城</a></li>
-            <li><a href="">活動</a></li>
+            <li><a href="">寵物旅遊</a></li>
+            <li><a href="market.jsp">寵物商城</a></li>
+            <li><a href="">寵物活動</a></li>
             </ul>
 
         </nav>
@@ -103,9 +111,10 @@ jQuery(document).ready(function () {
       <div class="clear"></div>
     </div>
      <div class="menu_block2">
-        <ul class="sf-menu">
+        <ul class="sf-menu" style="margin-bottom: auto">
            <li><a href="signin.jsp">註冊</a></li>
-           <li><a href="signin.jsp">登入</a></li>
+           <li><a href="" data-toggle="modal"
+		data-target="#login">登入</a></li>
         </ul>    
      </div>
   </div>
@@ -195,5 +204,41 @@ jQuery(document).ready(function () {
     <div class="clear"></div>
   </div>
 </footer>
+
+
+<!-- 	 登入  -->
+	<div class="modal fade" id="login" tabindex="-1" role="dialog"
+		aria-labelledby="loginLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="loginLabel">請先登入</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<form action="">
+				<div class="modal-body" style="margin: 25px">
+					
+					<p>
+						<label for="account"> 帳號:</label> <br> <input type="text"
+							id="account" required autocomplete="off" style="width:50%">
+					</p>
+					<p>
+						<label for="pew"> 密碼:</label> <br> <input type="password"
+							id="pew" required autocomplete="off" style="width:50%">
+					</p>
+				</div>
+				<div class="modal-footer">
+					<input type="reset" value="取消" class="btn btn-secondary"
+						data-dismiss="modal"> <input type="submit" value="登入"
+						class="btn btn-primary">
+
+				</div>
+				</form>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
