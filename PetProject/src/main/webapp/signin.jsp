@@ -103,7 +103,17 @@ body {
 	<div class="page1_block">
 		<div class="container_12">
 			<div class="View">
-
+			<div class="cho">
+            <legend>第一步</legend>
+            <p>註冊會員</p>
+           </div>
+            <br>
+              <legend>第二步</legend>
+            <p>進入信箱驗證</p>
+            <br>
+              <legend>第三步</legend>
+            <p>盡情享受HoPet</p>
+            <br>
 			</div>
 			<div class="login">
 				<fieldset>
@@ -119,7 +129,7 @@ body {
 						<p>
 							<label for="account"> 帳號:</label> <br> <input type="text"
 								id="account" required autocomplete="off" autofocus
-								placeholder="電子郵件信箱" size="10">
+								placeholder="電子郵件信箱">
 						</p>
 						<label for="pew"> 密碼:</label> <br> <input type="password"
 							id="pew" required autocomplete="off" autofocus

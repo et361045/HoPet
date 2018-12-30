@@ -7,11 +7,50 @@
 	font-size: 20px;
 	color: #8e8e8e;
 	font-family: 'cwTeXYen', sans-serif;
+
+}
+
+.View {
+	
+	float: left;
+	width: 300px;
+	height: 400px;
+	margin-top: 100px;
+	margin-left: 20px;
+	font-family: 'cwTeXYen', sans-serif;
+	font-size: 25px;
+/* 	border-style:solid; */
+/* 	border-width:3px; */
+/* 	border-color:#CCDDFF; */
+/* 	border-radius:25px; */
+	color: black;
+	
+}
+.View>p{
+	margin-left:25px;	
+}
+
+.View>legend{
+	margin:20px;	
+}
+.View>.cho>p{
+	margin-left:25px;	
+}
+.View>.cho>legend{
+	margin:20px;	
+}
+
+.View>.cho{
+	background: #CCDDFF;
+	border-style:solid;
+	border-width:3px;
+	border-color:#CCDDFF;
+	border-radius:10px;
+	
 }
 
 input[type="password"] {
 	padding: 5px 15px;
-	border: 2px black solid;
 	cursor: pointer;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
@@ -61,7 +100,6 @@ input[type="text"] {
 }
 
 .button {
-	
 	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
 		rgba(0, 0, 0, 0.19);
 	font-size: 20px;
@@ -90,4 +128,5 @@ legend {
 	font-family: 'cwTeXYen', sans-serif;
 	border-style: none;
 	border-width: none;
+	margin: 10px
 }
