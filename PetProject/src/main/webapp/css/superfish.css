@@ -9,20 +9,24 @@
 .menu_block1  {
 	display:flex;
 	position: relative;
-	float: right;
     align-items:center;
-    justify-content:center;
-	height: 100px;
 	padding-left: 15px;
+	padding-top:15px;
+	width: 90%;
 }
 .menu_block2  {
 	display:flex;
 	position: relative;
 	float: right;
     align-items:center;
-    justify-content:center;
-	height: 100px;
 	padding-right: 5px;
+	padding-top:15px;
+	width: 15%;
+}
+.menu_img{
+	display:flex;
+	width: 200px;
+	height: auto;	
 }
 
 nav>.sf-menu {
