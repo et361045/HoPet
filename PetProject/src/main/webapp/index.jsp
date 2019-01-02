@@ -73,11 +73,11 @@ jQuery(document).ready(function () {
 <link rel="stylesheet" media="screen" href="css/ie.css">
 <![endif]-->
 </head>
-<body >
+<body class="page1">
 <header>
-<div class="container_12_1">
+  <div class="container_12">
     <div class="grid_12_1">
-      <div class="menu_img"><a href="index.jsp"><img src="images/logo.png"alt=""></a> </div>
+      <h1><a href="index.jsp"><img src="images/logo.png"alt=""></a> </h1>
       <div class="menu_block1">
         <nav>
           <ul class="sf-menu">
@@ -101,22 +101,28 @@ jQuery(document).ready(function () {
               </ul>
             </li>
             <li><a href="">寵物旅遊</a></li>
-            <li><a href="market.jsp">寵物商城</a></li>
+            <li><a href="market.jsp">寵物商城</a>
+            	<ul>
+            		<li><a href="">買東西</a></li>
+            		<li><a href="order.jsp">賣東西</a></li>
+            	</ul>
+	        </li>
             <li><a href="">寵物活動</a></li>
             </ul>
-        </nav>         
-        </div>  
-      <div class="menu_block2">
-        <ul class="sf-menu">
-           <li><a href="signin.jsp">註冊</a></li>
-           <li><a href="" data-toggle="modal"data-target="#login">登入</a></li>
-        </ul>    
-     </div>
-   
+
+        </nav>
         <div class="clear"></div>
       </div>
       <div class="clear"></div>
-    </div> 
+    </div>
+     <div class="menu_block2">
+        <ul class="sf-menu" style="margin-bottom: auto">
+           <li><a href="signin.jsp">註冊</a></li>
+           <li><a href="" data-toggle="modal"
+		data-target="#login">登入</a></li>
+        </ul>    
+     </div>
+  </div>
 </header>
 <div class="top_block">
   <div class="slider-relative">
