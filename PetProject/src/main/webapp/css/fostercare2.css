@@ -1,0 +1,472 @@
+@charset "UTF-8";
+/* Create with Compass + SCSS on windows */
+/* ... ENRF 豐田生技 全國 ... */
+input,
+button,
+select, .main {
+	padding-left:100px;
+	padding-right:100px;
+  font-family: Arial, Helvetica, sans-serif, Microsoft YaHei, Microsoft JhengHei, '微软雅黑体', '微軟雅黑體', '微軟正黑體', '黑體';
+}
+
+.main header .wrapper,
+.main footer .wrapper,
+.main footer .cprs p,
+.main > .wrapper .doc {
+  margin: 0 auto;
+}
+
+.main header nav ul li a:before, .main footer .info:before, .main .master:before {
+  content: ' ';
+  display: inline-block;
+  vertical-align: middle;
+  width: 0;
+  height: 100%;
+  /*搭配:before 擬元素的垂直置中效果part1*/
+}
+
+.main header nav ul li a strong,
+.main header nav ul li a span, .main footer .info ul, .main .master .ctx,
+.main .master .map {
+  display: inline-block;
+  vertical-align: middle;
+  /*搭配:before 擬元素的垂直置中效果part2*/
+}
+
+.hiddenItem {
+  font-size: 1px;
+  line-height: 0;
+  text-indent: 0;
+  visibility: hidden;
+}
+
+.hideItem {
+  display: none;
+}
+
+.clearFloat {
+  clear: both;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  font-size: 0;
+  height: 0;
+}
+
+html {
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+#pingForRwd {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: -1000px;
+  left: -1000px;
+}
+
+#pingForRwd p {
+  float: left;
+}
+
+input,
+button,
+select {
+  background: none;
+  border: none;
+}
+
+.main > .wrapper {
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: cover;
+  background-color: #f6f2eb;
+  background-image: url("../../../Images/enrf/App/frame_main_bg.png");
+}
+.main header .wrapper,
+.main footer .wrapper,
+.main footer .cprs p,
+.main > .wrapper .doc {
+  max-width: 1320px;
+  min-width: 1145px;
+}
+.main header {
+  background-image: url("../../../Images/enrf/App/frame_header_bg.png");
+}
+
+.main header .logo {
+  float: left;
+  /*width: 365px;*/
+  width:450px;
+  height: 120px;
+}
+.main header .logo h1 {
+  height: inherit;
+}
+.main header .logo h1 a {
+  display: block;
+  height: inherit;
+  background-image: url("../../../Images/enrf/App/frame_header_logo.png");
+  background-position: left center;
+  background-repeat: no-repeat;
+  text-decoration: none;
+}
+.main header .logo h1 a span {
+  display: none;
+}
+.main header nav {
+  float: right;
+  height: 120px;
+}
+.main header nav ul {
+  display: block;
+  height: inherit;
+}
+.main header nav ul li {
+  float: left;
+  height: inherit;
+}
+.main header nav ul li a {
+  display: block;
+  height: inherit;
+  padding-left: 5px;
+  padding-right: 20px;
+  margin-left: 10px;
+  text-decoration: none;
+  color: #fff;
+}
+.main header nav ul li a:hover {
+  background-color: #11aea7;
+  color: #ffd402;
+}
+.main header nav ul li a strong {
+  margin-right: 5px;
+  height: 43px;
+  width: 43px;
+  background-repeat: no-repeat;
+  background-image: url("../../../Images/enrf/App/frame_header_menu_icon.png");
+}
+.main header nav ul li a span {
+  /*專案特別調整,所有輸出字級降20%*/
+  /*網站選單,標準尺寸*/
+  font-size: 102.4%;
+  font-weight: bold;
+  letter-spacing: 1px;
+  word-spacing: 1px;
+}
+.main header nav ul li a.rescue strong {
+  background-position: 0 top;
+}
+.main header nav ul li a.adopt strong {
+  background-position: -43px top;
+}
+.main header nav ul li a.disAdopt strong {
+  background-position: -86px top;
+}
+.main header nav ul li a.trainee strong {
+  background-position: -129px top;
+}
+.main header nav ul li a.filter strong {
+  background-position: -172px top;
+}
+.main header nav ul li a.rescue:hover strong {
+  background-position: 0 -43px;
+}
+.main header nav ul li a.adopt:hover strong {
+  background-position: -43px -43px;
+}
+.main header nav ul li a.disAdopt:hover strong {
+  background-position: -86px -43px;
+}
+.main header nav ul li a.trainee:hover strong {
+  background-position: -129px -43px;
+}
+.main header nav ul li a.filter:hover strong {
+  background-position: -172px -43px;
+}
+.main header .subMenuBtn.clicked strong {
+  background-position: left -29px;
+}
+.main header .subMenuBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  width: 120px;
+  height: 120px;
+  background-color: #11aea7;
+  cursor: pointer;
+}
+.main header .subMenuBtn strong {
+  display: inline-block;
+  width: 42px;
+  height: 29px;
+  background-repeat: no-repeat;
+  background-image: url("../../../Images/enrf/App/frame_header_submenu_btn.png");
+}
+.main header .subMenuBtn span {
+  display: none;
+}
+.main header .subMenu.off {
+  display: none;
+}
+.main header .subMenu {
+  position: absolute;
+  top: 120px;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  width: 16%;
+  overflow: auto;
+  min-width: 200px;
+  background-image: url("../../../Images/enrf/App/frame_header_submenu_bg.png");
+}
+.main header .subMenu ul {
+  padding-top: 30px;
+}
+.main header .subMenu ul li a {
+  display: block;
+  padding: 30px;
+  padding-left: 15%;
+  padding-right: 15px;
+  text-decoration: none;
+  color: #fff;
+}
+.main header .subMenu ul li a:hover {
+  background-color: #0fbab2;
+  color: #ffd402;
+}
+.main header .subMenu ul li a span {
+  /*專案特別調整,所有輸出字級降20%*/
+  /*網站選單,標準尺寸*/
+  font-size: 102.4%;
+  font-weight: bold;
+}
+
+.main footer {
+  padding-top: 20px;
+  background-color: #009e96;
+}
+.main footer h3 {
+  background-image: url("../../../Images/enrf/App/frame_footer_logo.png");
+  background-repeat: no-repeat;
+  background-position: left center;
+  height: 80px;
+}
+.main footer .info {
+  float: left;
+}
+.main footer .info ul {
+  vertical-align: top;
+  margin-right: 80px;
+}
+.main footer .info ul li {
+  margin-bottom: 13px;
+  padding-left: 15px;
+  background-image: url("../../../Images/enrf/App/frame_footer_list_bg.gif");
+  background-repeat: no-repeat;
+  background-position: left 5px;
+  line-height: 1.33;
+}
+.main footer .info ul li span {
+  /*專案特別調整,所有輸出字級降20%*/
+  /*內文,小標題*/
+  font-size: 92.2%;
+  color: #fff;
+}
+.main footer .info ul li time {
+  /*專案特別調整,所有輸出字級降20%*/
+  /*內文,小標題*/
+  font-size: 92.2%;
+  color: #fff;
+}
+.main footer .options {
+  float: right;
+}
+.main footer .options .service li {
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 15px;
+}
+.main footer .options .service li a {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+}
+.main footer .options .service li a span {
+  display: none;
+}
+.main footer .options .service li.apps a strong {
+  display: block;
+  margin-bottom: 3px;
+}
+.main footer .options .service li.apps a span {
+  /*專案特別調整,所有輸出字級降20%*/
+  /*網站footer,標準尺寸*/
+  font-size: 71.8%;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+.main footer .options .service li a.so1,
+.main footer .options .service li a.so2,
+.main footer .options .service li a.so3,
+.main footer .options .service li a.so4 {
+  width: 45px;
+  height: 45px;
+  background-repeat: no-repeat;
+  background-image: url("../../../Images/enrf/App/frame_footer_options_bg.png");
+}
+.main footer .options .service li a.so1 {
+  background-position: 0 top;
+}
+.main footer .options .service li a.so2 {
+  background-position: -45px top;
+}
+.main footer .options .service li a.so3 {
+  background-position: -90px top;
+}
+.main footer .options .service li a.so4 {
+  background-position: -135px top;
+}
+.main footer .options .service li a.so1:hover {
+  background-position: 0 -45px;
+}
+.main footer .options .service li a.so2:hover {
+  background-position: -45px -45px;
+}
+.main footer .options .service li a.so3:hover {
+  background-position: -90px -45px;
+}
+.main footer .options .service li a.so4:hover {
+  background-position: -135px -45px;
+}
+.main footer .cprs {
+  margin-top: 40px;
+  background-color: #000;
+  padding: 17px 0;
+}
+.main footer .cprs p {
+  /*專案特別調整,所有輸出字級降20%*/
+  /*網站選單,標準尺寸*/
+  font-size: 102.4%;
+  color: #fff;
+  text-align: center;
+}
+.main footer .cprs p a {
+  color: #fff;
+  text-decoration: underline;
+}
+.main footer .cprs p a:hover {
+  color: #ffd402;
+}
+
+.main .master {
+  padding: 60px 0;
+  text-align: center;
+  white-space: nowrap;
+}
+.main .master .ctx {
+  width: 360px;
+  text-align: left;
+  padding-top: 140px;
+  background-repeat: no-repeat;
+  background-image: url("../../../Images/enrf/App/frame_main_text_01.png");
+}
+.main .master .ctx h2,
+.main .master .ctx > span {
+  display: none;
+}
+.main .master .ctx h3 {
+  display: inline-block;
+  margin-left: 10px;
+}
+.main .master .ctx h3 a,
+.main .master .ctx h3 strong {
+  /* 從IE9 開始支援 */
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  /*專案特別調整,所有輸出字級降20%*/
+  /*名詞解釋標題,標準尺寸*/
+  font-size: 122.8%;
+  padding: 18px 50px;
+  display: inline-block;
+  background-color: #f39700;
+  border: #fff 3px solid;
+  text-decoration: none;
+  color: #fff;
+}
+.main .master .ctx h3 a span,
+.main .master .ctx h3 strong span {
+  letter-spacing: 1px;
+  word-spacing: 1px;
+}
+.main .master .ctx h3 a:hover {
+  text-decoration: underline;
+  background-color: #de8b02;
+}
+.main .master .map {
+  position: relative;
+  margin-left: 80px;
+  text-align: left;
+}
+.main .master .map dl {
+  position: absolute;
+  padding: 15px 18px;
+  background-color: #595656;
+}
+.main .master .map dl dd ul li {
+  margin-bottom: 10px;
+}
+.main .master .map dl dd ul li:last-child {
+  margin-bottom: 0;
+}
+.main .master .map dl dd ul li span {
+  /*專案特別調整,所有輸出字級降20%*/
+  /*網站選單,標準尺寸*/
+  font-size: 102.4%;
+  color: #fff;
+}
+.main .master .map img {
+  display: block;
+}
+.main .master .map img.rwd {
+  display: none;
+}
+
+@media only screen and (max-width: 1550px) {
+  .main header .wrapper,
+  .main footer .wrapper,
+  .main footer .cprs p,
+  .main > .wrapper .doc {
+    max-width: inherit;
+    min-width: inherit;
+  }
+  .main footer .wrapper,
+  .main > .wrapper .doc {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .main header .wrapper {
+    padding-right: 75px;
+  }
+  .main header .logo {
+    height: 75px;
+  }
+  .main header nav {
+    height: 75px;
+  }
+  .main header .subMenuBtn {
+    width: 75px;
+    height: 75px;
+  }
+  .main header .subMenu {
+    top: 75px;
+  }
+}

@@ -1,0 +1,367 @@
+@charset "UTF-8";
+/* Create with Compass + SCSS on windows */
+/* ... ENRF 豐田生技 全國 ... */
+.main header .wrapper,
+.main footer .wrapper,
+.main footer .cprs p,
+.main > .wrapper .doc {
+  margin: 0 auto;
+}
+
+.hiddenItem {
+  font-size: 1px;
+  line-height: 0;
+  text-indent: 0;
+  visibility: hidden;
+}
+
+.hideItem {
+  display: none;
+}
+
+.clearFloat {
+  clear: both;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  font-size: 0;
+  height: 0;
+}
+
+@media only screen and (orientation: portrait) {
+  /*直向*/
+}
+@media only screen and (orientation: landscape) {
+  /*橫向*/
+}
+#pingForRwd p {
+  float: right;
+}
+
+#pingForRwd p {
+  float: right;
+}
+
+.main header .wrapper,
+.main footer .wrapper,
+.main footer .cprs p,
+.main > .wrapper .doc {
+  max-width: inherit;
+  min-width: inherit;
+  width: auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.main header .wrapper {
+  padding-right: 0;
+}
+.main header .logo,
+.main header nav {
+  float: none;
+}
+.main header .logo {
+  width: calc(100% - 55px);
+  height: 55px;
+  border-bottom: #13b5b1 solid 1px;
+}
+.main header .logo h1 a {
+  background-size: 77%;
+  background-position: 15px center;
+}
+@media only screen and (orientation: landscape) {
+  .main header .logo {
+    /*橫向*/
+  }
+  .main header .logo h1 a {
+    background-size: 45%;
+  }
+}
+.main header nav {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  height: auto;
+  background-color: #196762;
+}
+.main header nav ul {
+  display: inline-block;
+  white-space: nowrap;
+}
+.main header nav ul li {
+  float: none;
+  display: inline-block;
+  border-right: #13b5b1 solid 1px;
+  margin-left: -5px;
+}
+.main header nav ul li:last-child {
+  border: none;
+}
+.main header nav ul li a {
+  padding-top: 13px;
+  padding-bottom: 13px;
+  padding-left: 10px;
+  margin-left: 0;
+}
+.main header nav ul li a:active,
+.main header nav ul li a:hover {
+  background-color: #009e96;
+}
+.main header nav ul li a span {
+  /*專案特別調整,所有輸出字級降20%*/
+  /*內文,小標題*/
+  font-size: 92.2%;
+}
+.main header nav ul li a strong {
+  width: 22px;
+  height: 22px;
+  background-image: url("../../../Images/enrf/App/frame_header_menu_icon_small.png");
+}
+.main header nav ul li a.rescue strong {
+  background-position: 0 top;
+}
+.main header nav ul li a.adopt strong {
+  background-position: -22px top;
+}
+.main header nav ul li a.disAdopt strong {
+  background-position: -44px top;
+}
+.main header nav ul li a.trainee strong {
+  background-position: -66px top;
+}
+.main header nav ul li a.filter strong {
+  background-position: -88px top;
+}
+.main header nav ul li a.rescue:hover strong {
+  background-position: 0 -22px;
+}
+.main header nav ul li a.adopt:hover strong {
+  background-position: -22px -22px;
+}
+.main header nav ul li a.disAdopt:hover strong {
+  background-position: -44px -22px;
+}
+.main header nav ul li a.trainee:hover strong {
+  background-position: -66px -22px;
+}
+.main header nav ul li a.filter:hover strong {
+  background-position: -88px -22px;
+}
+.main header .subMenuBtn.clicked strong {
+  background-position: left -17px;
+}
+.main header .subMenuBtn {
+  background-color: #005752;
+  width: 55px;
+  height: 55px;
+}
+.main header .subMenuBtn strong {
+  width: 25px;
+  height: 17px;
+  background-image: url("../../../Images/enrf/App/frame_header_submenu_btn_small.png");
+}
+.main header .subMenu {
+  top: 55px;
+  width: 40%;
+}
+.main header .subMenu ul li a {
+  padding: 15px 30px;
+}
+.main header .subMenu ul li a span {
+  /*專案特別調整,所有輸出字級降20%*/
+  /*內文,小標題*/
+  font-size: 92.2%;
+}
+
+.main footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.main footer h3,
+.main footer .info,
+.main footer .options {
+  float: none;
+}
+.main footer .info ul {
+  margin-right: 30px;
+}
+.main footer .info ul:nth-child(2) {
+  margin-right: 0;
+}
+.main footer .options {
+  width: auto;
+}
+.main footer .options .service li {
+  margin-right: 10px;
+}
+.main footer .options .service li.apps {
+  display: none;
+}
+.main footer .cprs {
+  margin: 0 -15px;
+}
+.main footer .cprs p {
+  line-height: 1.33;
+}
+.main footer .cprs p a, .main footer .cprs p time {
+  display: inline-block;
+}
+
+.main .master {
+  padding: 25px 0;
+}
+
+.main .master:before {
+  display: none;
+}
+
+.main .master {
+  padding: 25px 0px;
+}
+.main .master .ctx {
+  display: none;
+}
+.main .master .map {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+.main .master .map dl {
+  display: none;
+}
+.main .master .map img {
+  display: none;
+}
+.main .master .map img.rwd {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/******************************************************
+*                                                     *
+*                     手持裝置適應                    *
+*                                                     *
+******************************************************/
+/* 主流平板 begin */
+@media only screen and (min-device-width: 740px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 1.33) {
+  .main header .logo {
+    width: calc(100% - 120px);
+    height: 120px;
+  }
+  .main header .logo h1 a {
+    background-size: inherit;
+  }
+  .main header nav ul li a span {
+    /*專案特別調整,所有輸出字級降20%*/
+    /*網站選單,標準尺寸*/
+    font-size: 102.4%;
+  }
+  .main header nav ul li a strong {
+    height: 44px;
+    width: 44px;
+    background-image: url("../../../Images/enrf/App/frame_header_menu_icon.png");
+  }
+  .main header nav ul li a.rescue strong {
+    background-position: 0 top;
+  }
+  .main header nav ul li a.adopt strong {
+    background-position: -44px top;
+  }
+  .main header nav ul li a.disAdopt strong {
+    background-position: -88px top;
+  }
+  .main header nav ul li a.trainee strong {
+    background-position: -132px top;
+  }
+  .main header nav ul li a.filter strong {
+    background-position: -176px top;
+  }
+  .main header nav ul li a.rescue:hover strong {
+    background-position: 0 -44px;
+  }
+  .main header nav ul li a.adopt:hover strong {
+    background-position: -44px -44px;
+  }
+  .main header nav ul li a.disAdopt:hover strong {
+    background-position: -88px -44px;
+  }
+  .main header nav ul li a.trainee:hover strong {
+    background-position: -132px -44px;
+  }
+  .main header nav ul li a.filter:hover strong {
+    background-position: -176px -44px;
+  }
+  .main header .subMenuBtn.clicked strong {
+    background-position: left -29px;
+  }
+  .main header .subMenuBtn {
+    width: 120px;
+    height: 120px;
+  }
+  .main header .subMenuBtn strong {
+    width: 42px;
+    height: 29px;
+    background-image: url("../../../Images/enrf/App/frame_header_submenu_btn.png");
+  }
+  .main header .subMenu {
+    top: 120px;
+  }
+
+  .main footer {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .main footer .info {
+    float: left;
+  }
+  .main footer .info ul {
+    margin-right: 30px;
+  }
+  .main footer .info ul:nth-child(2) {
+    margin-right: 0;
+  }
+  .main footer .options {
+    float: right;
+    margin-top: -10px;
+  }
+  .main footer .options .service li {
+    margin-right: 0;
+  }
+  .main footer .options .service li.apps {
+    display: none;
+  }
+  .main footer .cprs {
+    margin: 0 -30px;
+  }
+
+  .main .master {
+    padding: 25px 0;
+  }
+}
+/* 主流平板 end */
+/* 主流平板橫向 begin */
+@media only screen and (min-device-width: 740px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 1.33) and (orientation: landscape) {
+  .main .master {
+    padding: 15px 100px;
+  }
+
+  .main footer .options {
+    width: auto;
+  }
+  .main footer .options ul li {
+    margin-left: 10px;
+  }
+}
+/* 主流平板橫向 end */
+/* 主流平板直向 end */
+@media only screen and (min-device-width: 740px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 1.33) and (orientation: portrait) {
+  .main .master {
+    padding: 25px 15px;
+  }
+
+  .main footer .options {
+    width: 90px;
+  }
+}
+/* 主流平板直向 end */
