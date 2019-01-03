@@ -19,15 +19,16 @@ import org.springframework.web.context.WebApplicationContext;
 
 
 
+
 @WebFilter("/*")
 public class OpenSessionInViewFilter implements Filter {
 	private SessionFactory sessionFactory;
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-		ServletContext application=filterConfig.getServletContext();
 		ApplicationContext context = (ApplicationContext)
-				application.getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
-		sessionFactory=(SessionFactory)context.getBean("sessionFactory");
+				filterConfig.getServletContext().getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
+		sessionFactory = (SessionFactory) context.getBean("sessionFactory");
+
 	}
 	@Override
 	public void doFilter(ServletRequest request,

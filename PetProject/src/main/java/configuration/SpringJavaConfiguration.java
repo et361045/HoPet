@@ -19,11 +19,15 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.jndi.JndiObjectFactoryBean;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 
+import model.member.MemberBean;
 import hospitalmodel.hospitalBean;
 
 @Configuration
 @ComponentScan(basePackages={"fostercaremodel"})
+@ComponentScan(basePackages={"model"})
 public class SpringJavaConfiguration {
+
+
 
 	@Bean
 	public DataSource dataSource()
@@ -50,7 +54,8 @@ public class SpringJavaConfiguration {
 		props.setProperty("hibernate.dialect", "org.hibernate.dialect.SQLServerDialect");
 		props.setProperty("hibernate.current_session_context_class", "thread");
 		builder.addProperties(props);
-		builder.addAnnotatedClass(hospitalBean.class);
+		builder.addAnnotatedClass(MemberBean.class);
+		
 		return builder.buildSessionFactory();
 	}
 	public static void main(String[] args) throws Exception {
@@ -58,7 +63,8 @@ public class SpringJavaConfiguration {
 		DataSource dataSource = (DataSource) context.getBean("dataSource");
 		Connection conn = dataSource.getConnection();
 		Statement stmt = conn.createStatement();
-		ResultSet rset = stmt.executeQuery("select * from hospital");
+		ResultSet rset = stmt.executeQuery("select * from member");
+
 		while(rset.next()) {
 			String col1 = rset.getString(1);
 			String col2 = rset.getString(2);

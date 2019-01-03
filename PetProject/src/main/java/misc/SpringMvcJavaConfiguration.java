@@ -25,6 +25,7 @@ import org.springframework.web.servlet.view.XmlViewResolver;
 @ComponentScan(basePackages={"controller"})
 @EnableWebMvc
 public class SpringMvcJavaConfiguration implements WebMvcConfigurer {
+
 	
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry
@@ -48,10 +49,12 @@ public class SpringMvcJavaConfiguration implements WebMvcConfigurer {
 		registry.viewResolver(xmlViewResolver);
 	}
 	
+	
 	@Bean
 	public MessageSource messageSource() {
 		ResourceBundleMessageSource bundle = new ResourceBundleMessageSource();
-		bundle.setBasename("controller.errors");
+		bundle.setBasename("controller.error");
+
 		return bundle;
 	}
 

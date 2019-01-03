@@ -35,6 +35,7 @@ public class EncodingFilter implements Filter {
 		request.setCharacterEncoding("UTF-8");
 		chain.doFilter(request, response);
 		
+
 		System.out.println("EncodingFilter post-processing");
 //		if(不滿意post-processing的結果) {
 //			request.getRequestDispatcher("").forward(request, response);
