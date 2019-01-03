@@ -18,31 +18,34 @@ import model.member.MemberBean;
 @Configuration
 @ComponentScan(basePackages={"model"})
 public class SpringJavaConfiguration {
+
 	@Bean
-	public DataSource dataSource() {
+	public DataSource dataSource()
+	{
+		System.out.println("haahahahahah");
 		try {
-			JndiObjectFactoryBean bean = new JndiObjectFactoryBean();
+			JndiObjectFactoryBean bean=new JndiObjectFactoryBean();
 			bean.setJndiName("java:comp/env/jdbc/xxx");
 			bean.setProxyInterface(DataSource.class);
 			bean.afterPropertiesSet();
 			return (DataSource) bean.getObject();
 		} catch (IllegalArgumentException | NamingException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
-			throw new ExceptionInInitializerError(e);
 		}
+		return null;
 	}
-
-	@Bean
-	public SessionFactory sessionFactory() {
-		LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(dataSource());
-		builder.addAnnotatedClasses(MemberBean.class);
-
-		Properties props = new Properties();
+	@Bean 
+	public SessionFactory sessionFactory()
+	{
+		LocalSessionFactoryBuilder builder=
+				new LocalSessionFactoryBuilder(dataSource());
+		Properties props=new Properties();
 		props.setProperty("hibernate.dialect", "org.hibernate.dialect.SQLServerDialect");
-		props.setProperty("hibernate.show_sql", "true");
 		props.setProperty("hibernate.current_session_context_class", "thread");
 		builder.addProperties(props);
-
+		builder.addAnnotatedClass(MemberBean.class);
+		
 		return builder.buildSessionFactory();
 	}
 }
