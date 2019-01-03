@@ -1,4 +1,4 @@
-package meber.model;
+package model.member;
 
 public interface MemberDAO {
 	public abstract Integer findMemberId(String email);

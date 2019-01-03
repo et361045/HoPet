@@ -1,4 +1,4 @@
-package meber.model;
+package model.member;
 
 
 import org.springframework.beans.factory.annotation.Autowired;

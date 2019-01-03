@@ -1,4 +1,4 @@
-package member.dao;
+package model.dao.member;
 
 import java.util.Date;
 
@@ -11,8 +11,8 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import meber.model.MemberDAO;
-import meber.model.MemberBean;
+import model.member.MemberBean;
+import model.member.MemberDAO;
 
 
 @Repository

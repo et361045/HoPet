@@ -1,11 +1,11 @@
-package meber.model;
+package model.member;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="CUSTOMER")
+@Table(name="member")
 public class MemberBean {
 	@Id
 	private Integer memberId;
