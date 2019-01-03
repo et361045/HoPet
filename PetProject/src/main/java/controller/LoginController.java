@@ -22,6 +22,7 @@ import model.member.MemberService;
 
 @Controller
 @SessionAttributes("user")
+
 public class LoginController {
 	@Autowired
 	private MemberService memberService;

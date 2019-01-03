@@ -75,6 +75,7 @@
 <![endif]-->
 </head>
 <body class="page1">
+<<<<<<< HEAD
 	<header>
 		<div class="container_12">
 			<div class="grid_12_1">
@@ -108,6 +109,43 @@
 								</ul></li>
 							<li><a href="">寵物活動</a></li>
 						</ul>
+=======
+<header>
+  <div class="container_12">
+    <div class="grid_12_1">
+      <h1><a href="index.jsp"><img src="images/logo.png"alt=""></a> </h1>
+      <div class="menu_block1">
+        <nav>
+          <ul class="sf-menu">
+            <li><a href="">會員中心</a>
+             <ul>
+                <li><a href="">修改會員資料</a></li>
+                 <li><a href="">搜尋好友</a></li>
+              </ul>
+              </li>
+            <li><a href="hospitalmap.jsp">寵物生活館</a> </li>
+            <li><a href="">寵物百科</a>
+              <ul>
+                <li><a href="dog.jsp">Dog</a></li>
+                <li><a href="#">Cat</a></li>
+              </ul>
+            </li>
+            <li><a href="">寄養&送養</a>
+               <ul>
+                <li><a href="#">寄養</a></li>
+                <li><a href="#">送養</a></li>
+              </ul>
+            </li>
+            <li><a href="">寵物旅遊</a></li>
+            <li><a href="market.jsp">寵物商城</a>
+            	<ul>
+            		<li><a href="">買東西</a></li>
+            		<li><a href="order.jsp">賣東西</a></li>
+            	</ul>
+	        </li>
+            <li><a href="">寵物活動</a></li>
+            </ul>
+>>>>>>> branch 'master' of https://github.com/et361045/Hopet.git
 
 					</nav>
 					<div class="clear"></div>

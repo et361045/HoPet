@@ -2,7 +2,9 @@ package misc;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-//記得刪除web.xml內部關於DispatcherServlet、ContextLoaderListener的設定標籤
+
+import configuration.SpringJavaConfiguration;
+
 public class DispatcherServletRegistry extends AbstractAnnotationConfigDispatcherServletInitializer {
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
