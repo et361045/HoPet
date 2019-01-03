@@ -20,7 +20,11 @@ import org.springframework.jndi.JndiObjectFactoryBean;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 
 import hospitalmodel.hospitalBean;
+import model.Detail.DetailBean;
+import model.ProductInformation.ProductInformationBean;
+import model.Shoppingcar.ShoppingcarBean;
 import model.member.MemberBean;
+import model.shoporder.ShoporderBean;
 
 
 @Configuration
@@ -56,6 +60,10 @@ public class SpringJavaConfiguration {
 
 		builder.addAnnotatedClass(MemberBean.class);
 		builder.addAnnotatedClass(hospitalBean.class);
+		builder.addAnnotatedClass(DetailBean.class);
+		builder.addAnnotatedClass(ProductInformationBean.class);
+		builder.addAnnotatedClass(ShoporderBean.class);
+		builder.addAnnotatedClass(ShoppingcarBean.class);
 
 		return builder.buildSessionFactory();
 	}
