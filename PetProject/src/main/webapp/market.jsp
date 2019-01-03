@@ -45,7 +45,7 @@
 	            <li><a href="market.jsp">商城</a>
 	            	<ul>
 	            		<li><a href="">買東西</a></li>
-	            		<li><a href="">賣東西</a></li>
+	            		<li><a href="order.jsp">賣東西</a></li>
 	            	</ul>
 	            </li>
 	            <li><a href="">活動</a></li>
@@ -54,17 +54,41 @@
 	      </div>
 	      <div class="clear"></div>
 	    </div>
-	     <div class="menu_block1">
-	        <ul class="sf-menu">
-	           <li><a href="">登入</a></li>
-	        </ul>
-	     </div>
+	     <div class="menu_block2">
+	        <ul class="sf-menu" style="margin-bottom: auto">
+	           <li><a href="signin.jsp">註冊</a></li>
+	           <li><a href="" data-toggle="modal"
+			data-target="#login">登入</a></li>
+	        </ul>    
+     	</div>
 	  </div>
 	</header>
 	
-	<div class="index-header-search">
-			<input placeholder="搜尋" class="rt-header-search">
-	</div>
+	<nav class="navbar navbar-default mar0pad0" style="border-radius:0;">
+		<div class="container-fluid bw_wmid2" style="height:50px">
+			<div class="collapse navbar-collapse text-left" id="" style="padding: 0; margin: 0; height:50px;">
+				<div class="row mar0pad0" style="font-size: 14px; line-height: 1.42857143; height:50px;">
+					<div class="col-xs-7 col-md-7 col-lg-7 mar0pad0">
+						<div class="input-group search_padtop" style="height:40px;">
+							<div class="search_bor mar0pad0">
+<!-- 								<span class="input-group-addon mar0pad0"> -->
+									<input type="text" class="inputkeyword input_border0" id="" name="search" value 
+									style="border:1px solid #eee;" maxlength="50" placeholder="搜尋">
+<!-- 								</span> -->
+							</div>
+							<span class="input-group-addon mar0pad0 form_dropdowns_btn">
+									<button type="submit" class="btn colorwhitebg searchicon" onclick>
+										<i>	
+											
+										</i>
+									</button>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
 	
 
 	<footer>

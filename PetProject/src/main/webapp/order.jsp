@@ -42,7 +42,11 @@
 	              </ul>
 	            </li>
 	            <li><a href="">寵旅遊</a></li>
-	            <li><a href="market.jsp">商城</a></li>
+	            <li><a href="market.jsp">商城</a>
+	            	<ul>
+	            		<li><a href="">買東西</a></li>
+	            		<li><a href="order.jsp">賣東西</a></li>
+	            	</ul></li>
 	            <li><a href="">活動</a></li>
 	
 	        </nav>
@@ -50,11 +54,13 @@
 	      </div>
 	      <div class="clear"></div>
 	    </div>
-	     <div class="menu_block1">
-	        <ul class="sf-menu">
-	           <li><a href="">登入</a></li>
-	        </ul>
-	     </div>
+	     <div class="menu_block2">
+	        <ul class="sf-menu" style="margin-bottom: auto">
+	           <li><a href="signin.jsp">註冊</a></li>
+	           <li><a href="" data-toggle="modal"
+			data-target="#login">登入</a></li>
+	        </ul>    
+     	</div>
 	  </div>
 	</header>
 

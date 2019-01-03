@@ -64,7 +64,7 @@ body {
 		<div class="container_12">
 			<div class="grid_12">
 				<h1>
-					<a href="index.html"><img src="images/logo.png" alt=""></a>
+					<a href="index.jsp"><img src="images/logo.png" alt=""></a>
 				</h1>
 				<div class="menu_block">
 					<nav>
@@ -84,7 +84,12 @@ body {
 									<li><a href="#">送養</a></li>
 								</ul></li>
 							<li><a href="">寵旅遊</a></li>
-							<li><a href="">商城</a></li>
+							<li><a href="">商城</a>
+				            	<ul>
+				            		<li><a href="">買東西</a></li>
+				            		<li><a href="order.jsp">賣東西</a></li>
+				            	</ul>
+			            	</li>
 							<li><a href="">活動</a></li>
 					</nav>
 					<div class="clear"></div>
