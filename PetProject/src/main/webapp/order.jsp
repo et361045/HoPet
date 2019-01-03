@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head>    
 <title>Pet Club | Contacts</title>
 <meta charset="utf-8">
 <link rel="icon" href="images/favicon.ico">

@@ -30,114 +30,148 @@
     </style>
 <!--       <script type="text/javascript" -->
 <!--      src="https://maps.googleapis.com/maps/api/js?key&AIzaSyBpZmGolfotLrG4xt6jVDhY87zi_vWWV1Y"> -->
-<!--  </script> -->
-<!--       <script type="text/javascript" -->
-<!--      src="https://maps.googleapis.com/maps/api/js?key&AIzaSyDpQYKoL6Urv05Cx9uVdsSlNYFLwykUcCM"> -->
-<!--     </script>  -->
-		
-<script type="text/javascript" src="HTTP://maps.google.com/maps/api/js?sensor=false"></script>
+<!-- 	</script> -->
     <script>   
-    
-//         var a = -1;
-//         $(function () {
+
+        var a = -1;
+        $(function () {
  
-//             var latlng1=new google.maps.LatLng(25.0293159,121.5217353);//博愛醫院
-//             var latlng2=new google.maps.LatLng(25.0279549,121.513413);//來旺醫院
-//             var latlng3= new google.maps.LatLng(25.0268871,121.5160253);//中正醫院
-//             var latlng4= new google.maps.LatLng(25.0271927,121.5197984);//漢民醫院
-//             var latlng5= new google.maps.LatLng(25.0290853,121.519172);//恩旺醫院
-//             var latlng6= new google.maps.LatLng(25.0259897,121.5207794);//古亭醫院
-//             var latlng7= new google.maps.LatLng(25.0230623,121.5230269);//佑昇醫院
-//             var latlng8= new google.maps.LatLng(25.043129,121.526655);//台灣醫院
-//             var latlng9= new google.maps.LatLng(25.0250985,121.51723);//寶寶醫院
-//             var latlng10= new google.maps.LatLng(25.043486,121.5229424);//金旺醫院
-//             //設定地圖參數
-//             var mapOptions = {
-//                 zoom: 16, //初始放大倍數
-//                 center: latlng1, //中心點所在位置
-//                 mapTypeId: google.maps.MapTypeId.ROADMAP //正常2D道路模式
-//             };
-//             var imageUrl = "images/icons8-醫院-50.png"; //空字串就會使用預設圖示
+            var latlng1=new google.maps.LatLng(25.0293159,121.5217353);//博愛醫院
+            var latlng2=new google.maps.LatLng(25.0279549,121.513413);//來旺醫院
+            var latlng3= new google.maps.LatLng(25.0268871,121.5160253);//中正醫院
+            var latlng4= new google.maps.LatLng(25.0271927,121.5197984);//漢民醫院
+            var latlng5= new google.maps.LatLng(25.0290853,121.519172);//恩旺醫院
+            var latlng6= new google.maps.LatLng(25.0259897,121.5207794);//古亭醫院
+            var latlng7= new google.maps.LatLng(25.0230623,121.5230269);//佑昇醫院
+            var latlng8= new google.maps.LatLng(25.043129,121.526655);//台灣醫院
+            var latlng9= new google.maps.LatLng(25.0250985,121.51723);//寶寶醫院
+            var latlng10= new google.maps.LatLng(25.043486,121.5229424);//金旺醫院
 
-//             //在指定DOM元素中嵌入地圖
-//             var map = new google.maps.Map(
-//                 document.getElementById("map_canvas"), mapOptions);
-//             //加入標示點(Marker)
-//             var marker = new google.maps.Marker({
-//                 position: latlng1, //經緯度
-//                 title: "博愛動物醫院", //顯示文字
-//                 icon: imageUrl,
-//                 map: map //指定要放置的地圖對象
-//             });
-//         var marker2 = new google.maps.Marker({
-//                 position: latlng2, //經緯度
-//                 title: "來旺動物醫院", //顯示文字
-//                 icon: imageUrl,
-//                 map: map //指定要放置的地圖對象
-//             });
-//             var marker4 = new google.maps.Marker({
-//                 position: latlng3, //經緯度
-//                 title: "中正犬貓醫院", //顯示文字
-//                 icon: imageUrl,
-//                 map: map //指定要放置的地圖對象
-//             });
-//             var marker5 = new google.maps.Marker({
-//                 position: latlng4, //經緯度
-//                 title: "漢民動物醫院", //顯示文字
-//                 icon: imageUrl,
-//                 map: map //指定要放置的地圖對象
-//             });
-//             var marker6 = new google.maps.Marker({
-//                 position: latlng5, //經緯度
-//                 title: "恩旺動物醫院", //顯示文字
-//                 icon: imageUrl,
-//                 map: map //指定要放置的地圖對象
-//             });
-//             var marker7 = new google.maps.Marker({
-//                 position: latlng6, //經緯度
-//                 title: "古亭動物醫院", //顯示文字
-//                 icon: imageUrl,
-//                 map: map //指定要放置的地圖對象
-//             });
-//             var marker8 = new google.maps.Marker({
-//                 position: latlng7, //經緯度
-//                 title: "佑昇動物醫院", //顯示文字
-//                 icon: imageUrl,
-//                 map: map //指定要放置的地圖對象
-//             });
-//             var marker9 = new google.maps.Marker({
-//                 position: latlng8, //經緯度
-//                 title: "台灣動物醫院", //顯示文字
-//                 icon: imageUrl,
-//                 map: map //指定要放置的地圖對象
-//             });
-//             var marker10 = new google.maps.Marker({
-//                 position: latlng9, //經緯度
-//                 title: "寶寶新動物醫院", //顯示文字
-//                 icon: imageUrl,
-//                 map: map //指定要放置的地圖對象
-//             });
-//             var marker10 = new google.maps.Marker({
-//                 position: latlng10, //經緯度
-//                 title: "金旺動物醫院", //顯示文字
-//                 icon: imageUrl,
-//                 map: map //指定要放置的地圖對象
-//             });
+// 	var objConnection = new ActiveXObject("adodb.connection");
+//     var strConn = "driver={sql server};server=QITBLRQIPL030;database=HoPet;uid=sa;password=passw0rd";
+//     objConnection.Open(strConn);
+//     var rs = new ActiveXObject("ADODB.Recordset");
+//     var strQuery = "SELECT Latitude FROM hospital";
+//     rs.Open(strQuery, objConnection);
+//     rs.MoveFirst();
+//     while (!rs.EOF) {
+//         document.write(rs.fields(0) + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+//         document.write(rs.fields(1) + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+//         document.write(rs.fields(2) + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+//         document.write(rs.fields(3) + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+//         document.write(rs.fields(4) + "<br/>");
+//         rs.movenext();
+//     }
 
-//   var infowindow = new google.maps.InfoWindow({
-//     content: '<h1>博愛動物醫院</h1>'
-//   });
 
-//            marker.addListener('click',function(){
-//         a = a * -1;
-//         if(a > 0){
-//          infowindow.open(map, marker);
-//         }else{
-//         infowindow.close();
-//         }
-//         });
 
-//         });
+
+
+
+
+
+            //設定地圖參數
+            var mapOptions = {
+                zoom: 16, //初始放大倍數
+                center: latlng1, //中心點所在位置
+                mapTypeId: google.maps.MapTypeId.ROADMAP //正常2D道路模式
+            };
+            var imageUrl = "images/icons8-醫院-50.png"; //空字串就會使用預設圖示
+
+            //在指定DOM元素中嵌入地圖
+            var map = new google.maps.Map(
+                document.getElementById("map_canvas"), mapOptions);
+            //加入標示點(Marker)
+
+//             for (GoogleMapV2_MarkPoint point : MysqlPointSet) {
+  
+//   map.addMarker(new MarkerOptions()
+//   .position(new LatLng(point.latitude,point.longitude))
+//   .title(point.title)
+//   .snippet(point.address)));
+                 
+// }
+            
+            
+            
+            
+            
+            
+            var marker = new google.maps.Marker({
+                position: latlng1, //經緯度
+                title: "博愛動物醫院", //顯示文字
+                icon: imageUrl,
+                map: map //指定要放置的地圖對象
+            });
+        var marker2 = new google.maps.Marker({
+                position: latlng2, //經緯度
+                title: "來旺動物醫院", //顯示文字
+                icon: imageUrl,
+                map: map //指定要放置的地圖對象
+            });
+            var marker4 = new google.maps.Marker({
+                position: latlng3, //經緯度
+                title: "中正犬貓醫院", //顯示文字
+                icon: imageUrl,
+                map: map //指定要放置的地圖對象
+            });
+            var marker5 = new google.maps.Marker({
+                position: latlng4, //經緯度
+                title: "漢民動物醫院", //顯示文字
+                icon: imageUrl,
+                map: map //指定要放置的地圖對象
+            });
+            var marker6 = new google.maps.Marker({
+                position: latlng5, //經緯度
+                title: "恩旺動物醫院", //顯示文字
+                icon: imageUrl,
+                map: map //指定要放置的地圖對象
+            });
+            var marker7 = new google.maps.Marker({
+                position: latlng6, //經緯度
+                title: "古亭動物醫院", //顯示文字
+                icon: imageUrl,
+                map: map //指定要放置的地圖對象
+            });
+            var marker8 = new google.maps.Marker({
+                position: latlng7, //經緯度
+                title: "佑昇動物醫院", //顯示文字
+                icon: imageUrl,
+                map: map //指定要放置的地圖對象
+            });
+            var marker9 = new google.maps.Marker({
+                position: latlng8, //經緯度
+                title: "台灣動物醫院", //顯示文字
+                icon: imageUrl,
+                map: map //指定要放置的地圖對象
+            });
+            var marker10 = new google.maps.Marker({
+                position: latlng9, //經緯度
+                title: "寶寶新動物醫院", //顯示文字
+                icon: imageUrl,
+                map: map //指定要放置的地圖對象
+            });
+            var marker10 = new google.maps.Marker({
+                position: latlng10, //經緯度
+                title: "金旺動物醫院", //顯示文字
+                icon: imageUrl,
+                map: map //指定要放置的地圖對象
+            });
+
+  var infowindow = new google.maps.InfoWindow({
+    content: '<h1>博愛動物醫院</h1>'
+  });
+
+           marker.addListener('click',function(){
+        a = a * -1;
+        if(a > 0){
+         infowindow.open(map, marker);
+        }else{
+        infowindow.close();
+        }
+        });
+
+        });
         
  </script>
 </head>
