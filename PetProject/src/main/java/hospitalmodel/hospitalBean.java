@@ -1,11 +1,27 @@
 package hospitalmodel;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="hospital")
 public class hospitalBean {
+	@Id
+	private Integer hospitalId;
 	private String hospitalName;
 	private String hospitalAddress;
-	private int hospitalphone;
+	private Integer hospitalphone;
 	private String hospitalowner;
+	private String hospitalgooglemap;
 	private String Latitude;
+	
+	public Integer getHospitalId() {
+		return hospitalId;
+	}
+	public void setHospitalId(Integer hospitalId) {
+		this.hospitalId = hospitalId;
+	}
 	public String getHospitalName() {
 		return hospitalName;
 	}
@@ -29,6 +45,12 @@ public class hospitalBean {
 	}
 	public void setHospitalowner(String hospitalowner) {
 		this.hospitalowner = hospitalowner;
+	}
+	public String getHospitalgooglemap() {
+		return hospitalgooglemap;
+	}
+	public void setHospitalgooglemap(String hospitalgooglemap) {
+		this.hospitalgooglemap = hospitalgooglemap;
 	}
 	public String getLatitude() {
 		return Latitude;

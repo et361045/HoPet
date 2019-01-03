@@ -87,7 +87,7 @@ jQuery(document).ready(function () {
                  <li><a href="">搜尋好友</a></li>
               </ul>
               </li>
-            <li><a href="">寵物生活館</a> </li>
+            <li><a href="hospitalmap.jsp">寵物生活館</a> </li>
             <li><a href="">寵物百科</a>
               <ul>
                 <li><a href="dog.jsp">Dog</a></li>
