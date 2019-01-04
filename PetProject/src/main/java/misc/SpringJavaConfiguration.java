@@ -22,6 +22,8 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import model.Detail.DetailBean;
 import model.ProductInformation.ProductInformationBean;
 import model.Shoppingcar.ShoppingcarBean;
+import model.activity.ActivityBean;
+import model.activityregistrationform.ActivityRegistrationFormBean;
 import model.fostercare.FostercareBean;
 import model.member.MemberBean;
 import model.shoporder.ShoporderBean;
@@ -63,7 +65,11 @@ public class SpringJavaConfiguration {
 		builder.addAnnotatedClass(ShoporderBean.class);
 		builder.addAnnotatedClass(ShoppingcarBean.class);
 		builder.addAnnotatedClass(FostercareBean.class);
-
+		builder.addAnnotatedClass(ActivityBean.class);
+		builder.addAnnotatedClass(ActivityRegistrationFormBean.class);
+		
+		
+		
 		return builder.buildSessionFactory();
 	}
 	public static void main(String[] args) throws Exception {
