@@ -25,14 +25,12 @@ import org.springframework.web.servlet.view.XmlViewResolver;
 @ComponentScan(basePackages={"controller"})
 @EnableWebMvc
 public class SpringMvcJavaConfiguration implements WebMvcConfigurer {
-
-	
+	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry
-          .addResourceHandler("/css/**")
-          .addResourceLocations("/css/"); 
+          .addResourceHandler("/assets/**")
+          .addResourceLocations("/assets/"); 
     }
-	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		LocaleChangeInterceptor interceptor = new LocaleChangeInterceptor();
