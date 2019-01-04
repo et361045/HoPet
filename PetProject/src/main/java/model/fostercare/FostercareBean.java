@@ -1,27 +1,37 @@
-package fostercaremodel;
+package model.fostercare;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="FostercareCommission")
-public class fostercareBean {
+public class FostercareBean {
 	@Id
-	private Integer FostercareCommissionid;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Integer fostercareCommissionid;
 	private Integer owner;
 	private String txt;
 	private Integer petid;
 	private String region;
 	private Integer dday;
 	private String size;
-	private String Variety;
+	private String variety;
+	
+	@Override
+	public String toString() {
+		return "fostercareBean [fostercareCommissionid=" + fostercareCommissionid + ", owner=" + owner + ", txt=" + txt
+				+ ", petid=" + petid + ", region=" + region + ", dday=" + dday + ", size=" + size + ", Variety="
+				+ variety + "]";
+	}
 	
 	public Integer getFostercareCommissionid() {
-		return FostercareCommissionid;
+		return fostercareCommissionid;
 	}
 	public void setFostercareCommissionid(Integer fostercareCommissionid) {
-		FostercareCommissionid = fostercareCommissionid;
+		this.fostercareCommissionid = fostercareCommissionid;
 	}
 	public Integer getOwner() {
 		return owner;
@@ -59,13 +69,13 @@ public class fostercareBean {
 	public void setSize(String size) {
 		this.size = size;
 	}
+
 	public String getVariety() {
-		return Variety;
+		return variety;
 	}
+
 	public void setVariety(String variety) {
-		Variety = variety;
+		this.variety = variety;
 	}
-	
-	
 	
 }

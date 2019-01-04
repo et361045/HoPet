@@ -19,16 +19,15 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.jndi.JndiObjectFactoryBean;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 
-import hospitalmodel.hospitalBean;
 import model.Detail.DetailBean;
 import model.ProductInformation.ProductInformationBean;
 import model.Shoppingcar.ShoppingcarBean;
+import model.fostercare.FostercareBean;
 import model.member.MemberBean;
 import model.shoporder.ShoporderBean;
 
 
 @Configuration
-@ComponentScan(basePackages={"fostercaremodel"})
 @ComponentScan(basePackages={"model"})
 public class SpringJavaConfiguration {
 
@@ -59,11 +58,11 @@ public class SpringJavaConfiguration {
 		builder.addProperties(props);
 
 		builder.addAnnotatedClass(MemberBean.class);
-		builder.addAnnotatedClass(hospitalBean.class);
 		builder.addAnnotatedClass(DetailBean.class);
 		builder.addAnnotatedClass(ProductInformationBean.class);
 		builder.addAnnotatedClass(ShoporderBean.class);
 		builder.addAnnotatedClass(ShoppingcarBean.class);
+		builder.addAnnotatedClass(FostercareBean.class);
 
 		return builder.buildSessionFactory();
 	}

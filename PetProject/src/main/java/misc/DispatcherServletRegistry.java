@@ -3,7 +3,7 @@ package misc;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 
-import configuration.SpringJavaConfiguration;
+
 
 public class DispatcherServletRegistry extends AbstractAnnotationConfigDispatcherServletInitializer {
 	@Override
