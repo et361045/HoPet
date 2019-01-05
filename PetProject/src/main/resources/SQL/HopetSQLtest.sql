@@ -17,7 +17,7 @@ Create TABLE member--會員資料
 	checkSuccess varchar(2),--會員認證  YSE/NO
 	memberPicture varbinary(MAX), --照片
 	PRIMARY KEY (memberid)
-)
+)  --豪   -sam    --安
 
 Create TABLE VerificationCode--驗證碼
 (
@@ -25,7 +25,7 @@ Create TABLE VerificationCode--驗證碼
 	randomverificationcode char(15) Unique,--驗證亂碼JAVA寫
 	FOREIGN KEY (memberid) REFERENCES member(memberid), 
 	PRIMARY KEY (memberid)
-)
+)  --安
 Create Table TravelInformation--旅遊
 (
 	 TravelInformationid int Identity,--旅遊編號 
@@ -35,7 +35,7 @@ Create Table TravelInformation--旅遊
 	 Latitude varchar(max),--經緯度
 	hospitalgooglemap nvarchar(max),--googlemap鑲嵌
     primary key(TravelInformationid)
-)
+)   --豪
 Create Table Travelpicture--旅遊照片編號
 (
 TravelPictureId int Identity,--旅遊照片編號
@@ -44,9 +44,9 @@ TravelPictureId int Identity,--旅遊照片編號
 
  primary key(TravelPictureId),
  FOREIGN KEY (TravelInformationid) REFERENCES TravelInformation(TravelInformationid)
-)
+) --豪
 
-
+ 
 Create TABLE hospital--醫院資料
 (
 	hospitalId int Identity,  --醫院編號流水號
@@ -57,7 +57,7 @@ Create TABLE hospital--醫院資料
 	hospitalgooglemap nvarchar(max),--googlemap鑲嵌
 	Latitude varchar(max)--經緯度
 	PRIMARY KEY (hospitalid)
-)
+)  --豪
 Create TABLE BusinessInformation--商家資料
 (
 	businessId int Identity,--商家標號流水號
@@ -73,7 +73,7 @@ Create TABLE BusinessInformation--商家資料
 	businessGooglemap nvarchar(max),--googlemap鑲嵌
 	Latitude varchar(max)--經緯度
 	PRIMARY KEY (businessid)
-)
+)  --豪
 Create TABLE Petencyclopedia--寵物百科
 (
 	petencyclopediaId int Identity,--寵物百科標號流水號
@@ -84,7 +84,7 @@ Create TABLE Petencyclopedia--寵物百科
 	petData nvarchar(MAX),	--書面資料
 	remarks nvarchar(MAX),--備註
 	PRIMARY KEY (petencyclopediaid)
-)
+)  --豪
 Create TABLE Pet--會員寵物資料
 (
 	petId int Identity unique,--寵物編號流水號
@@ -98,7 +98,7 @@ Create TABLE Pet--會員寵物資料
 	Wafer nvarchar(Max),--晶片TEXT
 	owner int,--有無主人
 	FOREIGN KEY (memberid) REFERENCES member(memberid), 
-)
+)   --sam
 
 Create TABLE  ProductInformation--會員拍賣商品
 (
@@ -109,7 +109,7 @@ Create TABLE  ProductInformation--會員拍賣商品
 	pday date,--上架到期日
 	PRIMARY KEY (productid),
 	FOREIGN KEY (memberid) REFERENCES member(memberid), 
-)
+)  --安
 
 Create TABLE  Activity--活動
 (
@@ -123,7 +123,7 @@ Create TABLE  Activity--活動
 	PRIMARY KEY (activityid),
 	FOREIGN KEY (Activitymemberid) REFERENCES member(memberid),  
 	
-)
+)  --豪
 Create Table  ActivityRegistrationForm--活動報名表
 (
 	activityregistrationformid int Identity,--活動報名表流水號
@@ -134,11 +134,11 @@ Create Table  ActivityRegistrationForm--活動報名表
 	PRIMARY KEY (activityregistrationformid),
 	FOREIGN KEY (participate) REFERENCES member(memberid),
 	FOREIGN KEY (activityid) REFERENCES Activity(activityid),
-)
+)  --豪
 
 
 
-Create TABLE  Blacklist--管理者黑名單
+Create TABLE  Blacklist--管理者黑名單 
 (
 	blacklistid int Identity,--黑名單編號
 	memberid int,--黑名單內會員編號
@@ -148,9 +148,9 @@ Create TABLE  Blacklist--管理者黑名單
 	PRIMARY KEY (blacklistid),
 	FOREIGN KEY (memberid) REFERENCES member(memberid),
 	
-)
+) --安
 
-Create Table Messageboard--留言板
+Create Table Messageboard--留言板  --安
 (
 	Messageboardid int Unique Identity  ,--留言板編號(第幾則貼文)
 	memberid int,--留言板主會員編號
@@ -161,18 +161,19 @@ Create Table Messageboard--留言板
 	totlepoint int,--案讚人數
 	PRIMARY KEY (Messageboardid),
 	FOREIGN KEY (memberid) REFERENCES member(memberid),
-)
+)  --安
 
-Create Table Messageboardpoint--競版圖讚數
+Create Table Messageboardpoint--留言板讚數   -安
 (
-Competitionpointid int identity, --競版圖讚數流水號
-Messageboardid int,--圖片編號
+Competitionpointid int identity, --留言板讚數流水號
+Messageboardid int,--留言板編號
 memberid int,--按讚會員
 
 PRIMARY KEY (Competitionpointid),
 FOREIGN KEY (Messageboardid) REFERENCES Messageboard(Messageboardid),
 FOREIGN KEY (memberid) REFERENCES member(memberid),					
 )
+
 
 
 
@@ -188,7 +189,7 @@ Create Table Returnmessage--回留言板內容
 	PRIMARY KEY (ReturnmessageID),
 	FOREIGN KEY (memberid) REFERENCES member(memberid),
 	FOREIGN KEY (Messageboardid) REFERENCES Messageboard(Messageboardid),
-)
+)   --安
 Create Table Privatemessage--私訊
 (
 	Privatemessageid int Identity,--訊息編號
@@ -201,7 +202,7 @@ Create Table Privatemessage--私訊
 	FOREIGN KEY (tomessage) REFERENCES member(email),
 	FOREIGN KEY (frommessage) REFERENCES member(email),
 	PRIMARY KEY (Privatemessageid),
-)
+)  --安
 
 Create Table Background--背景
 (	
@@ -210,7 +211,7 @@ Create Table Background--背景
 	memberid int,--設背景的人
 	PRIMARY KEY (Backgroundid),
 	FOREIGN KEY (memberid) REFERENCES member(memberid),		
-)
+)   --安
 Create Table Competition--競版圖
 (
 	Competitionmapid int identity,--圖片編號
@@ -220,8 +221,8 @@ Create Table Competition--競版圖
 	totalpoint int, --讚數
     PRIMARY KEY (Competitionmapid),
 	FOREIGN KEY (memberid) REFERENCES member(memberid),				
-)
-Create Table Competitionpoint--競版圖讚數
+) --安
+Create Table Competitionpoint--競版圖讚數  --安
 (
 Competitionpointid int identity, --競版圖讚數流水號
 Competitionmapid int,--圖片編號
@@ -233,7 +234,7 @@ FOREIGN KEY (memberid) REFERENCES member(memberid),
 )
 
 
-Create Table addFriend--好友
+Create Table addFriend--好友 --安
 (
 	addFriendid int identity,--好友邀請編號
 	addedFriend varchar(30),--被加的人
@@ -247,7 +248,7 @@ Create Table addFriend--好友
 )
 
 
-Create Table Shoppingcar--購物車
+Create Table Shoppingcar--購物車  --安
 (
  Shoppingcarid int identity,--購物車編號
  owner int ,--購物車傭有者
@@ -259,7 +260,7 @@ Create Table Shoppingcar--購物車
  			
 )
 
-Create Table Detail--明細
+Create Table Detail--明細  --安
 (
  DetailId int identity,--明細編號
  buyer  int ,--買家
@@ -276,7 +277,7 @@ Create Table Detail--明細
 )
 
 
-Create Table shoporder--訂單
+Create Table shoporder--訂單   --安
 (
  OrderId int identity,--訂單編號
  buyer  int ,--買家
@@ -305,7 +306,7 @@ Create Table FostercareCommission--寄養委託
     FOREIGN KEY (owner) REFERENCES member(memberid),
     FOREIGN KEY (petid) REFERENCES pet(petId),	
 	  primary key(FostercareCommissionid)
-)
+)   --sam
 
 Create Table FostercareForm--寄養報名表
 (
@@ -317,7 +318,7 @@ Create Table FostercareForm--寄養報名表
 	primary key(FostercareFormid),
     FOREIGN KEY (FostercareCommissionid) REFERENCES FostercareCommission(FostercareCommissionid),	
 	FOREIGN KEY (carer) REFERENCES member(memberId),				
-)
+)      --sam
 
 
 Create Table Fostercare--寄養
@@ -331,7 +332,7 @@ Create Table Fostercare--寄養
 
     FOREIGN KEY (Fostercareid) REFERENCES FostercareForm(FostercareFormid),
     FOREIGN KEY (FostercareCommissionid) REFERENCES FostercareCommission(FostercareCommissionid),	
-)
+)        --sam
 
 
 
@@ -345,7 +346,7 @@ Create Table FosterCommission--送養委託
 	region nvarchar(20),--區域
     FOREIGN KEY (owner) REFERENCES member(memberid),
     FOREIGN KEY (petid) REFERENCES pet(petId),	
-)
+)    --sam
 
 
 Create Table FosterForm--送養報名表
@@ -356,7 +357,7 @@ Create Table FosterForm--送養報名表
 	primary key(FosterFormid),
 	FOREIGN KEY (Fosterid) REFERENCES FosterCommission(FosterCommissionid),	
 	FOREIGN KEY (carer) REFERENCES member(memberId),	
-)
+)   --sam
 
 
 Create Table Foster--送養
@@ -372,7 +373,7 @@ Create Table Foster--送養
     FOREIGN KEY (FosterFormid) REFERENCES FosterForm(FosterFormid),	
     FOREIGN KEY (owner) REFERENCES FosterCommission(owner),
     FOREIGN KEY (carer) REFERENCES FosterForm(carer),	
-)
+)   --sam
 
 /*
 Create Table FostercareCommission--寄養委託
@@ -466,3 +467,33 @@ Create Table Report--檢舉
 	FOREIGN KEY (Messageboardid) REFERENCES Messageboard(Messageboardid),
 	FOREIGN KEY (ReturnmessageID)REFERENCES Returnmessage( ReturnmessageID)
 )
+
+
+Create Table ProductPhoto--商品照片
+
+(	
+   ProductPhotoid int unique identity, --商品照片編號 
+	  Productid    int,  --商品編號
+	  Photo        varbinary(MAX), --商品照片       
+	primary key(ProductPhotoid),
+
+    FOREIGN KEY (Productid) REFERENCES ProductInformation(productid),
+  
+)
+
+
+Create Table  joinActivity--活動參與者查詢
+(
+ joinActivityid int unique identity,  --活動餐與者記錄編號 流水號
+ activityid     int ,  --活動編號
+ activityregistrationformid int ,  --活動報名表流水號
+ primary key(joinActivityid),
+ FOREIGN KEY (activityid) REFERENCES Activity(activityid),
+ FOREIGN KEY (activityregistrationformid) REFERENCES ActivityRegistrationForm(activityregistrationformid),
+
+
+
+)
+
+
+
