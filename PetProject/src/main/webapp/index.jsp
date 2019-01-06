@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+   <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="UTF-8">
   <head>
@@ -27,6 +28,10 @@
 
     <!-- Main Style -->
     <link href="assets/css/style.css" rel="stylesheet">
+    <!-- login Style -->
+     <link href="assets/css/login/login.css" rel="stylesheet">
+    
+      
 
     <!-- Fonts -->
 
@@ -96,22 +101,24 @@
           <h4 class="modal-title"><i class="fa fa-unlock-alt"></i>Login</h4>
         </div>
         <div class="modal-body">
-          <form>
+         <form  id="login" >
             <div class="form-group">
-              <input type="text" placeholder="User name" class="form-control">
+              <input type="email" placeholder="User email"  name="email" class="form-control"  title="請輸入信箱">
             </div>
             <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
+              <input type="password" placeholder="Password" name="password" class="form-control" title="請輸入密碼">
             </div>
+     
              <div class="loginbox">
               <label><input type="checkbox"><span>Remember me</span></label>
-              <button class="btn signin-btn" type="button">SIGN IN</button>
+           <input type="submit" class="btn signin-btn" value="SIGN IN"><span class="errorspan" id="errorspan">安安 ${errors.passwordError}</span>   
             </div>                    
           </form>
         </div>
         <div class="modal-footer footer-box">
           <a href="#">Forgot password ?</a>
-          <span>No account ? <a id="signup-btn" href="#">Sign Up.</a></span>            
+          <p>
+          <div>No account ? <a id="signup-btn" href="#">Sign Up.</a></div>
         </div>
       </div>
       <!-- Start signup section -->
@@ -1044,6 +1051,8 @@
   <script type="text/javascript" src="assets/js/wow.js"></script> 
   <!-- progress bar   -->
   <script type="text/javascript" src="assets/js/bootstrap-progressbar.js"></script>  
+    <!--login   -->
+   <script type="text/javascript" src="assets/css/login/login.js"></script>   
   
  
   <!-- Custom js -->

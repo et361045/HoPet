@@ -22,7 +22,7 @@ public class MemberDAOHibernate implements MemberDAO {
 	@Override
 	public Integer findMemberId(String email) {
 		// TODO Auto-generated method stub
-		Query<MemberBean> query = this.getSession().createQuery("From MemberBean where email="+email);
+		Query<MemberBean> query = this.getSession().createQuery("From MemberBean where email='"+email+"'");
 		MemberBean member = query.uniqueResult();
 		return member.getMemberId();
 	}
@@ -35,7 +35,7 @@ public class MemberDAOHibernate implements MemberDAO {
 
 	@Override
 	public MemberBean findMemberBean(String email) {
-		Query<MemberBean> query = this.getSession().createQuery("From MemberBean where email="+email);
+		Query<MemberBean> query = this.getSession().createQuery("From MemberBean where email='"+email+"'");
 		MemberBean member = query.uniqueResult();
 		return member;
 		

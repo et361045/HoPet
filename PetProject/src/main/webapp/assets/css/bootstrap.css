@@ -6038,8 +6038,8 @@ button.close {
   position: absolute;
   z-index: 1070;
   display: block;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 12px;
+  font-family: 'cwTeXYen' , "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
   font-style: normal;
   font-weight: normal;
   line-height: 1.42857143;
@@ -6082,7 +6082,7 @@ button.close {
   max-width: 200px;
   padding: 3px 8px;
   color: #fff;
-  text-align: center;
+  text-align: left;
   background-color: #000;
   border-radius: 4px;
 }
@@ -6095,7 +6095,7 @@ button.close {
 }
 .tooltip.top .tooltip-arrow {
   bottom: 0;
-  left: 50%;
+  left: 0;
   margin-left: -5px;
   border-width: 5px 5px 0;
   border-top-color: #000;
