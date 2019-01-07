@@ -1,6 +1,10 @@
 package model.member;
 
+import java.util.Arrays;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -8,20 +12,26 @@ import javax.persistence.Table;
 @Table(name="member")
 public class MemberBean {
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer memberId;
 	private String email;
 	private String psw;
 	private String memberName;
 	private String address;
 	private String memberPhone;
+	@GeneratedValue(strategy=GenerationType.TABLE)
 	private String memberPermission;
 	private String point;
 	private String checkSuccess;
 	private java.util.Date punishDay;
 	private Byte[] memberPicture;
+
 	@Override
 	public String toString() {
-		return "model.CustomerBean ["+ memberId+ ","+ email+ ","+ psw+ "]";
+		return "MemberBean [memberId=" + memberId + ", email=" + email + ", psw=" + psw + ", memberName=" + memberName
+				+ ", address=" + address + ", memberPhone=" + memberPhone + ", memberPermission=" + memberPermission
+				+ ", point=" + point + ", checkSuccess=" + checkSuccess + ", punishDay=" + punishDay
+				+ ", memberPicture=" + Arrays.toString(memberPicture) + "]";
 	}
 	public Integer getMemberId() {
 		return memberId;

@@ -8,4 +8,22 @@
 	
 }
 
+.Description{
+	font-family: 'cwTeXYen';
+	font-size: 20px;
+	color:		black;
+	margin: 0;
+	padding: 0;
+	line-height:0;
+	
+}
 
+
+.Username{
+	
+	font-family: 'cwTeXYen';
+	font-size: 20px;
+	color:		#9d9d9d;
+}
+
+#Logout:hover {cursor:pointer;}

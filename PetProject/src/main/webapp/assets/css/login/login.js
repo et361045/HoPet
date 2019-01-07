@@ -38,7 +38,7 @@ $('#login').submit(function() {
 	}
 
 	if (isNotFormValid == true) {
-		alert("do post")
+	
 		$.ajax({
 			method : "POST",
 			url : "login",
@@ -50,11 +50,29 @@ $('#login').submit(function() {
 			cache : false,
 			async : false,
 			success : function(json) {
-				alert(json[0].passwordError)
-			   
+
+				if (json[0].password === 'noexist') {
+
+					$('#errorspan').html("帳密不正確");
+				}
+
+				if (json[0].password === 'exist') {
+
+					window.location.reload()
+
+				}
+
 			}
 		});
 
 	}
 	return false;
 });
+
+$('#Logout').click(function() {
+
+	$.post("logout", function() {
+		window.location.reload()
+	});
+
+})
