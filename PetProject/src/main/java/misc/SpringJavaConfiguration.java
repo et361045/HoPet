@@ -15,7 +15,6 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.jndi.JndiObjectFactoryBean;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 
@@ -24,6 +23,9 @@ import model.ProductInformation.ProductInformationBean;
 import model.Shoppingcar.ShoppingcarBean;
 import model.activity.ActivityBean;
 import model.activityregistrationform.ActivityRegistrationFormBean;
+import model.foster.FosterBean;
+import model.fosterCommission.FosterCommissionBean;
+import model.fosterForm.FosterFormBean;
 import model.fostercare.FostercareBean;
 import model.member.MemberBean;
 import model.shoporder.ShoporderBean;
@@ -67,7 +69,9 @@ public class SpringJavaConfiguration {
 		builder.addAnnotatedClass(FostercareBean.class);
 		builder.addAnnotatedClass(ActivityBean.class);
 		builder.addAnnotatedClass(ActivityRegistrationFormBean.class);
-		
+		builder.addAnnotatedClass(FosterBean.class);
+		builder.addAnnotatedClass(FosterFormBean.class);
+		builder.addAnnotatedClass(FosterCommissionBean.class);
 		
 		
 		return builder.buildSessionFactory();
