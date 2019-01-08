@@ -43,10 +43,10 @@ conn.close();
 <%@ page import="model.fostercareCommission.*" %> 
 <%
  	SessionFactory sessionFactory = (SessionFactory) context.getBean("sessionFactory");
- FostercareDaoHibernate fostercareDaoHibernate = (FostercareDaoHibernate) context.getBean(FostercareDaoHibernate.class);
+  FostercareCommissionDaoHibernate fostercareDaoHibernate = (FostercareCommissionDaoHibernate) context.getBean(FostercareCommissionDaoHibernate.class);
 
- out.println(fostercareDaoHibernate.findAll());
- // sessionFactory.getCurrentSession().getTransaction().commit();
+  out.println(fostercareDaoHibernate.findAll());
+  // sessionFactory.getCurrentSession().getTransaction().commit();
  %>
 <!-- ----------測試DAOHIBERNATE--------------------------------------------- -->
 

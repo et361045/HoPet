@@ -2,14 +2,14 @@ package model.fostercare;
 
 import java.util.List;
 
-import model.fostercareCommission.FostercareBean;
+import model.fostercareCommission.FostercareCommissionBean;
 
 public interface FostercareDao {
-	public abstract FostercareAllBean findByPrimaryKey(Integer fostercareid);
+	public abstract FostercareBean findByPrimaryKey(Integer fostercareid);
 
-	public abstract List<FostercareAllBean> findAll();
+	public abstract List<FostercareBean> findAll();
 
-	public abstract FostercareAllBean create(FostercareAllBean bean);
+	public abstract FostercareBean create(FostercareBean bean);
 
 	public abstract boolean remove(Integer fostercareid);
 }

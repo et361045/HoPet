@@ -37,12 +37,12 @@ conn.close();
 <!-- ------------測試DATASOUCE--------------------- -->
 <%@ page import="org.hibernate.SessionFactory" %>
 <%@ page import="java.util.List" %>
-<%@ page import="model.fostercareForm.*" %>
+<%@ page import="model.fostercare.*" %>
 <%
 	SessionFactory sessionFactory = (SessionFactory) context.getBean("sessionFactory");
 // sessionFactory.getCurrentSession().beginTransaction();
-List<FostercareFormBean> Member = 
-	sessionFactory.getCurrentSession().createQuery("from FostercareFormBean", FostercareFormBean.class).list();
+List<FostercareBean> Member = 
+	sessionFactory.getCurrentSession().createQuery("from FostercareBean", FostercareBean.class).list();
 out.println("<h3>products="+Member+"</h3>");
 // sessionFactory.getCurrentSession().getTransaction().commit();
 %>

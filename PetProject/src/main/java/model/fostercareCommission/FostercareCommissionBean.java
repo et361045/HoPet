@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="FostercareCommission")
-public class FostercareBean {
+public class FostercareCommissionBean {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer fostercareCommissionid;

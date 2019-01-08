@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import misc.PrimitiveNumberEditor;
-import model.fostercareCommission.FostercareBean;
+import model.fostercareCommission.FostercareCommissionBean;
 import model.fostercareForm.FostercareFormBean;
 import model.fostercareForm.FostercareFormService;
 @Controller

@@ -10,21 +10,21 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Transactional
-public class FostercareService {
+public class FostercareCommissionService {
 	@Autowired
-	private FostercareDao fostercareDao;
-	public FostercareService(FostercareDao fostercareDao) {
+	private FostercareCommissionDao fostercareDao;
+	public FostercareCommissionService(FostercareCommissionDao fostercareDao) {
 		this.fostercareDao = fostercareDao;
 	}
 	
 	
 
-	public List<FostercareBean> select(FostercareBean bean) {
-		List<FostercareBean> result = null;
+	public List<FostercareCommissionBean> select(FostercareCommissionBean bean) {
+		List<FostercareCommissionBean> result = null;
 		if(bean!=null && bean.getPetid()!=null) {
-			FostercareBean temp = fostercareDao.findByPrimaryKey(bean.getPetid());
+			FostercareCommissionBean temp = fostercareDao.findByPrimaryKey(bean.getPetid());
 			if(temp!=null) {
-				result = new ArrayList<FostercareBean>();
+				result = new ArrayList<FostercareCommissionBean>();
 				result.add(temp);
 			}
 		} else {
@@ -32,22 +32,22 @@ public class FostercareService {
 		}
 		return result;
 	}
-	public FostercareBean insert(FostercareBean bean) {
-		FostercareBean result = null;
+	public FostercareCommissionBean insert(FostercareCommissionBean bean) {
+		FostercareCommissionBean result = null;
 		if(bean!=null) {
 			result = fostercareDao.create(bean);
 		}
 		return result;
 	}
-	public FostercareBean update(FostercareBean bean) {
-		FostercareBean result = null;
+	public FostercareCommissionBean update(FostercareCommissionBean bean) {
+		FostercareCommissionBean result = null;
 		if(bean!=null) {
 			result = fostercareDao.update(bean.getDday(), bean.getRegion(),
 					bean.getSize(),bean.getVariety(),bean.getTxt(),bean.getPetid());
 		}
 		return result;
 	}
-	public boolean delete(FostercareBean bean) {
+	public boolean delete(FostercareCommissionBean bean) {
 		boolean result = false;
 		if(bean!=null) {
 			result = fostercareDao.remove(bean.getPetid());

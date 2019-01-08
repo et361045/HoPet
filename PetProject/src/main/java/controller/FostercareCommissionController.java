@@ -13,21 +13,21 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import misc.PrimitiveNumberEditor;
-import model.fostercareCommission.FostercareBean;
-import model.fostercareCommission.FostercareService;
+import model.fostercareCommission.FostercareCommissionBean;
+import model.fostercareCommission.FostercareCommissionService;
 
 @Controller
 public class FostercareCommissionController {
 //	private static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	@Autowired
-	private FostercareService fostercareservice;
+	private FostercareCommissionService fostercareservice;
 	@InitBinder
 	private void method1(WebDataBinder webDataBinder)
 	{
 		webDataBinder.registerCustomEditor(int.class,new PrimitiveNumberEditor(java.lang.Integer.class,true));
 	}
 	@RequestMapping("/pages/fostercarecommmission.controller")
-	public String method(String fostercare, FostercareBean bean, BindingResult bindingResult, Model model) {
+	public String method(String fostercare, FostercareCommissionBean bean, BindingResult bindingResult, Model model) {
 		System.out.println("bean="+bean);
 		System.out.println("bindingResult="+bindingResult);
 		
@@ -79,12 +79,12 @@ public class FostercareCommissionController {
 			return "fostercare.errors";
 		}
 		if("Select".equals(fostercare)) {
-			List<FostercareBean> result = fostercareservice.select(bean);
+			List<FostercareCommissionBean> result = fostercareservice.select(bean);
 			model.addAttribute("select", result);
 			return "fostercare.select";
 			
 		} else if("Insert".equals(fostercare)) {
-			FostercareBean result = fostercareservice.insert(bean);
+			FostercareCommissionBean result = fostercareservice.insert(bean);
 			if(result==null) {
 				errors.put("action", "insert failed");
 			} else {
@@ -93,7 +93,7 @@ public class FostercareCommissionController {
 			return "fostercare.errors";
 			
 		} else if("Update".equals(fostercare)) {
-			FostercareBean result = fostercareservice.update(bean);
+			FostercareCommissionBean result = fostercareservice.update(bean);
 			if(result==null) {
 				errors.put("action", "update failed");
 			} else {

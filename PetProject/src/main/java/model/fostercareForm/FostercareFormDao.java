@@ -2,7 +2,7 @@ package model.fostercareForm;
 
 import java.util.List;
 
-import model.fostercareCommission.FostercareBean;
+import model.fostercareCommission.FostercareCommissionBean;
 
 public interface FostercareFormDao {
 	public abstract FostercareFormBean findByPrimaryKey(Integer fostercareFormid);

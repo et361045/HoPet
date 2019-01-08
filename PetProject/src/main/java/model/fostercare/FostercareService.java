@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import model.fostercare.FostercareDao;
-import model.fostercareCommission.FostercareBean;
+import model.fostercareCommission.FostercareCommissionBean;
 @Service
 @Transactional
 public class FostercareService {
@@ -18,12 +18,12 @@ public class FostercareService {
 	public FostercareService(FostercareDao fostercareDao) {
 		this.fostercareDao = fostercareDao;
 	}
-	public List<FostercareAllBean> select(FostercareAllBean bean) {
-		List<FostercareAllBean> result = null;
+	public List<FostercareBean> select(FostercareBean bean) {
+		List<FostercareBean> result = null;
 		if(bean!=null && bean.getFostercareid()!=null) {
-			FostercareAllBean temp = fostercareDao.findByPrimaryKey(bean.getFostercareid());
+			FostercareBean temp = fostercareDao.findByPrimaryKey(bean.getFostercareid());
 			if(temp!=null) {
-				result = new ArrayList<FostercareAllBean>();
+				result = new ArrayList<FostercareBean>();
 				result.add(temp);
 			}
 		} else {
@@ -31,14 +31,14 @@ public class FostercareService {
 		}
 		return result;
 	}
-	public FostercareAllBean insert(FostercareAllBean bean) {
-		FostercareAllBean result = null;
+	public FostercareBean insert(FostercareBean bean) {
+		FostercareBean result = null;
 		if(bean!=null) {
 			result = fostercareDao.create(bean);
 		}
 		return result;
 	}
-	public boolean delete(FostercareAllBean bean) {
+	public boolean delete(FostercareBean bean) {
 		boolean result = false;
 		if(bean!=null) {
 			result = fostercareDao.remove(bean.getFostercareid());
