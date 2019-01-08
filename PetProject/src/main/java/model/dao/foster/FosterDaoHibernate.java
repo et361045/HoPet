@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 import model.foster.FosterBean;
 import model.foster.FosterDao;
 
-@Repository
 public class FosterDaoHibernate implements FosterDao {
 
 	@Autowired
