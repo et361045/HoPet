@@ -76,3 +76,11 @@ $('#Logout').click(function() {
 	});
 
 })
+
+$().ready(function(){
+	
+
+});
+
+
+

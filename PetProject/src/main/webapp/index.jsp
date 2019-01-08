@@ -11,29 +11,29 @@
 <title>Intensely : Home</title>
 <!-- Favicon -->
 <link rel="shortcut icon" type="image/icon"
-	href="assets/images/favicon.ico" />
+	href="/PetProject/assets/images/favicon.ico" />
 <!-- Font Awesome -->
-<link href="assets/css/font-awesome.css" rel="stylesheet">
+<link href="/PetProject/assets/css/font-awesome.css" rel="stylesheet">
 <!-- Bootstrap -->
-<link href="assets/css/bootstrap.css" rel="stylesheet">
+<link href="/PetProject/assets/css/bootstrap.css" rel="stylesheet">
 <!-- Slick slider -->
-<link rel="stylesheet" type="text/css" href="assets/css/slick.css" />
+<link rel="stylesheet" type="text/css" href="/PetProject/assets/css/slick.css" />
 <!-- Fancybox slider -->
-<link rel="stylesheet" href="assets/css/jquery.fancybox.css"
+<link rel="stylesheet" href="/PetProject/assets/css/jquery.fancybox.css"
 	type="text/css" media="screen" />
 <!-- Animate css -->
-<link rel="stylesheet" type="text/css" href="assets/css/animate.css" />
+<link rel="stylesheet" type="text/css" href="/PetProject/assets/css/animate.css" />
 <!-- Progress bar  -->
 <link rel="stylesheet" type="text/css"
-	href="assets/css/bootstrap-progressbar-3.3.4.css" />
+	href="/PetProject/assets/css/bootstrap-progressbar-3.3.4.css" />
 <!-- Theme color -->
-<link id="switcher" href="assets/css/theme-color/default-theme.css"
+<link id="switcher" href="/PetProject/assets/css/theme-color/default-theme.css"
 	rel="stylesheet">
 
 <!-- Main Style -->
-<link href="assets/css/style.css" rel="stylesheet">
+<link href="/PetProject/assets/css/style.css" rel="stylesheet">
 <!-- login Style -->
-<link href="assets/css/login/login.css" rel="stylesheet">
+<link href="/PetProject/assets/css/login/login.css" rel="stylesheet">
 
 
 
@@ -89,7 +89,7 @@
 				<div class="row">
 					<div class="col-md-6 col-sm-6 col-xs-6"></div>
 					<div class="col-md-6 col-sm-6 col-xs-6">
-						<div class="header-login">
+							<div class="header-login">
 
 							<c:if test="${!empty  user}">
 								<c:out value="<span class='Username' >HI, ${user.memberName} </span>"
@@ -99,7 +99,7 @@
 							
 							<c:if test="${empty  user}">
 							 <c:out value=" <a class='login modal-form' data-target='#login-form'
-								data-toggle='modal' href='#'>Login / Sign Up</a>"
+								data-toggle='modal' href='#' id='Login'>Login / Sign Up</a>"
 									escapeXml="false" />
 							</c:if>
 							
@@ -167,7 +167,7 @@
 					</h4>
 				</div>
 				<div class="modal-body">
-					<form id="signon" action="<c:url value='/index'/>">
+					<form id="signon" action="<c:url value='/signon'/>">
 						<div class="form-group">
 							<input type="email" placeholder="User email" class="form-control" title="請輸入信箱" name="email">
 						</div>
@@ -236,7 +236,7 @@
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown">會員中心 <span class="fa fa-angle-down"></span></a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="member.jsp">會員資料</a></li>
+								<li><a href="/PetProject/member/member.jsp">會員資料</a></li>
 								<li><a href=""><span class="fa fa-search"></span>搜尋好友 </a></li>
 							</ul></li>
 						<li><a href="">寵物生活館</a></li>
@@ -1236,28 +1236,28 @@
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<!-- Bootstrap -->
-	<script src="assets/js/bootstrap.js"></script>
+	<script src="/PetProject/assets/js/bootstrap.js"></script>
 	<!-- Slick Slider -->
-	<script type="text/javascript" src="assets/js/slick.js"></script>
+	<script type="text/javascript" src="/PetProject/assets/js/slick.js"></script>
 	<!-- mixit slider -->
-	<script type="text/javascript" src="assets/js/jquery.mixitup.js"></script>
+	<script type="text/javascript" src="/PetProject/assets/js/jquery.mixitup.js"></script>
 	<!-- Add fancyBox -->
-	<script type="text/javascript" src="assets/js/jquery.fancybox.pack.js"></script>
+	<script type="text/javascript" src="/PetProject/assets/js/jquery.fancybox.pack.js"></script>
 	<!-- counter -->
 	<script src="assets/js/waypoints.js"></script>
 	<script src="assets/js/jquery.counterup.js"></script>
 	<!-- Wow animation -->
-	<script type="text/javascript" src="assets/js/wow.js"></script>
+	<script type="text/javascript" src="/PetProject/assets/js/wow.js"></script>
 	<!-- progress bar   -->
-	<script type="text/javascript" src="assets/js/bootstrap-progressbar.js"></script>
+	<script type="text/javascript" src="/PetProject/assets/js/bootstrap-progressbar.js"></script>
 	<!--login   -->
-	<script type="text/javascript" src="assets/css/login/login.js"></script>
+	<script type="text/javascript" src="/PetProject/assets/css/login/login.js"></script>
 	<!--Signon   -->
-	<script type="text/javascript" src="assets/css/SignOn/SignOn.js"></script>
+	<script type="text/javascript" src="/PetProject/assets/css/SignOn/SignOn.js"></script>
 
 
 	<!-- Custom js -->
-	<script type="text/javascript" src="assets/js/custom.js"></script>
+	<script type="text/javascript" src="/PetProject/assets/js/custom.js"></script>
 
 </body>
 </html>

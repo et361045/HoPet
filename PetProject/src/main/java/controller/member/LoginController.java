@@ -34,8 +34,8 @@ public class LoginController {
 
 	@Autowired
 	private ApplicationContext context;
-
-	@RequestMapping(value = "login", produces = { "application/json; charset=UTF-8" })
+	
+	@RequestMapping(value = {"login","*/login"}, produces = { "application/json; charset=UTF-8" })
 	public String method(@RequestParam(name = "email", required = false) String email,
 			@RequestParam(name = "password", required = false) String password, Model model) {
 
@@ -67,7 +67,7 @@ public class LoginController {
 
 	}
 
-	@RequestMapping(value = "logout")
+	@RequestMapping(value = {"logout","*/logout"})
 	public void method1(Model model, SessionStatus sessionStatu) {
 		System.out.println("進入登出中");
 		System.out.println(model.asMap().get("user"));

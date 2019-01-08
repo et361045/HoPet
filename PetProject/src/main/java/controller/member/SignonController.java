@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.google.gson.JsonArray;
@@ -19,8 +20,9 @@ import com.google.gson.JsonObject;
 import model.member.MemberBean;
 import model.member.MemberService;
 
-@ResponseBody
+
 @Controller
+@SessionAttributes("user")
 public class SignonController {
 
 	@Autowired
@@ -29,8 +31,8 @@ public class SignonController {
 	@Autowired
 	private ApplicationContext context;
 
-
-	@RequestMapping(value = "checkemail", produces = { "application/text; charset=UTF-8" })
+    @ResponseBody
+	@RequestMapping(value = {"*checkemail","*/checkemail"}, produces = { "application/text; charset=UTF-8" })
 	public String method1(@RequestParam(name = "email", required = false) String email) {
 		System.out.println("email=" +email);
 		MemberBean bean = memberService.selectemail(email);
@@ -42,14 +44,15 @@ public class SignonController {
 	}
 	
 	
-	@RequestMapping(path= {"/index"})
+	@RequestMapping(path= {"/signon","*/signon"})
 	public String method2(MemberBean bean,Model model) {
 	   System.out.println("enter method2");
 	   System.out.println("enter MemberBean"+ bean);
 	    
 	     System.out.println(memberService.Signon(bean));
+	     model.addAttribute("user", bean);
 	   
-         return "";
+         return "member";
 }
 }
 
