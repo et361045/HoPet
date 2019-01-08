@@ -26,7 +26,7 @@ public class EncodingFilter implements Filter {
 		HttpServletRequest request = (HttpServletRequest) req;
 		HttpServletResponse response = (HttpServletResponse) resp;
 		
-		System.out.println("EncodingFilter pre-processing");
+		
 //		if(不滿意pre-processing的結果) {
 //			request.getRequestDispatcher("").forward(request, response);
 //			return;
@@ -36,7 +36,7 @@ public class EncodingFilter implements Filter {
 		chain.doFilter(request, response);
 		
 
-		System.out.println("EncodingFilter post-processing");
+
 //		if(不滿意post-processing的結果) {
 //			request.getRequestDispatcher("").forward(request, response);
 //			return;

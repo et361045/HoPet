@@ -47,7 +47,27 @@ function clearForm() {
 			inputs[i].value="";
 		}
 	}
+} 
+document.addEventListener("DOMContentLoaded", function () {
+    now();
+    document.getElementById("start").addEventListener("change", ans);
+    document.getElementById("end").addEventListener("change", ans);
+})
+function ans() {
+    var start = document.getElementById("start").value;
+
+    var end = document.getElementById("end").value;
+
+    var ans = Date.parse(end) - Date.parse(start);
+    ans = ans / (1000 * 60 * 24 * 60) + 1;
+    document.getElementById("idp").innerHTML =
+        "共" + ans + "天"
 }
+function now() {
+    document.getElementById("start").valueAsDate = new Date();
+
+}
+
 </script>
 </head>
 <body>
@@ -101,7 +121,16 @@ function clearForm() {
 		</td>
 	</tr>
 </table>
-
+<h2>寄養日期 結束日期</h2>
+      <br>
+        <span>
+        <input type="date" id="start" value="" name="trip-start" min="2018-01-01" max="2050-12-31">
+    </span>
+    <span>
+        <input type="date" id="end" name="trip-end" min="2018-01-01" max="2050-12-31">
+    </span>
+    <p class="st1" id="idp"></p>
+	<input type="button" value="確認送出">
 </form>
 
 <h3><span class="error">${errors.action}</span></h3>

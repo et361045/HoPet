@@ -70,7 +70,7 @@ public class FostercareController {
 		if("Insert".equals(fostercare) || "Update".equals(fostercare) || "Delete".equals(fostercare)) {
 			
 			if (bean == null || bean.getPetid() == null) {
-				errors.put("id", "Please enter id for " + fostercare);
+				errors.put("petid", "Please enter id for " + fostercare);
 			} 
 		}
 		if(errors!=null && !errors.isEmpty()) {

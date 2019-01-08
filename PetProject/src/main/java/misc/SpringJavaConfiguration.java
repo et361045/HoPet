@@ -27,6 +27,7 @@ import model.foster.FosterBean;
 import model.fosterCommission.FosterCommissionBean;
 import model.fosterForm.FosterFormBean;
 import model.fostercare.FostercareBean;
+import model.hospital.HospitalBean;
 import model.member.MemberBean;
 import model.shoporder.ShoporderBean;
 
@@ -72,7 +73,7 @@ public class SpringJavaConfiguration {
 		builder.addAnnotatedClass(FosterBean.class);
 		builder.addAnnotatedClass(FosterFormBean.class);
 		builder.addAnnotatedClass(FosterCommissionBean.class);
-		
+		builder.addAnnotatedClass(HospitalBean.class);
 		
 		return builder.buildSessionFactory();
 	}

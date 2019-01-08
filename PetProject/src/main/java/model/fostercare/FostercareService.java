@@ -42,8 +42,8 @@ public class FostercareService {
 	public FostercareBean update(FostercareBean bean) {
 		FostercareBean result = null;
 		if(bean!=null) {
-			result = fostercareDao.update(bean.getDday(), bean.getRegion(), bean.getSize(),bean.getVariety(),bean.getTxt(),
-					bean.getPetid());
+			result = fostercareDao.update(bean.getDday(), bean.getRegion(),
+					bean.getSize(),bean.getVariety(),bean.getTxt(),bean.getPetid());
 		}
 		return result;
 	}

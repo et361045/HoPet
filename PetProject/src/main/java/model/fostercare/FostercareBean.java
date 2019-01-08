@@ -22,9 +22,9 @@ public class FostercareBean {
 	
 	@Override
 	public String toString() {
-		return "fostercareBean [fostercareCommissionid=" + fostercareCommissionid + ", owner=" + owner + ", txt=" + txt
-				+ ", petid=" + petid + ", region=" + region + ", dday=" + dday + ", size=" + size + ", Variety="
-				+ variety + "]";
+		return 
+				"model.FostercareBean ["+"petid=" + petid + ", region=" + region + ", dday=" + dday + ", size=" + size + ", Variety="
+				+ variety +", txt=" + txt +"]";
 	}
 	
 	public Integer getFostercareCommissionid() {
