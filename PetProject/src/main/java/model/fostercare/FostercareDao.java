@@ -2,16 +2,14 @@ package model.fostercare;
 
 import java.util.List;
 
+import model.fostercareCommission.FostercareBean;
+
 public interface FostercareDao {
-	public abstract FostercareBean findByPrimaryKey(Integer petid);
+	public abstract FostercareAllBean findByPrimaryKey(Integer fostercareid);
 
-	public abstract List<FostercareBean> findAll();
+	public abstract List<FostercareAllBean> findAll();
 
-	public abstract FostercareBean create(FostercareBean bean);
+	public abstract FostercareAllBean create(FostercareAllBean bean);
 
-	public abstract FostercareBean update(Integer dday,
-			String region, String size,String variety,String txt,Integer petid);
-
-	public abstract boolean remove(Integer petid);
+	public abstract boolean remove(Integer fostercareid);
 }
-

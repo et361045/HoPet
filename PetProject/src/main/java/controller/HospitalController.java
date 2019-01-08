@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import misc.PrimitiveNumberEditor;
-import model.fostercare.FostercareBean;
+import model.fostercareCommission.FostercareBean;
 import model.hospital.HospitalBean;
 import model.hospital.HospitalService;
 

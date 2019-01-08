@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import misc.PrimitiveNumberEditor;
-import model.fostercare.FostercareBean;
-import model.fostercare.FostercareService;
+import model.fostercareCommission.FostercareBean;
+import model.fostercareCommission.FostercareService;
 
 @Controller
-public class FostercareController {
+public class FostercareCommissionController {
 //	private static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	@Autowired
 	private FostercareService fostercareservice;

@@ -3,11 +3,12 @@ package model.dao.fosterForm;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import model.fosterForm.FosterFormBean;
 import model.fosterForm.FosterFormDao;
 import net.bytebuddy.asm.Advice.Return;
-
+@Repository
 public class FosterFoemDaoHibernate implements FosterFormDao {
 
 	@Autowired

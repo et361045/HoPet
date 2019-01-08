@@ -14,7 +14,7 @@
 <script type="text/javascript">
 var contextPath = "${pageContext.request.contextPath}";
 $(document).ready(function() {
-	$('input[name="petid"]').blur(function() {
+	$('input[name="hospitalId"]').blur(function() {
 		$.ajax({
 			method: "GET",
 			url: contextPath+"/pages/hospital.view",

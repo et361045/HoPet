@@ -24,7 +24,7 @@ ApplicationContext context = (ApplicationContext)
 DataSource dataSource = (DataSource) context.getBean("dataSource");
 Connection conn = dataSource.getConnection();
 Statement stmt = conn.createStatement();
-ResultSet rset = stmt.executeQuery("select * from hospital");
+ResultSet rset = stmt.executeQuery("select * from fostercareform");
 while(rset.next()) {
 	String col1 = rset.getString(1);
 	String col2 = rset.getString(2);
@@ -37,12 +37,12 @@ conn.close();
 <!-- ------------測試DATASOUCE--------------------- -->
 <%@ page import="org.hibernate.SessionFactory" %>
 <%@ page import="java.util.List" %>
-<%@ page import="model.hospital.*" %>
+<%@ page import="model.fostercareForm.*" %>
 <%
 	SessionFactory sessionFactory = (SessionFactory) context.getBean("sessionFactory");
 // sessionFactory.getCurrentSession().beginTransaction();
-List<HospitalBean> Member = 
-	sessionFactory.getCurrentSession().createQuery("from HospitalBean", HospitalBean.class).list();
+List<FostercareFormBean> Member = 
+	sessionFactory.getCurrentSession().createQuery("from FostercareFormBean", FostercareFormBean.class).list();
 out.println("<h3>products="+Member+"</h3>");
 // sessionFactory.getCurrentSession().getTransaction().commit();
 %>

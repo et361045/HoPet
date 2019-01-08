@@ -3,10 +3,11 @@ package model.dao.fosterCommission;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import model.fosterCommission.FosterCommissionBean;
 import model.fosterCommission.FosterCommissionDao;
-
+@Repository
 public class FosterCommissionDaoHibernate implements FosterCommissionDao {
 	@Autowired
 	private SessionFactory sessionFactory;

@@ -1,4 +1,4 @@
-package model.fostercare;
+package model.fostercareCommission;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
