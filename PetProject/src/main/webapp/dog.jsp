@@ -315,6 +315,162 @@
 				</td>
 			</tr>
 		</tbody>
+		<tbody>
+			<tr>
+				<td class="dog_table_td">中型犬</td>
+			</tr>
+			<tr>
+				<td class="dog_td">
+					<ul>
+						<li><a href="W35" title="巴吉度"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/36.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=35" title="巴吉度">巴吉度</a></li>
+						<li><a href="W26" title="鬆獅犬"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/27.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=26" title="鬆獅犬">鬆獅犬</a></li>
+						<li><a href="W64" title="柯基犬"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/65.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=64" title="柯基犬">柯基犬</a></li>
+						<li><a href="W27" title="牛頭梗"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/28.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=27" title="牛頭梗">牛頭梗</a></li>
+						<li><a href="W32" title="沙皮犬"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/33.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=32" title="沙皮犬">沙皮犬</a></li>
+						<li><a href="W28" title="惠比特犬"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/29.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=28" title="惠比特犬">惠比特犬</a></li>
+						<li><a href="W28" title="惠比特犬"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/64.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=28" title="惠比特犬">惠比特犬</a></li>
+						<li><a href="W24" title="貝林登梗"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/25.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=24" title="貝林登梗">貝林登梗</a></li>
+						<li><a href="W25" title="蘇格蘭梗"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/26.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=25" title="蘇格蘭梗">蘇格蘭梗</a></li>
+						<li><a href="W30" title="英國鬥牛犬"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/31.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=30" title="英國鬥牛犬">英國鬥牛犬</a></li>
+						<li><a href="W31" title="法國鬥牛犬"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/32.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=31" title="法國鬥牛犬">法國鬥牛犬</a></li>
+						<li><a href="W33" title="英國可卡獵犬"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/34.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=33" title="英國可卡獵犬">英國可卡獵犬</a></li>
+						<li><a href="W34" title="美國可卡獵犬"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/35.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=34" title="美國可卡獵犬">美國可卡獵犬</a></li>
+						<li><a href="W29" title="喜樂蒂牧羊犬"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/30.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=29" title="喜樂蒂牧羊犬">喜樂蒂牧羊犬</a></li>
+					</ul>
+				</td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr>
+				<td class="dog_table_td">大型犬</td>
+			</tr>
+			<tr>
+				<td class="dog_td">
+					<ul>
+						<li><a href="W52" title="杜賓犬"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/53.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=52" title="杜賓犬">杜賓犬</a></li>
+						<li><a href="W42" title="挪威納"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/43.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=42" title="挪威納">挪威納</a></li>
+						<li><a href="W43" title="拳師犬"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/44.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=43" title="拳師犬">拳師犬</a></li>
+						<li><a href="W38" title="威瑪犬"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/39.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=38" title="威瑪犬">威瑪犬</a></li>
+						<li><a href="W54" title="秋田犬"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/55.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=54" title="秋田犬">秋田犬</a></li>
+						<li><a href="W51" title="拉不拉多"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/52.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=51" title="拉不拉多">拉不拉多</a></li>
+						<li><a href="W41" title="黃金獵犬"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/42.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=41" title="黃金獵犬">黃金獵犬</a></li>
+						<li><a href="W36" title="大麥町犬"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/37.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=36" title="大麥町犬">大麥町犬</a></li>
+						<li><a href="W53" title="薩摩耶犬"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/54.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=53" title="薩摩耶犬">薩摩耶犬</a></li>
+						<li><a href="W48" title="尋血獵犬"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/49.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=48" title="尋血獵犬">尋血獵犬</a></li>
+						<li><a href="W39" title="德國狼犬"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/40.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=39" title="德國狼犬">德國狼犬</a></li>
+						<li><a href="W50" title="馬士提夫"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/51.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=50" title="馬士提夫">馬士提夫</a></li>
+						<li><a href="W47" title="阿富汗獵犬"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/48.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=47" title="阿富汗獵犬">阿富汗獵犬</a></li>
+						<li><a href="W37" title="蘇俄牧羊犬"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/38.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=37" title="蘇俄牧羊犬">蘇俄牧羊犬</a></li>
+						<li><a href="W45" title="可麗牧羊犬"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/46.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=45" title="可麗牧羊犬">可麗牧羊犬</a></li>
+						<li><a href="W40" title="愛爾蘭雪達犬"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/41.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=40" title="愛爾蘭雪達犬">愛爾蘭雪達犬</a></li>
+						<li><a href="W46" title="西伯利亞哈士奇"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/47.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=46" title="西伯利亞哈士奇">西伯利亞哈士奇</a></li>
+						<li><a href="W49" title="阿拉斯加雪橇犬"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/50.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=49" title="阿拉斯加雪橇犬">阿拉斯加雪橇犬</a></li>
+						<li><a href="W44" title="英國古代牧羊犬"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/45.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=44" title="英國古代牧羊犬">英國古代牧羊犬</a></li>
+					</ul>
+				</td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr>
+				<td class="dog_table_td">大型犬</td>
+			</tr>
+			<tr>
+				<td class="dog_td">
+					<ul>
+						<li><a href="W61" title="大丹犬"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/62.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=61" title="大丹犬">大丹犬</a></li>
+						<li><a href="W62" title="土佐犬"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/63.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=62" title="土佐犬">土佐犬</a></li>
+						<li><a href="W59" title="西藏獒犬"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/60.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=59" title="西藏獒犬">西藏獒犬</a></li>
+						<li><a href="W60" title="大白熊犬"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/61.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=60" title="大白熊犬">大白熊犬</a></li>
+						<li><a href="W55" title="聖伯納犬"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/56.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=55" title="聖伯納犬">聖伯納犬</a></li>
+						<li><a href="W57" title="紐芬蘭犬"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/58.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=57" title="紐芬蘭犬">紐芬蘭犬</a></li>
+						<li><a href="W58" title="伯恩山犬"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/59.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=58" title="伯恩山犬">伯恩山犬</a></li>
+						<li><a href="W56" title="高加索山犬"><img
+								src="https://a.34cimg.com/pic/wiki/dog-s/57.png"></a><a
+							href="yan.php?yan=Wiki_View&amp;id=56" title="高加索山犬">高加索山犬</a></li>
+					</ul>
+				</td>
+			</tr>
+		</tbody>
 	</table>
 
 	<!-- Start footer -->

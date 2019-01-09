@@ -49,10 +49,13 @@ Tags: light, white, single page, multipurpose, multi page, custom-colors, Bootst
 	margin-top: 5px;
 }
 .dog_table_td{
-    height: 34px;
+    font-family: 'cwTeXYen', sans-serif;
+    font-size: 25px;
+    padding-left: 20px;
+    padding-top: 20px;   
 }
 .dog_td{
-	padding: 30px;	
+	padding: 20px;	
 }
 
 .dog_td > ul{
@@ -62,7 +65,7 @@ Tags: light, white, single page, multipurpose, multi page, custom-colors, Bootst
 
 .dog_td > ul > li{
 	float: left; 
-	width: 120px; 
+	width: 145px; 
 	height: 150px; 
 	text-align: center; 
 	margin: 5px; 
