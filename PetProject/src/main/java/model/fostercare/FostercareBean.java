@@ -4,7 +4,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import model.fostercareCommission.FostercareCommissionBean;
+import model.fostercareForm.FostercareFormBean;
 
 
 @Entity
@@ -17,10 +22,40 @@ public class FostercareBean {
 	private Integer fostercareFormid;
 	private Integer owner;
 	
+@ManyToOne
+@JoinColumn(
+		name="fostercareFormid",
+		referencedColumnName="fostercareFormid",
+		insertable=false  , updatable=false
+		)
+		
+	private FostercareFormBean  fostercareFormBean;
+	
+@ManyToOne
+@JoinColumn(
+		name="fostercareCommissionid",
+		referencedColumnName="fostercareCommissionid",
+		insertable=false  , updatable=false
+		)
+		
+	private FostercareCommissionBean  fostercareCommissionBean;	
 
-	
-	
-	public Integer getFostercareid() {
+
+
+
+public FostercareFormBean getFostercareFormBean() {
+	return fostercareFormBean;
+}
+public void setFostercareFormBean(FostercareFormBean fostercareFormBean) {
+	this.fostercareFormBean = fostercareFormBean;
+}
+public FostercareCommissionBean getFostercareCommissionBean() {
+	return fostercareCommissionBean;
+}
+public void setFostercareCommissionBean(FostercareCommissionBean fostercareCommissionBean) {
+	this.fostercareCommissionBean = fostercareCommissionBean;
+}
+public Integer getFostercareid() {
 		return fostercareid;
 	}
 	public void setFostercareid(Integer fostercareid) {
@@ -46,8 +81,9 @@ public class FostercareBean {
 	}
 	@Override
 	public String toString() {
-		return "FostercareAllBean [fostercareid=" + fostercareid + ", fostercareCommissionid=" + fostercareCommissionid
-				+ ", fostercareFormid=" + fostercareFormid + ", owner=" + owner + "]";
+		return "FostercareBean [fostercareid=" + fostercareid + ", fostercareCommissionid=" + fostercareCommissionid
+				+ ", fostercareFormid=" + fostercareFormid + ", owner=" + owner + ", fostercareFormBean="
+				+ fostercareFormBean + ", fostercareCommissionBean=" + fostercareCommissionBean + "]";
 	}
 	
 }
