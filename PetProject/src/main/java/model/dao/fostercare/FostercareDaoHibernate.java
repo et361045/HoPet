@@ -36,7 +36,7 @@ public class FostercareDaoHibernate implements FostercareDao {
 	public List<FostercareBean> findAll() {
 		//取得product table的所有資料
 	
-		List<FostercareBean> result = this.getSession().createQuery("from FostercareAllBean", FostercareBean.class).list();
+		List<FostercareBean> result = this.getSession().createQuery("from FostercareBean", FostercareBean.class).list();
 		return result;
 	}
 	@Override
@@ -46,11 +46,11 @@ public class FostercareDaoHibernate implements FostercareDao {
 		//id不存在=>新增成功、傳回裝滿資料的ProductBean物件
 		
 		if(bean!=null) {
-			FostercareBean temp = this.getSession().get(FostercareBean.class, bean.getFostercareid());
-			if(temp==null) {
+//			FostercareBean temp = this.getSession().get(FostercareBean.class, bean.getFostercareid());
+//			if(temp==null) {
 				this.getSession().save(bean);
 				return bean;
-			}
+//			}
 		}
 		return null;
 	}

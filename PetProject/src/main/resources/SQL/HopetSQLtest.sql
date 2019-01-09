@@ -61,7 +61,7 @@ Create TABLE hospital--醫院資料
 Create TABLE BusinessInformation--商家資料
 (
 	businessId int Identity,--商家標號流水號
-	PointNumber int,--評分人數
+	pointnumber int,--評分人數
 	externalname nvarchar(50),--對外名稱
 	companyname nvarchar(50),--公司名稱
 	idname nvarchar(20), --負責人
@@ -71,7 +71,7 @@ Create TABLE BusinessInformation--商家資料
 	businessAddress nvarchar(30),--地址
 	businessScore decimal(2,1),--評分
 	businessGooglemap nvarchar(max),--googlemap鑲嵌
-	Latitude varchar(max)--經緯度
+	latitude varchar(max)--經緯度
 	PRIMARY KEY (businessid)
 )  --豪
 Create TABLE Petencyclopedia--寵物百科

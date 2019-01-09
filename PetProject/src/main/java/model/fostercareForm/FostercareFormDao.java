@@ -11,8 +11,8 @@ public interface FostercareFormDao {
 
 	public abstract FostercareFormBean create(FostercareFormBean bean);
 
-	public abstract FostercareFormBean update(Integer carer,String status,Integer FostercareCommissionid
+	public abstract FostercareFormBean update(Integer carer,String status,Integer fostercareCommissionid
 			);
 
-	public abstract boolean remove(Integer fostercareFormid);
+	public abstract boolean remove(Integer fostercareCommissionid);
 }

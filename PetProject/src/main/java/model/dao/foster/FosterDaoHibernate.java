@@ -18,7 +18,7 @@ public class FosterDaoHibernate implements FosterDao {
 	}
 
 	@Override
-	public FosterBean findByFosterId(Integer fosterid) {
+	public FosterBean findByFosterId(int fosterid) {
 		return this.getSession().get(FosterBean.class, fosterid);
 	}
 

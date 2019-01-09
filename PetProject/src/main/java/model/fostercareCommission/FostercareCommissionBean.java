@@ -1,14 +1,34 @@
 package model.fostercareCommission;
 
+import java.util.List;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import model.fostercareForm.FostercareFormBean;
 
 @Entity
 @Table(name="FostercareCommission")
 public class FostercareCommissionBean {
+	
+	@OneToMany(
+			    mappedBy="fostercareCommissionid",
+                cascade= {CascadeType.REMOVE})	
+	private  List<FostercareFormBean> fostercareFromBean;
+	
+	
+	
+
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer fostercareCommissionid;
@@ -19,14 +39,17 @@ public class FostercareCommissionBean {
 	private Integer dday;
 	private String size;
 	private String variety;
+
 	
+	
+
+
 	@Override
 	public String toString() {
-		return 
-				"model.FostercareBean ["+"petid=" + petid + ", region=" + region + ", dday=" + dday + ", size=" + size + ", Variety="
-				+ variety +", txt=" + txt +"]";
+		return "FostercareCommissionBean [fostercareFromBean=" + fostercareFromBean + ", fostercareCommissionid="
+				+ fostercareCommissionid + ", owner=" + owner + ", txt=" + txt + ", petid=" + petid + ", region="
+				+ region + ", dday=" + dday + ", size=" + size + ", variety=" + variety + "]";
 	}
-	
 	public Integer getFostercareCommissionid() {
 		return fostercareCommissionid;
 	}
@@ -77,5 +100,14 @@ public class FostercareCommissionBean {
 	public void setVariety(String variety) {
 		this.variety = variety;
 	}
+	public List<FostercareFormBean> getFostercareFromBean() {
+		return fostercareFromBean;
+	}
+	public void setFostercareFromBean(List<FostercareFormBean> fostercareFromBean) {
+		this.fostercareFromBean = fostercareFromBean;
+	}
+	
+
+
 	
 }

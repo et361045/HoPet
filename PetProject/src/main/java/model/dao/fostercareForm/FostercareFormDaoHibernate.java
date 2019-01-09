@@ -44,11 +44,11 @@ public class FostercareFormDaoHibernate implements FostercareFormDao{
 		//id不存在=>新增成功、傳回裝滿資料的ProductBean物件
 		
 		if(bean!=null) {
-			FostercareFormBean temp = this.getSession().get(FostercareFormBean.class, bean.getFostercareCommissionid());
-			if(temp==null) {
+//			FostercareFormBean temp = this.getSession().get(FostercareFormBean.class, bean.getFostercareFormid());
+//			if(temp==null) {
 				this.getSession().save(bean);
 				return bean;
-			}
+//			}
 		}
 		return null;
 	}
@@ -71,12 +71,12 @@ public class FostercareFormDaoHibernate implements FostercareFormDao{
 		return null;
 	}
 	@Override
-	public boolean remove(Integer FostercareFormid) {
+	public boolean remove(Integer fostercareCommissionid) {
 		//利用id作為primary key刪除product table資料
 		//id存在=>刪除product table資料並傳回true
 		//id不存在=>傳回false
 		
-		FostercareFormBean temp = this.getSession().get(FostercareFormBean.class, FostercareFormid);
+		FostercareFormBean temp = this.getSession().get(FostercareFormBean.class, fostercareCommissionid);
 	   if(temp!=null) {
 		  this.getSession().delete(temp);
 		  return true;

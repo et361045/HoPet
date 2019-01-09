@@ -77,3 +77,26 @@ GO
 
 
 
+--1/9
+--刪除
+
+USE [HoPet]
+GO
+
+/****** Object:  Table [dbo].[Fostercare]    Script Date: 2019/1/9 下午 12:03:48 ******/
+DROP TABLE [dbo].[Fostercare]
+GO
+
+
+Create Table Fostercare--寄養
+(
+	Fostercareid int unique identity, --寄養編號 
+
+	FostercareCommissionid int,--寄養委託編號
+	FostercareFormid int ,--寄養報名單編號
+	owner int , --寵物主會員編號
+	primary key(Fostercareid),
+
+    FOREIGN KEY (FostercareFormid) REFERENCES FostercareForm(FostercareFormid),
+    FOREIGN KEY (FostercareCommissionid) REFERENCES FostercareCommission(FostercareCommissionid),	
+) 
