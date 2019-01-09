@@ -46,11 +46,11 @@ public class FostercareDaoHibernate implements FostercareDao {
 		//id不存在=>新增成功、傳回裝滿資料的ProductBean物件
 		
 		if(bean!=null) {
-			FostercareBean temp = this.getSession().get(FostercareBean.class, bean.getFostercareid());
-			if(temp==null) {
+//			FostercareBean temp = this.getSession().get(FostercareBean.class, bean.getFostercareid());
+//			if(temp==null) {
 				this.getSession().save(bean);
 				return bean;
-			}
+//			}
 		}
 		return null;
 	}

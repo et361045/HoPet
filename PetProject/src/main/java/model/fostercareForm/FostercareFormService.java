@@ -46,7 +46,7 @@ public class FostercareFormService {
 	public boolean delete(FostercareFormBean bean) {
 		boolean result = false;
 		if(bean!=null) {
-			result = fostercareFormDao.remove(bean.getFostercareFormid());
+			result = fostercareFormDao.remove(bean.getFostercareCommissionid());
 		}
 		return result;
 	}
