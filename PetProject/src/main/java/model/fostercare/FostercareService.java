@@ -8,6 +8,8 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import model.fostercare.FostercareDao;
+import model.fostercareCommission.FostercareCommissionBean;
 @Service
 @Transactional
 public class FostercareService {
@@ -16,13 +18,10 @@ public class FostercareService {
 	public FostercareService(FostercareDao fostercareDao) {
 		this.fostercareDao = fostercareDao;
 	}
-	
-	
-
 	public List<FostercareBean> select(FostercareBean bean) {
 		List<FostercareBean> result = null;
-		if(bean!=null && bean.getPetid()!=null) {
-			FostercareBean temp = fostercareDao.findByPrimaryKey(bean.getPetid());
+		if(bean!=null && bean.getFostercareid()!=null) {
+			FostercareBean temp = fostercareDao.findByPrimaryKey(bean.getFostercareid());
 			if(temp!=null) {
 				result = new ArrayList<FostercareBean>();
 				result.add(temp);
@@ -39,18 +38,10 @@ public class FostercareService {
 		}
 		return result;
 	}
-	public FostercareBean update(FostercareBean bean) {
-		FostercareBean result = null;
-		if(bean!=null) {
-			result = fostercareDao.update(bean.getDday(), bean.getRegion(), bean.getSize(),bean.getVariety(),bean.getTxt(),
-					bean.getPetid());
-		}
-		return result;
-	}
 	public boolean delete(FostercareBean bean) {
 		boolean result = false;
 		if(bean!=null) {
-			result = fostercareDao.remove(bean.getPetid());
+			result = fostercareDao.remove(bean.getFostercareid());
 		}
 		return result;
 	}

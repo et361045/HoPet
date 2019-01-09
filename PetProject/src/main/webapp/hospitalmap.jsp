@@ -28,9 +28,9 @@
         body { height: 100%; margin: 0px; padding: 0px }  
         #map_canvas { height: 100% }        
     </style>
-<!--       <script type="text/javascript" -->
-<!--      src="https://maps.googleapis.com/maps/api/js?key&AIzaSyBpZmGolfotLrG4xt6jVDhY87zi_vWWV1Y"> -->
-<!-- 	</script> -->
+      <script type="text/javascript"
+     src="https://maps.googleapis.com/maps/api/js?key&AIzaSyBpZmGolfotLrG4xt6jVDhY87zi_vWWV1Y">
+	</script>
     <script>   
 
         var a = -1;
@@ -47,36 +47,13 @@
             var latlng9= new google.maps.LatLng(25.0250985,121.51723);//寶寶醫院
             var latlng10= new google.maps.LatLng(25.043486,121.5229424);//金旺醫院
 
-// 	var objConnection = new ActiveXObject("adodb.connection");
-//     var strConn = "driver={sql server};server=QITBLRQIPL030;database=HoPet;uid=sa;password=passw0rd";
-//     objConnection.Open(strConn);
-//     var rs = new ActiveXObject("ADODB.Recordset");
-//     var strQuery = "SELECT Latitude FROM hospital";
-//     rs.Open(strQuery, objConnection);
-//     rs.MoveFirst();
-//     while (!rs.EOF) {
-//         document.write(rs.fields(0) + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
-//         document.write(rs.fields(1) + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
-//         document.write(rs.fields(2) + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
-//         document.write(rs.fields(3) + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
-//         document.write(rs.fields(4) + "<br/>");
-//         rs.movenext();
-//     }
-
-
-
-
-
-
-
-
             //設定地圖參數
             var mapOptions = {
                 zoom: 16, //初始放大倍數
                 center: latlng1, //中心點所在位置
                 mapTypeId: google.maps.MapTypeId.ROADMAP //正常2D道路模式
             };
-            var imageUrl = "images/icons8-醫院-50.png"; //空字串就會使用預設圖示
+            var imageUrl = "assets/images/icons8-醫院-50.png"; //空字串就會使用預設圖示
 
             //在指定DOM元素中嵌入地圖
             var map = new google.maps.Map(
@@ -91,10 +68,6 @@
 //   .snippet(point.address)));
                  
 // }
-            
-            
-            
-            
             
             
             var marker = new google.maps.Marker({
@@ -177,51 +150,13 @@
 </head>
 
 <body >
-<header>
-  <div class="container_12">
-    <div class="grid_12">
-      <h1><a href="index.html"><img src="images/logo.png"alt=""></a> </h1>
-      <div class="menu_block">
-        <nav>
-          <ul class="sf-menu">
-            <li><a href="">會員</a></li>
-            <li><a href="http://www.i-furkid.com/LifeData/Store_Search.aspx?CID=7">寵生活</a> </li>
-            <li><a href="">寵百科</a>
-              <ul>
-                <li><a href="Dog.html">Dog</a></li>
-                <li><a href="#">Cat</a></li>
-              </ul>
-            </li>
-            <li><a href="">寵 寄&送養</a>
-               <ul>
-                <li><a href="#">寄養</a></li>
-                <li><a href="#">送養</a></li>
-              </ul>
-            </li>
-            <li><a href="">寵旅遊</a></li>
-            <li><a href="">商城</a></li>
-            <li><a href="">活動</a></li>
-
-        </nav>
-        <div class="clear"></div>
-      </div>
-      <div class="clear"></div>
-    </div>
-     <div class="menu_block1">
-        <ul class="sf-menu">
-           <li><a href="">登入</a></li>
-        </ul>
-     </div>
-  </div>
-</header>
-
 
 <div class="content pt1">
   <div class="container_12">
      <div class="grid_6">
       <h2>Contact Info</h2>
       <br>
-      <div class="map">
+      <div class="map"  style="width: 500px; height: 500px; float: left">
         <figure class="img_inner" id="map_canvas">
           <iframe src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Brooklyn,+New+York,+NY,+United+States&amp;aq=0&amp;sll=37.0625,-95.677068&amp;sspn=61.282355,146.513672&amp;ie=UTF8&amp;hq=&amp;hnear=Brooklyn,+Kings,+New+York&amp;ll=40.649974,-73.950005&amp;spn=0.01628,0.025663&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>
         </figure>
@@ -232,15 +167,5 @@
     </div>
   </div>
 
-
-<footer>
-  <div class="container_12">
-    <div class="grid_12">
-      <div class="socials"> <a href="#"></a> <a href="#"></a> <a href="#"></a> <a href="#"></a> </div>
-      <p>Pet Club &copy; 2045 | <a href="#">Privacy Policy</a> | Design by: <a href="http://www.templatemonster.com/">TemplateMonster.com</a></p>
-    </div>
-    <div class="clear"></div>
-  </div>
-</footer>
 </body>
 </html>

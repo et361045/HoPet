@@ -188,7 +188,7 @@
 					</button>
 					<!-- LOGO -->
 					<!-- TEXT BASED LOGO -->
-					<a class="navbar-brand" href="index.html">HoPet</a>
+                    <img src="assets/images/logo.png" class="logo_img">
 					<!-- IMG BASED LOGO  -->
 					<!-- <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" alt="logo"></a> -->
 				</div>
@@ -233,7 +233,7 @@
 			<tr>
 				<td class="dog_td">
 					<ul>
-						<li><a href="W9" title="柴犬"><img
+						<li><a href="dogItem.jsp" title="柴犬"><img
 								src="https://a.34cimg.com/pic/wiki/dog-s/10.png"></a><a
 							href="yan.php?yan=Wiki_View&amp;id=9" title="柴犬">柴犬</a></li>
 						<li><a href="W12" title="巴哥"><img

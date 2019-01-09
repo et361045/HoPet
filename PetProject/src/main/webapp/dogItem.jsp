@@ -7,7 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>Intensely : Home</title>
+<title>Dog-Encyclopedia</title>
 <!-- Favicon -->
 <link rel="shortcut icon" type="image/icon"
 	href="assets/images/favicon.ico" />
@@ -230,7 +230,7 @@
 		<tbody>
 			<tr>
 				<td align="left" bgcolor="#f0f8ff" height="34" class="wiki_title"><h1
-						style="font-size: 16px; display: inline; margin-left: 5px; padding-left: 5px; color: #f04f0b;">巴哥介紹</h1>
+						style="font-size: 16px; display: inline; margin-left: 5px; padding-left: 5px; color: #f04f0b;">柴犬介紹</h1>
 				</td>
 			</tr>
 			<tr>
@@ -239,68 +239,14 @@
 						<tbody>
 							<tr>
 								<td width="121" valign="middle"><div class="wiki_tz_pic">
-										<a href="https://a.34cimg.com/pic/wiki/dog/13.png"
-											class="thickbox" title=" 巴哥 的照片"><img
-											src="https://a.34cimg.com/pic/wiki/dog/13.png" width="250"
+										<a href="https://a.34cimg.com/pic/wiki/dog/10.png"
+											class="thickbox" title=" 柴犬 的照片"><img
+											src="https://a.34cimg.com/pic/wiki/dog/10.png" width="250"
 											border="0"></a>
 									</div></td>
 								<td align="left" width="600" bgcolor="#ffffff"
 									style="margin-left: 5px; padding-left: 5px;" class="t3">
-									<h1 style="font-size: 16px;">巴哥犬 | 巴哥 | 八哥 | Pug</h1>
-									<div class="wiki_tz">
-										<table width="100%" border="0" cellpadding="0" cellspacing="0">
-											<tbody>
-												<tr>
-													<th>粘人程度：</th>
-													<td><span style="width: 10px;"></span></td>
-													<th>初養適應度：</th>
-													<td><span style="width: 20px;"></span></td>
-												</tr>
-												<tr>
-													<th>掉毛程度：</th>
-													<td><span style="width: 10px;"></span></td>
-													<th>體味程度：</th>
-													<td><span style="width: 40px;"></span></td>
-												</tr>
-												<tr>
-													<th>犬叫程度：</th>
-													<td><span style="width: 80px;"></span></td>
-													<th>美容程度：</th>
-													<td><span style="width: 30px;"></span></td>
-												</tr>
-												<tr>
-													<th>關愛需求度：</th>
-													<td><span style="width: 20px;"></span></td>
-													<th>對小孩友善度：</th>
-													<td><span style="width: 80px;"></span></td>
-												</tr>
-												<tr>
-													<th>對生人友善：</th>
-													<td><span style="width: 60px;"></span></td>
-													<th>對動物友善度：</th>
-													<td><span style="width: 60px;"></span></td>
-												</tr>
-												<tr>
-													<th>運動量：</th>
-													<td><span style="width: 80px;"></span></td>
-													<th>可訓練度：</th>
-													<td><span style="width: 20px;"></span></td>
-												</tr>
-												<tr>
-													<th>口水程度：</th>
-													<td><span style="width: 20px;"></span></td>
-													<th>城市適應度：</th>
-													<td><span style="width: 100px;"></span></td>
-												</tr>
-												<tr>
-													<th>耐熱程度：</th>
-													<td><span style="width: 50px;"></span></td>
-													<th>耐寒程度：</th>
-													<td><span style="width: 70px;"></span></td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
+									<h1 style="font-size: 16px;">柴犬 | 日本柴犬 | Shiba Inu</h1>
 								</td>
 							</tr>
 							<tr>
@@ -317,22 +263,25 @@
 										</ul>
 									</div>
 									<div>
-									<h3>介紹 : </h3>
+										<h3>介紹 :</h3>
 									</div>
 									<div>
-									<h3>個性 : </h3>
+										<h3>犬用途 :</h3>
 									</div>
 									<div>
-									<h3>特徵 : </h3>
+										<h3>個性 :</h3>
 									</div>
 									<div>
-									<h3>起源與歷史 : </h3>
+										<h3>特徵 :</h3>
 									</div>
 									<div>
-									<h3>飼養要領 : </h3>
+										<h3>起源與歷史 :</h3>
+									</div>
+									<div>
+										<h3>飼養要領 :</h3>
 									</div>
 
-									
+
 								</td>
 							</tr>
 

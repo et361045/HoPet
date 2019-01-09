@@ -5,7 +5,7 @@ import model.member.MemberBean;
 
 public interface ActivityRegistrationFormDAO {
 
-	public abstract ActivityRegistrationFormBean  findbypk(int  id);
+	public abstract ActivityRegistrationFormBean  findByPrimaryKey(int  id);
 	
 	public abstract ActivityBean findactivityBean(Integer activityid);
 

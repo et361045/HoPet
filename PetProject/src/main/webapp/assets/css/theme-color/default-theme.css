@@ -132,19 +132,28 @@ Author URI : http://www.markups.io/
 }
 
 .team-member-img {  
-  border: 2px solid #2bcdc1;  
+  border: 2px solid #FFCF78; 
+  border-radius: 5px; 
 }
 
 .single-team-member:hover{
-  border: 2px solid #2bcdc1;
+  border: 2px solid #FFCF78;
+  border-radius: 5px;
 }
 
 .single-team-member:hover .team-member-link{
-  background-color: #2bcdc1;  
+  background-color: #FFA600;
+  border: 2px solid #FFA600;
+}
+.single-team-member:hover .team-member-link  > a > svg{
+	color:#fff;
+	transition: all 0.5s;
+
 }
 
 .team-member-link {
-  border: 2px solid #2bcdc1;
+  border: 2px solid #FFCF78;
+  border-radius: 5px;
 }
 
 .testimonial-content h6 span {

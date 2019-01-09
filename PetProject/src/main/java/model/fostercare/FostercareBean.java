@@ -7,31 +7,31 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="FostercareCommission")
+@Table(name="Fostercare")
 public class FostercareBean {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Integer fostercareid;
 	private Integer fostercareCommissionid;
+	private Integer fostercareFormid;
 	private Integer owner;
-	private String txt;
-	private Integer petid;
-	private String region;
-	private Integer dday;
-	private String size;
-	private String variety;
-	
-	@Override
-	public String toString() {
-		return "fostercareBean [fostercareCommissionid=" + fostercareCommissionid + ", owner=" + owner + ", txt=" + txt
-				+ ", petid=" + petid + ", region=" + region + ", dday=" + dday + ", size=" + size + ", Variety="
-				+ variety + "]";
+	public Integer getFostercareid() {
+		return fostercareid;
 	}
-	
+	public void setFostercareid(Integer fostercareid) {
+		this.fostercareid = fostercareid;
+	}
 	public Integer getFostercareCommissionid() {
 		return fostercareCommissionid;
 	}
 	public void setFostercareCommissionid(Integer fostercareCommissionid) {
 		this.fostercareCommissionid = fostercareCommissionid;
+	}
+	public Integer getFostercareFormid() {
+		return fostercareFormid;
+	}
+	public void setFostercareFormid(Integer fostercareFormid) {
+		this.fostercareFormid = fostercareFormid;
 	}
 	public Integer getOwner() {
 		return owner;
@@ -39,43 +39,10 @@ public class FostercareBean {
 	public void setOwner(Integer owner) {
 		this.owner = owner;
 	}
-	public String getTxt() {
-		return txt;
-	}
-	public void setTxt(String txt) {
-		this.txt = txt;
-	}
-	public Integer getPetid() {
-		return petid;
-	}
-	public void setPetid(Integer petid) {
-		this.petid = petid;
-	}
-	public String getRegion() {
-		return region;
-	}
-	public void setRegion(String region) {
-		this.region = region;
-	}
-	public Integer getDday() {
-		return dday;
-	}
-	public void setDday(Integer dday) {
-		this.dday = dday;
-	}
-	public String getSize() {
-		return size;
-	}
-	public void setSize(String size) {
-		this.size = size;
-	}
-
-	public String getVariety() {
-		return variety;
-	}
-
-	public void setVariety(String variety) {
-		this.variety = variety;
+	@Override
+	public String toString() {
+		return "FostercareAllBean [fostercareid=" + fostercareid + ", fostercareCommissionid=" + fostercareCommissionid
+				+ ", fostercareFormid=" + fostercareFormid + ", owner=" + owner + "]";
 	}
 	
 }

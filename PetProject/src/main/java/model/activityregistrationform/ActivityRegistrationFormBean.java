@@ -7,6 +7,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="ActivityRegistrationForm")
 public class ActivityRegistrationFormBean {
+	
 	@Id
 	private Integer activityregistrationformid;
 	private Integer participate;
@@ -70,14 +71,6 @@ public class ActivityRegistrationFormBean {
 	public void setMnumber(Integer mnumber) {
 		this.mnumber = mnumber;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	

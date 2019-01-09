@@ -22,7 +22,7 @@ public class ActivityRegistrationFormDAOHibernate implements ActivityRegistratio
 	
 	
 	@Override
-	public ActivityRegistrationFormBean findbypk(int id) {
+	public ActivityRegistrationFormBean findByPrimaryKey(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -33,6 +33,9 @@ public class ActivityRegistrationFormDAOHibernate implements ActivityRegistratio
 		return null;
 	}
 
+	
+	
+	
 	@Override
 	public boolean update(ActivityRegistrationFormBean member) {
 		// TODO Auto-generated method stub
