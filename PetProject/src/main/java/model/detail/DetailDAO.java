@@ -1,4 +1,4 @@
-package model.Detail;
+package model.detail;
 
 public interface DetailDAO {
 	public abstract DetailBean findByDetailId(Integer DetailId);

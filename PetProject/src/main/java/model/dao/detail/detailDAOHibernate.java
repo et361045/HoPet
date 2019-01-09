@@ -1,15 +1,15 @@
-package model.dao.Detail;
+package model.dao.detail;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import model.Detail.DetailBean;
-import model.Detail.DetailDAO;
+import model.detail.DetailBean;
+import model.detail.DetailDAO;
 
 @Repository
-public class DetailDAOHibernate implements DetailDAO {
+public class detailDAOHibernate implements DetailDAO {
 	
 	@Autowired
 	private SessionFactory sessionFactory;

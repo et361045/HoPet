@@ -18,11 +18,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jndi.JndiObjectFactoryBean;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 
-import model.Detail.DetailBean;
 import model.ProductInformation.ProductInformationBean;
 import model.Shoppingcar.ShoppingcarBean;
 import model.activity.ActivityBean;
 import model.activityregistrationform.ActivityRegistrationFormBean;
+import model.detail.DetailBean;
 import model.foster.FosterBean;
 import model.fosterCommission.FosterCommissionBean;
 import model.fosterForm.FosterFormBean;
