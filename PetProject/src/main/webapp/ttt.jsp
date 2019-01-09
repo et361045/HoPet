@@ -39,11 +39,11 @@ conn.close();
 
 <%@ page import="org.hibernate.SessionFactory" %>
 <%@ page import="java.util.List" %>
-<%@ page import="model.dao.fostercareCommission.*" %>
-<%@ page import="model.fostercareCommission.*" %> 
+<%@ page import="model.dao.fostercare.*" %>
+<%@ page import="model.fostercare.*" %> 
 <%
  	SessionFactory sessionFactory = (SessionFactory) context.getBean("sessionFactory");
-  FostercareCommissionDaoHibernate fostercareDaoHibernate = (FostercareCommissionDaoHibernate) context.getBean(FostercareCommissionDaoHibernate.class);
+  FostercareCommissionDaoHibernate fostercareDaoHibernate = (FostercareDaoHibernate) context.getBean(FostercareDaoHibernate.class);
 
   out.println(fostercareDaoHibernate.findAll());
   // sessionFactory.getCurrentSession().getTransaction().commit();

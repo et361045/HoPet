@@ -36,7 +36,7 @@ public class FostercareDaoHibernate implements FostercareDao {
 	public List<FostercareBean> findAll() {
 		//取得product table的所有資料
 	
-		List<FostercareBean> result = this.getSession().createQuery("from FostercareAllBean", FostercareBean.class).list();
+		List<FostercareBean> result = this.getSession().createQuery("from FostercareBean", FostercareBean.class).list();
 		return result;
 	}
 	@Override

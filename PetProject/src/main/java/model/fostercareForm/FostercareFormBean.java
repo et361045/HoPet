@@ -4,11 +4,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 import javax.persistence.Table;
+
+
 
 @Entity
 @Table(name="FostercareForm")
 public class FostercareFormBean {
+		
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer fostercareFormid;
@@ -40,10 +44,14 @@ public class FostercareFormBean {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	
+
 	@Override
 	public String toString() {
-		return "FostercareFormBean [fostercareFormid=" + fostercareFormid + ", fostercareCommissionid="
-				+ fostercareCommissionid + ", carer=" + carer + ", status=" + status + "]";
+		return "FostercareFormBean [fostercareFormid="
+				+ fostercareFormid + ", fostercareCommissionid=" + fostercareCommissionid + ", carer=" + carer
+				+ ", status=" + status + "]";
 	}
+	
 	
 }

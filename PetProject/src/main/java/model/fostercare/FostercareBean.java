@@ -4,11 +4,25 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+
+import model.fostercareCommission.FostercareCommissionBean;
 
 @Entity
 @Table(name="Fostercare")
 public class FostercareBean {
+	
+	@ManyToOne
+	@JoinColumn(
+			name="FosterCommissionid",
+			referencedColumnName="FostercareCommissionid"
+			)
+	private FostercareCommissionBean fostercareCommissionBean;
+	
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer fostercareid;
@@ -39,10 +53,17 @@ public class FostercareBean {
 	public void setOwner(Integer owner) {
 		this.owner = owner;
 	}
+	public FostercareCommissionBean getFostercareCommissionBean() {
+		return fostercareCommissionBean;
+	}
+	public void setFostercareCommissionBean(FostercareCommissionBean fostercareCommissionBean) {
+		this.fostercareCommissionBean = fostercareCommissionBean;
+	}
 	@Override
 	public String toString() {
-		return "FostercareAllBean [fostercareid=" + fostercareid + ", fostercareCommissionid=" + fostercareCommissionid
-				+ ", fostercareFormid=" + fostercareFormid + ", owner=" + owner + "]";
+		return "FostercareBean [fostercareCommissionBean=" + fostercareCommissionBean + ", fostercareid=" + fostercareid
+				+ ", fostercareCommissionid=" + fostercareCommissionid + ", fostercareFormid=" + fostercareFormid
+				+ ", owner=" + owner + "]";
 	}
 	
 }
