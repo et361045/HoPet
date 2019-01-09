@@ -24,6 +24,9 @@ public class FostercareCommissionBean {
 			    mappedBy="fostercareCommissionid",
                 cascade= {CascadeType.REMOVE})	
 	private  List<FostercareFormBean> fostercareFromBean;
+	
+	
+	
 
 
 	@Id
