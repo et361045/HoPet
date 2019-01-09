@@ -17,7 +17,8 @@ public class HospitalBean {
 	private String hospitalphone;
 	private String hospitalowner;
 	private String hospitalgooglemap;
-	private String latitude;
+	private Double longitude;
+	private Double latitude;
 	public Integer getHospitalId() {
 		return hospitalId;
 	}
@@ -51,20 +52,29 @@ public class HospitalBean {
 	public String getHospitalgooglemap() {
 		return hospitalgooglemap;
 	}
+	public void setHospitalgooglemap(String hospitalgooglemap) {
+		this.hospitalgooglemap = hospitalgooglemap;
+	}
+	public Double getLongitude() {
+		return longitude;
+	}
+	public void setLongitude(Double longitude) {
+		this.longitude = longitude;
+	}
+	public Double getLatitude() {
+		return latitude;
+	}
+	public void setLatitude(Double latitude) {
+		this.latitude = latitude;
+	}
 	@Override
 	public String toString() {
 		return "HospitalBean [hospitalId=" + hospitalId + ", hospitalName=" + hospitalName + ", hospitalAddress="
 				+ hospitalAddress + ", hospitalphone=" + hospitalphone + ", hospitalowner=" + hospitalowner
-				+ ", hospitalgooglemap=" + hospitalgooglemap + ", latitude=" + latitude + "]";
+				+ ", hospitalgooglemap=" + hospitalgooglemap + ", longitude=" + longitude + ", latitude=" + latitude
+				+ "]";
 	}
-	public void setHospitalgooglemap(String hospitalgooglemap) {
-		this.hospitalgooglemap = hospitalgooglemap;
-	}
-	public String getLatitude() {
-		return latitude;
-	}
-	public void setLatitude(String latitude) {
-		this.latitude = latitude;
-	}
+	
+	
 	
 }

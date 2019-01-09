@@ -11,35 +11,40 @@
 <title>Product</title>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<!--  <script src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2.js'></script>    -->
+    <script src="https://maps.google.com/maps/api/js?sensor=false"></script>
+     <script type="text/javascript"
+     src="https://maps.googleapis.com/maps/api/js?key&AIzaSyBpZmGolfotLrG4xt6jVDhY87zi_vWWV1Y">
+	</script>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 <script type="text/javascript">
 var contextPath = "${pageContext.request.contextPath}";
 $(document).ready(function() {
-	$('input[name="hospitalId"]').blur(function() {
-		$.ajax({
-			method: "GET",
-			url: contextPath+"/pages/hospital.view",
-			data: "id="+$('input[name="hospitalId"]').val(),
+
+	$.ajax({
+			data: "GET",
+			url: contextPath+"/query",
 			dataType: "json",
-			cache: false,
-			async: true,
 			success: function(json) {
-				$(".error").first().append(json[0].text);
-				if(json[0].hasMoreData) {
-					$("input[name='hospitalId']").val(json[1].hospitalId);
-					$("input[name='hospitalName']").val(json[1].hospitalName);
-					$("input[name='hospitalAddress']").val(json[1].hospitalAddress);
-					$("input[name='hospitalphone']").val(json[1].hospitalphone);
-					$("input[name='hospitalowner']").val(json[1].hospitalowner);
-					$("input[name='hospitalgooglemap']").val(json[1].hospitalgooglemap);
-					$("input[name='latitude']").val(json[1].latitude);
-				}
+				console.log(json)
+				$.each(json , function(idx, val){
+// 					console.log(idx+": " + val.latitude)
+					var latitude = val.latitude;
+					var hospitalName = val.hospitalName;
+					new google.maps.Marker({
+			                position: latitude, //經緯度
+			                title: hospitalName, //顯示文字
+			                icon: imageUrl,
+			                map: map //指定要放置的地圖對象
+			            });
+				})
 			}
 		});
-	});
-	$("input[name='hospitalId']").focus(function() {
-		clearForm();
-		$(".error").first().html("");
-	});
+		
+      
+
+		
+		
 });
 function clearForm() {
 	var inputs = document.getElementsByTagName("input");
@@ -55,7 +60,7 @@ function clearForm() {
 
 <h3>Welcome </h3>
 
-<h3>fostercarecommmission Table</h3>
+<h3>hospital Table</h3>
 
 <form action="<c:url value="/pages/hospital.controller" />" method="get">
 <table>
@@ -76,12 +81,17 @@ function clearForm() {
 		<td><span class="error">${errors.hospitalphone}</span></td>
 	</tr>
 	<tr>
-		<td>醫院 : </td>
+		<td>醫院主人 : </td>
 		<td><input type="text" name="hospitalowner" value="${param.hospitalowner}"></td>
 		<td><span class="error">${errors.hospitalowner}</span></td>
 	</tr>
 	<tr>
-		<td>latitude : </td>
+		<td>經度 : </td>
+		<td><input type="text" name="longitude" value="${param.longitude}"></td>
+		<td><span class="error">${errors.latitude}</span></td>
+	</tr>
+	<tr>
+		<td>緯度 : </td>
 		<td><input type="text" name="latitude" value="${param.latitude}"></td>
 		<td><span class="error">${errors.latitude}</span></td>
 	</tr>
@@ -132,6 +142,5 @@ function clearForm() {
 	</table>
 	<script type="text/javascript">clearForm()</script>
 </c:if>
-
 </body>
 </html>

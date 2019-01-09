@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import misc.PrimitiveNumberEditor;
 import model.fostercareCommission.FostercareCommissionBean;
@@ -26,6 +27,18 @@ public class HospitalController {
 	private void method1(WebDataBinder webDataBinder) {
 		webDataBinder.registerCustomEditor(int.class, new PrimitiveNumberEditor(java.lang.Integer.class, true));
 	}
+	
+	@ResponseBody
+	@RequestMapping("/query")
+	public List<HospitalBean> test123(HospitalBean bean){
+		
+		List<HospitalBean>beans= hospitalService.select(bean);
+		System.out.println(beans);
+		return beans;
+		
+	}
+	
+	
 
 	@RequestMapping("/pages/hospital.controller")
 	public String method(String hospital, HospitalBean bean, BindingResult bindingResult, Model model) {
@@ -59,6 +72,10 @@ public class HospitalController {
 			if (bindingResult.hasFieldErrors("hospitalowner")) {
 
 				errors.put("hospitalowner", "Please enter hospitalphone for");
+			}
+			if (bindingResult.hasFieldErrors("longitude")) {
+
+				errors.put("longitude", "Please enter longitude for");
 			}
 			if (bindingResult.hasFieldErrors("latitude")) {
 

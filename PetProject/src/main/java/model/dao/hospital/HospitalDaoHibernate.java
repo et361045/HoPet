@@ -54,7 +54,7 @@ public class HospitalDaoHibernate implements HospitalDao{
 	}
 	@Override
 	public HospitalBean update(String hospitalName,
-			String hospitalAddress, String hospitalphone,String hospitalowner,String hospitalgooglemap,String latitude,Integer hospitalId) {
+			String hospitalAddress, String hospitalphone,String hospitalowner,String hospitalgooglemap,Double longitude,Double latitude,Integer hospitalId) {
 		//利用id作為primary key修改product table資料
 		//id存在=>修改成功、傳回裝滿資料的ProductBean物件
 		//id不存在=>修改失敗、傳回null
@@ -66,6 +66,7 @@ public class HospitalDaoHibernate implements HospitalDao{
 			temp.setHospitalphone(hospitalphone);
 			temp.setHospitalowner(hospitalowner);
 			temp.setHospitalgooglemap(hospitalgooglemap);
+			temp.setLongitude(longitude);
 			temp.setLatitude(latitude);
 			temp.setHospitalId(hospitalId);
 			return temp;

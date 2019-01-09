@@ -42,7 +42,8 @@ public class HospitalService {
 		HospitalBean result = null;
 		if(bean!=null) {
 			result = hospitalDao.update(bean.getHospitalName(), bean.getHospitalAddress(),
-					bean.getHospitalphone(),bean.getHospitalowner(),bean.getHospitalgooglemap(),bean.getLatitude(),bean.getHospitalId());
+					bean.getHospitalphone(),bean.getHospitalowner(),bean.getHospitalgooglemap(),
+					bean.getLongitude(),bean.getLatitude(),bean.getHospitalId());
 		}
 		return result;
 	}
