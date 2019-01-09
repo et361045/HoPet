@@ -1,4 +1,5 @@
- <%@ page language="java" contentType="text/html; charset=UTF-8"
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
@@ -17,23 +18,29 @@
 <!-- Bootstrap -->
 <link href="/PetProject/assets/css/bootstrap.css" rel="stylesheet">
 <!-- Slick slider -->
-<link rel="stylesheet" type="text/css" href="/PetProject/assets/css/slick.css" />
+<link rel="stylesheet" type="text/css"
+	href="/PetProject/assets/css/slick.css" />
 <!-- Fancybox slider -->
 <link rel="stylesheet" href="/PetProject/assets/css/jquery.fancybox.css"
 	type="text/css" media="screen" />
 <!-- Animate css -->
-<link rel="stylesheet" type="text/css" href="/PetProject/assets/css/animate.css" />
+<link rel="stylesheet" type="text/css"
+	href="/PetProject/assets/css/animate.css" />
 <!-- Progress bar  -->
 <link rel="stylesheet" type="text/css"
 	href="/PetProject/assets/css/bootstrap-progressbar-3.3.4.css" />
 <!-- Theme color -->
-<link id="switcher" href="/PetProject/assets/css/theme-color/default-theme.css"
+<link id="switcher"
+	href="/PetProject/assets/css/theme-color/default-theme.css"
 	rel="stylesheet">
 
 <!-- Main Style -->
 <link href="/PetProject/assets/css/style.css" rel="stylesheet">
 <!-- login Style -->
 <link href="/PetProject/assets/css/login/login.css" rel="stylesheet">
+
+<!-- member css -->
+<link href="/PetProject/assets/css/member.css" rel="stylesheet">
 
 
 
@@ -45,6 +52,8 @@
 <!-- Lato for Title -->
 <link href='https://fonts.googleapis.com/css?family=Lato'
 	rel='stylesheet' type='text/css'>
+
+
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -92,18 +101,22 @@
 						<div class="header-login">
 
 							<c:if test="${!empty  user}">
-								<c:out value="<span class='Username' >HI, ${user.memberName} </span>"
+								<c:out
+									value="<span class='Username' >HI, ${user.memberName} </span>"
 									escapeXml="false" />
-					    <c:out  value="  <a class='login modal-form' id='Logout'> Logout</button>" escapeXml="false"/> 
+								<c:out
+									value="  <a class='login modal-form' id='Logout'> Logout</button>"
+									escapeXml="false" />
 							</c:if>
-							
+
 							<c:if test="${empty  user}">
-							 <c:out value=" <a class='login modal-form' data-target='#login-form'
+								<c:out
+									value=" <a class='login modal-form' data-target='#login-form'
 								data-toggle='modal' href='#'>Login / Sign Up</a>"
 									escapeXml="false" />
 							</c:if>
-							
-							
+
+
 
 
 						</div>
@@ -169,40 +182,43 @@
 				<div class="modal-body">
 					<form id="signon" action="<c:url value='signon'/>">
 						<div class="form-group">
-							<input type="email" placeholder="User email" class="form-control" title="請輸入信箱" name="email">
+							<input type="email" placeholder="User email" class="form-control"
+								title="請輸入信箱" name="email">
 						</div>
 						<div class="form-group">
 							<p class="Description" id="checkemail"></p>
 						</div>
 						<div class="form-group">
-							<input type="password" id="password" placeholder="password" class="form-control" title="請輸入密碼" name="psw">
+							<input type="password" id="password" placeholder="password"
+								class="form-control" title="請輸入密碼" name="psw">
 						</div>
 						<div class="form-group">
-							<input type="password" id="checkpass" placeholder="checkpassword" class="form-control" title="與密碼相附">
+							<input type="password" id="checkpass" placeholder="checkpassword"
+								class="form-control" title="與密碼相附">
 						</div>
 						<div class="form-group">
 							<p class="Description" id="checkpassword"></p>
 						</div>
 						<div class="form-group">
-							<input  type="text" placeholder="name"
-								class="form-control"  title="請輸入暱稱" name="memberName" >
+							<input type="text" placeholder="name" class="form-control"
+								title="請輸入暱稱" name="memberName">
 						</div>
 						<div class="form-group">
-							<input  type="text" placeholder="address"
-								class="form-control" title="請輸入地址" name="address" >
+							<input type="text" placeholder="address" class="form-control"
+								title="請輸入地址" name="address">
 						</div>
 						<div class="form-group">
-							<input  type="text" placeholder="cellphone-number "
-								class="form-control"  title="請輸入手機" name="memberPhone" >
+							<input type="text" placeholder="cellphone-number "
+								class="form-control" title="請輸入手機" name="memberPhone">
 						</div>
-						
-						
+
+
 						<div class="signupbox">
 							<span>Already got account? <a id="login-btn" href="#">Sign
 									In.</a></span>
 						</div>
 						<div class="loginbox">
-						<input type="submit" class="btn signin-btn" value="SIGN UP" ><span
+							<input type="submit" class="btn signin-btn" value="SIGN UP"><span
 								class="errorspan" id="errorspan"></span>
 						</div>
 					</form>
@@ -273,11 +289,15 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="title-area">
-						<h2 class="title">About us</h2>
-						<span class="line"></span>
-						<p>There are many variations of passages of Lorem Ipsum
-							available, but the majority have suffered alteration in some
-							form, by injected humour</p>
+						<h2 class="code">請輸入信箱驗證碼</h2>
+						<span class="line" style="width: 200px"></span>
+						<p class="text">
+							驗證碼:<input type="text" class="entercode"><input
+								type="submit" value="送出" class=" btn btn-info"
+								style="font-size: 18px;"><input
+								type="submit" value="提交" class=" btn btn-success"
+								style="font-size: 18px; margin-left: 15px ">
+						</p>
 					</div>
 				</div>
 				<div class="col-md-12">
@@ -285,53 +305,57 @@
 						<div class="row">
 							<div class="col-md-6">
 								<div class="our-skill">
-									<h3>Our Skills</h3>
+									<h2 class="code">個人資料</h2>
+                                 <span style="  margin-left: 300px; padding:60px; padding-top:70px; padding-bottom:70px; border: red thin solid  ;">照片</span>
 									<div class="our-skill-content">
-										<p>There are many variations of passages of Lorem Ipsum
-											available, but the majority have suffered alteration in some
-											form, by injected humour</p>
-										<div class="progress">
-											<div class="progress-bar six-sec-ease-in-out"
-												role="progressbar" data-transitiongoal="100">
-												<span class="progress-title">Html5</span>
+										<p class="text">您的個人資料<br/>(按工具箱修改 打勾確定)</p>
+										<form id="signon" action="<c:url value='signon'/>">
+											<div class="form-group"><label class="text">信箱:</label>
+												<input type="email" placeholder="${user.email}"          
+													class="form-control" title="請輸入信箱" name="email"  readOnly="readonly">
+													<span class="glyphicon glyphicon-ok" style="float:right;"></span>
+													 <span class="glyphicon" style="float:right;">&#x270f;</span>
+													 
+												</div>
+										
+											<div class="form-group"><label class="text">密碼:</label>
+												<input type="password" id="password" placeholder="**********"
+													class="form-control" title="請輸入密碼" name="psw"  readonly="readonly">
+													 <span class="glyphicon glyphicon-ok" style="float:right;"></span>
+													 <span class="glyphicon" style="float:right;">&#x270f;</span>
+													
 											</div>
-										</div>
-										<div class="progress">
-											<div class="progress-bar six-sec-ease-in-out"
-												role="progressbar" data-transitiongoal="85">
-												<span class="progress-title">Css3</span>
+<!-- 											<div class="form-group"> <label class="text">密碼:</label> -->
+<!-- 												<input type="password" id="checkpass" -->
+<!-- 													placeholder="checkpassword" class="form-control" -->
+<!-- 													title="與密碼相附"> -->
+<!-- 											</div> -->
+										
+											<div class="form-group"><label class="text">暱稱:</label>
+												<input type="text" placeholder="${user.memberName}" class="form-control"
+													title="請輸入暱稱" name="memberName"  readonly="readonly">
+													  <span class="glyphicon glyphicon-ok" style="float:right;"></span>
+													 <span class="glyphicon" style="float:right;">&#x270f;</span>
 											</div>
-										</div>
-										<div class="progress">
-											<div class="progress-bar six-sec-ease-in-out"
-												role="progressbar" data-transitiongoal="70">
-												<span class="progress-title">JQuery</span>
+											<div class="form-group"><label class="text">地址:</label>
+												<input type="text" placeholder="${user.address}"
+													class="form-control" title="請輸入地址" name="address"  readonly="readonly">
+													 <span class="glyphicon glyphicon-ok" style="float:right;"></span>
+													 <span class="glyphicon" style="float:right;">&#x270f;</span>
 											</div>
-										</div>
-										<div class="progress">
-											<div class="progress-bar six-sec-ease-in-out"
-												role="progressbar" data-transitiongoal="60">
-												<span class="progress-title">wordPress</span>
+											<div class="form-group"><label class="text">手機:</label>
+												<input type="text" placeholder="${user.memberPhone} "
+													class="form-control" title="請輸入手機" name="memberPhone"  readonly="readonly">
+													 <span class="glyphicon glyphicon-ok" style="float:right;"></span>
+													 <span class="glyphicon" style="float:right;">&#x270f;</span>
 											</div>
-										</div>
-										<div class="progress">
-											<div class="progress-bar six-sec-ease-in-out"
-												role="progressbar" data-transitiongoal="40">
-												<span class="progress-title">Php</span>
-											</div>
-										</div>
-										<div class="progress">
-											<div class="progress-bar six-sec-ease-in-out"
-												role="progressbar" data-transitiongoal="25">
-												<span class="progress-title">Java</span>
-											</div>
-										</div>
+										</form>
 									</div>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="why-choose-us">
-									<h3>Why Choose Us?</h3>
+									<h2 class="code">您的寵物資料</h2>
 									<div class="panel-group why-choose-group" id="accordion">
 										<div class="panel panel-default">
 											<div class="panel-heading">
@@ -347,6 +371,16 @@
 													<img class="why-choose-img" src="assets/images/testi1.jpg"
 														alt="img">
 													<p>Anim pariatur cliche reprehenderit, enim eiusmod
+														high life accusamus terry richardson ad squid. 3 wolf moon
+														officia aute, non cupidatat skateboard dolor brunch. Food
+														truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
+														tempor, sunt aliqua put a bird on it squid single-origin
+														coffee nulla assumenda shoreditch et. Nihil anim keffiyeh
+														helvetica, craft beer labore wes anderson cred nesciunt
+														sapiente ea proident. Ad vegan excepteur butcher vice
+														lomo. Leggings occaecat craft beer farm-to-table, raw
+														denim aesthetic synth nesciunt you probably haven't heard
+														of them accusamus labore sustainable VHS.Anim pariatur cliche reprehenderit, enim eiusmod
 														high life accusamus terry richardson ad squid. 3 wolf moon
 														officia aute, non cupidatat skateboard dolor brunch. Food
 														truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
@@ -421,11 +455,11 @@
 	</section>
 	<!-- end about -->
 
-	
 
 
 
-	
+
+
 
 	<!-- Start footer -->
 	<footer id="footer">
@@ -461,24 +495,32 @@
 	<!-- Slick Slider -->
 	<script type="text/javascript" src="/PetProject/assets/js/slick.js"></script>
 	<!-- mixit slider -->
-	<script type="text/javascript" src="/PetProject/assets/js/jquery.mixitup.js"></script>
+	<script type="text/javascript"
+		src="/PetProject/assets/js/jquery.mixitup.js"></script>
 	<!-- Add fancyBox -->
-	<script type="text/javascript" src="/PetProject/assets/js/jquery.fancybox.pack.js"></script>
+	<script type="text/javascript"
+		src="/PetProject/assets/js/jquery.fancybox.pack.js"></script>
 	<!-- counter -->
 	<script src="/PetProject/assets/js/waypoints.js"></script>
 	<script src="/PetProject/assets/js/jquery.counterup.js"></script>
 	<!-- Wow animation -->
 	<script type="text/javascript" src="/PetProject/assets/js/wow.js"></script>
 	<!-- progress bar   -->
-	<script type="text/javascript" src="/PetProject/assets/js/bootstrap-progressbar.js"></script>
+	<script type="text/javascript"
+		src="/PetProject/assets/js/bootstrap-progressbar.js"></script>
 	<!--login   -->
-	<script type="text/javascript" src="/PetProject/assets/css/login/login.js"></script>
+	<script type="text/javascript"
+		src="/PetProject/assets/css/login/login.js"></script>
 	<!--Signon   -->
-	<script type="text/javascript" src="/PetProject/assets/css/SignOn/SignOn.js"></script>
+	<script type="text/javascript"
+		src="/PetProject/assets/css/SignOn/SignOn.js"></script>
 
 
 	<!-- Custom js -->
 	<script type="text/javascript" src="/PetProject/assets/js/custom.js"></script>
+	
+	<!-- updatemember js -->
+	<script type="text/javascript" src="/PetProject/assets/js/update.js"></script>
 
 </body>
 </html>

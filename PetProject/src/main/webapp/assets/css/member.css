@@ -1,0 +1,16 @@
+.code {
+	font-family: 'cwTeXYen';
+	color: #00caca;
+}
+
+.text {
+	font-family: 'cwTeXYen';
+	color: black;
+	font-size: 22px
+}
+
+.entercode {
+	margin: 25px
+}
+
+.glyphicon:hover {cursor:pointer;}
