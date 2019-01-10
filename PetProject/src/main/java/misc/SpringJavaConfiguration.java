@@ -20,8 +20,9 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 
 import model.ProductInformation.ProductInformationBean;
 import model.Shoppingcar.ShoppingcarBean;
-import model.activity.ActivityBean;
+import model.activityCommission.ActivityCommissionBean;
 import model.activityregistrationform.ActivityRegistrationFormBean;
+import model.businessInformation.BusinessInformationBean;
 import model.detail.DetailBean;
 import model.foster.FosterBean;
 import model.fosterCommission.FosterCommissionBean;
@@ -72,12 +73,13 @@ public class SpringJavaConfiguration {
 		builder.addAnnotatedClass(FostercareCommissionBean.class);//model.fostercareCommission
 		builder.addAnnotatedClass(FostercareFormBean.class);
 		builder.addAnnotatedClass(FostercareBean.class);//model.fostercare
-		builder.addAnnotatedClass(ActivityBean.class);
+		builder.addAnnotatedClass(ActivityCommissionBean.class);
 		builder.addAnnotatedClass(ActivityRegistrationFormBean.class);
 		builder.addAnnotatedClass(FosterBean.class);
 		builder.addAnnotatedClass(FosterFormBean.class);
 		builder.addAnnotatedClass(FosterCommissionBean.class);
 		builder.addAnnotatedClass(HospitalBean.class);
+		builder.addAnnotatedClass(BusinessInformationBean.class);
 		
 		
 		return builder.buildSessionFactory();

@@ -10,7 +10,10 @@
 <link rel="shortcut icon" href="images/favicon.ico">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/form.css">
-<link rel="stylesheet" href="css/activity-home-frame.css">
+<link rel="stylesheet" href="assets/css/activityhomeframe.css">
+
+
+
 
 <script src="js/jquery.js"></script>
 <script src="js/forms.js"></script>
