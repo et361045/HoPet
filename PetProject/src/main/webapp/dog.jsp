@@ -338,9 +338,6 @@
 								src="https://a.34cimg.com/pic/wiki/dog-s/33.png"></a><a
 							href="yan.php?yan=Wiki_View&amp;id=32" title="沙皮犬">沙皮犬</a></li>
 						<li><a href="W28" title="惠比特犬"><img
-								src="https://a.34cimg.com/pic/wiki/dog-s/29.png"></a><a
-							href="yan.php?yan=Wiki_View&amp;id=28" title="惠比特犬">惠比特犬</a></li>
-						<li><a href="W28" title="惠比特犬"><img
 								src="https://a.34cimg.com/pic/wiki/dog-s/64.png"></a><a
 							href="yan.php?yan=Wiki_View&amp;id=28" title="惠比特犬">惠比特犬</a></li>
 						<li><a href="W24" title="貝林登梗"><img

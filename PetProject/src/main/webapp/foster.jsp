@@ -40,10 +40,9 @@
 <link href="/PetProject/assets/css/login/login.css" rel="stylesheet">
 <script defer
 	src="https://use.fontawesome.com/releases/v5.6.3/js/all.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"
-	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-	crossorigin="anonymous"></script>
-
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.14/jquery.twzipcode.min.js"></script>
 <!-- Fonts -->
 
 <!-- Open Sans for body font -->
@@ -253,7 +252,13 @@
 								<li><a href="/PetProject/member/member.jsp">會員資料</a></li>
 								<li><a href=""><span class="fa fa-search"></span>搜尋好友 </a></li>
 							</ul></li>
-						<li><a href="">寵物生活館</a></li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown">寵物生活館 <span class="fa fa-angle-down"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="">醫院</a></li>
+								<li><a href="">商家</a></li>
+								<li><a href="">景點</a></li>
+							</ul></li>
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown">寵物百科 <span class="fa fa-angle-down"></span></a>
 							<ul class="dropdown-menu" role="menu">
@@ -282,14 +287,147 @@
 
 	<!-- Start Pricing table -->
 	<section id="our-team">
+		<div class="foster_search">
+			<div class="">
+				<div class="foster_search_tital">
+					<p>條件查詢</p>
+				</div>
+				<form>
+					<div class="form-group mx-sm-3 mb-3">
+						<div class="foster_search_select" id="foster_search_select">
+							<label>縣市 :</label>
+							<div class="foster_search_select" data-role="county"></div>
+							<label>區域:</label>
+							<div class="foster_search_select" data-role="district"></div>
+							<script>
+								//自動產生縣市 
+								$("#foster_search_select").twzipcode({
+									"zipcodeIntoDistrict" : true,
+									"countyName" : "city", // 指定城市 select name
+									"districtName" : "town" // 指定地區 select name
+								});
+							</script>
+							<label>品種 :</label> <select id="termType" name="termType"
+								class="form-control">
+								<option value="">請選擇</option>
+								<option value="24">柴犬</option>
+								<option value="25">巴哥</option>
+								<option value="26">貴賓犬</option>
+								<option value="27">吉娃娃</option>
+								<option value="28">紅貴賓</option>
+								<option value="29">絲毛梗</option>
+								<option value="30">北京犬</option>
+								<option value="31">拉薩犬</option>
+								<option value="32">博美犬</option>
+								<option value="33">比熊犬</option>
+								<option value="34">約克夏</option>
+								<option value="35">日本狆</option>
+								<option value="36">西施犬</option>
+								<option value="37">雪納瑞</option>
+								<option value="38">蝴蝶犬</option>
+								<option value="39">米格魯</option>
+								<option value="40">波士頓梗</option>
+								<option value="41">威爾斯梗</option>
+								<option value="42">馬爾濟斯</option>
+								<option value="43">長毛臘腸犬</option>
+								<option value="44">傑克羅素梗</option>
+								<option value="45">單第丁蒙梗</option>
+								<option value="46">中國冠毛犬</option>
+								<option value="47">西部高地白梗</option>
+								<option value="48">查理王長毛獵犬</option>
+								<option value="49">迷你杜賓</option>
+								<option value="50">巴吉度</option>
+								<option value="51">鬆獅犬</option>
+								<option value="52">柯基犬</option>
+								<option value="53">牛頭梗</option>
+								<option value="51">沙皮犬</option>
+								<option value="55">惠比特犬</option>
+								<option value="56">貝林登梗</option>
+								<option value="57">蘇格蘭梗</option>
+								<option value="58">英國鬥牛犬</option>
+								<option value="59">法國鬥牛犬</option>
+								<option value="60">英國可卡獵犬</option>
+								<option value="61">美國可卡獵犬</option>
+								<option value="62">喜樂蒂牧羊犬</option>
+								<option value="63">杜賓犬</option>
+								<option value="64">挪威納</option>
+								<option value="65">拳師犬</option>
+								<option value="66">威瑪犬</option>
+								<option value="67">秋田犬</option>
+								<option value="68">拉不拉多</option>
+								<option value="69">黃金獵犬</option>
+								<option value="70">大麥町犬</option>
+								<option value="71">薩摩耶犬</option>
+								<option value="72">尋血獵犬</option>
+								<option value="73">德國狼犬</option>
+								<option value="74">馬士提夫</option>
+								<option value="75">阿富汗獵犬</option>
+								<option value="76">蘇俄牧羊犬</option>
+								<option value="77">可麗牧羊犬</option>
+								<option value="78">愛爾蘭雪達犬</option>
+								<option value="79">西伯利亞哈士奇</option>
+								<option value="80">阿拉斯加雪橇犬</option>
+								<option value="81">英國古代牧羊犬</option>
+								<option value="82">大丹犬</option>
+								<option value="83">土佐犬</option>
+								<option value="84">西藏獒犬</option>
+								<option value="85">大白熊犬</option>
+								<option value="86">聖伯納犬</option>
+								<option value="87">紐芬蘭犬</option>
+								<option value="88">伯恩山犬</option>
+								<option value="89">高加索山犬</option>
+							</select> <input type="hidden" value="" placeholder="missionstatus"
+								id="missionstatus" name="missionstatus" /> <input type="button"
+								value="搜尋" id="searchButt" class="btn btn-primary btn">
+
+
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
 		<div class="container_foster">
 			<div class="row">
 				<div class="col-md-12">
 					<div class="title-area_foster">
 						<h2 class="title_foster">送養</h2>
-						<button type="button" class="btn foster_button">我要送養</button>
+						<button type="button" class="foster_button" data-toggle="modal"
+							data-target="#exampleModal">我要送養</button>
+						<div class="modal fade foster_table" id="exampleModal"
+							tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+							aria-hidden="true">
+							<div class="modal-dialog" role="document">
+								<div class="foster_modal_content">
+									<div class="modal-header">
+										<i class="modal_title" id="exampleModalLabel">送養申請</i>
+										<button type="button" class="close" data-dismiss="modal"
+											aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<div class="modal-body">
+										<form>
+											<div class="form-group">
+												<label for="recipient-name" class="col-form-label">姓名:</label>
+												<input type="text" class="form-control" id="recipient-name">
+											</div>
+											<div class="form-group">
+												<label for="message-text" class="col-form-label">原因:</label>
+												<textarea class="form-control" id="message-text"></textarea>
+											</div>
+										</form>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary"
+											data-dismiss="modal">取消</button>
+										<button type="button" class="btn btn-primary">送出</button>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
+
 				<div class="col-md-12">
 					<div class="our-team-content">
 						<div class="row">
