@@ -5,7 +5,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import model.activity.ActivityBean;
+import model.activityCommission.ActivityCommissionBean;
 import model.activityregistrationform.ActivityRegistrationFormBean;
 import model.activityregistrationform.ActivityRegistrationFormDAO;
 
@@ -28,7 +28,7 @@ public class ActivityRegistrationFormDAOHibernate implements ActivityRegistratio
 	}
 
 	@Override
-	public ActivityBean findactivityBean(Integer activityid) {
+	public ActivityCommissionBean findactivityBean(Integer activityid) {
 		// TODO Auto-generated method stub
 		return null;
 	}

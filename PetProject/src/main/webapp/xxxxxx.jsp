@@ -38,7 +38,7 @@ conn.close();
 <%@ page import="org.hibernate.SessionFactory" %>
 <%@ page import="java.util.List" %>
 <%@ page import="model.member.MemberBean" %>
-<%@ page import="model.activity.ActivityBean" %>
+<%@ page import="model.activityCommission.ActivityBean" %>
 <%
 
 
