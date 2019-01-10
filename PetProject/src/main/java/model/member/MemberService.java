@@ -49,7 +49,10 @@ public class MemberService {
 	public  MemberBean selectemail(String email) {
 	MemberBean temp = memberDao.findMemberBean(email);
 	return temp;
-		
+		}
+	
+	public boolean update(MemberBean bean) {
+	return	memberDao.update(bean);		
 	}
 	
 }

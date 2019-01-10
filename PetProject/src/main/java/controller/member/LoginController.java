@@ -6,6 +6,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import org.hibernate.sql.Update;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.MessageSourceResolvable;
@@ -74,7 +75,24 @@ public class LoginController {
 		sessionStatu.setComplete();
 	}
 	
-	
+	@RequestMapping(value =  "*/updatemember" )
+	public void method2(Model model, @RequestParam(name = "psw", required = false) String psw,
+			@RequestParam(name = "memberName", required = false) String memberName,
+			@RequestParam(name = "address", required = false) String address,
+			@RequestParam(name = "memberPhone", required = false) String memberPhone,
+			MemberBean updata
+			) {
+		
+		MemberBean temp  = (MemberBean) model.asMap().get("user");
+		System.out.println(temp);
+		System.out.println(updata);
+		updata.setEmail(temp.getEmail());
+	    updata.setMemberId(temp.getMemberId());
+	    System.out.println(memberService.update(updata));
+		model.addAttribute("user", updata);
+	   
+	}
+
 	
 	
 	

@@ -243,7 +243,7 @@
 					</button>
 					<!-- LOGO -->
 					<!-- TEXT BASED LOGO -->
-					<a class="navbar-brand" href="/PetProject/index.jsp">HoPet</a>
+					<a class="navbar-brand" href="/PetProject/index.jsp"><img src="/PetProject/assets/images/logo.png" class="logo_img"></a>
 					<!-- IMG BASED LOGO  -->
 					<!-- <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" alt="logo"></a> -->
 				</div>
@@ -308,23 +308,21 @@
 									<h2 class="code">個人資料</h2>
                                  <span style="  margin-left: 300px; padding:60px; padding-top:70px; padding-bottom:70px; border: red thin solid  ;">照片</span>
 									<div class="our-skill-content">
-										<p class="text">您的個人資料<br/>(按工具箱修改 打勾確定)</p>
-										<form id="signon" action="<c:url value='signon'/>">
+										<p class="text">您的個人資料<br/>(按鉛筆修改 打勾確定)</p>
+										<form id="memberupdata" action="">
 											<div class="form-group"><label class="text">信箱:</label>
 												<input type="email" placeholder="${user.email}"          
 													class="form-control" title="請輸入信箱" name="email"  readOnly="readonly">
-													<span class="glyphicon glyphicon-ok" style="float:right;"></span>
-													 <span class="glyphicon" style="float:right;">&#x270f;</span>
-													 
 												</div>
 										
 											<div class="form-group"><label class="text">密碼:</label>
-												<input type="password" id="password" placeholder="**********"
-													class="form-control" title="請輸入密碼" name="psw"  readonly="readonly">
-													 <span class="glyphicon glyphicon-ok" style="float:right;"></span>
-													 <span class="glyphicon" style="float:right;">&#x270f;</span>
-													
+												<input type="password" id="updatepassword" placeholder="**********"
+													class="form-control" title="請輸入密碼" name="psw"  readonly="readonly" value="${user.psw}">
+													 <span id=checkpsw class="glyphicon glyphicon-ok"  style="float:right;"></span>
+													 <span class="glyphicon" style="float:right;">&#x270f;</span>		
 											</div>
+											
+											
 <!-- 											<div class="form-group"> <label class="text">密碼:</label> -->
 <!-- 												<input type="password" id="checkpass" -->
 <!-- 													placeholder="checkpassword" class="form-control" -->
@@ -332,20 +330,20 @@
 <!-- 											</div> -->
 										
 											<div class="form-group"><label class="text">暱稱:</label>
-												<input type="text" placeholder="${user.memberName}" class="form-control"
-													title="請輸入暱稱" name="memberName"  readonly="readonly">
+												<input type="text" value="${user.memberName}" class="form-control"
+													title="請輸入暱稱" name="memberName"  readonly="readonly" id="memberName">
 													  <span class="glyphicon glyphicon-ok" style="float:right;"></span>
 													 <span class="glyphicon" style="float:right;">&#x270f;</span>
 											</div>
 											<div class="form-group"><label class="text">地址:</label>
-												<input type="text" placeholder="${user.address}"
-													class="form-control" title="請輸入地址" name="address"  readonly="readonly">
+												<input type="text" value="${user.address}"
+													class="form-control" title="請輸入地址" name="address"  readonly="readonly" id="address">
 													 <span class="glyphicon glyphicon-ok" style="float:right;"></span>
 													 <span class="glyphicon" style="float:right;">&#x270f;</span>
 											</div>
 											<div class="form-group"><label class="text">手機:</label>
-												<input type="text" placeholder="${user.memberPhone} "
-													class="form-control" title="請輸入手機" name="memberPhone"  readonly="readonly">
+												<input type="text" value="${user.memberPhone} "
+													class="form-control" title="請輸入手機" name="memberPhone"  readonly="readonly"id="memberPhone">
 													 <span class="glyphicon glyphicon-ok" style="float:right;"></span>
 													 <span class="glyphicon" style="float:right;">&#x270f;</span>
 											</div>
