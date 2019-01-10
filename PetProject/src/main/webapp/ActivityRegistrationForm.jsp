@@ -55,7 +55,7 @@ function clearForm() {
 
 <h3>activityregistrationform Table</h3>
 
-<form action="<c:url value="/pages/product.controller" />" method="post">
+<form action="<c:url value="/pages/ActivityRegistrationForm.controller" />" method="post">
 <table>
 
 

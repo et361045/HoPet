@@ -16,7 +16,7 @@
 		<property name="url" value="/pages/fostercare.jsp"></property>
 	</bean>
 
-	
+
 	<bean id="fostercarecommission.errors"
 		class="org.springframework.web.servlet.view.InternalResourceView">
 		<property name="url" value="/pages/fostercarecommission.jsp"></property>
@@ -24,17 +24,18 @@
 
 	<bean id="fostercarecommission.select"
 		class="org.springframework.web.servlet.view.InternalResourceView">
-		<property name="url" value="/pages/fostercarecommissiondisplay.jsp"></property>
+		<property name="url"
+			value="/pages/fostercarecommissiondisplay.jsp"></property>
 	</bean>
-	
-	
-	
-	
+
+
+
+
 	<bean id="fostercareform.errors"
 		class="org.springframework.web.servlet.view.InternalResourceView">
 		<property name="url" value="/pages/fostercareform.jsp"></property>
 	</bean>
-	
+
 
 	<bean id="hospital.errors"
 		class="org.springframework.web.servlet.view.InternalResourceView">
@@ -45,41 +46,77 @@
 		class="org.springframework.web.servlet.view.InternalResourceView">
 		<property name="url" value="/pages/hospitaldisplay.jsp"></property>
 	</bean>
-<bean id="index" class="org.springframework.web.servlet.view.InternalResourceView">
-<property name="url" value="/index.jsp"/>
-</bean>
-<bean id="member" class="org.springframework.web.servlet.view.InternalResourceView">
-<property name="url" value="/member/member.jsp"/>
-</bean>
+	<bean id="index"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/index.jsp" />
+	</bean>
+	<bean id="member"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/member/member.jsp" />
+	</bean>
 
+	<bean id="activityCommission.errors"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/pages/activityCommission.jsp"></property>
+	</bean>
 
-<!-- 	<bean id="login.error" -->
+	<bean id="activityCommission.select"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url"
+			value="/pages/activityCommissiondisplay.jsp"></property>
+	</bean>
+	
+	<bean id="businessInformation.errors"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/pages/businessInformation.jsp"></property>
+	</bean>
+
+	<bean id="businessInformation.select"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url"
+			value="/pages/businessInformationdisplay.jsp"></property>
+	</bean>
+
+<!-- 	<bean id="businessInformation.errors" -->
 <!-- 		class="org.springframework.web.servlet.view.InternalResourceView"> -->
-<!-- 		<property name="url" value="/secure/login.jsp"></property> -->
+<!-- 		<property name="url" value="/pages/businessInformation.jsp"></property> -->
 <!-- 	</bean> -->
 
-<!-- 	<bean id="product.ok" -->
+<!-- 	<bean id="businessInformation.select" -->
 <!-- 		class="org.springframework.web.servlet.view.InternalResourceView"> -->
-<!-- 		<property name="url" value="/pages/product.jsp"></property> -->
+<!-- 		<property name="url" -->
+<!-- 			value="/pages/businessInformationdisplay.jsp"></property> -->
 <!-- 	</bean> -->
 
 
 
-<!-- 	<bean id="login.ok" -->
-<!-- 		class="org.springframework.web.servlet.view.RedirectView"> -->
-<!-- 		<property name="contextRelative" value="true"></property> -->
-<!-- 		<property name="url" value="/index.jsp"></property> -->
-<!-- 	</bean> -->
+	<!-- <bean id="login.error" -->
+	<!-- class="org.springframework.web.servlet.view.InternalResourceView"> -->
+	<!-- <property name="url" value="/secure/login.jsp"></property> -->
+	<!-- </bean> -->
 
-<!-- 	<bean id="product.error" -->
-<!-- 		class="org.springframework.web.servlet.view.InternalResourceView"> -->
-<!-- 		<property name="url" value="/pages/product.jsp"></property> -->
-<!-- 	</bean> -->
+	<!-- <bean id="product.ok" -->
+	<!-- class="org.springframework.web.servlet.view.InternalResourceView"> -->
+	<!-- <property name="url" value="/pages/product.jsp"></property> -->
+	<!-- </bean> -->
 
-<!-- 	<bean id="product.display" -->
-<!-- 		class="org.springframework.web.servlet.view.InternalResourceView"> -->
-<!-- 		<property name="url" value="/pages/display.jsp"></property> -->
-<!-- 	</bean> -->
- 
+
+
+	<!-- <bean id="login.ok" -->
+	<!-- class="org.springframework.web.servlet.view.RedirectView"> -->
+	<!-- <property name="contextRelative" value="true"></property> -->
+	<!-- <property name="url" value="/index.jsp"></property> -->
+	<!-- </bean> -->
+
+	<!-- <bean id="product.error" -->
+	<!-- class="org.springframework.web.servlet.view.InternalResourceView"> -->
+	<!-- <property name="url" value="/pages/product.jsp"></property> -->
+	<!-- </bean> -->
+
+	<!-- <bean id="product.display" -->
+	<!-- class="org.springframework.web.servlet.view.InternalResourceView"> -->
+	<!-- <property name="url" value="/pages/display.jsp"></property> -->
+	<!-- </bean> -->
+
 
 </beans>
