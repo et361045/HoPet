@@ -32,9 +32,9 @@
 <!--      src="https://maps.googleapis.com/maps/api/js?key&AIzaSyBpZmGolfotLrG4xt6jVDhY87zi_vWWV1Y"> -->
 <!-- 	</script> -->
 	
-	<script type="text/javascript"
-     src="https://maps.googleapis.com/maps/api/js?key&AIzaSyBpZmGolfotLrG4xt6jVDhY87zi_vWWV1Y">
-	</script>
+	<script async defer
+    src=<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=AIzaSyBLxDAKtcasbeNnSS4RAMAJqubXAxa6LiA"></script>>
+    </script>
     <script>   
     
 
@@ -50,26 +50,30 @@
             };
             var imageUrl = "assets/images/icons8-醫院-50.png"; //空字串就會使用預設圖示
             //在指定DOM元素中嵌入地圖
-            geocoder = new google.maps.Geocoder();
+            var geocoder = new google.maps.Geocoder();
             var map = new google.maps.Map(
-                document.getElementById("map_canvas"), mapOptions);
-            var address='總統府';
-        	$.ajax({
+                document.getElementById("map_canvas"), mapOptions);    
+            
+            var address ='中正區杭州南路2段92號1樓';
+			 geocoder.geocode({'address': address}, function(results, status) {
+		          if (status == 'OK') {	 
+		        	  map.setCenter(results[0].geometry.location);
+		            new google.maps.Marker({
+		              map: map,
+		              position: results[0].geometry.location,
+		              icon:imageUrl
+		            });
+		          } else {
+		            alert('Geocode was not successful for the following reason: ' + status);
+		          }
+		        });
+            $.ajax({
         			data: "GET",
         			url: "/PetProject/query",
         			dataType: "json",
         			success: function(json) {
         				console.log(json)
-        				$.each(json , function(idx, val){
-        					var latitude = new google.maps.setCenter(results[0].geometry.location);;
-        					var hospitalName = val.hospitalName;
-        					new google.maps.Marker({
-        			                position: latitude, //經緯度
-        			                title: hospitalName, //顯示文字
-        			                icon: imageUrl,
-        			                map: map //指定要放置的地圖對象
-        			            });
-        				})
+
         			}
         		});
 
@@ -100,7 +104,7 @@
       <br>
       <div class="map"  style="width: 500px; height: 500px; float: left">
         <figure class="img_inner" id="map_canvas">
-          <iframe src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Brooklyn,+New+York,+NY,+United+States&amp;aq=0&amp;sll=37.0625,-95.677068&amp;sspn=61.282355,146.513672&amp;ie=UTF8&amp;hq=&amp;hnear=Brooklyn,+Kings,+New+York&amp;ll=40.649974,-73.950005&amp;spn=0.01628,0.025663&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>
+          <iframe src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Brooklyn,+New+York,+NY,+United+States&amp;aq=0&amp;sll=37.0625,-95.677068&amp;sspn=61.282355,146.513672&amp;ie=UTF8&amp;hq=&amp;hnear=Brooklyn,+Kings,+New+York&amp;ll=40.649974,-73.950005&amp;spn=0.01628,0.025663&amp;z=14&amp;iwloc=A&amp;output=embed&"></iframe>
         </figure>
       </div>
 		<div id="lat"></div>
