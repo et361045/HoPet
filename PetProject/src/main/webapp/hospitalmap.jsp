@@ -45,7 +45,7 @@
                 center: latlng1, //中心點所在位置
                 mapTypeId: google.maps.MapTypeId.ROADMAP //正常2D道路模式
             };
-            var imageUrl = "assets/images/icons8-醫院-50.png"; //空字串就會使用預設圖示
+            var imageUrl = "assets/images/hospital.png"; //空字串就會使用預設圖示
             //在指定DOM元素中嵌入地圖
             geocoder = new google.maps.Geocoder();
             var map = new google.maps.Map(

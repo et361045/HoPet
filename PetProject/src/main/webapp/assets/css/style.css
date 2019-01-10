@@ -43,13 +43,189 @@ Tags: light, white, single page, multipurpose, multi page, custom-colors, Bootst
 
 @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
 
+.map_search_select > select{
+	font-family:'Noto Sans TC', sans-serif;
+    display: block;
+    width: 100%;
+    height: 37px;
+    padding: 6px 12px;
+    font-size: 15px;
+    line-height: 1.42857143;
+    color: #1E90FF;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-weight:600;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.hospital_map_search{
+	margin-top:10px;
+	width:100px;
+	color: white;
+	font-size:15px;
+    font-family:'Noto Sans TC', sans-serif;
+    background-color: #337ab7;
+    transition: all 0.4s;
+    letter-spacing: 3px;　
+}
+.hospital_map_search{
+	margin-top:10px;
+	width:100px;
+	color: white;
+	font-size:15px;
+    font-family:'Noto Sans TC', sans-serif;
+    background-color: #00477D;
+    transition: all 0.4s;
+    letter-spacing: 3px;　
+}
+.map_search_select > label{
+	font-size:17px;
+	line-height:35px;
+	color: #7E9EC9;
+    font-family:'Noto Sans TC', sans-serif;
+}
+
+.map_search{
+	display:flex;
+	float:left;
+	width: 200px;
+	margin-left:30px;
+	height: auto;
+	padding-top: 30px;
+}
+.map_search_tital{
+	color: #337ab7;
+	font-family:'Noto Sans TC', sans-serif;
+	font-size: 25px;
+	font-weight: 600;
+}
+
+.hospital_map_p{
+	font-size: 30px;
+	font-family: 'cwTeXYen', sans-serif;
+	color: #337ab7;
+	padding: 5px;
+	font-weight: 500;
+	background-color: #FFF7E8;
+	margin-bottom:10px;
+	margin-top: 10px 
+}
+
+.hospital_map > div{
+	float:right;
+	width: 1200px; 
+	height: 500px;
+	padding-right:30px;
+	padding-bottom: 25px;
+	border-color: #D4D4D4;
+}
+
+.hospital_map{
+	height: 700px;
+}
+
+.form-group > label{
+	float: left;
+}
+
+.modal_title{
+	font-family:'Noto Sans TC', sans-serif;
+	font-style: normal;
+	font-size: 20px;
+}
+
+.foster_modal_content{
+    position: relative;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #999;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: 6px;
+    outline: 0;
+    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+}
+
+.foster_search_select > select{
+	font-family:'Noto Sans TC', sans-serif;
+    display: block;
+    width: 100%;
+    height: 37px;
+    padding: 6px 12px;
+    font-size: 15px;
+    line-height: 1.42857143;
+    color: #1E90FF;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-weight:600;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.foster_search_select > input{
+	margin-top:10px;
+	width:100px;
+	color: white;
+	font-size:15px;
+    font-family:'Noto Sans TC', sans-serif;
+    background-color: #337ab7;
+    transition: all 0.4s;
+    letter-spacing: 3px;　
+}
+.foster_search_select > input:hover{
+	margin-top:10px;
+	width:100px;
+	color: white;
+	font-size:15px;
+    font-family:'Noto Sans TC', sans-serif;
+    background-color: #00477D;
+    transition: all 0.4s;
+    letter-spacing: 3px;　
+}
+.foster_search_select > label{
+	line-height:35px;
+	color: #7E9EC9;
+    font-family:'Noto Sans TC', sans-serif;
+}
+
+.foster_search{
+	display:flex;
+	float:left;
+	width: 200px;
+	margin-left:30px;
+	height: auto;
+	padding-top: 10px;
+}
+.foster_search_tital{
+	color: #337ab7;
+	font-family:'Noto Sans TC', sans-serif;
+	font-size: 25px;
+	font-weight: 600;
+}
+
 .foster_button{
 	float: right;
-	color: #ffc107;
+	color: #337ab7;
 	background-color:#fff;
-    border-color: #ffc107;
+    border: #ffc107 3px solid;
     font-family:'Noto Sans TC', sans-serif;
     transition: all 0.5s;
+    width: 130px;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 4px;
+    outline: none;
+    height: 45px;
 }
 .foster_button:hover{
 	float: right;
@@ -58,19 +234,24 @@ Tags: light, white, single page, multipurpose, multi page, custom-colors, Bootst
     border-color: #ffc107;
     font-family:'Noto Sans TC', sans-serif;
     transition: all 0.5s;
+    outline: none;
 }
+
 
 .container_foster {
     width: 1100px;
     float: right;
-    margin-right: 50px;
+    margin-right: 80px;
 }
 
 .title-area_foster {
     display: inline;
     float: left;
     text-align: center;
-    width: 100%;
+    width: 1100px;
+    background-color: #FFFFDE;
+    height: 45px;
+    border-radius: 5px;
 }
 
 .title_foster{
@@ -80,6 +261,11 @@ Tags: light, white, single page, multipurpose, multi page, custom-colors, Bootst
     color: #FFB630; 
     font-size: 35px;
     font-weight: 900;
+    padding-left: 20px;
+    align-items:center;
+    justify-content:center;
+    padding-bottom: 0px;
+	margin-top: 2px;
 }
 
 .foster_heart{
@@ -519,15 +705,16 @@ img{
 }
 
 .navbar-default .navbar-nav > li > a {
-  color: #333;
+  color: #5686BF;
   display: flex;
   font-family: 'cwTeXYen', sans-serif;
-  font-size: 21px;
+  font-size: 23px;
   padding-left: 10px;
   padding-right: 10px;
   text-transform: uppercase;
   width: 100%;
   padding-top: 25px;
+  font-weight: 600;
 }
 
 .navbar-default .navbar-nav > li > a:hover,
@@ -576,14 +763,15 @@ img{
 }
 
 .navbar-nav > li > .dropdown-menu > li > a {
-	color: #333;
+	color: #5686BF;
 	font-family: 'cwTeXYen', sans-serif;
-	font-size: 18px;
+	font-size: 20px;
 	padding: 8px 20px;
 	text-transform: uppercase;
 	-webkit-transition: all 0.5s;
 	-o-transition: all 0.5s;
 	transition: all 0.5s;
+	font-weight: 600;
 }
 
 .navbar-nav > li > .dropdown-menu > li > a:hover,
@@ -1221,6 +1409,7 @@ img{
   float: left;
   padding: 20px;
   width: 100%;
+  padding-left: 40px;
 }
 
 .our-team-content{
@@ -2446,7 +2635,7 @@ img{
     padding-right: 55px;
   }
   .navbar-default .navbar-nav > li > a {  
-    font-size: 13px;
+    font-size: 20px;
     padding-left: 4px;
     padding-right: 4px; 
   }
