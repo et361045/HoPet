@@ -28,10 +28,13 @@
         body { height: 100%; margin: 0px; padding: 0px }  
         #map_canvas { height: 100% }        
     </style>
-      <script type="text/javascript"
-     src="https://maps.googleapis.com/maps/api/js?key&AIzaSyBpZmGolfotLrG4xt6jVDhY87zi_vWWV1Y">
- 	</script>
+<!--       <script type="text/javascript" -->
+<!--      src="https://maps.googleapis.com/maps/api/js?key&AIzaSyBpZmGolfotLrG4xt6jVDhY87zi_vWWV1Y"> -->
+<!-- 	</script> -->
 	
+	<script type="text/javascript"
+     src="https://maps.googleapis.com/maps/api/js?key&AIzaSyBpZmGolfotLrG4xt6jVDhY87zi_vWWV1Y">
+	</script>
     <script>   
     
 
@@ -50,7 +53,7 @@
             geocoder = new google.maps.Geocoder();
             var map = new google.maps.Map(
                 document.getElementById("map_canvas"), mapOptions);
-        	 
+            var address='總統府';
         	$.ajax({
         			data: "GET",
         			url: "/PetProject/query",
@@ -58,7 +61,7 @@
         			success: function(json) {
         				console.log(json)
         				$.each(json , function(idx, val){
-        					var latitude = new google.maps.LatLng(val.longitude,val.latitude);;
+        					var latitude = new google.maps.setCenter(results[0].geometry.location);;
         					var hospitalName = val.hospitalName;
         					new google.maps.Marker({
         			                position: latitude, //經緯度

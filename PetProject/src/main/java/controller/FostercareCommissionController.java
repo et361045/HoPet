@@ -76,12 +76,12 @@ public class FostercareCommissionController {
 		if(errors!=null && !errors.isEmpty()) {
 			
 			System.out.println("enter errors");
-			return "fostercare.errors";
+			return "fostercarecommission.errors";
 		}
 		if("Select".equals(fostercare)) {
 			List<FostercareCommissionBean> result = fostercareservice.select(bean);
 			model.addAttribute("select", result);
-			return "fostercare.select";
+			return "fostercarecommission.select";
 			
 		} else if("Insert".equals(fostercare)) {
 			FostercareCommissionBean result = fostercareservice.insert(bean);
@@ -90,7 +90,7 @@ public class FostercareCommissionController {
 			} else {
 				model.addAttribute("insert", result);
 			}
-			return "fostercare.errors";
+			return "fostercarecommission.errors";
 			
 		} else if("Update".equals(fostercare)) {
 			FostercareCommissionBean result = fostercareservice.update(bean);
@@ -99,16 +99,16 @@ public class FostercareCommissionController {
 			} else {
 				model.addAttribute("insert", result);
 			}
-			return "fostercare.errors";
+			return "fostercarecommission.errors";
 			
 		} else if("Delete".equals(fostercare)) {
 			boolean result = fostercareservice.delete(bean);
 			model.addAttribute("delete", result);
-			return "fostercare.errors";
+			return "fostercarecommission.errors";
 			
 		} else {
 			errors.put("action", "unknown action: "+fostercare);
-			return "fostercare.errors";
+			return "fostercarecommission.errors";
 		}
 
 		
