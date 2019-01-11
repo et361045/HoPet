@@ -105,7 +105,7 @@
 									value="<span class='Username' >HI, ${user.memberName} </span>"
 									escapeXml="false" />
 								<c:out
-									value="  <a class='login modal-form' id='Logout'> Logout</button>"
+									value="  <a class='login modal-form' id='Logout'> Logout</a>"
 									escapeXml="false" />
 							</c:if>
 
@@ -115,10 +115,6 @@
 								data-toggle='modal' href='#'>Login / Sign Up</a>"
 									escapeXml="false" />
 							</c:if>
-
-
-
-
 						</div>
 					</div>
 				</div>
@@ -243,7 +239,9 @@
 					</button>
 					<!-- LOGO -->
 					<!-- TEXT BASED LOGO -->
-					<a class="navbar-brand" href="/PetProject/index.jsp"><img src="/PetProject/assets/images/logo.png" class="logo_img"></a>
+					<a href="/PetProject/index.jsp">
+ 					<img  src="/PetProject/assets/images/logo.png" class="logo_img"> 
+					</a>
 					<!-- IMG BASED LOGO  -->
 					<!-- <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" alt="logo"></a> -->
 				</div>
@@ -294,9 +292,9 @@
 						<p class="text">
 							驗證碼:<input type="text" class="entercode"><input
 								type="submit" value="送出" class=" btn btn-info"
-								style="font-size: 18px;"><input
-								type="submit" value="提交" class=" btn btn-success"
-								style="font-size: 18px; margin-left: 15px ">
+								style="font-size: 18px;"><input type="submit" value="提交"
+								class=" btn btn-success"
+								style="font-size: 18px; margin-left: 15px">
 						</p>
 					</div>
 				</div>
@@ -306,46 +304,58 @@
 							<div class="col-md-6">
 								<div class="our-skill">
 									<h2 class="code">個人資料</h2>
-                                 <span style="  margin-left: 300px; padding:60px; padding-top:70px; padding-bottom:70px; border: red thin solid  ;">照片</span>
+									<span
+										style="margin-left: 300px; padding: 60px; padding-top: 70px; padding-bottom: 70px; border: red thin solid;">照片</span>
 									<div class="our-skill-content">
-										<p class="text">您的個人資料<br/>(按鉛筆修改 打勾確定)</p>
+										<p class="text">
+											您的個人資料<br />(按鉛筆修改 打勾確定)
+										</p>
 										<form id="memberupdata" action="">
-											<div class="form-group"><label class="text">信箱:</label>
-												<input type="email" placeholder="${user.email}"          
-													class="form-control" title="請輸入信箱" name="email"  readOnly="readonly">
-												</div>
-										
-											<div class="form-group"><label class="text">密碼:</label>
-												<input type="password" id="updatepassword" placeholder="**********"
-													class="form-control" title="請輸入密碼" name="psw"  readonly="readonly" value="${user.psw}">
-													 <span id=checkpsw class="glyphicon glyphicon-ok"  style="float:right;"></span>
-													 <span class="glyphicon" style="float:right;">&#x270f;</span>		
+											<div class="form-group">
+												<label class="text">信箱:</label> <input type="email"
+													placeholder="${user.email}" class="form-control"
+													title="請輸入信箱" name="email" readOnly="readonly">
 											</div>
-											
-											
-<!-- 											<div class="form-group"> <label class="text">密碼:</label> -->
-<!-- 												<input type="password" id="checkpass" -->
-<!-- 													placeholder="checkpassword" class="form-control" -->
-<!-- 													title="與密碼相附"> -->
-<!-- 											</div> -->
-										
-											<div class="form-group"><label class="text">暱稱:</label>
-												<input type="text" value="${user.memberName}" class="form-control"
-													title="請輸入暱稱" name="memberName"  readonly="readonly" id="memberName">
-													  <span class="glyphicon glyphicon-ok" style="float:right;"></span>
-													 <span class="glyphicon" style="float:right;">&#x270f;</span>
+
+											<div class="form-group">
+												<label class="text">密碼:</label> <input type="password"
+													id="updatepassword" placeholder="**********"
+													class="form-control" title="請輸入密碼" name="psw"
+													readonly="readonly" value="${user.psw}"> <span
+													id=checkpsw class="glyphicon glyphicon-ok"
+													style="float: right;"></span> <span class="glyphicon"
+													style="float: right;">&#x270f;</span>
 											</div>
-											<div class="form-group"><label class="text">地址:</label>
-												<input type="text" value="${user.address}"
-													class="form-control" title="請輸入地址" name="address"  readonly="readonly" id="address">
-													 <span class="glyphicon glyphicon-ok" style="float:right;"></span>
-													 <span class="glyphicon" style="float:right;">&#x270f;</span>
+
+
+											<!-- 											<div class="form-group"> <label class="text">密碼:</label> -->
+											<!-- 												<input type="password" id="checkpass" -->
+											<!-- 													placeholder="checkpassword" class="form-control" -->
+											<!-- 													title="與密碼相附"> -->
+											<!-- 											</div> -->
+
+											<div class="form-group">
+												<label class="text">暱稱:</label> <input type="text"
+													value="${user.memberName}" class="form-control"
+													title="請輸入暱稱" name="memberName" readonly="readonly"
+													id="memberName"> <span
+													class="glyphicon glyphicon-ok" style="float: right;"></span>
+												<span class="glyphicon" style="float: right;">&#x270f;</span>
 											</div>
-											<div class="form-group"><label class="text">手機:</label>
-												<input type="text" value="${user.memberPhone} "
-													class="form-control" title="請輸入手機" name="memberPhone"  readonly="readonly"id="memberPhone">
-													 <span class="glyphicon glyphicon-ok" style="float:right;"></span>
-													 <span class="glyphicon" style="float:right;">&#x270f;</span>
+											<div class="form-group">
+												<label class="text">地址:</label> <input type="text"
+													value="${user.address}" class="form-control" title="請輸入地址"
+													name="address" readonly="readonly" id="address"> <span
+													class="glyphicon glyphicon-ok" style="float: right;"></span>
+												<span class="glyphicon" style="float: right;">&#x270f;</span>
+											</div>
+											<div class="form-group">
+												<label class="text">手機:</label> <input type="text"
+													value="${user.memberPhone} " class="form-control"
+													title="請輸入手機" name="memberPhone" readonly="readonly"
+													id="memberPhone"> <span
+													class="glyphicon glyphicon-ok" style="float: right;"></span>
+												<span class="glyphicon" style="float: right;">&#x270f;</span>
 											</div>
 										</form>
 									</div>
@@ -378,17 +388,18 @@
 														sapiente ea proident. Ad vegan excepteur butcher vice
 														lomo. Leggings occaecat craft beer farm-to-table, raw
 														denim aesthetic synth nesciunt you probably haven't heard
-														of them accusamus labore sustainable VHS.Anim pariatur cliche reprehenderit, enim eiusmod
-														high life accusamus terry richardson ad squid. 3 wolf moon
-														officia aute, non cupidatat skateboard dolor brunch. Food
-														truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
-														tempor, sunt aliqua put a bird on it squid single-origin
-														coffee nulla assumenda shoreditch et. Nihil anim keffiyeh
-														helvetica, craft beer labore wes anderson cred nesciunt
-														sapiente ea proident. Ad vegan excepteur butcher vice
-														lomo. Leggings occaecat craft beer farm-to-table, raw
-														denim aesthetic synth nesciunt you probably haven't heard
-														of them accusamus labore sustainable VHS.</p>
+														of them accusamus labore sustainable VHS.Anim pariatur
+														cliche reprehenderit, enim eiusmod high life accusamus
+														terry richardson ad squid. 3 wolf moon officia aute, non
+														cupidatat skateboard dolor brunch. Food truck quinoa
+														nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
+														aliqua put a bird on it squid single-origin coffee nulla
+														assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+														craft beer labore wes anderson cred nesciunt sapiente ea
+														proident. Ad vegan excepteur butcher vice lomo. Leggings
+														occaecat craft beer farm-to-table, raw denim aesthetic
+														synth nesciunt you probably haven't heard of them
+														accusamus labore sustainable VHS.</p>
 												</div>
 											</div>
 										</div>
@@ -516,7 +527,7 @@
 
 	<!-- Custom js -->
 	<script type="text/javascript" src="/PetProject/assets/js/custom.js"></script>
-	
+
 	<!-- updatemember js -->
 	<script type="text/javascript" src="/PetProject/assets/js/update.js"></script>
 

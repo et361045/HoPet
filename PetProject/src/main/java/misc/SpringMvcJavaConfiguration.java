@@ -1,5 +1,6 @@
 package misc;
 
+import java.io.IOException;
 import java.util.Locale;
 
 import javax.servlet.ServletContext;
@@ -10,7 +11,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.web.context.support.ServletContextResource;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -23,6 +27,7 @@ import org.springframework.web.servlet.view.XmlViewResolver;
 
 @Configuration
 @ComponentScan(basePackages={"controller"})
+@ComponentScan(basePackages={"com.yiibai.springmvcfileupload"})
 @EnableWebMvc
 public class SpringMvcJavaConfiguration implements WebMvcConfigurer {
 	@Override
@@ -67,4 +72,13 @@ public class SpringMvcJavaConfiguration implements WebMvcConfigurer {
 		sessionLocaleResolver.setDefaultLocale(Locale.TAIWAN);
 		return sessionLocaleResolver;
 	}
+	
+
+	@Bean
+    public MultipartResolver multipartResolver() throws IOException {
+        CommonsMultipartResolver commonsMultipartResolver = new CommonsMultipartResolver();
+        commonsMultipartResolver.setUploadTempDir(new FileSystemResource("/temp"));
+        return commonsMultipartResolver;
+    }
+
 }

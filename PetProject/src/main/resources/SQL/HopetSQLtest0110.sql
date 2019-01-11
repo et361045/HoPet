@@ -1,4 +1,4 @@
-
+create dataBase HoPet
 
 Create TABLE member--會員資料
 (	
@@ -12,7 +12,7 @@ Create TABLE member--會員資料
 	point varchar(5),--扣分點
 	punishDay date,--處罰時間
 	checkSuccess varchar(2),--會員認證  YSE/NO
-	memberPicture varbinary(MAX), --照片
+	memberPicture varchar(max), --照片路徑
 	PRIMARY KEY (memberid)
 )  --豪   -sam    --安
 
@@ -37,7 +37,7 @@ Create Table Travelpicture--旅遊照片編號
 (
  travelPictureId int Identity,--旅遊照片編號
  travelInformationid int,--旅遊編號
- picture varbinary(MAX),--照片
+ picture varchar(max),--照片
 
  primary key(travelPictureId),
  FOREIGN KEY (travelInformationid) REFERENCES TravelInformation(travelInformationid)
@@ -78,7 +78,7 @@ CREATE TABLE [dbo].[Petencyclopedia]  (     --寵物百科
 	[petvariety] [nvarchar](10) NULL,  --寵物名稱	
 	[scientific] [varchar](50) NULL,  --寵物學名
 	[petSize] [nvarchar](10) NULL,  --寵物種類 大型犬/小型犬/中型犬
-	[petPicture] [varbinary](max) NULL,  --寵物照片
+	[petPicture] [varchar](max) NULL,  --寵物照片
 	[petData] [nvarchar](max) NULL,  --書面資料
 	[remarks] [nvarchar](max) NULL,  --備註
 	[Place] [nvarchar](50) NULL,   --產地
@@ -100,6 +100,7 @@ GO
 Create TABLE Pet--會員寵物資料
 (
 	petId int Identity unique,--寵物編號流水號
+	petPicture varchar(max), --照片路徑
 	petName nvarchar(30), --寵物名子
 	memberid int,--會員(寵物主)編號
 	petSize nvarchar(10),--寵物種類 大型犬/小型犬/中型犬
@@ -170,7 +171,7 @@ Create Table FostercareCommission--寄養委託
 	endtime date,--結束時間
 	owner int , --寵物主會員編號
 	reason nvarchar(max),--寄養事由
-	picture varbinary(MAX), --照片
+	picture varchar(max), --照片路徑
 	remark nvarchar(max),--備註
 	petid int ,--寵物編號
     FOREIGN KEY (owner) REFERENCES member(memberid),
@@ -217,7 +218,7 @@ Create Table FosterCommission--送養委託
 	area nvarchar(50),--地區
 	owner int unique , --送養會員編號
 	reason nvarchar(max),--送養事由
-	picture varbinary(MAX), --照片
+	picture varchar(max), --照片路徑
 	remark nvarchar(max),--備註
 	petid int ,--寵物編號
 	  primary key(FosterCommissionid),
@@ -334,7 +335,7 @@ Create Table Competition--競版圖
 (
 	competitionmapid int identity,--圖片編號
 	memberid int,--發圖人會員編號
-	picture varbinary(MAX),--照片
+	picture varchar(max), --照片路徑
 	txt nvarchar(MAX),--照片內容
 	totalpoint int, --讚數
     PRIMARY KEY (Competitionmapid),
@@ -517,7 +518,7 @@ Create Table ProductPhoto--商品照片
 (	
    ProductPhotoid int unique identity, --商品照片編號 
 	  Productid    int,  --商品編號
-	  Photo        varbinary(MAX), --商品照片       
+	picture varchar(max), --照片路徑 
 	primary key(ProductPhotoid),
 
     FOREIGN KEY (Productid) REFERENCES ProductInformation(productid),

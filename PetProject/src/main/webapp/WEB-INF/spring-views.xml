@@ -10,6 +10,7 @@
 	<context:annotation-config></context:annotation-config>
 	<context:component-scan
 		base-package="controller"></context:component-scan>
+		
 
 	<bean id="fostercare.errors"
 		class="org.springframework.web.servlet.view.InternalResourceView">

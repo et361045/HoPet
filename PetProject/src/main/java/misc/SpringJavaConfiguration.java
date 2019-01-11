@@ -1,5 +1,6 @@
 package misc;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -15,8 +16,11 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.jndi.JndiObjectFactoryBean;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 import model.ProductInformation.ProductInformationBean;
 import model.Shoppingcar.ShoppingcarBean;
@@ -84,6 +88,8 @@ public class SpringJavaConfiguration {
 		
 		return builder.buildSessionFactory();
 	}
+	
+
 	public static void main(String[] args) throws Exception {
 		ApplicationContext context=new AnnotationConfigApplicationContext(SpringJavaConfiguration.class);
 		DataSource dataSource = (DataSource) context.getBean("dataSource");

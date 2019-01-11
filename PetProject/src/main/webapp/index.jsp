@@ -1,4 +1,5 @@
- <%@ page language="java" contentType="text/html; charset=UTF-8"
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
@@ -17,17 +18,20 @@
 <!-- Bootstrap -->
 <link href="/PetProject/assets/css/bootstrap.css" rel="stylesheet">
 <!-- Slick slider -->
-<link rel="stylesheet" type="text/css" href="/PetProject/assets/css/slick.css" />
+<link rel="stylesheet" type="text/css"
+	href="/PetProject/assets/css/slick.css" />
 <!-- Fancybox slider -->
 <link rel="stylesheet" href="/PetProject/assets/css/jquery.fancybox.css"
 	type="text/css" media="screen" />
 <!-- Animate css -->
-<link rel="stylesheet" type="text/css" href="/PetProject/assets/css/animate.css" />
+<link rel="stylesheet" type="text/css"
+	href="/PetProject/assets/css/animate.css" />
 <!-- Progress bar  -->
 <link rel="stylesheet" type="text/css"
 	href="/PetProject/assets/css/bootstrap-progressbar-3.3.4.css" />
 <!-- Theme color -->
-<link id="switcher" href="/PetProject/assets/css/theme-color/default-theme.css"
+<link id="switcher"
+	href="/PetProject/assets/css/theme-color/default-theme.css"
 	rel="stylesheet">
 
 <!-- Main Style -->
@@ -89,23 +93,24 @@
 				<div class="row">
 					<div class="col-md-6 col-sm-6 col-xs-6"></div>
 					<div class="col-md-6 col-sm-6 col-xs-6">
-							<div class="header-login">
+						<div class="header-login">
 
 							<c:if test="${!empty  user}">
-								<c:out value="<span class='Username' >HI, ${user.memberName} </span>"
+								<c:out
+									value="<span class='Username' >HI, ${user.memberName} </span>"
 									escapeXml="false" />
-					    <c:out  value="  <a class='login modal-form' id='Logout'> Logout</button>" escapeXml="false"/> 
+								<c:out
+									value="  <a class='login modal-form' id='Logout'> Logout</a>" 
+									escapeXml="false" /> 
 							</c:if>
-							
+
 							<c:if test="${empty  user}">
-							 <c:out value=" <a class='login modal-form' data-target='#login-form'
+								<c:out
+								value=" <a class='login modal-form' data-target='#login-form'
 								data-toggle='modal' href='#' id='Login'>Login / Sign Up</a>"
 									escapeXml="false" />
 							</c:if>
 							
-							
-
-
 						</div>
 					</div>
 				</div>
@@ -169,40 +174,43 @@
 				<div class="modal-body">
 					<form id="signon" action="<c:url value='/signon'/>">
 						<div class="form-group">
-							<input type="email" placeholder="User email" class="form-control" title="請輸入信箱" name="email">
+							<input type="email" placeholder="User email" class="form-control"
+								title="請輸入信箱" name="email">
 						</div>
 						<div class="form-group">
 							<p class="Description" id="checkemail"></p>
 						</div>
 						<div class="form-group">
-							<input type="password" id="password" placeholder="password" class="form-control" title="請輸入密碼" name="psw">
+							<input type="password" id="password" placeholder="password"
+								class="form-control" title="請輸入密碼" name="psw">
 						</div>
 						<div class="form-group">
-							<input type="password" id="checkpass" placeholder="checkpassword" class="form-control" title="與密碼相附">
+							<input type="password" id="checkpass" placeholder="checkpassword"
+								class="form-control" title="與密碼相附">
 						</div>
 						<div class="form-group">
 							<p class="Description" id="checkpassword"></p>
 						</div>
 						<div class="form-group">
-							<input  type="text" placeholder="name"
-								class="form-control"  title="請輸入暱稱" name="memberName" >
+							<input type="text" placeholder="name" class="form-control"
+								title="請輸入暱稱" name="memberName">
 						</div>
 						<div class="form-group">
-							<input  type="text" placeholder="address"
-								class="form-control" title="請輸入地址" name="address" >
+							<input type="text" placeholder="address" class="form-control"
+								title="請輸入地址" name="address">
 						</div>
 						<div class="form-group">
-							<input  type="text" placeholder="cellphone-number "
-								class="form-control"  title="請輸入手機" name="memberPhone" >
+							<input type="text" placeholder="cellphone-number "
+								class="form-control" title="請輸入手機" name="memberPhone">
 						</div>
-						
-						
+
+
 						<div class="signupbox">
 							<span>Already got account? <a id="login-btn" href="#">Sign
 									In.</a></span>
 						</div>
 						<div class="loginbox">
-						<input type="submit" class="btn signin-btn" value="SIGN UP" ><span
+							<input type="submit" class="btn signin-btn" value="SIGN UP"><span
 								class="errorspan" id="errorspan"></span>
 						</div>
 					</form>
@@ -227,7 +235,8 @@
 					</button>
 					<!-- LOGO -->
 					<!-- TEXT BASED LOGO -->
-                    <a href="index.jsp"><img src="assets/images/logo.png" class="logo_img"></a>
+					<a href="index.jsp"><img src="assets/images/logo.png"
+						class="logo_img"></a>
 					<!-- IMG BASED LOGO  -->
 					<!-- <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" alt="logo"></a> -->
 				</div>
@@ -1240,20 +1249,25 @@
 	<!-- Slick Slider -->
 	<script type="text/javascript" src="/PetProject/assets/js/slick.js"></script>
 	<!-- mixit slider -->
-	<script type="text/javascript" src="/PetProject/assets/js/jquery.mixitup.js"></script>
+	<script type="text/javascript"
+		src="/PetProject/assets/js/jquery.mixitup.js"></script>
 	<!-- Add fancyBox -->
-	<script type="text/javascript" src="/PetProject/assets/js/jquery.fancybox.pack.js"></script>
+	<script type="text/javascript"
+		src="/PetProject/assets/js/jquery.fancybox.pack.js"></script>
 	<!-- counter -->
 	<script src="assets/js/waypoints.js"></script>
 	<script src="assets/js/jquery.counterup.js"></script>
 	<!-- Wow animation -->
 	<script type="text/javascript" src="/PetProject/assets/js/wow.js"></script>
 	<!-- progress bar   -->
-	<script type="text/javascript" src="/PetProject/assets/js/bootstrap-progressbar.js"></script>
+	<script type="text/javascript"
+		src="/PetProject/assets/js/bootstrap-progressbar.js"></script>
 	<!--login   -->
-	<script type="text/javascript" src="/PetProject/assets/css/login/login.js"></script>
+	<script type="text/javascript"
+		src="/PetProject/assets/css/login/login.js"></script>
 	<!--Signon   -->
-	<script type="text/javascript" src="/PetProject/assets/css/SignOn/SignOn.js"></script>
+	<script type="text/javascript"
+		src="/PetProject/assets/css/SignOn/SignOn.js"></script>
 
 
 	<!-- Custom js -->
