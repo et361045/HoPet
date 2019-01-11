@@ -84,11 +84,15 @@ public class ActivityCommissionController {
 			return "activityCommission.select";
 			
 		} else if("Insert".equals(activityCommission)) {
+		System.out.println("enter insert");
 			ActivityCommissionBean result = activityCommissionService.insert(bean);
+			System.out.println("insert result="+result);
 			if(result==null) {
 				errors.put("action", "insert failed");
+				System.out.println(result);
 			} else {
 				model.addAttribute("insert", result);
+				System.out.println(result);
 			}
 			return "activityCommission.errors";
 			

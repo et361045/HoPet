@@ -1,6 +1,5 @@
 package misc;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -16,16 +15,13 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.FileSystemResource;
 import org.springframework.jndi.JndiObjectFactoryBean;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
-import org.springframework.web.multipart.MultipartResolver;
-import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 import model.ProductInformation.ProductInformationBean;
 import model.Shoppingcar.ShoppingcarBean;
 import model.activityCommission.ActivityCommissionBean;
-import model.activityregistrationform.ActivityRegistrationFormBean;
+import model.activityForm.ActivityFormBean;
 import model.businessInformation.BusinessInformationBean;
 import model.detail.DetailBean;
 import model.foster.FosterBean;
@@ -78,7 +74,7 @@ public class SpringJavaConfiguration {
 		builder.addAnnotatedClass(FostercareFormBean.class);
 		builder.addAnnotatedClass(FostercareBean.class);//model.fostercare
 		builder.addAnnotatedClass(ActivityCommissionBean.class);
-		builder.addAnnotatedClass(ActivityRegistrationFormBean.class);
+		builder.addAnnotatedClass(ActivityFormBean.class);
 		builder.addAnnotatedClass(FosterBean.class);
 		builder.addAnnotatedClass(FosterFormBean.class);
 		builder.addAnnotatedClass(FosterCommissionBean.class);

@@ -7,14 +7,14 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Activity")
+@Table(name="ActivityCommission")
 public class ActivityCommissionBean {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer activityid; //活動編號流水號
 	private Integer activitymemberid; //活動發起人 會員編號
 	private String activityname; //活動名稱
-	private String activities; //活動內容
+	private String activites; //活動內容
 	private Integer limit; //限制人數
 	private Integer signup; //報名人數
 	private String status; //狀態
@@ -22,7 +22,7 @@ public class ActivityCommissionBean {
 	@Override
 	public String toString() {
 		return "ActivityCommissionBean [activityid=" + activityid + ", activitymemberid=" + activitymemberid
-				+ ", activityname=" + activityname + ", activities=" + activities + ", limit=" + limit + ", signup="
+				+ ", activityname=" + activityname + ", activities=" + activites + ", limit=" + limit + ", signup="
 				+ signup + ", status=" + status + "]";
 	}
 
@@ -51,11 +51,11 @@ public class ActivityCommissionBean {
 	}
 
 	public String getActivities() {
-		return activities;
+		return activites;
 	}
 
 	public void setActivities(String activities) {
-		this.activities = activities;
+		this.activites = activities;
 	}
 
 	public Integer getLimit() {

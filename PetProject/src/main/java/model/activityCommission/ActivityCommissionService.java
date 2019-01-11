@@ -32,6 +32,7 @@ public class ActivityCommissionService {
 		return result;
 	}
 	public ActivityCommissionBean insert(ActivityCommissionBean bean) {
+		System.out.println("service= bean "+bean);
 		ActivityCommissionBean result = null;
 		if(bean!=null) {
 			result = activityCommissionDAO.create(bean);

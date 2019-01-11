@@ -1,4 +1,4 @@
-package model.dao.activity;
+package model.dao.activitycommission;
 
 import java.util.List;
 
@@ -24,11 +24,11 @@ public class ActivityCommissionDaoHibernate implements ActivityCommissionDAO{
 	}
 	
 	@Override
-	public ActivityCommissionBean findByPrimaryKey(Integer petid) {
+	public ActivityCommissionBean findByPrimaryKey(Integer activityid) {
 		//利用id作為primary key取得product table資料
 		//id存在=>傳回裝滿資料的ProductBean物件
 		//id不存在=>傳回null
-		return this.getSession().get(ActivityCommissionBean.class, petid);
+		return this.getSession().get(ActivityCommissionBean.class, activityid);
 	}
 	@Override
 	public List<ActivityCommissionBean> findAll() {
@@ -44,16 +44,12 @@ public class ActivityCommissionDaoHibernate implements ActivityCommissionDAO{
 		//id不存在=>新增成功、傳回裝滿資料的ProductBean物件
 		
 		if(bean!=null) {
-			ActivityCommissionBean temp = this.getSession().get(ActivityCommissionBean.class, bean.getActivitymemberid());
-			if(temp==null) {
 				this.getSession().save(bean);
 				return bean;
-			}
-		}
-		return null;
 	}
+		return null;}
 	@Override
-	public ActivityCommissionBean update(String activityname, String activities,Integer limit, Integer signup, String status,Integer activitymemberid) {
+	public ActivityCommissionBean update(String activityname, String activites,Integer limit, Integer signup, String status,Integer activitymemberid) {
 		//利用id作為primary key修改product table資料
 		//id存在=>修改成功、傳回裝滿資料的ProductBean物件
 		//id不存在=>修改失敗、傳回null
@@ -61,7 +57,7 @@ public class ActivityCommissionDaoHibernate implements ActivityCommissionDAO{
 		ActivityCommissionBean temp = this.getSession().get(ActivityCommissionBean.class, activitymemberid);
 		if(temp!=null) {	
 			temp.setActivityname(activityname);
-			temp.setActivities(activities);
+			temp.setActivities(activites);
 			temp.setLimit(limit);
 			temp.setSignup(signup);
 			temp.setStatus(status);
@@ -72,18 +68,17 @@ public class ActivityCommissionDaoHibernate implements ActivityCommissionDAO{
 		return null;
 	}
 	@Override
-	public boolean remove(Integer petid) {
+	public boolean remove(Integer activitymemberid) {
 		//利用id作為primary key刪除product table資料
 		//id存在=>刪除product table資料並傳回true
 		//id不存在=>傳回false
 		
-		ActivityCommissionBean temp = this.getSession().get(ActivityCommissionBean.class, petid);
+		ActivityCommissionBean temp = this.getSession().get(ActivityCommissionBean.class, activitymemberid);
 	   if(temp!=null) {
 		  this.getSession().delete(temp);
 		  return true;
 	   }
 		return false;
 	}
-	
 	
 }

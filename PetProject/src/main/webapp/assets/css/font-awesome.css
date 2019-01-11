@@ -875,6 +875,11 @@
 .fa-hospital-o:before {
   content: "\f0f8";
 }
+
+.fa-store-o:before {
+  content: "\f0f8";
+}
+
 .fa-ambulance:before {
   content: "\f0f9";
 }

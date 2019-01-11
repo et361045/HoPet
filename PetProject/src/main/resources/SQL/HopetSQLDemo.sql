@@ -228,13 +228,13 @@ INSERT INTO [dbo].[ProductInformation]
 GO
 
 --活動
-INSERT INTO [dbo].[Activity]
-           ([Activitymemberid]
-           ,[ActivityName]
-           ,[activities]
-           ,[Limit]
-           ,[Signup]
-           ,[Status])
+INSERT INTO [dbo].[ActivityCommission]
+           ([activitymemberid]
+           ,[activityName]
+           ,[activites]
+           ,[limit]
+           ,[signup]
+           ,[status])
      VALUES
            (1
            ,'秀出你心中的大寶貝'
