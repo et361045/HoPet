@@ -62,7 +62,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 <style>
-body, input {
+body, input { 
 	font-size: 10px;
 }
 
@@ -72,7 +72,7 @@ body, input {
 }
 </style>
 <script type="text/javascript"
-	src="https://maps.googleapis.com/maps/api/js?key&AIzaSyBpZmGolfotLrG4xt6jVDhY87zi_vWWV1Y">
+	src="https://maps.googleapis.com/maps/api/js?key&AIzaSyD5yTSd7qAEyeoxcOIEK1K4M3X-H6bKiis">
 	
 </script>
 
@@ -383,7 +383,7 @@ body, input {
 							<label>醫院名稱:</label>
 							<input name="Address" type="text" class="form-control">
 							<label>地址:</label>
-							<input name="Address" type="text" class="form-control">
+							<input id="pac-input" name="Address" type="text" class="form-control">
 						</div>
 						<script>
 							//自動產生縣市 
@@ -411,6 +411,9 @@ body, input {
 			</figure>
 		</div>
 	</div>
+	
+	
+	
 
 	<!-- Start footer -->
 	<footer id="footer">

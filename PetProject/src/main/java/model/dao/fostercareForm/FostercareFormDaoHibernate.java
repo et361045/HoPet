@@ -48,12 +48,12 @@ public class FostercareFormDaoHibernate implements FostercareFormDao{
 //			if(temp==null) {
 				this.getSession().save(bean);
 				return bean;
-//			}
-		}
+			}
+//		}
 		return null;
 	}
 	@Override
-	public FostercareFormBean update(Integer carer,String status,
+	public FostercareFormBean update(Integer carer,String status,String job,String experience,String pettime,
 			Integer fostercareCommissionid) 
 	{
 		//利用id作為primary key修改product table資料

@@ -27,9 +27,9 @@ import model.detail.DetailBean;
 import model.foster.FosterBean;
 import model.fosterCommission.FosterCommissionBean;
 import model.fosterForm.FosterFormBean;
-import model.fostercare.FostercareBean;
 import model.fostercareCommission.FostercareCommissionBean;
 import model.fostercareForm.FostercareFormBean;
+import model.fostercaredetail.FostercareDetailBean;
 import model.hospital.HospitalBean;
 import model.member.MemberBean;
 import model.shoporder.ShoporderBean;
@@ -72,7 +72,7 @@ public class SpringJavaConfiguration {
 		builder.addAnnotatedClass(ShoppingcarBean.class);
 		builder.addAnnotatedClass(FostercareCommissionBean.class);//model.fostercareCommission
 		builder.addAnnotatedClass(FostercareFormBean.class);
-		builder.addAnnotatedClass(FostercareBean.class);//model.fostercare
+		builder.addAnnotatedClass(FostercareDetailBean.class);//model.fostercare
 		builder.addAnnotatedClass(ActivityCommissionBean.class);
 		builder.addAnnotatedClass(ActivityFormBean.class);
 		builder.addAnnotatedClass(FosterBean.class);

@@ -1,5 +1,6 @@
 package model.dao.fostercareCommission;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -25,11 +26,11 @@ public class FostercareCommissionDaoHibernate implements FostercareCommissionDao
 	} 
 
 	@Override
-	public FostercareCommissionBean findByPrimaryKey(Integer petid) {
+	public FostercareCommissionBean findByPrimaryKey(Integer fostercareCommissionid) {
 		//利用id作為primary key取得product table資料
 		//id存在=>傳回裝滿資料的ProductBean物件
 		//id不存在=>傳回null
-		return this.getSession().get(FostercareCommissionBean.class, petid);
+		return this.getSession().get(FostercareCommissionBean.class, fostercareCommissionid);
 	}
 	@Override
 	public List<FostercareCommissionBean> findAll() {
@@ -45,41 +46,44 @@ public class FostercareCommissionDaoHibernate implements FostercareCommissionDao
 		//id不存在=>新增成功、傳回裝滿資料的ProductBean物件
 		
 		if(bean!=null) {
-			FostercareCommissionBean temp = this.getSession().get(FostercareCommissionBean.class, bean.getPetid());
-			if(temp==null) {
+//			FostercareCommissionBean temp = this.getSession().get(FostercareCommissionBean.class, bean.getPetid());
+//			if(temp==null) {
 				this.getSession().save(bean);
 				return bean;
 			}
-		}
+//		}
 		return null;
 	}
 	@Override
-	public FostercareCommissionBean update(Integer dday,
-			 String region, String size,String variety, String txt,Integer petid) {
+	public FostercareCommissionBean update(String name,
+			String variety, String area,Date starttime,Date endtime,Integer owner,String reason,byte[] picture,String remark,Integer fostercareCommissionid) {
 		//利用id作為primary key修改product table資料
 		//id存在=>修改成功、傳回裝滿資料的ProductBean物件
 		//id不存在=>修改失敗、傳回null
 		
-		FostercareCommissionBean temp = this.getSession().get(FostercareCommissionBean.class, petid);
+		FostercareCommissionBean temp = this.getSession().get(FostercareCommissionBean.class, fostercareCommissionid);
 		if(temp!=null) {	
-			temp.setDday(dday);
-			temp.setRegion(region);
-			temp.setSize(size);
+			temp.setName(name);
 			temp.setVariety(variety);
-			temp.setTxt(txt);
-			temp.setPetid(petid);
+			temp.setArea(area);
+			temp.setStarttime(starttime);
+			temp.setEndtime(endtime);
+			temp.setOwner(owner);
+			temp.setPicture(picture);
+			temp.setRemark(remark);
+			temp.setFostercareCommissionid(fostercareCommissionid);
 			return temp;
 		}
 		
 		return null;
 	}
 	@Override
-	public boolean remove(Integer petid) {
+	public boolean remove(Integer fostercareCommissionid) {
 		//利用id作為primary key刪除product table資料
 		//id存在=>刪除product table資料並傳回true
 		//id不存在=>傳回false
 		
-		FostercareCommissionBean temp = this.getSession().get(FostercareCommissionBean.class, petid);
+		FostercareCommissionBean temp = this.getSession().get(FostercareCommissionBean.class, fostercareCommissionid);
 	   if(temp!=null) {
 		  this.getSession().delete(temp);
 		  return true;

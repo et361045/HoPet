@@ -19,7 +19,9 @@ public class FostercareFormBean {
 	private Integer fostercareCommissionid;
 	private Integer carer;
 	private String status;
-	
+	private String job;
+	private String experience;
+	private String pettime;
 	public Integer getFostercareFormid() {
 		return fostercareFormid;
 	}
@@ -44,14 +46,31 @@ public class FostercareFormBean {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
-
+	public String getJob() {
+		return job;
+	}
+	public void setJob(String job) {
+		this.job = job;
+	}
+	public String getExperience() {
+		return experience;
+	}
+	public void setExperience(String experience) {
+		this.experience = experience;
+	}
+	public String getPettime() {
+		return pettime;
+	}
+	public void setPettime(String pettime) {
+		this.pettime = pettime;
+	}
 	@Override
 	public String toString() {
-		return "FostercareFormBean [fostercareFormid="
-				+ fostercareFormid + ", fostercareCommissionid=" + fostercareCommissionid + ", carer=" + carer
-				+ ", status=" + status + "]";
+		return "FostercareFormBean [fostercareFormid=" + fostercareFormid + ", fostercareCommissionid="
+				+ fostercareCommissionid + ", carer=" + carer + ", status=" + status + ", job=" + job + ", experience="
+				+ experience + ", pettime=" + pettime + "]";
 	}
+	
 	
 	
 }

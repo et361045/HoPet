@@ -8,8 +8,7 @@
 
 <link rel="stylesheet" type="text/css" href="../css/main.css" />
 
-<title>Product</title>
-
+<title>hispital</title>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <!--  <script src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2.js'></script>    -->
     <script src="https://maps.google.com/maps/api/js?sensor=false"></script>
@@ -17,35 +16,30 @@
      src="https://maps.googleapis.com/maps/api/js?key&AIzaSyBpZmGolfotLrG4xt6jVDhY87zi_vWWV1Y">
 	</script>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+     <script type="text/javascript"
+     src="https://maps.googleapis.com/maps/api/js?callback=initialize&key&AIzaSyBd-UO7pvGcssH5yS-7I_3H_Qseq_KHIXU">
+    </script>
 <script type="text/javascript">
-var contextPath = "${pageContext.request.contextPath}";
-$(document).ready(function() {
+function initialize() {
+	geocoder = new google.maps.Geocoder();
+}
 
-	$.ajax({
-			data: "GET",
-			url: contextPath+"/query",
-			dataType: "json",
-			success: function(json) {
-				console.log(json)
-				$.each(json , function(idx, val){
-// 					console.log(idx+": " + val.latitude)
-					var latitude = val.latitude;
-					var hospitalName = val.hospitalName;
-					new google.maps.Marker({
-			                position: latitude, //經緯度
-			                title: hospitalName, //顯示文字
-			                icon: imageUrl,
-			                map: map //指定要放置的地圖對象
-			            });
-				})
+function doClick() {
+	var address = document.getElementById("address").value;
+	if(geocoder) {
+		geocoder.geocode({"address": address}, function(results, status) {
+			if(status != google.maps.GeocoderStatus.OK)  {
+				alert("Geocoder Failed: " + status);
+			} else {
+				console.log("location="+results[0].geometry.location)
+				
+// 				document.getElementById("lat").value=results[0].geometry.location.lat();
+// 				document.getElementById("lng").value=results[0].geometry.location.lng();
 			}
 		});
-		
-      
+	}
+}
 
-		
-		
-});
 function clearForm() {
 	var inputs = document.getElementsByTagName("input");
 	for(var i=0; i<inputs.length; i++) {
@@ -53,7 +47,8 @@ function clearForm() {
 			inputs[i].value="";
 		}
 	}
-} 
+}
+initialize()
 </script>
 </head>
 <body>
@@ -71,7 +66,7 @@ function clearForm() {
 	</tr>
 	<tr>
 		<td>醫院地址 : </td>
-		<td><input type="text" name="hospitalAddress" value="${param.hospitalAddress}"></td>
+		<td><input type="text" id="address"name="hospitalAddress" value="${param.hospitalAddress}"></td>
 		<td><span class="error">${errors.hospitalAddress}</span></td>
 	</tr>
 	
@@ -87,12 +82,12 @@ function clearForm() {
 	</tr>
 	<tr>
 		<td>經度 : </td>
-		<td><input type="text" name="longitude" value="${param.longitude}"></td>
-		<td><span class="error">${errors.latitude}</span></td>
+		<td><input type="text" id="lng" name="longitude" value="${param.longitude}"></td>
+		<td><span class="error">${errors.longitude}</span></td>
 	</tr>
 	<tr>
 		<td>緯度 : </td>
-		<td><input type="text" name="latitude" value="${param.latitude}"></td>
+		<td><input type="text" id="lat" name="latitude" value="${param.latitude}"></td>
 		<td><span class="error">${errors.latitude}</span></td>
 	</tr>
 	<tr>
@@ -102,10 +97,12 @@ function clearForm() {
 		<td>
 			<input type="submit" name="hospital" value="Select">
 			<input type="button" value="Clear" onclick="clearForm()">
+			<input type="button" value="Go!" onclick="doClick()" />
 		</td>
 	</tr>
 </table>
 </form>
+
 
 <h3><span class="error">${errors.action}</span></h3>
 
@@ -126,6 +123,7 @@ function clearForm() {
 		<tr><td>hospitalAddress</td><td>${insert.hospitalAddress}</td></tr>
 		<tr><td>hospitalphone</td><td>${insert.hospitalphone}</td></tr>
 		<tr><td>hospitalowner</td><td>${insert.hospitalowner}</td></tr>
+		<tr><td>longitude</td><td>${insert.longitude}</td></tr>	
 		<tr><td>latitude</td><td>${insert.latitude}</td></tr>
 	</table>
 	<script type="text/javascript">clearForm()</script>
@@ -138,6 +136,7 @@ function clearForm() {
 		<tr><td>hospitalAddress</td><td>${update.hospitalAddress}</td></tr>
 		<tr><td>hospitalphone</td><td>${update.hospitalphone}</td></tr>
 		<tr><td>hospitalowner</td><td>${update.hospitalowner}</td></tr>
+		<tr><td>longitude</td><td>${update.longitude}</td></tr>	
 		<tr><td>latitude</td><td>${update.latitude}</td></tr>
 	</table>
 	<script type="text/javascript">clearForm()</script>

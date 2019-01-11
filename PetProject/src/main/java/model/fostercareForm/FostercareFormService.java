@@ -38,8 +38,8 @@ public class FostercareFormService {
 	public FostercareFormBean update(FostercareFormBean bean) {
 		FostercareFormBean result = null;
 		if(bean!=null) {
-			result = fostercareFormDao.update(bean.getCarer(), bean.getStatus(),
-					bean.getFostercareFormid());
+			result = fostercareFormDao.update(bean.getCarer(), bean.getStatus(),bean.getJob(),bean.getExperience()
+					,bean.getPettime(),bean.getFostercareCommissionid());
 		}
 		return result;
 	}

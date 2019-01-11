@@ -1,117 +1,176 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
-<head>
- <title>多地標Google地圖</title>
-<meta charset="utf-8">
-<link rel="icon" href="images/favicon.ico">
-<link rel="shortcut icon" href="images/favicon.ico">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/form.css">
-<!-- <script src="js/jquery.js"></script> -->
-<!-- <script src="js/forms.js"></script> -->
-<!-- <script src="js/jquery-migrate-1.1.1.js"></script> -->
-<!-- <script src="js/superfish.js"></script> -->
-<!-- <script src="js/jquery.equalheights.js"></script> --> 
-<!-- <script src="js/jquery.easing.1.3.js"></script> -->
-<!-- <script src="js/jquery.ui.totop.js"></script> -->
- 
-    <script src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2.js'></script>   
-    <script src="https://maps.google.com/maps/api/js?sensor=false"></script>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    
+    <title>Places Search Box</title>
     <style>
-        body,input { font-size: 9pt; }
-        html { height: 100% }  
-        body { height: 100%; margin: 0px; padding: 0px }  
-        #map_canvas { height: 100% }        
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #description {
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+      }
+
+      #infowindow-content .title {
+        font-weight: bold;
+      }
+
+      #infowindow-content {
+        display: none;
+      }
+
+      #map #infowindow-content {
+        display: inline;
+      }
+
+      .pac-card {
+        margin: 10px 10px 0 0;
+        border-radius: 2px 0 0 2px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        outline: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        background-color: #fff;
+        font-family: Roboto;
+      }
+
+      #pac-container {
+        padding-bottom: 12px;
+        margin-right: 12px;
+      }
+
+      .pac-controls {
+        display: inline-block;
+        padding: 5px 11px;
+      }
+
+      .pac-controls label {
+        font-family: Roboto;
+        font-size: 13px;
+        font-weight: 300;
+      }
+
+      #pac-input {
+        background-color: #fff;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+        margin-left: 12px;
+        padding: 0 11px 0 13px;
+        text-overflow: ellipsis;
+        width: 400px;
+      }
+
+      #pac-input:focus {
+        border-color: #4d90fe;
+      }
+
+      #title {
+        color: #fff;
+        background-color: #4d90fe;
+        font-size: 25px;
+        font-weight: 500;
+        padding: 6px 12px;
+      }
+      #target {
+        width: 345px;
+      }
     </style>
-<!--       <script type="text/javascript" -->
-<!--      src="https://maps.googleapis.com/maps/api/js?key&AIzaSyBpZmGolfotLrG4xt6jVDhY87zi_vWWV1Y"> -->
-<!-- 	</script> -->
-	
-	<script async defer
-    src=<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=AIzaSyBLxDAKtcasbeNnSS4RAMAJqubXAxa6LiA"></script>>
-    </script>
-    <script>   
-    
+  </head>
+  <body>
+    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+    <div id="map"></div>
+    <script>
+      // This example adds a search box to a map, using the Google Place Autocomplete
+      // feature. People can enter geographical searches. The search box will return a
+      // pick list containing a mix of places and predicted search terms.
 
-        var a = -1;
-        $(function () {
-        	
-        	var latlng1=new google.maps.LatLng(25.0293159,121.5217353);//博愛醫院
-            //設定地圖參數
-            var mapOptions = {
-                zoom: 16, //初始放大倍數
-                center: latlng1, //中心點所在位置
-                mapTypeId: google.maps.MapTypeId.ROADMAP //正常2D道路模式
-            };
-            var imageUrl = "assets/images/icons8-醫院-50.png"; //空字串就會使用預設圖示
-            //在指定DOM元素中嵌入地圖
-            var geocoder = new google.maps.Geocoder();
-            var map = new google.maps.Map(
-                document.getElementById("map_canvas"), mapOptions);    
-            
-            var address ='中正區杭州南路2段92號1樓';
-			 geocoder.geocode({'address': address}, function(results, status) {
-		          if (status == 'OK') {	 
-		        	  map.setCenter(results[0].geometry.location);
-		            new google.maps.Marker({
-		              map: map,
-		              position: results[0].geometry.location,
-		              icon:imageUrl
-		            });
-		          } else {
-		            alert('Geocode was not successful for the following reason: ' + status);
-		          }
-		        });
-            $.ajax({
-        			data: "GET",
-        			url: "/PetProject/query",
-        			dataType: "json",
-        			success: function(json) {
-        				console.log(json)
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
-        			}
-        		});
-
-//   var infowindow = new google.maps.InfoWindow({
-//     content: '<h1>博愛動物醫院</h1>'
-//   });
-
-//            marker.addListener('click',function(){
-//         a = a * -1;
-//         if(a > 0){
-//          infowindow.open(map, marker);
-//         }else{
-//         infowindow.close();
-//         }
-//         });
-
+      function initAutocomplete() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -33.8688, lng: 151.2195},
+          zoom: 13,
+          mapTypeId: 'roadmap'
         });
-        
- </script>
-</head>
 
-<body >
+        // Create the search box and link it to the UI element.
+        var input = document.getElementById('pac-input');
+        var searchBox = new google.maps.places.SearchBox(input);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
-<div class="content pt1">
-  <div class="container_12">
-     <div class="grid_6">
-      <h2>Contact Info</h2>
-      <br>
-      <div class="map"  style="width: 500px; height: 500px; float: left">
-        <figure class="img_inner" id="map_canvas">
-          <iframe src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Brooklyn,+New+York,+NY,+United+States&amp;aq=0&amp;sll=37.0625,-95.677068&amp;sspn=61.282355,146.513672&amp;ie=UTF8&amp;hq=&amp;hnear=Brooklyn,+Kings,+New+York&amp;ll=40.649974,-73.950005&amp;spn=0.01628,0.025663&amp;z=14&amp;iwloc=A&amp;output=embed&"></iframe>
-        </figure>
-      </div>
-		<div id="lat"></div>
-		<div id="lng"></div>
-     </div>
-    </div>
-  </div>
+        // Bias the SearchBox results towards current map's viewport.
+        map.addListener('bounds_changed', function() {
+          searchBox.setBounds(map.getBounds());
+        });
 
-</body>
+        var markers = [];
+        // Listen for the event fired when the user selects a prediction and retrieve
+        // more details for that place.
+        searchBox.addListener('places_changed', function() {
+          var places = searchBox.getPlaces();
+
+          if (places.length == 0) {
+            return;
+          }
+
+          // Clear out the old markers.
+          markers.forEach(function(marker) {
+            marker.setMap(null);
+          });
+          markers = [];
+
+          // For each place, get the icon, name and location.
+          var bounds = new google.maps.LatLngBounds();
+          places.forEach(function(place) {
+            if (!place.geometry) {
+              console.log("Returned place contains no geometry");
+              return;
+            }
+            var icon = {
+              url: place.icon,
+              size: new google.maps.Size(71, 71),
+              origin: new google.maps.Point(0, 0),
+              anchor: new google.maps.Point(17, 34),
+              scaledSize: new google.maps.Size(25, 25)
+            };
+
+            // Create a marker for each place.
+            markers.push(new google.maps.Marker({
+              map: map,
+              icon: icon,
+              title: place.name,
+              position: place.geometry.location
+            }));
+
+            if (place.geometry.viewport) {
+              // Only geocodes have viewport.
+              bounds.union(place.geometry.viewport);
+            } else {
+              bounds.extend(place.geometry.location);
+            }
+          });
+          map.fitBounds(bounds);
+        });
+      }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key&AIzaSyBd-UO7pvGcssH5yS-7I_3H_Qseq_KHIXU&libraries=places&callback=initAutocomplete"
+         async defer></script>
+  </body>
 </html>

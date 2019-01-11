@@ -30,7 +30,6 @@ public class FostercareCommissionController {
 	public String method(String fostercare, FostercareCommissionBean bean, BindingResult bindingResult, Model model) {
 		System.out.println("bean="+bean);
 		System.out.println("bindingResult="+bindingResult);
-		
 		Map<String, String> errors = new HashMap<>();
 		model.addAttribute("errors", errors);
 	
@@ -69,8 +68,8 @@ public class FostercareCommissionController {
 		
 		if("Insert".equals(fostercare) || "Update".equals(fostercare) || "Delete".equals(fostercare)) {
 			
-			if (bean == null || bean.getPetid() == null) {
-				errors.put("petid", "Please enter id for " + fostercare);
+			if (bean == null) {
+				errors.put("fostercareCommissionid", "Please enter id for " + fostercare);
 			} 
 		}
 		if(errors!=null && !errors.isEmpty()) {
@@ -84,6 +83,7 @@ public class FostercareCommissionController {
 			return "fostercarecommission.select";
 			
 		} else if("Insert".equals(fostercare)) {
+			System.out.println("hahaha");
 			FostercareCommissionBean result = fostercareservice.insert(bean);
 			if(result==null) {
 				errors.put("action", "insert failed");

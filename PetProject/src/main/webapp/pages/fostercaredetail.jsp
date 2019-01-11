@@ -17,7 +17,7 @@ $(document).ready(function() {
 	$('input[name="fostercareCommissionid"]').blur(function() {
 		$.ajax({
 			method: "GET",
-			url: contextPath+"/pages/fostercareform.view",
+			url: contextPath+"/pages/fostercare.view",
 			data: "id="+$('input[name="fostercareCommissionid"]').val(),
 			dataType: "json",
 			cache: false,
@@ -26,8 +26,8 @@ $(document).ready(function() {
 				$(".error").first().append(json[0].text);
 				if(json[0].hasMoreData) {
 					$("input[name='fostercareCommissionid']").val(json[1].fostercareCommissionid);
-					$("input[name='carer']").val(json[1].carer);
-					$("input[name='status']").val(json[1].status);	
+					$("input[name='fostercareFormid']").val(json[1].fostercareFormid);
+					$("input[name='owner']").val(json[1].owner);	
 				}
 			}
 		});
@@ -52,31 +52,31 @@ function clearForm() {
 
 <h3>Welcome </h3>
 
-<h3>fostercareform Table</h3>
+<h3>fostercare Table</h3>
 
-<form action="<c:url value="/pages/fostercareForm.controller" />" method="get">
+<form action="<c:url value="/pages/fostercare.controller" />" method="get">
 <table>
 	<tr>
-		<td>職業 : </td>
-		<td><input type="text" name="job" value="${param.job}"></td>
-		<td><span class="error">${errors.job}</span></td>
+		<td>petid : </td>
+		<td><input type="text" name="fostercareCommissionid" value="${param.petid}"></td>
+		<td><span class="error">${errors.petid}</span></td>
 	</tr>
 	<tr>
-		<td>養寵經驗 : </td>
-		<td><input type="text" name="experience" value="${param.experience}"></td>
-		<td><span class="error">${errors.experience}</span></td>
+		<td>owner : </td>
+		<td><input type="text" name="owner" value="${param.owner}"></td>
+		<td><span class="error">${errors.owner}</span></td>
 	</tr>
 	<tr>
-		<td>收養經驗 : </td>
-		<td><input type="text" name="pettime" value="${param.pettime}"></td>
-		<td><span class="error">${errors.pettime}</span></td>
+		<td>carer : </td>
+		<td><input type="text" name="carer" value="${param.carer}"></td>
+		<td><span class="error">${errors.carer}</span></td>
 	</tr>
 	<tr>
 		<td>
-			<input type="submit" name="fostercareform" value="Insert">
+			<input type="submit" name="fostercare" value="Insert">
 		</td>
 		<td>
-			<input type="submit" name="fostercareform" value="Delete">
+			<input type="submit" name="fostercare" value="Delete">
 			<input type="button" value="Clear" onclick="clearForm()">
 		</td>
 	</tr>
@@ -87,20 +87,20 @@ function clearForm() {
 
 <c:if test="${not empty delete}">
 	<c:if test="${delete}">
-		<h3>成功</h3>
+		<h3>Delete product table success : 1 row deleted</h3>
 	</c:if>
 	<c:if test="${not delete}">
-		<h3>失敗</h3>
+		<h3>Delete product table success : 0 row deleted</h3>
 	</c:if>
 	<script type="text/javascript">clearForm()</script>
 </c:if>
 
 <c:if test="${not empty insert}">
-	<h3>Insert fostercareform table success</h3>
+	<h3>Insert fostercare table success</h3>
 	<table border="1">
-		<tr><td>job</td><td>${insert.job}</td></tr>
-		<tr><td>experience</td><td>${insert.experience}</td></tr>
-		<tr><td>pettime</td><td>${insert.pettime}</td></tr>
+		<tr><td>petid</td><td>${insert.petid}</td></tr>
+		<tr><td>owner</td><td>${insert.owner}</td></tr>
+		<tr><td>carer</td><td>${insert.carer}</td></tr>
 	</table>
 	<script type="text/javascript">clearForm()</script>
 </c:if>

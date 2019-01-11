@@ -12,20 +12,20 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import misc.PrimitiveNumberEditor;
-import model.fostercare.FostercareBean;
-import model.fostercare.FostercareService;
 import model.fostercareForm.FostercareFormBean;
+import model.fostercaredetail.FostercareDetailBean;
+import model.fostercaredetail.FostercareDetailService;
 @Controller
-public class FostercareController {
+public class FostercareDetailController {
 	@Autowired
-	private FostercareService fostercareService;
+	private FostercareDetailService fostercareService;
 	@InitBinder
 	private void method1(WebDataBinder webDataBinder)
 	{
 		webDataBinder.registerCustomEditor(int.class,new PrimitiveNumberEditor(java.lang.Integer.class,true));
 	}
 	@RequestMapping("/pages/fostercare.controller")
-	public String method(String fostercare, FostercareBean bean, BindingResult bindingResult, Model model) {
+	public String method(String fostercare, FostercareDetailBean bean, BindingResult bindingResult, Model model) {
 		System.out.println("bean="+bean);
 		System.out.println("bindingResult="+bindingResult);
 		
@@ -39,7 +39,7 @@ public class FostercareController {
 			return "fostercareform.errors";
 		}
 		 if("Insert".equals(fostercare)) {
-			 FostercareBean result = fostercareService.insert(bean);
+			 FostercareDetailBean result = fostercareService.insert(bean);
 			if(result==null) {
 				errors.put("action", "insert failed");
 			} else {

@@ -29,63 +29,62 @@
         #map_canvas { height: 100% }        
     </style>
       <script type="text/javascript"
-     src="https://maps.googleapis.com/maps/api/js?key&AIzaSyBd-UO7pvGcssH5yS-7I_3H_Qseq_KHIXU">
- 	</script>
+     src="https://maps.googleapis.com/maps/api/js?callback=initialize&key&AIzaSyBd-UO7pvGcssH5yS-7I_3H_Qseq_KHIXU">
+    </script>
 	
-    <script>   
-    
-
-        var a = -1;
+    <script>
+	    var geocoder=null;
+	    var map=null;
+	   function initialize() {
+	    	geocoder = new google.maps.Geocoder();
+	    	var divElement = document.getElementById("map_canvas");
+	    	map = new google.maps.Map(divElement, {
+	    		center : {
+	    			lat : 25.033,
+	    			lng : 121.543
+	    		},
+	    		zoom: 17,
+	    		mapTypeId: google.maps.MapTypeId.HYBRID
+	    	});
+	    }
+	   
         $(function () {
-        	
-        	var latlng1=new google.maps.LatLng(25.0293159,121.5217353);//博愛醫院
-            //設定地圖參數
-            var mapOptions = {
-                zoom: 16, //初始放大倍數
-                center: latlng1, //中心點所在位置
-                mapTypeId: google.maps.MapTypeId.ROADMAP //正常2D道路模式
-            };
-            var imageUrl = "assets/images/hospital.png"; //空字串就會使用預設圖示
-            //在指定DOM元素中嵌入地圖
-            geocoder = new google.maps.Geocoder();
-            var map = new google.maps.Map(
-                document.getElementById("map_canvas"), mapOptions);
-        	 
-        	$.ajax({
-        			data: "GET",
-        			url: "/PetProject/query",
-        			dataType: "json",
-        			success: function(json) {
-        				console.log(json)
-        				$.each(json , function(idx, val){
-        					var latitude = new google.maps.LatLng(val.longitude,val.latitude);;
-        					var hospitalName = val.hospitalName;
-        					new google.maps.Marker({
-        			                position: latitude, //經緯度
-        			                title: hospitalName, //顯示文字
-        			                icon: imageUrl,
-        			                map: map //指定要放置的地圖對象
-        			            });
-        				})
-        			}
-        		});
+        	initialize();
+        	var imageUrl = "assets/images/hospital.png"; //空字串就會使用預設圖示
+			$.ajax({data : "GET",
+					url : "/PetProject/query",
+					dataType : "json",
+					success : function(json) {
+						geocoder.geocode({'address' : "中山區龍江路443巷1之2號1樓"}, function(results, status) {
+							if(status == 'OK') {
+								map.setCenter(results[0].geometry.location);
+								new google.maps.Marker({
+											map : map,
+											position : results[0].geometry.location,
+											icon : imageUrl
+								});
+							} else {
+								console.log('Geocode was not successful for the following reason: '+ status);
+							}
+						})
+					}
+			});
 
-//   var infowindow = new google.maps.InfoWindow({
-//     content: '<h1>博愛動物醫院</h1>'
-//   });
+						//   var infowindow = new google.maps.InfoWindow({
+						//     content: '<h1>博愛動物醫院</h1>'
+						//   });
 
-//            marker.addListener('click',function(){
-//         a = a * -1;
-//         if(a > 0){
-//          infowindow.open(map, marker);
-//         }else{
-//         infowindow.close();
-//         }
-//         });
+						//            marker.addListener('click',function(){
+						//         a = a * -1;
+						//         if(a > 0){
+						//          infowindow.open(map, marker);
+						//         }else{
+						//         infowindow.close();
+						//         }
+						//         });
 
-        });
-        
- </script>
+					});
+				</script>
 </head>
 
 <body >

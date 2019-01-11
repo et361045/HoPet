@@ -1,5 +1,7 @@
 package model.fostercareCommission;
 
+import java.sql.Date;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
@@ -20,41 +22,65 @@ import model.fostercareForm.FostercareFormBean;
 @Table(name="FostercareCommission")
 public class FostercareCommissionBean {
 	
-	@OneToMany(
-			    mappedBy="fostercareCommissionid",
-                cascade= {CascadeType.REMOVE})	
-	private  List<FostercareFormBean> fostercareFromBean;
-	
-	
-	
-
+//	@OneToMany(
+//			    mappedBy="fostercareCommissionid",
+//                cascade= {CascadeType.REMOVE})	
+//	private  List<FostercareFormBean> fostercareFromBean;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer fostercareCommissionid;
-	private Integer owner;
-	private String txt;
-	private Integer petid;
-	private String region;
-	private Integer dday;
-	private String size;
+	private String name;
 	private String variety;
-
-	
-	
-
-
-	@Override
-	public String toString() {
-		return "FostercareCommissionBean [fostercareFromBean=" + fostercareFromBean + ", fostercareCommissionid="
-				+ fostercareCommissionid + ", owner=" + owner + ", txt=" + txt + ", petid=" + petid + ", region="
-				+ region + ", dday=" + dday + ", size=" + size + ", variety=" + variety + "]";
-	}
+	private String area;
+	private Date starttime;
+	private Date endtime;
+	private Integer owner;
+	private String reason;
+	private byte[] picture;
+	private String remark;
+	private Integer petid;
+//	public List<FostercareFormBean> getFostercareFromBean() {
+//		return fostercareFromBean;
+//	}
+//	public void setFostercareFromBean(List<FostercareFormBean> fostercareFromBean) {
+//		this.fostercareFromBean = fostercareFromBean;
+//	}
 	public Integer getFostercareCommissionid() {
 		return fostercareCommissionid;
 	}
 	public void setFostercareCommissionid(Integer fostercareCommissionid) {
 		this.fostercareCommissionid = fostercareCommissionid;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getVariety() {
+		return variety;
+	}
+	public void setVariety(String variety) {
+		this.variety = variety;
+	}
+	public String getArea() {
+		return area;
+	}
+	public void setArea(String area) {
+		this.area = area;
+	}
+	public Date getStarttime() {
+		return starttime;
+	}
+	public void setStarttime(Date starttime) {
+		this.starttime = starttime;
+	}
+	public Date getEndtime() {
+		return endtime;
+	}
+	public void setEndtime(Date endtime) {
+		this.endtime = endtime;
 	}
 	public Integer getOwner() {
 		return owner;
@@ -62,11 +88,23 @@ public class FostercareCommissionBean {
 	public void setOwner(Integer owner) {
 		this.owner = owner;
 	}
-	public String getTxt() {
-		return txt;
+	public String getReason() {
+		return reason;
 	}
-	public void setTxt(String txt) {
-		this.txt = txt;
+	public void setReason(String reason) {
+		this.reason = reason;
+	}
+	public byte[] getPicture() {
+		return picture;
+	}
+	public void setPicture(byte[] picture) {
+		this.picture = picture;
+	}
+	public String getRemark() {
+		return remark;
+	}
+	public void setRemark(String remark) {
+		this.remark = remark;
 	}
 	public Integer getPetid() {
 		return petid;
@@ -74,39 +112,19 @@ public class FostercareCommissionBean {
 	public void setPetid(Integer petid) {
 		this.petid = petid;
 	}
-	public String getRegion() {
-		return region;
-	}
-	public void setRegion(String region) {
-		this.region = region;
-	}
-	public Integer getDday() {
-		return dday;
-	}
-	public void setDday(Integer dday) {
-		this.dday = dday;
-	}
-	public String getSize() {
-		return size;
-	}
-	public void setSize(String size) {
-		this.size = size;
-	}
-
-	public String getVariety() {
-		return variety;
-	}
-
-	public void setVariety(String variety) {
-		this.variety = variety;
-	}
-	public List<FostercareFormBean> getFostercareFromBean() {
-		return fostercareFromBean;
-	}
-	public void setFostercareFromBean(List<FostercareFormBean> fostercareFromBean) {
-		this.fostercareFromBean = fostercareFromBean;
+	@Override
+	public String toString() {
+		return "FostercareCommissionBean [fostercareCommissionid=" + fostercareCommissionid + ", name=" + name
+				+ ", variety=" + variety + ", area=" + area + ", starttime=" + starttime + ", endtime=" + endtime
+				+ ", owner=" + owner + ", reason=" + reason + ", picture=" + Arrays.toString(picture) + ", remark="
+				+ remark + ", petid=" + petid + "]";
 	}
 	
+	
+
+	
+	
+
 
 
 	

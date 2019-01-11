@@ -12,34 +12,34 @@
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
-var contextPath = "${pageContext.request.contextPath}";
-$(document).ready(function() {
-	$('input[name="petid"]').blur(function() {
-		$.ajax({
-			method: "GET",
-			url: contextPath+"/pages/fostercarecommission.view",
-			data: "id="+$('input[name="petid"]').val(),
-			dataType: "json",
-			cache: false,
-			async: true,
-			success: function(json) {
-				$(".error").first().append(json[0].text);
-				if(json[0].hasMoreData) {
-					$("input[name='petid']").val(json[1].petid);
-					$("input[name='dday']").val(json[1].dday);
-					$("input[name='region']").val(json[1].region);
-					$("input[name='size']").val(json[1].size);
-					$("input[name='variety']").val(json[1].variety);
-					$("input[name='txt']").val(json[1].txt);
-				}
-			}
-		});
-	});
-	$("input[name='petid']").focus(function() {
-		clearForm();
-		$(".error").first().html("");
-	});
-});
+// var contextPath = "${pageContext.request.contextPath}";
+// $(document).ready(function() {
+// 	$('input[name="petid"]').blur(function() {
+// 		$.ajax({
+// 			method: "GET",
+// 			url: contextPath+"/pages/fostercarecommission.view",
+// 			data: "id="+$('input[name="petid"]').val(),
+// 			dataType: "json",
+// 			cache: false,
+// 			async: true,
+// 			success: function(json) {
+// 				$(".error").first().append(json[0].text);
+// 				if(json[0].hasMoreData) {
+// 					$("input[name='petid']").val(json[1].petid);
+// 					$("input[name='dday']").val(json[1].dday);
+// 					$("input[name='region']").val(json[1].region);
+// 					$("input[name='size']").val(json[1].size);
+// 					$("input[name='variety']").val(json[1].variety);
+// 					$("input[name='txt']").val(json[1].txt);
+// 				}
+// 			}
+// 		});
+// 	});
+// 	$("input[name='petid']").focus(function() {
+// 		clearForm();
+// 		$(".error").first().html("");
+// 	});
+// });
 function clearForm() {
 	var inputs = document.getElementsByTagName("input");
 	for(var i=0; i<inputs.length; i++) {
@@ -75,34 +75,33 @@ function now() {
 <form action="<c:url value="/pages/fostercarecommmission.controller" />" method="get">
 <table>
 	<tr>
-		<td>petid : </td>
-		<td><input type="text" name="petid" value="${param.petid}"></td>
-		<td><span class="error">${errors.petid}</span></td>
+		<td>姓名 : </td>
+		<td><input type="text" name="name" value="${param.name}"></td>
+		<td><span class="error">${errors.name}</span></td>
 	</tr>
 	<tr>
-		<td>dday : </td>
-		<td><input type="text" name="dday" value="${param.dday}"></td>
-		<td><span class="error">${errors.dday}</span></td>
-	</tr>
-	<tr>
-		<td>region : </td>
-		<td><input type="text" name="region" value="${param.region}"></td>
-		<td><span class="error">${errors.region}</span></td>
-	</tr>
-	
-	<tr>
-		<td>size : </td>
-		<td><input type="text" name="size" value="${param.size}"></td>
-		<td><span class="error">${errors.size}</span></td>
-	</tr>
-	<tr>
-		<td>variety : </td>
+		<td>種類 : </td>
 		<td><input type="text" name="variety" value="${param.variety}"></td>
 		<td><span class="error">${errors.variety}</span></td>
 	</tr>
 	<tr>
-		<td>txt : </td>
-		<td><input type="text" name="txt" value="${param.txt}"></td>
+		<td>地區 : </td>
+		<td><input type="text" name="area" value="${param.area}"></td>
+		<td><span class="error">${errors.area}</span></td>
+	</tr>
+	<tr>
+		<td>原因 : </td>
+		<td><input type="text" name="reason" value="${param.reason}"></td>
+		<td><span class="error">${errors.reason}</span></td>
+	</tr>
+	<tr>
+		<td>照片 : </td>
+		<td><input type="text" name="picture" value="${param.picture}"></td>
+		<td><span class="error">${errors.picture}</span></td>
+	</tr>
+	<tr>
+		<td>備註 : </td>
+		<td><input type="text" name="remark" value="${param.remark}"></td>
 		<td><span class="error">${errors.txt}</span></td>
 	</tr>
 	<tr>
@@ -144,12 +143,12 @@ function now() {
 <c:if test="${not empty insert}">
 	<h3>Insert product table success</h3>
 	<table border="1">
-		<tr><td>petid</td><td>${insert.petid}</td></tr>
-		<tr><td>dday</td><td>${insert.dday}</td></tr>
-		<tr><td>region</td><td>${insert.region}</td></tr>
-		<tr><td>size</td><td>${insert.size}</td></tr>
+		<tr><td>name</td><td>${insert.name}</td></tr>
 		<tr><td>variety</td><td>${insert.variety}</td></tr>
-		<tr><td>txt</td><td>${insert.txt}</td></tr>
+		<tr><td>area</td><td>${insert.area}</td></tr>
+		<tr><td>reason</td><td>${insert.reason}</td></tr>
+		<tr><td>picture</td><td>${insert.picture}</td></tr>
+		<tr><td>remark</td><td>${insert.remark}</td></tr>
 	</table>
 	<script type="text/javascript">clearForm()</script>
 </c:if>
@@ -157,12 +156,12 @@ function now() {
 <c:if test="${not empty update}">
 	<h3>Update product table success</h3>
 	<table border="1">
-		<tr><td>petid</td><td>${update.petid}</td></tr>
-		<tr><td>dday</td><td>${update.dday}</td></tr>
-		<tr><td>region</td><td>${update.region}</td></tr>
-		<tr><td>size</td><td>${update.size}</td></tr>
+		<tr><td>name</td><td>${update.name}</td></tr>
 		<tr><td>variety</td><td>${update.variety}</td></tr>
-		<tr><td>txt</td><td>${update.txt}</td></tr>
+		<tr><td>area</td><td>${update.area}</td></tr>
+		<tr><td>reason</td><td>${update.reason}</td></tr>
+		<tr><td>picture</td><td>${update.picture}</td></tr>
+		<tr><td>remark</td><td>${update.remark}</td></tr>
 	</table>
 	<script type="text/javascript">clearForm()</script>
 </c:if>

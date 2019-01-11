@@ -18,31 +18,31 @@
 <table>
 	<thead>
 	<tr>
-		<th>petid</th>
-		<th>dday</th>
-		<th>region</th>
-		<th>size</th>
+		<th>name</th>
 		<th>variety</th>
-		<th>txt</th>
+		<th>area</th>
+		<th>reason</th>
+		<th>picture</th>
+		<th>remark</th>
 	</tr>
 	</thead>
 	<tbody>
 	<c:forEach var="bean" items="${select}">
 		<c:url value="/pages/fostercarecommission.jsp" var="path">
-			<c:param name="petid" value="${bean.petid}" />
-			<c:param name="dday" value="${bean.dday}" />
-			<c:param name="region" value="${bean.region}" />
-			<c:param name="size" value="${bean.size}" />
+			<c:param name="name" value="${bean.name}" />
 			<c:param name="variety" value="${bean.variety}" />
-			<c:param name="txt" value="${bean.txt}" />
+			<c:param name="area" value="${bean.area}" />
+			<c:param name="reason" value="${bean.reason}" />
+			<c:param name="picture" value="${bean.picture}" />
+			<c:param name="remark" value="${bean.remark}" />
 		</c:url>
 	<tr>
-		<td>${bean.petid}</td>
-		<td>${bean.dday}</td>
-		<td>${bean.region}</td>
-		<td>${bean.size}</td>
+		<td>${bean.name}</td>
 		<td>${bean.variety}</td>
-		<td>${bean.txt}</td>
+		<td>${bean.area}</td>
+		<td>${bean.reason}</td>
+		<td>${bean.picture}</td>
+		<td>${bean.remark}</td>
 	</tr>	
 	</c:forEach>
 	</tbody>
