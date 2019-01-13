@@ -287,15 +287,19 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="title-area">
-						<h2 class="code">請輸入信箱驗證碼</h2>
+						<c:if test="${user.checkSuccess == 0}">
+							<c:out
+								value='	<h2 class="code">請輸入信箱驗證碼</h2>
 						<span class="line" style="width: 200px"></span>
 						<p class="text">
-							驗證碼:<input type="text" class="entercode"><input
-								type="submit" value="送出" class=" btn btn-info"
+							驗證碼:<input type="text" class="entercode" id="vcode"><input
+								type="submit" id="send" value="發信" class=" btn btn-info"
 								style="font-size: 18px;"><input type="submit" value="提交"
 								class=" btn btn-success"
-								style="font-size: 18px; margin-left: 15px">
-						</p>
+								style="font-size: 18px; margin-left: 15px" id="check">
+						</p>'
+								escapeXml="false" />
+						</c:if>
 					</div>
 				</div>
 				<div class="col-md-12">
@@ -312,16 +316,19 @@
 										<p class="text">
 											您的個人資料<br />(按鉛筆修改 打勾確定)
 										</p>
-										<label class="text">照片:</label> <br />
-										<br />
-										<form method="POST" action="<c:url value='/memberpicture'/>"enctype="multipart/form-data"  id="picture">
-											  <img id="memberpicture" src="${user.memberPicture}" width="150px" style="border: #8e8e8e solid thin;"/>
-											  <br /> <br />
-											<label class="btn btn-light" style="font-family: 'cwTeXYen';font-size: 18px"> <input id="upload_img"
-												style="display: none;" type="file" name="file"> 
-												<i class="fa fa-photo" ></i> 選擇照片
-											</label><input type="submit" value="上傳"
-												class="btn btn-link" style="font-family: 'cwTeXYen';font-size: 18px">
+										<label class="text">照片:</label> <br /> <br />
+										<form method="POST" action="<c:url value='/memberpicture'/>"
+											enctype="multipart/form-data" id="picture">
+											<img id="memberpicture" src="${user.memberPicture}"
+												width="150px" style="border: #8e8e8e solid thin;" /> <br />
+											<br /> <label class="btn btn-light"
+												style="font-family: 'cwTeXYen'; font-size: 18px"> <input
+												id="upload_img" style="display: none;" type="file"
+												name="file"
+												accept=" image/gif,image/png,image/jpeg,image/jpg,image/bmp">
+												<i class="fa fa-photo"></i> 選擇照片
+											</label><input type="submit" value="上傳" class="btn btn-link"
+												style="font-family: 'cwTeXYen'; font-size: 18px">
 										</form>
 
 

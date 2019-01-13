@@ -8,7 +8,7 @@ public class verificationCoderService {
 	@Autowired
 	private VerificationCodeDAO VerificationCodeDao;
 
-	public void create(VerificationCodeBean bean) {
+	public VerificationCodeBean create(VerificationCodeBean bean) {
 		String temp = "";
 
 		for (int i = 0; i < 15; i++) {
@@ -16,7 +16,7 @@ public class verificationCoderService {
 			if (add < 10) {
 				temp = temp + add;
 			}
-			if (add >= 10 && add < 36) {
+			else if (add >= 10 && add < 36) {
 				temp = temp + (char) (add + 55);
 			} else {
 				temp = temp + (char) (add + 61);
@@ -24,7 +24,9 @@ public class verificationCoderService {
 		}
 		bean.setRandomverificationcode(temp);
 		System.out.println("temp= " + temp);
+		System.out.println(bean);
 		VerificationCodeDao.insert(bean);
+		return bean;
 	}
 	public boolean Check(VerificationCodeBean bean) {
 		VerificationCodeBean	temp  = VerificationCodeDao.findCodeBean(bean.getMemberId());

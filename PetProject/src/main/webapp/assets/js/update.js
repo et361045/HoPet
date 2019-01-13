@@ -59,3 +59,42 @@ function readURL(input){
     reader.readAsDataURL(input.files[0]);
   }
 }
+
+$('#send').click(function(){
+	
+	$.ajax({
+		method : "POST",
+		url : "send",
+		cache : false,
+		async : false,
+		success : function(text) {
+			
+		
+		}
+		})
+})
+
+$('#check').click(function(){
+	
+	$.ajax({
+		method : "POST",
+		url : "check",
+		data : {
+			vcode : $('#vcode').val()
+		},
+		cache : false,
+		async : false,
+		success : function(text) {
+			if(text=="ok"){
+				alert("驗證成功")
+			}
+			if(text=="defeat"){
+				alert("驗證失敗,請重新輸入驗證碼或寄出驗證信");
+			}
+			window.location.reload();
+		}
+		})
+})
+
+
+

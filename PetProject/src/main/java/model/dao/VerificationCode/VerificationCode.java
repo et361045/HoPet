@@ -32,9 +32,11 @@ public class VerificationCode implements VerificationCodeDAO {
 	public String findcode(int memberId) {
 		Query<VerificationCodeBean> query = this.getSession().createQuery("From VerificationCodeBean where memberId='"+memberId+"'");
 		VerificationCodeBean temp = query.uniqueResult();
+		if(temp!=null) {
 		return temp.getRandomverificationcode();
 	}
-
+	 return null;	
+	}
 	@Override
 	public boolean insert(VerificationCodeBean codeBean) {
 		if(this.findcode(codeBean.getMemberId())!=null) {

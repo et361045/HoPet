@@ -38,7 +38,7 @@ $('#login').submit(function() {
 	}
 
 	if (isNotFormValid == true) {
-	
+
 		$.ajax({
 			method : "POST",
 			url : "login",
@@ -77,10 +77,26 @@ $('#Logout').click(function() {
 
 })
 
-$().ready(function(){
-	
+$('#forgotpsw').click(function() {
+	if ($("input[name='email']").val() == "") {
+		alert("請輸入信箱")
+	} else {
 
-});
+		$.ajax({
+			method : "POST",
+			url : "forgetpaw",
+			data : {
+				email : $("input[name='email']").val(),
+			},
+			dataType : "text",
+			cache : false,
+			async : false,
+			success : function(text) {
 
+				alert("密碼以寄至您的信箱")
+			}
+		});
+		
+	}
 
-
+})
