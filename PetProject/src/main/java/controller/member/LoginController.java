@@ -86,10 +86,13 @@ public class LoginController {
 		MemberBean temp  = (MemberBean) model.asMap().get("user");
 		System.out.println(temp);
 		System.out.println(updata);
-		updata.setEmail(temp.getEmail());
-	    updata.setMemberId(temp.getMemberId());
-	    System.out.println(memberService.update(updata));
-		model.addAttribute("user", updata);
+		temp.setPsw(updata.getPsw());
+		temp.setMemberName(updata.getMemberName());
+		temp.setAddress(updata.getAddress());
+		temp.setMemberPhone(updata.getMemberPhone());
+	
+	    System.out.println(memberService.update(temp));
+		model.addAttribute("user", temp);
 	   
 	}
 

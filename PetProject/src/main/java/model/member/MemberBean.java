@@ -24,14 +24,14 @@ public class MemberBean {
 	private String point;
 	private String checkSuccess;
 	private java.util.Date punishDay;
-	private Byte[] memberPicture;
+	private String memberPicture;
 
 	@Override
 	public String toString() {
 		return "MemberBean [memberId=" + memberId + ", email=" + email + ", psw=" + psw + ", memberName=" + memberName
 				+ ", address=" + address + ", memberPhone=" + memberPhone + ", memberPermission=" + memberPermission
 				+ ", point=" + point + ", checkSuccess=" + checkSuccess + ", punishDay=" + punishDay
-				+ ", memberPicture=" + Arrays.toString(memberPicture) + "]";
+				+ ", memberPicture=" + memberPicture + "]";
 	}
 	public Integer getMemberId() {
 		return memberId;
@@ -93,10 +93,10 @@ public class MemberBean {
 	public void setPunishDay(java.util.Date punishDay) {
 		this.punishDay = punishDay;
 	}
-	public Byte[] getMemberPicture() {
+	public String getMemberPicture() {
 		return memberPicture;
 	}
-	public void setMemberPicture(Byte[] memberPicture) {
+	public void setMemberPicture(String memberPicture) {
 		this.memberPicture = memberPicture;
 	}
 	

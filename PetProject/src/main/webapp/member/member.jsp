@@ -239,8 +239,8 @@
 					</button>
 					<!-- LOGO -->
 					<!-- TEXT BASED LOGO -->
-					<a href="/PetProject/index.jsp">
- 					<img  src="/PetProject/assets/images/logo.png" class="logo_img"> 
+					<a href="/PetProject/index.jsp"> <img
+						src="/PetProject/assets/images/logo.png" class="logo_img">
 					</a>
 					<!-- IMG BASED LOGO  -->
 					<!-- <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" alt="logo"></a> -->
@@ -304,12 +304,27 @@
 							<div class="col-md-6">
 								<div class="our-skill">
 									<h2 class="code">個人資料</h2>
-									<span
-										style="margin-left: 300px; padding: 60px; padding-top: 70px; padding-bottom: 70px; border: red thin solid;">照片</span>
+
+
+
+
 									<div class="our-skill-content">
 										<p class="text">
 											您的個人資料<br />(按鉛筆修改 打勾確定)
 										</p>
+										<label class="text">照片:</label> <br />
+										<br />
+										<form method="POST" action="<c:url value='/memberpicture'/>"enctype="multipart/form-data"  id="picture">
+											  <img id="memberpicture" src="${user.memberPicture}" width="150px" style="border: #8e8e8e solid thin;"/>
+											  <br /> <br />
+											<label class="btn btn-light" style="font-family: 'cwTeXYen';font-size: 18px"> <input id="upload_img"
+												style="display: none;" type="file" name="file"> 
+												<i class="fa fa-photo" ></i> 選擇照片
+											</label><input type="submit" value="上傳"
+												class="btn btn-link" style="font-family: 'cwTeXYen';font-size: 18px">
+										</form>
+
+
 										<form id="memberupdata" action="">
 											<div class="form-group">
 												<label class="text">信箱:</label> <input type="email"

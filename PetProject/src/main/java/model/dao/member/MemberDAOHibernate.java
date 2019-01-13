@@ -49,6 +49,9 @@ public class MemberDAOHibernate implements MemberDAO {
 			result.setPsw(member.getPsw());
 			result.setMemberName(member.getMemberName());
 			result.setMemberPhone(member.getMemberPhone());
+			result.setMemberPicture(member.getMemberPicture());
+			result.setMemberPermission(member.getMemberPermission());
+			result.setCheckSuccess(member.getCheckSuccess());
 	        return true;
 		}
 			

@@ -33,6 +33,7 @@ import model.fostercaredetail.FostercareDetailBean;
 import model.hospital.HospitalBean;
 import model.member.MemberBean;
 import model.shoporder.ShoporderBean;
+import model.verificationCode.VerificationCodeBean;
 
 
 @Configuration
@@ -80,7 +81,7 @@ public class SpringJavaConfiguration {
 		builder.addAnnotatedClass(FosterCommissionBean.class);
 		builder.addAnnotatedClass(HospitalBean.class);
 		builder.addAnnotatedClass(BusinessInformationBean.class);
-		
+		builder.addAnnotatedClass(VerificationCodeBean.class);
 		
 		return builder.buildSessionFactory();
 	}

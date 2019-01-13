@@ -10,7 +10,6 @@ import javax.persistence.Table;
 @Table(name="VerificationCode")
 public class VerificationCodeBean {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer memberId;
 	private String randomverificationcode;
 	public Integer getMemberId() {
