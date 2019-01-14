@@ -54,7 +54,8 @@
 <!-- Lato for Title -->
 <link href='https://fonts.googleapis.com/css?family=Lato'
 	rel='stylesheet' type='text/css'>
-
+<link href="/PetProject/assets/css/hospital/hospital.css"
+	rel="stylesheet">
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -71,14 +72,55 @@ body, input {
 	border-radius: 5px;
 }
 </style>
-<script type="text/javascript"
-	src="https://maps.googleapis.com/maps/api/js?key&AIzaSyD5yTSd7qAEyeoxcOIEK1K4M3X-H6bKiis">
+<!-- <script type="text/javascript" -->
+<!-- 	src="https://maps.googleapis.com/maps/api/js?key&AIzaSyD5yTSd7qAEyeoxcOIEK1K4M3X-H6bKiis"> -->
 	
+<!-- </script> -->
+<script type="text/javascript"
+     src="https://maps.googleapis.com/maps/api/js?callback=initialize&key=AIzaSyD_dGEr_Cm5zksGOql-xQ3Tie8j7CGZDdw">
+</script>
+<script type="text/javascript">
+	function initialize() {
+		geocoder = new google.maps.Geocoder();
+	}
+
+	function doClick() {
+		var address = document.getElementById("address").value;
+		if (geocoder) {
+			geocoder
+					.geocode(
+							{
+								"address" : address
+							},
+							function(results, status) {
+								if (status != google.maps.GeocoderStatus.OK) {
+									alert("Geocoder Failed: " + status);
+								} else {
+									console.log("location="
+											+ results[0].geometry.location)
+
+									document.getElementById("lat").value = results[0].geometry.location
+											.lat();
+									document.getElementById("lng").value = results[0].geometry.location
+											.lng();
+								}
+							});
+		}
+	}
+
+	function clearForm() {
+		var inputs = document.getElementsByTagName("input");
+		for (var i = 0; i < inputs.length; i++) {
+			if (inputs[i].type == "text") {
+				inputs[i].value = "";
+			}
+		}
+	}
+	initialize()
 </script>
 
 
 <script>
-	
 	$(function() {
 
 		var latlng1 = new google.maps.LatLng(25.0293159, 121.5217353);//博愛醫院
@@ -94,44 +136,66 @@ body, input {
 		geocoder = new google.maps.Geocoder();
 		var map = new google.maps.Map(document.getElementById("map_canvas"),
 				mapOptions);
+		var infowindow = new google.maps.InfoWindow();
 
-		$.ajax({
-			data : "GET",
-			url : "/PetProject/query",
-			dataType : "json",
-			success : function(json) {
-				console.log(json)
-				$.each(json, function(idx, val) {
-					var latitude = new google.maps.LatLng(val.longitude,
-							val.latitude);
-					var hospitalName = val.hospitalName;
-					new google.maps.Marker({
-						position : latitude, //經緯度
-						title : hospitalName, //顯示文字
-						icon : imageUrl,
-						map : map
-					//指定要放置的地圖對象
-					});
-				})
-			}
-		});
+		$
+				.ajax({
+					data : "GET",
+					url : "/PetProject/query",
+					dataType : "json",
+					success : function(json) {
+						console.log(json)
+						$
+								.each(
+										json,
+										function(idx, val) {
+											var latitude = new google.maps.LatLng(
+													val.longitude, val.latitude);
+											var hospitalName = val.hospitalName;
+											var hospitalAddress = val.hospitalAddress;
+											var hospitalphone = val.hospitalphone;
+											var marker = new google.maps.Marker(
+													{
+														position : latitude, //經緯度
+														title : hospitalName, //顯示文字
+														icon : imageUrl,
+														map : map,
+														html : hospitalAddress,
+														html1 : hospitalphone
+													//指定要放置的地圖對象
+													});
+											google.maps.event
+													.addListener(
+															marker,
+															'click',
+															function() {
 
-		//   var infowindow = new google.maps.InfoWindow({
-		//     content: '<h1>博愛動物醫院</h1>'
-		//   });
+																/*this就是指marker*/
+																infowindow
+																		.setContent("<H4 style='color: blue'>"
+																				+ this.title
+																				+ "</H4>"
+																				+ "<p style='color:black'>"
+																				+ "地址:"
+																				+ "<a href='http://www.poaipets.com.tw/front/bin/home.phtml'>"
+																				+ this.html
+																				+ "</a>"
+																				+ "</p>"
+																				+ "<p style='color:black'>"
+																				+ "電話:"
+																				+ this.html1
+																				+ "</p>");
+																infowindow
+																		.open(
+																				map,
+																				this);
 
-		//            marker.addListener('click',function(){
-		//         a = a * -1;
-		//         if(a > 0){
-		//          infowindow.open(map, marker);
-		//         }else{
-		//         infowindow.close();
-		//         }
-		//         });
+															})
+										})
+					}
+				});
 
 	});
-	
-
 </script>
 
 
@@ -381,7 +445,7 @@ body, input {
 							<div class="map_search_select" data-role="county"></div>
 							<label>區域:</label>
 							<div class="map_search_select" data-role="district"></div>
-							
+
 
 						</div>
 						<script>
@@ -397,17 +461,57 @@ body, input {
 							value="搜尋" id="searchButt"
 							class="btn btn-primary btn hospital_map_search">
 					</div>
-					<div class="map_search_select">
-						<label>地址:</label> <input id="pac-input" name="Address"
-								type="text" class="form-control">
-						<input type="hidden" value="" placeholder="missionstatus"
-							id="missionstatus" name="missionstatus" /> <input type="button"
-							value="搜尋" id="searchButt"
-							class="btn btn-primary btn hospital_map_search">		
-					</div>
-					
+
 				</div>
 			</form>
+			<div class="map_search_select_behide">
+				<form action="<c:url value="/pages/hospital.controller" />"
+					method="get">
+					<table>
+ <tr>
+  <td style="color:#7E9EC9"><h5>醫院名稱 :</h5> </td>
+  <td><input type="text" name="hospitalName" value="${param.hospitalName}"></td>
+  <td><span class="error">${errors.hospitalName}</span></td>
+ </tr>
+ <tr>
+  <td style="color:#7E9EC9"><h5>醫院地址 :</h5> </td>
+  <td><input type="text" id="address"name="hospitalAddress" value="${param.hospitalAddress}"></td>
+  <td><span class="error">${errors.hospitalAddress}</span></td>
+ </tr>
+ 
+ <tr>
+  <td style="color:#7E9EC9"><h5>醫院電話 :</h5> </td>
+  <td><input type="text" name="hospitalphone" value="${param.hospitalphone}"></td>
+  <td><span class="error">${errors.hospitalphone}</span></td>
+ </tr>
+ <tr>
+  <td style="color:#7E9EC9"><h5>醫院主人 :</h5> </td>
+  <td><input type="text" name="hospitalowner" value="${param.hospitalowner}"></td>
+  <td><span class="error">${errors.hospitalowner}</span></td>
+ </tr>
+ <tr>
+  <td style="color:#7E9EC9"><h5>經度 :</h5> </td>
+  <td><input type="text" id="lat" name="longitude" value="${param.longitude}"></td>
+  <td><span class="error">${errors.longitude}</span></td>
+ </tr>
+ <tr>
+  <td style="color:#7E9EC9"><h5>緯度 :</h5> </td>
+  <td><input type="text" id="lng" name="latitude" value="${param.latitude}"></td>
+  <td><span class="error">${errors.latitude}</span></td>
+ </tr>
+ <tr>
+  <td>
+   <input type="submit" name="hospital" value="Insert">
+  </td>
+  <td>
+   <input type="submit" name="hospital" value="Select">
+   <input type="button" value="Clear" onclick="clearForm()">
+   <input type="button" value="Go!" onclick="doClick()" />
+  </td>
+ </tr>
+</table>
+				</form>
+			</div>
 		</div>
 	</div>
 	<div class="hospital_map">
@@ -420,54 +524,104 @@ body, input {
 		</div>
 	</div>
 	<script>
-	$('#searchButt').click(function(){
-		$.ajax({
- 	    method : "POST",
- 			data : {
-  				town : $('select[name="town"]').val(),
-  			},
-  			url : "/PetProject/oooo",
-  			dataType : "json",
-			cache : false,
- 			async : false,
- 			success : function(json) {				 
-				       console.log(json);			
-				var latlng1 = new google.maps.LatLng(25.0293159, 121.5217353);//博愛醫院
-				var mapOptions = {
-						zoom : 16, //初始放大倍數
-						center : latlng1, //中心點所在位置
-						mapTypeId : google.maps.MapTypeId.ROADMAP
-						};
-						var imageUrl = "assets/images/hospital.png"; //空字串就會使用預設圖示
-				//在指定DOM元素中嵌入地圖
-				geocoder = new google.maps.Geocoder();
-				var map = new google.maps.Map(document.getElementById("map_canvas"),
-						mapOptions);
-				
-				$.each(json, function(idx, val) {
-					var latitude = new google.maps.LatLng(val.longitude,
-							val.latitude);
-					var hospitalName = val.hospitalName;
-					new google.maps.Marker({
-						position : latitude, //經緯度
-						title : hospitalName, //顯示文字
-						icon : imageUrl,
-						map : map
-					//指定要放置的地圖對象
-					});
-				})
-			
- 			}
-		})
-	
+		$('#searchButt')
+				.click(
+						function() {
+							$
+									.ajax({
+										method : "POST",
+										data : {
+											town : $('select[name="town"]')
+													.val(),
+										},
+										url : "/PetProject/oooo",
+										dataType : "json",
+										cache : false,
+										async : false,
+										success : function(json) {
+											console.log(json);
+											var latlng1 = new google.maps.LatLng(
+													25.0576256, 121.5167654);//博愛醫院
+											var mapOptions = {
+												zoom : 16, //初始放大倍數
+												center : latlng1, //中心點所在位置
+												mapTypeId : google.maps.MapTypeId.ROADMAP
+											};
+											var imageUrl = "assets/images/hospital.png"; //空字串就會使用預設圖示
+											//在指定DOM元素中嵌入地圖
+											geocoder = new google.maps.Geocoder();
+											var map = new google.maps.Map(
+													document
+															.getElementById("map_canvas"),
+													mapOptions);
+											var infowindow = new google.maps.InfoWindow();
+											$
+													.each(
+															json,
+															function(idx, val) {
+																var latitude = new google.maps.LatLng(
+																		val.longitude,
+																		val.latitude);
+																var hospitalName = val.hospitalName;
+																var hospitalAddress = val.hospitalAddress;
+																var hospitalphone = val.hospitalphone;
+																var marker = new google.maps.Marker(
+																		{
+																			position : latitude, //經緯度
+																			title : hospitalName, //顯示文字
+																			icon : imageUrl,
+																			map : map,
+																			html : hospitalAddress,
+																			html1 : hospitalphone
+																		//指定要放置的地圖對象
+																		});
+																google.maps.event
+																		.addListener(
+																				marker,
+																				'click',
+																				function() {
+
+																					/*this就是指marker*/
+																					infowindow
+																							.setContent("<H4 style='color: blue'>"
+																									+ this.title
+																									+ "</H4>"
+																									+ "<p style='color:black'>"
+																									+ "地址:"
+																									+ "<a href='http://www.poaipets.com.tw/front/bin/home.phtml'>"
+																									+ this.html
+																									+ "</a>"
+																									+ "</p>"
+																									+ "<p style='color:black'>"
+																									+ "電話:"
+																									+ this.html1
+																									+ "</p>");
+																					infowindow
+																							.open(
+																									map,
+																									this);
+
+																				})
+															})
+
+										}
+									})
+
+						})
+	</script>
+	<script>
+	$('#productTable>tbody').on('click','tr button:nth-child(1)',function(){
 		
- 	
+		 var row=$(this).parents('tr');
+		 var hospitalId=row.find('td:nth-child(1)').text();
+		 alert(hospitalId)
+		 $.get("HospitalController",{'hospitalId':hospitalId},function(data){
+			 loadProduct(1);
+		 })
 	})
 	
 	
-	
 	</script>
-
 
 
 	<!-- Start footer -->
@@ -527,7 +681,5 @@ body, input {
 
 	<!-- Custom js -->
 	<script type="text/javascript" src="/PetProject/assets/js/custom.js"></script>
-
-
 </body>
 </html>

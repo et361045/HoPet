@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import misc.PrimitiveNumberEditor;
-import model.fostercareCommission.FostercareCommissionBean;
 import model.hospital.HospitalBean;
 import model.hospital.HospitalService;
 
@@ -47,9 +46,21 @@ public class HospitalController {
 		System.out.println(beans);
 		return beans;
 	}
+//	@RequestMapping("/pages/hospital.controller")
+//	public String hospitalDisplayPage() {
+//		return "hospital.select";
+//	}
+	@ResponseBody
+	@RequestMapping("/pages/hospital/delete.controller")
+	public String deletehospital(@RequestParam Integer hospitalId) {
+		HospitalBean bean = new HospitalBean();
+		bean.setHospitalId(hospitalId);
+		boolean result = hospitalService.delete(bean);
+		System.out.println("result"+result);
+		return result+"";
+	}
 	
 	
-
 	@RequestMapping("/pages/hospital.controller")
 	public String method(String hospital, HospitalBean bean, BindingResult bindingResult, Model model) {
 		System.out.println("bean=" + bean);
