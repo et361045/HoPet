@@ -18,6 +18,7 @@ public class HospitalService {
 		this.hospitalDao = hospitalDao;
 	}
 	
+	
 	public List<HospitalBean> select(HospitalBean bean) {
 		List<HospitalBean> result = null;
 		if(bean!=null && bean.getHospitalId()!=null) {
@@ -31,6 +32,28 @@ public class HospitalService {
 		}
 		return result;
 	}
+	
+	public List<HospitalBean> selectarea(String  area) {
+		List<HospitalBean> result;
+		List<HospitalBean> temp =new ArrayList<HospitalBean>();
+		result = hospitalDao.findAll();
+		for(int i=0;i<result.size();i++)
+		{ 
+		
+			
+			if(result.get(i).getHospitalAddress().indexOf(area)>-1)
+			{
+				
+				temp.add(result.get(i));
+			}
+	
+	
+		}
+		System.out.println(temp);
+		return temp;
+	}
+	
+	
 	public HospitalBean insert(HospitalBean bean) {
 		HospitalBean result = null;
 		if(bean!=null) {

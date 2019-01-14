@@ -37,6 +37,8 @@ public class HospitalDaoHibernate implements HospitalDao{
 		List<HospitalBean> result = this.getSession().createQuery("from HospitalBean", HospitalBean.class).list();
 		return result;
 	}
+	
+
 	@Override
 	public HospitalBean create(HospitalBean bean) {
 		//將ProductBean物件的資料存入product table

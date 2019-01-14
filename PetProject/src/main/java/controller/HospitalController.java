@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import misc.PrimitiveNumberEditor;
@@ -36,6 +37,15 @@ public class HospitalController {
 		System.out.println(beans);
 		return beans;
 		
+	}
+	@ResponseBody
+	@RequestMapping("/oooo")
+	public List<HospitalBean> test456(@RequestParam(name = "town", required = false)  String town,Model model) {
+		System.out.println(town);
+		System.out.println("enter test456");
+		List<HospitalBean>beans=hospitalService.selectarea(town);
+		System.out.println(beans);
+		return beans;
 	}
 	
 	

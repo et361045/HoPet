@@ -15,4 +15,5 @@ public interface HospitalDao {
 			String hospitalAddress, String hospitalphone,String hospitalowner,String hospitalgooglemap,Double longitude,Double latitude,Integer hospitalId);
 
 	public abstract boolean remove(Integer hospitalId);
+	
 }

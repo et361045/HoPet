@@ -62,7 +62,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 <style>
-body, input { 
+body, input {
 	font-size: 10px;
 }
 
@@ -78,7 +78,7 @@ body, input {
 
 
 <script>
-	var a = -1;
+	
 	$(function() {
 
 		var latlng1 = new google.maps.LatLng(25.0293159, 121.5217353);//博愛醫院
@@ -104,7 +104,6 @@ body, input {
 				$.each(json, function(idx, val) {
 					var latitude = new google.maps.LatLng(val.longitude,
 							val.latitude);
-					;
 					var hospitalName = val.hospitalName;
 					new google.maps.Marker({
 						position : latitude, //經緯度
@@ -131,6 +130,8 @@ body, input {
 		//         });
 
 	});
+	
+
 </script>
 
 
@@ -372,7 +373,7 @@ body, input {
 			<div class="map_search_tital">
 				<p>條件查詢</p>
 			</div>
-			<form>
+			<form method="get" id="select">
 				<div class="form-group mx-sm-3 mb-3">
 					<div id="hospital_search">
 						<div class="map_search_select">
@@ -380,10 +381,8 @@ body, input {
 							<div class="map_search_select" data-role="county"></div>
 							<label>區域:</label>
 							<div class="map_search_select" data-role="district"></div>
-							<label>醫院名稱:</label>
-							<input name="Address" type="text" class="form-control">
-							<label>地址:</label>
-							<input id="pac-input" name="Address" type="text" class="form-control">
+							
+
 						</div>
 						<script>
 							//自動產生縣市 
@@ -398,6 +397,15 @@ body, input {
 							value="搜尋" id="searchButt"
 							class="btn btn-primary btn hospital_map_search">
 					</div>
+					<div class="map_search_select">
+						<label>地址:</label> <input id="pac-input" name="Address"
+								type="text" class="form-control">
+						<input type="hidden" value="" placeholder="missionstatus"
+							id="missionstatus" name="missionstatus" /> <input type="button"
+							value="搜尋" id="searchButt"
+							class="btn btn-primary btn hospital_map_search">		
+					</div>
+					
 				</div>
 			</form>
 		</div>
@@ -411,9 +419,56 @@ body, input {
 			</figure>
 		</div>
 	</div>
+	<script>
+	$('#searchButt').click(function(){
+		$.ajax({
+ 	    method : "POST",
+ 			data : {
+  				town : $('select[name="town"]').val(),
+  			},
+  			url : "/PetProject/oooo",
+  			dataType : "json",
+			cache : false,
+ 			async : false,
+ 			success : function(json) {				 
+				       console.log(json);			
+				var latlng1 = new google.maps.LatLng(25.0293159, 121.5217353);//博愛醫院
+				var mapOptions = {
+						zoom : 16, //初始放大倍數
+						center : latlng1, //中心點所在位置
+						mapTypeId : google.maps.MapTypeId.ROADMAP
+						};
+						var imageUrl = "assets/images/hospital.png"; //空字串就會使用預設圖示
+				//在指定DOM元素中嵌入地圖
+				geocoder = new google.maps.Geocoder();
+				var map = new google.maps.Map(document.getElementById("map_canvas"),
+						mapOptions);
+				
+				$.each(json, function(idx, val) {
+					var latitude = new google.maps.LatLng(val.longitude,
+							val.latitude);
+					var hospitalName = val.hospitalName;
+					new google.maps.Marker({
+						position : latitude, //經緯度
+						title : hospitalName, //顯示文字
+						icon : imageUrl,
+						map : map
+					//指定要放置的地圖對象
+					});
+				})
+			
+ 			}
+		})
+	
+		
+ 	
+	})
 	
 	
 	
+	</script>
+
+
 
 	<!-- Start footer -->
 	<footer id="footer">
