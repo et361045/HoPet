@@ -34,13 +34,19 @@
 	href="/PetProject/assets/css/theme-color/default-theme.css"
 	rel="stylesheet">
 
+<!-- member css -->
+
+<link href="/PetProject/assets/css/member.css" rel="stylesheet">
+
 <!-- Main Style -->
-<link href="/PetProject/assets/css/style.css" rel="stylesheet">
+<link href="/PetProject/assets/css/memberstyle.css" rel="stylesheet">
 <!-- login Style -->
 <link href="/PetProject/assets/css/login/login.css" rel="stylesheet">
 
-<!-- member css -->
-<link href="/PetProject/assets/css/member.css" rel="stylesheet">
+
+<!-- alert -->
+<link href="//cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.10/alertify.core.css" rel="stylesheet">  
+<link href="//cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.10/alertify.default.css" rel="stylesheet">  
 
 
 
@@ -386,13 +392,15 @@
 							<div class="col-md-6">
 								<div class="why-choose-us">
 									<h2 class="code">您的寵物資料</h2>
+
+
 									<div class="panel-group why-choose-group" id="accordion">
 										<div class="panel panel-default">
 											<div class="panel-heading">
 												<h4 class="panel-title">
 													<a data-toggle="collapse" data-parent="#accordion"
-														href="#collapseOne"> Awesome Design Layout <span
-														class="fa fa-minus-square"></span>
+														href="#collapseOne" class="title"> Awesome Design
+														Layout <span class="fa fa-minus-square"></span>
 													</a>
 												</h4>
 											</div>
@@ -454,24 +462,45 @@
 											<div class="panel-heading">
 												<h4 class="panel-title">
 													<a data-toggle="collapse" data-parent="#accordion"
-														href="#collapseThree"> Great Support <span
+														href="#collapseThree"> 新增寵物 <span
 														class="fa fa-plus-square"></span>
 													</a>
 												</h4>
 											</div>
 											<div id="collapseThree" class="panel-collapse collapse">
 												<div class="panel-body">
-													<p>Anim pariatur cliche reprehenderit, enim eiusmod
-														high life accusamus terry richardson ad squid. 3 wolf moon
-														officia aute, non cupidatat skateboard dolor brunch. Food
-														truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
-														tempor, sunt aliqua put a bird on it squid single-origin
-														coffee nulla assumenda shoreditch et. Nihil anim keffiyeh
-														helvetica, craft beer labore wes anderson cred nesciunt
-														sapiente ea proident. Ad vegan excepteur butcher vice
-														lomo. Leggings occaecat craft beer farm-to-table, raw
-														denim aesthetic synth nesciunt you probably haven't heard
-														of them accusamus labore sustainable VHS.</p>
+													<form method="POST"
+														action="<c:url value='/insertpet'/>"
+														enctype="multipart/form-data" id="petpicturefrom">
+
+														<img id="petpicture"
+															src="/PetProject/assets/images/22573c5d604bad1.jpg"
+															width="100px" style="border: #8e8e8e solid thin;" /> <br />
+														<label class="btn btn-light"
+															style="font-family: 'cwTeXYen'; font-size: 18px">
+															<input id="insertpetpicture" type="file" name="file"
+															style="display: none;"
+															accept=" image/gif,image/png,image/jpeg,image/jpg,image/bmp">
+															<i class="fa fa-photo"></i>選擇照片
+														</label><br /> <label class="text">寵物名子:</label><br /> <input
+															type="text" name="petName" class="form-control"> <label
+															class="text">寵物大小:</label><br /> <input type="text"
+															name="petSize" class="form-control"> <label
+															class="text">寵物品種:</label><br /> <input type="text"
+															name="petVariety" class="form-control"> <label
+															class="text">寵物年齡:</label><br /> <input type="text"
+															name="age" class="form-control"> <label
+															class="text">寵物特癥:</label><br /> <input type="text"
+															name="Remark" class="form-control"> <label
+															class="text">寵物疫苗:</label><br /> <input type="text"
+															name="vaccine" class="form-control"><br/>  <label
+															class="text">備註:</label><br /> <input type="text"
+															name="petRemarks" class="form-control"><br/><input
+															type="submit" value="送出" class="btn btn-primary "
+															style="font-family: 'cwTeXYen'; font-size: 18px">
+														<input type="reset" value="清除" class="btn btn-default"
+															style="font-family: 'cwTeXYen'; font-size: 18px">
+													</form>
 												</div>
 											</div>
 										</div>
@@ -551,7 +580,11 @@
 	<script type="text/javascript" src="/PetProject/assets/js/custom.js"></script>
 
 	<!-- updatemember js -->
-	<script type="text/javascript" src="/PetProject/assets/js/update.js"></script>
+<script type="text/javascript" src="/PetProject/assets/js/update.js"></script>
 
+<!-- alert -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.10/alertify.min.js"></script>  
+ 
 </body>
 </html>

@@ -12,6 +12,7 @@ public class PetBean {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer petId;
+	private String petPicture;
 	private String petName;
 	private Integer memberid;
 	private String petSize;
@@ -81,11 +82,18 @@ public class PetBean {
 	public void setOwner(Integer owner) {
 		this.owner = owner;
 	}
+	
+	public String getPetPicture() {
+		return petPicture;
+	}
+	public void setPetPicture(String petPicture) {
+		this.petPicture = petPicture;
+	}
 	@Override
 	public String toString() {
-		return "PetBean [petId=" + petId + ", petName=" + petName + ", memberid=" + memberid + ", petSize=" + petSize
-				+ ", petVariety=" + petVariety + ", age=" + age + ", petRemarks=" + petRemarks + ", vaccine=" + vaccine
-				+ ", wafer=" + wafer + ", owner=" + owner + "]";
+		return "PetBean [petId=" + petId + ", petPicture=" + petPicture + ", petName=" + petName + ", memberid="
+				+ memberid + ", petSize=" + petSize + ", petVariety=" + petVariety + ", age=" + age + ", petRemarks="
+				+ petRemarks + ", vaccine=" + vaccine + ", wafer=" + wafer + ", owner=" + owner + "]";
 	}
 	
 }

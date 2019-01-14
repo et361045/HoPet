@@ -51,7 +51,7 @@ public class sendcontroller {
 	@Autowired
 	private ApplicationContext context;
 	
-@RequestMapping(value = {"*/send"})
+@RequestMapping(value = {"send"})
    public void method(Model model) {
    System.out.println("entert email");
   
@@ -84,8 +84,8 @@ public class sendcontroller {
    try {
 
     Message message = new MimeMessage(session);
-    message.setFrom(new InternetAddress(toemail));
-    message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("et361045@hotmail.com"));
+    message.setFrom(new InternetAddress("Hopet"));
+    message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toemail));
     message.setSubject("測試寄信.");
     message.setText("Dear,"+temp.getEmail()+" 歡迎使用HoPet,您的驗證信碼為"+targer.getRandomverificationcode());
 
@@ -150,8 +150,8 @@ public class sendcontroller {
 	   try {
 
 	    Message message = new MimeMessage(session);
-	    message.setFrom(new InternetAddress(email));
-	    message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("et361045@hotmail.com"));
+	    message.setFrom(new InternetAddress("Hopet"));
+	    message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
 	    message.setSubject("測試寄信.");
 	    message.setText("Dear,"+temp.getEmail()+" 歡迎使用HoPet,您的密碼為"+temp.getPsw());
 
