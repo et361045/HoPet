@@ -81,6 +81,12 @@
 		<property name="url"
 			value="/pages/businessInformationdisplay.jsp"></property>
 	</bean>
+	<bean class="org.springframework.web.servlet.view.InternalResourceView" id="dogItem">
+        <property value="/dogItem.jsp" name="url"/>
+    </bean>
+    <bean class="org.springframework.web.servlet.view.InternalResourceView" id="fosterCommission">
+		<property value="/foster.jsp" name="url"/>
+	</bean>
 
 <!-- 	<bean id="businessInformation.errors" -->
 <!-- 		class="org.springframework.web.servlet.view.InternalResourceView"> -->

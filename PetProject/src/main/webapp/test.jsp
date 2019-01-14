@@ -18,7 +18,7 @@
 
 
 <%
-ApplicationContext context = (ApplicationContext)
+	ApplicationContext context = (ApplicationContext)
 		application.getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
 
 DataSource dataSource = (DataSource) context.getBean("dataSource");
@@ -37,12 +37,12 @@ conn.close();
 <!-- ------------測試DATASOUCE--------------------- -->
 <%@ page import="org.hibernate.SessionFactory" %>
 <%@ page import="java.util.List" %>
-<%@ page import="model.foster.FosterBean" %>
+<%@ page import="model.fosterDetail.FosterDetailBean" %>
 <%
-SessionFactory sessionFactory = (SessionFactory) context.getBean("sessionFactory");
+	SessionFactory sessionFactory = (SessionFactory) context.getBean("sessionFactory");
 // sessionFactory.getCurrentSession().beginTransaction();
-List<FosterBean> Member = 
-	sessionFactory.getCurrentSession().createQuery("from FosterBean", FosterBean.class).list();
+List<FosterDetailBean> Member = 
+	sessionFactory.getCurrentSession().createQuery("from FosterBean", FosterDetailBean.class).list();
 out.println("<h3>products="+Member+"</h3>");
 // sessionFactory.getCurrentSession().getTransaction().commit();
 %>

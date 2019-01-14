@@ -1,0 +1,117 @@
+@import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
+
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+
+
+
+
+.dogItem_table {
+	width: 100%;
+	border: 0;
+	cellpadding: 0;
+	cellspacing: 0;
+	bgcolor: #ffffff;
+	margin-top: 5px;
+}
+.dogItem_table >tbody{
+	width: 100%;
+}
+
+.dogItem_title {
+	align: left;
+	bgcolor: #f0f8ff;
+	height: 34;
+}
+
+.dogItem_title>p {
+	font-family: 'cwTeXYen', sans-serif;
+	font-size: 28px;
+	display: inline;
+	padding: 15px;
+	padding-top:10px;
+	padding-bottom: 0px;
+	padding-left: 200px;
+	font-weight: 600;
+}
+.dogItem_img {
+	float:left;
+	width: 250px;
+	margin: 15px;
+	border-radius: 5px;
+	margin-left: 110px;
+}
+.dogItem_ul1 {
+	font-family:'Noto Sans TC', sans-serif;
+	padding: 15px;
+	float:right;
+	line-height: 40px;
+	font-size: 20px;
+	color: #EB9900;
+}
+.dogItem_ul1 >li>span{
+	font-family:'Noto Sans TC', sans-serif;
+	padding: 15px;
+	font-size: 15px;
+	color: #838282;
+}
+.dogItem_div1{
+	padding-left:100px;
+	width: 1000px;
+	height: 300px;
+}
+.dogItem_div2{
+	padding-left:200px;
+	width: 1000px;
+	height: auto;
+}
+
+.dogItem_ul2 {
+	font-family:'Noto Sans TC', sans-serif;
+	padding: 15px;
+	float:right;
+}
+.dogItem_ul2 >li{
+	font-family:'Noto Sans TC', sans-serif;
+	padding: 5px;
+	float:left;
+	font-size: 25px;
+	color: #EB9900;
+	font-weight: 800;
+	border-bottom: 2px solid #FFE1AB;
+}
+.dogItem_ul2 >li>span{
+	font-family:'Noto Sans TC', sans-serif;
+	padding: 15px;
+	font-size: 20px;
+	letter-spacing: 3px;
+	color: #838282;
+	font-weight: 400;
+}
+
+.dogItem_button{
+	float: right;
+	color: #337ab7;
+	background-color:#fff;
+    border: #ffc107 3px solid;
+    font-family:'Noto Sans TC', sans-serif;
+    transition: all 0.5s;
+    width: 130px;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 4px;
+    outline: none;
+    height: 45px;
+}
+.dogItem_button:hover{
+	float: right;
+	color: #fff;
+	background-color:#ffc107;
+    border-color: #ffc107;
+    font-family:'Noto Sans TC', sans-serif;
+    transition: all 0.5s;
+    outline: none;
+}
+.dogItem_button_div{
+	padding-right: 300px;
+}
+

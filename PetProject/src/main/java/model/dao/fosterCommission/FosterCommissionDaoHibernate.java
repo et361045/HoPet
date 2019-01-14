@@ -26,10 +26,14 @@ public class FosterCommissionDaoHibernate implements FosterCommissionDao {
 		if (fosterCommissionBean.getFosterCommissionId() != null) {
 			FosterCommissionBean result = this.getSession().get(FosterCommissionBean.class,
 					fosterCommissionBean.getFosterCommissionId());
+			result.setName(fosterCommissionBean.getName());
+			result.setVariety(fosterCommissionBean.getVariety());
+			result.setArea(fosterCommissionBean.getArea());
 			result.setOwner(fosterCommissionBean.getOwner());
-			result.setTxt(fosterCommissionBean.getTxt());
+			result.setReason(fosterCommissionBean.getReason());
+			result.setPicture(fosterCommissionBean.getPicture());
+			result.setRemark(fosterCommissionBean.getRemark());
 			result.setPetId(fosterCommissionBean.getPetId());
-			result.setRegion(fosterCommissionBean.getRegion());
 			return result;
 		}
 		return null;

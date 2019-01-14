@@ -9,55 +9,75 @@ import javax.persistence.Table;
 public class FosterCommissionBean {
 	@Id
 	private Integer fosterCommissionId;
+	private String name;
+	private String variety;
+	private String area;
 	private Integer owner;
-	private String txt;
+	private String reason;
+	private String picture;
+	private String remark;
 	private Integer petId;
-	private String region;
-
 	public Integer getFosterCommissionId() {
 		return fosterCommissionId;
 	}
-
 	public void setFosterCommissionId(Integer fosterCommissionId) {
 		this.fosterCommissionId = fosterCommissionId;
 	}
-
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getVariety() {
+		return variety;
+	}
+	public void setVariety(String variety) {
+		this.variety = variety;
+	}
+	public String getArea() {
+		return area;
+	}
+	public void setArea(String area) {
+		this.area = area;
+	}
 	public Integer getOwner() {
 		return owner;
 	}
-
 	public void setOwner(Integer owner) {
 		this.owner = owner;
 	}
-
-	public String getTxt() {
-		return txt;
+	public String getReason() {
+		return reason;
 	}
-
-	public void setTxt(String txt) {
-		this.txt = txt;
+	public void setReason(String reason) {
+		this.reason = reason;
 	}
-
+	public String getPicture() {
+		return picture;
+	}
+	public void setPicture(String picture) {
+		this.picture = picture;
+	}
+	public String getRemark() {
+		return remark;
+	}
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
 	public Integer getPetId() {
 		return petId;
 	}
-
 	public void setPetId(Integer petId) {
 		this.petId = petId;
 	}
-
-	public String getRegion() {
-		return region;
-	}
-
-	public void setRegion(String region) {
-		this.region = region;
-	}
-
 	@Override
 	public String toString() {
-		return "FosterCommissionBean [fosterCommissionId=" + fosterCommissionId + ", owner=" + owner + ", txt=" + txt
-				+ ", petId=" + petId + ", region=" + region + "]";
+		return "FosterCommissionBean [fosterCommissionId=" + fosterCommissionId + ", name=" + name + ", variety="
+				+ variety + ", area=" + area + ", owner=" + owner + ", reason=" + reason + ", picture=" + picture
+				+ ", remark=" + remark + ", petId=" + petId + "]";
 	}
 
+	
+	
 }

@@ -6,18 +6,18 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "petEncyclopedia")
+@Entity 
+@Table(name = "Petencyclopedia")
 public class PetEncyclopediaBean {
-	@Id
+	@Id     
 	private Integer petEncyclopediaId;
 	private String petVariety;
 	private String scientific;
 	private String petSize;
-	private Byte[] petPicture;
+	private String petPicture;
 	private String petData;
 	private String remarks;
-	private String Place;
+	private String place;
 	private String weight;
 	private String height;
 	private String fur;
@@ -50,10 +50,10 @@ public class PetEncyclopediaBean {
 	public void setPetSize(String petSize) {
 		this.petSize = petSize;
 	}
-	public Byte[] getPetPicture() {
+	public String getPetPicture() {
 		return petPicture;
 	}
-	public void setPetPicture(Byte[] petPicture) {
+	public void setPetPicture(String petPicture) {
 		this.petPicture = petPicture;
 	}
 	public String getPetData() {
@@ -69,10 +69,10 @@ public class PetEncyclopediaBean {
 		this.remarks = remarks;
 	}
 	public String getPlace() {
-		return Place;
+		return place;
 	}
 	public void setPlace(String place) {
-		Place = place;
+		this.place = place;
 	}
 	public String getWeight() {
 		return weight;
@@ -125,10 +125,11 @@ public class PetEncyclopediaBean {
 	@Override
 	public String toString() {
 		return "PetEncyclopediaBean [petEncyclopediaId=" + petEncyclopediaId + ", petVariety=" + petVariety
-				+ ", scientific=" + scientific + ", petSize=" + petSize + ", petPicture=" + Arrays.toString(petPicture)
-				+ ", petData=" + petData + ", remarks=" + remarks + ", Place=" + Place + ", weight=" + weight
-				+ ", height=" + height + ", fur=" + fur + ", color=" + color + ", personality=" + personality
-				+ ", feature=" + feature + ", origin=" + origin + ", essentials=" + essentials + "]";
+				+ ", scientific=" + scientific + ", petSize=" + petSize + ", petPicture=" + petPicture + ", petData="
+				+ petData + ", remarks=" + remarks + ", place=" + place + ", weight=" + weight + ", height=" + height
+				+ ", fur=" + fur + ", color=" + color + ", personality=" + personality + ", feature=" + feature
+				+ ", origin=" + origin + ", essentials=" + essentials + "]";
 	}
+	
 
 }

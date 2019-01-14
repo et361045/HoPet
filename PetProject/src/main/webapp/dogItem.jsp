@@ -10,27 +10,31 @@
 <title>Dog-Encyclopedia</title>
 <!-- Favicon -->
 <link rel="shortcut icon" type="image/icon"
-	href="assets/images/favicon.ico" />
+	href="/PetProject/assets/images/favicon.ico" />
 <!-- Font Awesome -->
-<link href="assets/css/font-awesome.css" rel="stylesheet">
+<link href="/PetProject/assets/css/font-awesome.css" rel="stylesheet">
 <!-- Bootstrap -->
-<link href="assets/css/bootstrap.css" rel="stylesheet">
+<link href="/PetProject/assets/css/bootstrap.css" rel="stylesheet">
 <!-- Slick slider -->
-<link rel="stylesheet" type="text/css" href="assets/css/slick.css" />
+<link rel="stylesheet" type="text/css"
+	href="/PetProject/assets/css/slick.css" />
 <!-- Fancybox slider -->
-<link rel="stylesheet" href="assets/css/jquery.fancybox.css"
+<link rel="stylesheet" href="/PetProject/assets/css/jquery.fancybox.css"
 	type="text/css" media="screen" />
 <!-- Animate css -->
-<link rel="stylesheet" type="text/css" href="assets/css/animate.css" />
+<link rel="stylesheet" type="text/css"
+	href="/PetProject/assets/css/animate.css" />
 <!-- Progress bar  -->
 <link rel="stylesheet" type="text/css"
-	href="assets/css/bootstrap-progressbar-3.3.4.css" />
+	href="/PetProject/assets/css/bootstrap-progressbar-3.3.4.css" />
 <!-- Theme color -->
-<link id="switcher" href="assets/css/theme-color/default-theme.css"
+<link id="switcher"
+	href="/PetProject/assets/css/theme-color/default-theme.css"
 	rel="stylesheet">
 
 <!-- Main Style -->
-<link href="assets/css/style.css" rel="stylesheet">
+<link href="/PetProject/assets/css/style.css" rel="stylesheet">
+
 
 <!-- Fonts -->
 
@@ -47,6 +51,7 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+<link href="/PetProject/assets/css/dogItem/dog.css" rel="stylesheet">
 </head>
 <body>
 
@@ -188,7 +193,8 @@
 					</button>
 					<!-- LOGO -->
 					<!-- TEXT BASED LOGO -->
-					<a class="navbar-brand" href="index.html">HoPet</a>
+					<a href="index.jsp"><img
+						src="/PetProject/assets/images/logo.png" class="logo_img"></a>
 					<!-- IMG BASED LOGO  -->
 					<!-- <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" alt="logo"></a> -->
 				</div>
@@ -225,75 +231,63 @@
 		</nav>
 	</section>
 	<!-- END MENU -->
-	<table width="744" border="0" cellpadding="0" cellspacing="0"
-		bgcolor="#ffffff" style="margin-top: 5px;">
+	<table class="dogItem_table">
 		<tbody>
 			<tr>
-				<td align="left" bgcolor="#f0f8ff" height="34" class="wiki_title"><h1
-						style="font-size: 16px; display: inline; margin-left: 5px; padding-left: 5px; color: #f04f0b;">柴犬介紹</h1>
+				<td>
+					<div class="dogItem_title">
+						<p>${bean.petVariety}</p>
+					</div>
 				</td>
 			</tr>
 			<tr>
-				<td align="left" class="wiki_title_memo">
-					<table border="0" cellpadding="0" cellspacing="0">
+				<td>
+					<table>
 						<tbody>
 							<tr>
-								<td width="121" valign="middle"><div class="wiki_tz_pic">
-										<a href="https://a.34cimg.com/pic/wiki/dog/10.png"
-											class="thickbox" title=" 柴犬 的照片"><img
-											src="https://a.34cimg.com/pic/wiki/dog/10.png" width="250"
-											border="0"></a>
-									</div></td>
-								<td align="left" width="600" bgcolor="#ffffff"
-									style="margin-left: 5px; padding-left: 5px;" class="t3">
-									<h1 style="font-size: 16px;">柴犬 | 日本柴犬 | Shiba Inu</h1>
+								<td>
+									<div class="dogItem_div1">
+										<div>
+											<a href="${bean.petPicture}" title="${bean.scientific}的照片"><img
+												class="dogItem_img" src="${bean.petPicture}"></a>
+										</div>
+										<div>
+											<ul class="dogItem_ul1">
+												<li>種類：<span>${bean.petSize}</span></li>
+												<li>原產地：<span>${bean.place}</span></li>
+												<li>體重：<span>${bean.weight}</span></li>
+												<li>身高：<span>${bean.height}</span></li>
+												<li>皮毛：<span>${bean.fur}</span></li>
+												<li>皮色：<span>${bean.color}</span></li>
+											</ul>
+										</div>
+									</div>
 								</td>
 							</tr>
+
 							<tr>
-								<td align="left" colspan="2"
-									style="margin: 5px; padding: 5px; font-size: 13.1px; letter-spacing: 2px">
-									<div class="wiki_con">
-										<ul>
-											<li>原名：</li>
-											<li>原產地：</li>
-											<li>體重：</li>
-											<li>身高：</li>
-											<li>皮毛：</li>
-											<li>皮色：</li>
+								<td>
+									<div class="dogItem_div2">
+										<ul class="dogItem_ul2">
+											<li>介紹 :<span>${bean.petData}</span></li>
+											<li>犬用途 :<span>${bean.remarks}</span></li>
+											<li>個性 :<span>${bean.personality}</span></li>
+											<li>特徵 :<span>${bean.feature}</span></li>
+											<li>起源與歷史 :<span>${bean.origin}</span></li>
+											<li>飼養要領 :<span>${bean.essentials}</span></li>
 										</ul>
 									</div>
-									<div>
-										<h3>介紹 :</h3>
-									</div>
-									<div>
-										<h3>犬用途 :</h3>
-									</div>
-									<div>
-										<h3>個性 :</h3>
-									</div>
-									<div>
-										<h3>特徵 :</h3>
-									</div>
-									<div>
-										<h3>起源與歷史 :</h3>
-									</div>
-									<div>
-										<h3>飼養要領 :</h3>
-									</div>
-
-
 								</td>
 							</tr>
-
-
 						</tbody>
 					</table>
 				</td>
 			</tr>
-
 		</tbody>
 	</table>
-
+	<div class="dogItem_button_div">
+		<button type="button" class="dogItem_button" onclick="history.back()">上一頁</button>
+	</div>
 	<!-- Start footer -->
 	<footer id="footer">
 		<div class="container">
@@ -324,21 +318,24 @@
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<!-- Bootstrap -->
-	<script src="assets/js/bootstrap.js"></script>
+	<script src="/PetProject/assets/js/bootstrap.js"></script>
 	<!-- Slick Slider -->
-	<script type="text/javascript" src="assets/js/slick.js"></script>
+	<script type="text/javascript" src="/PetProject/assets/js/slick.js"></script>
 	<!-- mixit slider -->
-	<script type="text/javascript" src="assets/js/jquery.mixitup.js"></script>
+	<script type="text/javascript"
+		src="/PetProject/assets/js/jquery.mixitup.js"></script>
 	<!-- Add fancyBox -->
-	<script type="text/javascript" src="assets/js/jquery.fancybox.pack.js"></script>
+	<script type="text/javascript"
+		src="/PetProject/assets/js/jquery.fancybox.pack.js"></script>
 	<!-- counter -->
-	<script src="assets/js/waypoints.js"></script>
-	<script src="assets/js/jquery.counterup.js"></script>
+	<script src="/PetProject/assets/js/waypoints.js"></script>
+	<script src="/PetProject/assets/js/jquery.counterup.js"></script>
 	<!-- Wow animation -->
-	<script type="text/javascript" src="assets/js/wow.js"></script>
+	<script type="text/javascript" src="/PetProject/assets/js/wow.js"></script>
 	<!-- progress bar   -->
-	<script type="text/javascript" src="assets/js/bootstrap-progressbar.js"></script>
+	<script type="text/javascript"
+		src="/PetProject/assets/js/bootstrap-progressbar.js"></script>
 	<!-- Custom js -->
-	<script type="text/javascript" src="assets/js/custom.js"></script>
+	<script type="text/javascript" src="/PetProject/assets/js/custom.js"></script>
 </body>
 </html>

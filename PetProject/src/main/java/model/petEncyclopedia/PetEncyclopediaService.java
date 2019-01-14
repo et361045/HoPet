@@ -10,10 +10,7 @@ public class PetEncyclopediaService {
 	
 	public PetEncyclopediaBean searchPetEncyclopediaId(Integer petEncyclopediaId) {
 		PetEncyclopediaBean bean = petEncyclopediaDao.finBypetEncyclopediaId(petEncyclopediaId);
-		if(bean != null) {
-			return bean;
-		}
-		return null;
+		return bean;
 	}
 
 }

@@ -1,44 +1,44 @@
-package model.foster;
+package model.fosterDetail;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class FosterService {
+public class FosterDetailService {
 	@Autowired
-	private FosterDao fosterDao;
+	private FosterDetailDao fosterDetailDao;
 	
-	public FosterBean searchFosterId(Integer fosterId) {
-		FosterBean bean = fosterDao.findByFosterId(fosterId);
+	public FosterDetailBean searchFosterId(Integer fosterId) {
+		FosterDetailBean bean = fosterDetailDao.findByFosterId(fosterId);
 		if(bean != null) {
 			return bean;
 		}		
 		return null;
 	}
-	public FosterBean searchCarer(Integer carer) {
-		FosterBean bean = fosterDao.findByFosterId(carer);
+	public FosterDetailBean searchCarer(Integer carer) {
+		FosterDetailBean bean = fosterDetailDao.findByFosterId(carer);
 		if(bean != null) {
 			return bean;
 		}		
 		return null;
 	}
-	public FosterBean updateFoster(FosterBean fosterBean) {
-		FosterBean bean = fosterDao.update(fosterBean);
+	public FosterDetailBean updateFoster(FosterDetailBean fosterBean) {
+		FosterDetailBean bean = fosterDetailDao.update(fosterBean);
 		if(bean != null) {
 			return bean;
 		}		
 		return null;
 	}
-	public FosterBean insertFoster(FosterBean fosterBean) {
-		FosterBean bean = fosterDao.insert(fosterBean);
+	public FosterDetailBean insertFoster(FosterDetailBean fosterBean) {
+		FosterDetailBean bean = fosterDetailDao.insert(fosterBean);
 		if(bean != null) {
 			return bean;
 		}		
 		return null;
 	}
-	public boolean deleteFoster(FosterBean fosterBean) {
-		if(fosterBean.getFosterId() != null) {
-			return fosterDao.delete(fosterBean);
+	public boolean deleteFoster(FosterDetailBean fosterBean) {
+		if(fosterBean.getFosterDetailId() != null) {
+			return fosterDetailDao.delete(fosterBean);
 		}
 		return false;
 	}

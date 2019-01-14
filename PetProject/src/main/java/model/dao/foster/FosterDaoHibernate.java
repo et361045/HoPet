@@ -5,10 +5,10 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import model.foster.FosterBean;
-import model.foster.FosterDao;
+import model.fosterDetail.FosterDetailDao;
+import model.fosterDetail.FosterDetailBean;
 @Repository
-public class FosterDaoHibernate implements FosterDao {
+public class FosterDaoHibernate implements FosterDetailDao {
 
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -18,19 +18,19 @@ public class FosterDaoHibernate implements FosterDao {
 	}
 
 	@Override
-	public FosterBean findByFosterId(int fosterid) {
-		return this.getSession().get(FosterBean.class, fosterid);
+	public FosterDetailBean findByFosterId(int fosterid) {
+		return this.getSession().get(FosterDetailBean.class, fosterid);
 	}
 
 	@Override
-	public FosterBean findByCarerId(Integer carer) {
-		return this.getSession().get(FosterBean.class, carer);
+	public FosterDetailBean findByCarerId(Integer carer) {
+		return this.getSession().get(FosterDetailBean.class, carer);
 	}
 
 	@Override
-	public FosterBean update(FosterBean fosterBean) {
-		if (fosterBean.getFosterId() != null) {
-			FosterBean result = this.getSession().get(FosterBean.class, fosterBean.getFosterId());
+	public FosterDetailBean update(FosterDetailBean fosterBean) {
+		if (fosterBean.getFosterDetailId() != null) {
+			FosterDetailBean result = this.getSession().get(FosterDetailBean.class, fosterBean.getFosterDetailId());
 			result.setFosterCommissionId(fosterBean.getFosterCommissionId());
 			result.setFosterFormId(fosterBean.getFosterFormId());
 			result.setOwner(fosterBean.getOwner());
@@ -41,8 +41,8 @@ public class FosterDaoHibernate implements FosterDao {
 	}
 
 	@Override
-	public FosterBean insert(FosterBean fosterBean) {
-		if (fosterBean.getFosterId() == null) {
+	public FosterDetailBean insert(FosterDetailBean fosterBean) {
+		if (fosterBean.getFosterDetailId() == null) {
 			this.getSession().save(fosterBean);
 			return fosterBean;
 		}
@@ -50,8 +50,8 @@ public class FosterDaoHibernate implements FosterDao {
 	}
 
 	@Override
-	public boolean delete(FosterBean fosterBean) {
-		if (this.findByFosterId(fosterBean.getFosterId()) != null) {
+	public boolean delete(FosterDetailBean fosterBean) {
+		if (this.findByFosterId(fosterBean.getFosterDetailId()) != null) {
 			this.getSession().delete(fosterBean);
 			return true;
 		}
