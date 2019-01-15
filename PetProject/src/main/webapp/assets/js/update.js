@@ -206,6 +206,10 @@ function selectpet() {
 		async : false,
 		dataType : "json",
 		success : function(json) {
+			console.log(json)		
+			for(var i=0 ;i<json.length; i++){
+				$("#accordion").after("<div>hi</div>");
+			}
 		}
 	})
 }
@@ -213,6 +217,6 @@ function selectpet() {
 
 $(function(){
 	alert("enter")
-	selectpet();
-	
+	selectpet()
 })
+

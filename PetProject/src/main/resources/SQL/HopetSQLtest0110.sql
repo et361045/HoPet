@@ -58,21 +58,18 @@ Create TABLE hospital--醫院資料
 )  --豪
 Create TABLE BusinessInformation--商家資料
 (
-	businessId int Identity,--商家標號流水號
-	pointnumber int,--評分人數
-	externalname nvarchar(50),--對外名稱
-	companyname nvarchar(50),--公司名稱
-	idname nvarchar(20), --負責人
-	businessproject nvarchar(20),--營業項目
-	businessPhone varchar(15),--電話
-	region nvarchar(30),--行政區
-	businessAddress nvarchar(30),--地址
-	businessScore decimal(2,1),--評分
-	businessGooglemap nvarchar(max),--googlemap鑲嵌
-	longitude float,--經緯度
-    latitude float,
-	PRIMARY KEY (businessid)
-)  --豪
+ businessId int Identity,--商家標號流水號
+ externalname nvarchar(50),--對外名稱
+ companyname nvarchar(50),--公司名稱
+ idname nvarchar(20), --負責人
+ businessproject nvarchar(20),--營業項目
+ businessPhone varchar(15),--電話
+ region nvarchar(30),--行政區
+ businessAddress nvarchar(30),--地址
+ businessGooglemap nvarchar(max),--googlemap鑲嵌
+ longitude float,--經度
+    latitude float,--緯度
+ PRIMARY KEY (businessid))
 
 CREATE TABLE [dbo].[Petencyclopedia]  (     --寵物百科
 	[petencyclopediaId] [int] IDENTITY(1,1) NOT NULL,  --寵物百科標號流水號

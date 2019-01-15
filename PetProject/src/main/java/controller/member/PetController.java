@@ -92,11 +92,13 @@ public class PetController {
 }
 	@ResponseBody
 	@RequestMapping(value = {"*/checkpet"})
-	public void method3(Model model) {
+	public 	 List<PetBean> method3(Model model) {
 		System.out.println("hi enter check");
 		MemberBean userBean =  (MemberBean) model.asMap().get("user");
 	 List<PetBean>	result =petService.selectByMemberID(userBean.getMemberId());
 		System.out.println(result);
+		model.addAttribute("pet", result);
+		return result;
 	}
 	
 	
