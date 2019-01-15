@@ -43,7 +43,10 @@
 <!-- login Style -->
 <link href="/PetProject/assets/css/login/login.css" rel="stylesheet">
 <!-- icon -->
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+	integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+	crossorigin="anonymous">
 <!-- alert -->
 <link
 	href="//cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.10/alertify.core.css"
@@ -282,7 +285,7 @@
 					</ul>
 				</div>
 				<!--/.nav-collapse -->
-				<a href="#" id="search-icon"> <i class="fa fa-search"> </i>
+				<a href="#" id="search-icon"> <i class="fa fa-search" style=""> </i>
 				</a>
 			</div>
 		</nav>
@@ -382,7 +385,7 @@
 												<span class="glyphicon" style="float: right;">&#x270f;</span>
 											</div>
 											<div class="form-group">
-												<label class="text">手機:</label> <input type="text"
+												<label class="text">手機: </label> <input type="text"
 													value="${user.memberPhone} " class="form-control"
 													title="請輸入手機" name="memberPhone" readonly="readonly"
 													id="memberPhone"> <span
@@ -397,71 +400,83 @@
 								<div class="why-choose-us">
 									<h2 class="code">您的寵物資料</h2>
 
-
+								
+									<!-- 									start -->
 									<div class="panel-group why-choose-group" id="accordion">
-<!-- 									start -->
-										<div class="panel panel-default">
-											<div class="panel-heading">
-												<h4 class="panel-title">
-													<a data-toggle="collapse" data-parent="#accordion"
-														href="#collapseOne" class="title"> Awesome Design
-														Layout <span class="fa fa-minus-square"></span>
-													</a>
-												</h4>
-											</div>
-											<div id="collapseOne" class="panel-collapse collapse in">
-												<div class="panel-body">
-													<img class="why-choose-img" src="assets/images/testi1.jpg"
-														alt="img">
-													<p id="sds">Anim pariatur cliche reprehenderit, enim eiusmod
-														high life accusamus terry richardson ad squid. 3 wolf moon
-														officia aute, non cupidatat skateboard dolor brunch. Food
-														truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
-														tempor, sunt aliqua put a bird on it squid single-origin
-														coffee nulla assumenda shoreditch et. Nihil anim keffiyeh
-														helvetica, craft beer labore wes anderson cred nesciunt
-														sapiente ea proident. Ad vegan excepteur butcher vice
-														lomo. Leggings occaecat craft beer farm-to-table, raw
-														denim aesthetic synth nesciunt you probably haven't heard
-														of them accusamus labore sustainable VHS.Anim pariatur
-														cliche reprehenderit, enim eiusmod high life accusamus
-														terry richardson ad squid. 3 wolf moon officia aute, non
-														cupidatat skateboard dolor brunch. Food truck quinoa
-														nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
-														aliqua put a bird on it squid single-origin coffee nulla
-														assumenda shoreditch et. Nihil anim keffiyeh helvetica,
-														craft beer labore wes anderson cred nesciunt sapiente ea
-														proident. Ad vegan excepteur butcher vice lomo. Leggings
-														occaecat craft beer farm-to-table, raw denim aesthetic
-														synth nesciunt you probably haven't heard of them
-														accusamus labore sustainable VHS. ${param.pet}</p>
-												</div>
-											</div>
-										</div>
-										<div class="panel panel-default ">
-											<div class="panel-heading">
-												<h4 class="panel-title">
-													<a data-toggle="collapse" data-parent="#accordion"
-														href="#collapseTwo"> 寵物名子<span
-														class="fa fa-plus-square"></span>
-													</a>
-												</h4>
-											</div>
-											<div id="collapseTwo" class="panel-collapse collapse">
-												<div class="panel-body">
-                                                 <p style="display:none">petid</p>
-													<img src="/PetProject/assets/images/22573c5d604bad1.jpg"
-														width="100px" style="border: #8e8e8e solid thin;" />
-													<br/><br/>
-													<span class="text" style="margin-right:80px ">寵物大小:</span> <span class="text" style="margin-right:80px ">寵物品種:</span> <span class="text" >寵物年齡:</span>
-													<br/><br/>
-													<span class="text" style="font-size: 22px ;" > 備註:</span>
-													<br/><br/>
-													<span class="text"  >疫苗:</span><br/><br/>
-													<span style="float: right;"><button class="btn btn-link"><i class="fas fa-trash-alt"></i></button><button class="btn btn-link"><i class="fas fa-pen"></i></button></span>
-												</div>
-											</div>
-										</div>
+										<div id="insetaa"></div>
+										
+										
+<!-- 										<div class="panel panel-default"> -->
+<!-- 											<div class="panel-heading"> -->
+<!-- 												<h4 class="panel-title"> -->
+<!-- 													<a data-toggle="collapse" data-parent="#accordion" -->
+<!-- 														href="#collapseOne" class="title"> Awesome Design -->
+<!-- 														Layout <span class="fa fa-minus-square"></span> -->
+<!-- 													</a> -->
+<!-- 												</h4> -->
+<!-- 											</div> -->
+<!-- 											<div id="collapseOne" class="panel-collapse collapse in"> -->
+<!-- 												<div class="panel-body"> -->
+<!-- 													<img class="why-choose-img" src="assets/images/testi1.jpg" -->
+<!-- 														alt="img"> -->
+<!-- 													<p id="sds">Anim pariatur cliche reprehenderit, enim -->
+<!-- 														eiusmod high life accusamus terry richardson ad squid. 3 -->
+<!-- 														wolf moon officia aute, non cupidatat skateboard dolor -->
+<!-- 														brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch -->
+<!-- 														3 wolf moon tempor, sunt aliqua put a bird on it squid -->
+<!-- 														single-origin coffee nulla assumenda shoreditch et. Nihil -->
+<!-- 														anim keffiyeh helvetica, craft beer labore wes anderson -->
+<!-- 														cred nesciunt sapiente ea proident. Ad vegan excepteur -->
+<!-- 														butcher vice lomo. Leggings occaecat craft beer -->
+<!-- 														farm-to-table, raw denim aesthetic synth nesciunt you -->
+<!-- 														probably haven't heard of them accusamus labore -->
+<!-- 														sustainable VHS.Anim pariatur cliche reprehenderit, enim -->
+<!-- 														eiusmod high life accusamus terry richardson ad squid. 3 -->
+<!-- 														wolf moon officia aute, non cupidatat skateboard dolor -->
+<!-- 														brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch -->
+<!-- 														3 wolf moon tempor, sunt aliqua put a bird on it squid -->
+<!-- 														single-origin coffee nulla assumenda shoreditch et. Nihil -->
+<!-- 														anim keffiyeh helvetica, craft beer labore wes anderson -->
+<!-- 														cred nesciunt sapiente ea proident. Ad vegan excepteur -->
+<!-- 														butcher vice lomo. Leggings occaecat craft beer -->
+<!-- 														farm-to-table, raw denim aesthetic synth nesciunt you -->
+<!-- 														probably haven't heard of them accusamus labore -->
+<%-- 														sustainable VHS. ${param.pet}</p> --%>
+<!-- 												</div> -->
+<!-- 											</div> -->
+<!-- 										</div> -->
+<p></p>
+<!-- 										<div class="panel panel-default "> -->
+<!-- 											<div class="panel-heading"> -->
+<!-- 												<h4 class="panel-title"> -->
+<!-- 													<a data-toggle="collapse" data-parent="#accordion" -->
+<!-- 														href="#collapseTwo"> 寵物名子 -->
+<!-- 														<span class="fa fa-plus-square"></span> -->
+<!-- 													</a> -->
+<!-- 												</h4> -->
+<!-- 											</div> -->
+<!-- 											<div id="collapseTwo" class="panel-collapse collapse"> -->
+<!-- 												<div class="panel-body"> -->
+<!-- 													<p style="display: none">petid</p> -->
+<!-- 													<img src="/PetProject/assets/images/22573c5d604bad1.jpg" -->
+<!-- 														width="100px" style="border: #8e8e8e solid thin;" /> <br /> -->
+<!-- 													<br /> <span class="text" style="margin-right: 80px">寵物大小:</span> -->
+<!-- 													<span class="text" style="margin-right: 80px">寵物品種:</span> -->
+<!-- 													<span class="text">寵物年齡:</span> <br /> -->
+<!-- 													<br /> <span class="text" style="font-size: 22px;"> -->
+<!-- 														備註:</span> <br /> -->
+<!-- 													<br /> <span class="text">疫苗:</span><br /> -->
+<!-- 													<br /> <span style="float: right;"><button -->
+<!-- 															class="btn btn-link"> -->
+<!-- 															<i class="fas fa-trash-alt"></i> -->
+<!-- 														</button> -->
+<!-- 														<button class="btn btn-link"> -->
+<!-- 															<i class="fas fa-pen"></i> -->
+<!-- 														</button></span> -->
+<!-- 												</div> -->
+<!-- 											</div> -->
+<!-- 										</div> -->
+										
 										<div class="panel panel-default">
 											<div class="panel-heading">
 												<h4 class="panel-title">
@@ -565,10 +580,10 @@
 															class="text">寵物特癥:</label><br /> <input type="text"
 															name="Remark" class="form-control"> <label
 															class="text">寵物疫苗:</label><br /> <input type="text"
-															name="vaccine" class="form-control"><br /><label
-															class="text">備註:</label><br /><input type="text"
-															name="petRemarks" class="form-control"><br /> <input
-															type="submit" value="送出" class="btn btn-primary "
+															name="vaccine" class="form-control"><br />
+														<label class="text">備註:</label><br />
+														<input type="text" name="petRemarks" class="form-control"><br />
+														<input type="submit" value="送出" class="btn btn-primary "
 															style="font-family: 'cwTeXYen'; font-size: 18px">
 														<input type="reset" value="清除" class="btn btn-default"
 															style="font-family: 'cwTeXYen'; font-size: 18px">

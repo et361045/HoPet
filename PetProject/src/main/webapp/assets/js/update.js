@@ -198,25 +198,87 @@ $('#picture').submit(function() {
 })
 
 function selectpet() {
-  alert("enter selectpet")
-	$.ajax({
-		method : "POST",
-		url : "checkpet",	
-		cache : false,
-		async : false,
-		dataType : "json",
-		success : function(json) {
-			console.log(json)		
-			for(var i=0 ;i<json.length; i++){
-				$("#accordion").after("<div>hi</div>");
-			}
-		}
-	})
+	
+	$.ajax({   method : "POST",
+				url : "checkpet",
+				cache : false,
+				async : false,
+				dataType : "json",
+				success : function(json) {
+					console.log(json)
+					for (var i = 0; i < json.length; i++) {
+						$("#insetaa")
+								.append(
+										"<div class='panel panel-default'>"
+												+ "<div class='panel-heading'>"
+												+ "<h4 class='panel-title'>"
+												+ "<a data-toggle='collapse' data-parent='#accordion'href='#collapseTwo"
+												+ i
+												+ "'"
+												+ "> "
+												+ json[i].petName
+												+ "<span class='fa fa-plus-square'></span></a></h4></div>"
+												+ "<div id='collapseTwo"
+												+ i
+												+ "'"
+												+ "class='panel-collapse collapse'>"
+												+ "<div class='panel-body'><p style='display: none'>"
+												+ json[i].petId
+												+ "</p><img src='"
+												+ json[i].petPicture
+												+ "'width='100px' style='border: #8e8e8e solid thin;' /> <br />"
+												+ "<br /> <span class='text' style='margin-right: 20px'>"
+												+ "寵物大小:"
+												+ json[i].petSize
+												+ "</span><span class='text' style='margin-right: 20px'>"
+												+ "寵物品種:"
+												+ json[i].petVariety
+												+ "</span><span class='text'>"
+												+ "寵物年齡:"
+												+ json[i].age
+												+ "</span> <br /><br /> <span class='text' style='font-size: 22px;'>"
+												+ "備註:"
+												+ json[i].petRemarks
+												+ "</span> <br /><br /> <span class='text'>"
+												+ "疫苗:"
+												+ json[i].vaccine
+												+ "</span><br /><br /> <span style='float: right;'><button class='btn btn-link'  name='deletebutton' onclick='deletea("+json[i].petId+")'><i class='fas fa-trash-alt'></i></button>"
+												+ "<button class='btn btn-link'  name='updatebutton' value='"+json[i].petId+"'><i class='fas fa-pen'></i></button></span></div></div></div>"
+
+								);
+					}
+				}
+			})
 }
 
-
-$(function(){
-	alert("enter")
+$(function() {
+	
 	selectpet()
 })
 
+//function deletea(a){
+//alert(a)
+//$.ajax({ 
+//	 method : "POST",
+//		url : "deletea",
+//		cache : false,
+//		async : false,
+//		data : {
+//          id: a
+//		},
+//		dataType : "json",
+//		success : function(json) {
+//			
+//		
+//		}
+//	
+//	
+//})
+//
+//}
+
+
+
+$('body').on("click", 'input[name="updatebutton"]', function () {
+    alert('用on綁定就沒有問題!!');
+});

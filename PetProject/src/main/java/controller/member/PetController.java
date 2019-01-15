@@ -22,7 +22,7 @@ import model.pet.PetBean;
 import model.pet.PetService;
 
 @Controller
-@SessionAttributes("user")
+@SessionAttributes(value={"user","pet"})
 public class PetController {
 	@Autowired
 	private PetService petService;
@@ -91,16 +91,28 @@ public class PetController {
 	  
 }
 	@ResponseBody
-	@RequestMapping(value = {"*/checkpet"})
+	@RequestMapping(value = {"*/checkpet","checkpet"},produces={"application/json; charset=UTF-8"})
 	public 	 List<PetBean> method3(Model model) {
 		System.out.println("hi enter check");
 		MemberBean userBean =  (MemberBean) model.asMap().get("user");
-	 List<PetBean>	result =petService.selectByMemberID(userBean.getMemberId());
+	    List<PetBean>	result =petService.selectByMemberID(userBean.getMemberId());
 		System.out.println(result);
 		model.addAttribute("pet", result);
 		return result;
 	}
 	
+	
+	@ResponseBody
+	@RequestMapping(value = {"*/deletea","deletea"},produces={"application/json; charset=UTF-8"})
+	public 	 List<PetBean> method4(Model model,@RequestParam("id") Integer id) {
+		System.out.println("hi enter deletea");
+		System.out.println("id="+id);
+		MemberBean userBean =  (MemberBean) model.asMap().get("user");
+	    List<PetBean>	result =petService.selectByMemberID(userBean.getMemberId());
+		System.out.println(result);
+		model.addAttribute("pet", result);
+		return result;
+	}
 	
 	
 }
