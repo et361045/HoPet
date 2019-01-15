@@ -42,11 +42,15 @@
 <link href="/PetProject/assets/css/memberstyle.css" rel="stylesheet">
 <!-- login Style -->
 <link href="/PetProject/assets/css/login/login.css" rel="stylesheet">
-
-
+<!-- icon -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 <!-- alert -->
-<link href="//cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.10/alertify.core.css" rel="stylesheet">  
-<link href="//cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.10/alertify.default.css" rel="stylesheet">  
+<link
+	href="//cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.10/alertify.core.css"
+	rel="stylesheet">
+<link
+	href="//cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.10/alertify.default.css"
+	rel="stylesheet">
 
 
 
@@ -437,24 +441,23 @@
 											<div class="panel-heading">
 												<h4 class="panel-title">
 													<a data-toggle="collapse" data-parent="#accordion"
-														href="#collapseTwo"> Quality Coding <span
+														href="#collapseTwo"> 寵物名子<span
 														class="fa fa-plus-square"></span>
 													</a>
 												</h4>
 											</div>
 											<div id="collapseTwo" class="panel-collapse collapse">
 												<div class="panel-body">
-													<p>Anim pariatur cliche reprehenderit, enim eiusmod
-														high life accusamus terry richardson ad squid. 3 wolf moon
-														officia aute, non cupidatat skateboard dolor brunch. Food
-														truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
-														tempor, sunt aliqua put a bird on it squid single-origin
-														coffee nulla assumenda shoreditch et. Nihil anim keffiyeh
-														helvetica, craft beer labore wes anderson cred nesciunt
-														sapiente ea proident. Ad vegan excepteur butcher vice
-														lomo. Leggings occaecat craft beer farm-to-table, raw
-														denim aesthetic synth nesciunt you probably haven't heard
-														of them accusamus labore sustainable VHS.</p>
+                                                 <p style="display:none">petid</p>
+													<img src="/PetProject/assets/images/22573c5d604bad1.jpg"
+														width="100px" style="border: #8e8e8e solid thin;" />
+													<br/><br/>
+													<span class="text" style="margin-right:80px ">寵物大小:</span> <span class="text" style="margin-right:80px ">寵物品種:</span> <span class="text" >寵物年齡:</span>
+													<br/><br/>
+													<span class="text" style="font-size: 22px ;" > 備註:</span>
+													<br/><br/>
+													<span class="text"  >疫苗:</span><br/><br/>
+													<span style="float: right;"><button class="btn btn-link"><i class="fas fa-trash-alt"></i></button><button class="btn btn-link"><i class="fas fa-pen"></i></button></span>
 												</div>
 											</div>
 										</div>
@@ -469,8 +472,7 @@
 											</div>
 											<div id="collapseThree" class="panel-collapse collapse">
 												<div class="panel-body">
-													<form method="POST"
-														action="<c:url value='/insertpet'/>"
+													<form method="POST" action="<c:url value='/insertpet'/>"
 														enctype="multipart/form-data" id="petpicturefrom">
 
 														<img id="petpicture"
@@ -483,19 +485,88 @@
 															accept=" image/gif,image/png,image/jpeg,image/jpg,image/bmp">
 															<i class="fa fa-photo"></i>選擇照片
 														</label><br /> <label class="text">寵物名子:</label><br /> <input
-															type="text" name="petName" class="form-control"> <label
-															class="text">寵物大小:</label><br /> <input type="text"
-															name="petSize" class="form-control"> <label
-															class="text">寵物品種:</label><br /> <input type="text"
-															name="petVariety" class="form-control"> <label
-															class="text">寵物年齡:</label><br /> <input type="text"
-															name="age" class="form-control"> <label
+															type="text" name="petName" class="form-control">
+														<label class="text">寵物大小:</label><br /> <input
+															type="text" name="petSize" class="form-control">
+														<label class="text">寵物品種:</label><br />
+														<!-- 															<input type="text" name="petVariety" class="form-control">  -->
+														<select id="termType" name="petVariety"
+															class="form-control">
+															<option value="">請選擇</option>
+															<option value="柴犬">柴犬</option>
+															<option value="巴哥">巴哥</option>
+															<option value="貴賓犬">貴賓犬</option>
+															<option value="吉娃娃">吉娃娃</option>
+															<option value="紅貴賓">紅貴賓</option>
+															<option value="絲毛梗">絲毛梗</option>
+															<option value="北京犬">北京犬</option>
+															<option value="拉薩犬">拉薩犬</option>
+															<option value="博美犬">博美犬</option>
+															<option value="比熊犬">比熊犬</option>
+															<option value="約克夏">約克夏</option>
+															<option value="日本狆">日本狆</option>
+															<option value="西施犬">西施犬</option>
+															<option value="雪納瑞">雪納瑞</option>
+															<option value="蝴蝶犬">蝴蝶犬</option>
+															<option value="米格魯">米格魯</option>
+															<option value="波士頓梗">波士頓梗</option>
+															<option value="威爾斯梗">威爾斯梗</option>
+															<option value="馬爾濟斯">馬爾濟斯</option>
+															<option value="長毛臘腸犬">長毛臘腸犬</option>
+															<option value="傑克羅素梗">傑克羅素梗</option>
+															<option value="單第丁蒙梗">單第丁蒙梗</option>
+															<option value="中國冠毛犬">中國冠毛犬</option>
+															<option value="西部高地白梗">西部高地白梗</option>
+															<option value="查理王長毛獵犬">查理王長毛獵犬</option>
+															<option value="迷你杜賓">迷你杜賓</option>
+															<option value="巴吉度">巴吉度</option>
+															<option value="鬆獅犬">鬆獅犬</option>
+															<option value="柯基犬">柯基犬</option>
+															<option value="牛頭梗">牛頭梗</option>
+															<option value="沙皮犬">沙皮犬</option>
+															<option value="惠比特犬">惠比特犬</option>
+															<option value="貝林登梗">貝林登梗</option>
+															<option value="蘇格蘭梗">蘇格蘭梗</option>
+															<option value="英國鬥牛犬">英國鬥牛犬</option>
+															<option value="法國鬥牛犬">法國鬥牛犬</option>
+															<option value="英國可卡獵犬">英國可卡獵犬</option>
+															<option value="美國可卡獵犬">美國可卡獵犬</option>
+															<option value="喜樂蒂牧羊犬">喜樂蒂牧羊犬</option>
+															<option value="杜賓犬">杜賓犬</option>
+															<option value="挪威納">挪威納</option>
+															<option value="拳師犬">拳師犬</option>
+															<option value="威瑪犬">威瑪犬</option>
+															<option value="秋田犬">秋田犬</option>
+															<option value="拉不拉多">拉不拉多</option>
+															<option value="黃金獵犬">黃金獵犬</option>
+															<option value="大麥町犬">大麥町犬</option>
+															<option value="薩摩耶犬">薩摩耶犬</option>
+															<option value="尋血獵犬">尋血獵犬</option>
+															<option value="德國狼犬">德國狼犬</option>
+															<option value="馬士提夫">馬士提夫</option>
+															<option value="阿富汗獵犬">阿富汗獵犬</option>
+															<option value="蘇俄牧羊犬">蘇俄牧羊犬</option>
+															<option value="可麗牧羊犬">可麗牧羊犬</option>
+															<option value="愛爾蘭雪達犬">愛爾蘭雪達犬</option>
+															<option value="西伯利亞哈士奇">西伯利亞哈士奇</option>
+															<option value="阿拉斯加雪橇犬">阿拉斯加雪橇犬</option>
+															<option value="英國古代牧羊犬">英國古代牧羊犬</option>
+															<option value="大丹犬">大丹犬</option>
+															<option value="土佐犬">土佐犬</option>
+															<option value="西藏獒犬">西藏獒犬</option>
+															<option value="大白熊犬">大白熊犬</option>
+															<option value="聖伯納犬">聖伯納犬</option>
+															<option value="紐芬蘭犬">紐芬蘭犬</option>
+															<option value="伯恩山犬">伯恩山犬</option>
+															<option value="高加索山犬">高加索山犬</option>
+														</select> <label class="text">寵物年齡:</label><br /> <input
+															type="text" name="age" class="form-control"> <label
 															class="text">寵物特癥:</label><br /> <input type="text"
 															name="Remark" class="form-control"> <label
 															class="text">寵物疫苗:</label><br /> <input type="text"
-															name="vaccine" class="form-control"><br/>  <label
-															class="text">備註:</label><br /> <input type="text"
-															name="petRemarks" class="form-control"><br/><input
+															name="vaccine" class="form-control"><br /><label
+															class="text">備註:</label><br /><input type="text"
+															name="petRemarks" class="form-control"><br /> <input
 															type="submit" value="送出" class="btn btn-primary "
 															style="font-family: 'cwTeXYen'; font-size: 18px">
 														<input type="reset" value="清除" class="btn btn-default"
@@ -580,11 +651,12 @@
 	<script type="text/javascript" src="/PetProject/assets/js/custom.js"></script>
 
 	<!-- updatemember js -->
-<script type="text/javascript" src="/PetProject/assets/js/update.js"></script>
+	<script type="text/javascript" src="/PetProject/assets/js/update.js"></script>
 
-<!-- alert -->
+	<!-- alert -->
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.10/alertify.min.js"></script>  
- 
+	<script
+		src="//cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.10/alertify.min.js"></script>
+
 </body>
 </html>

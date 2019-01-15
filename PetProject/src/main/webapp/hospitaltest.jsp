@@ -35,7 +35,7 @@
 	rel="stylesheet">
 
 <!-- Main Style -->
-<link href="/PetProject/assets/css/style.css" rel="stylesheet">
+<link href="/PetProject/assets/css/memberstyle.css" rel="stylesheet">
 <!-- login Style -->
 <link href="/PetProject/assets/css/login/login.css" rel="stylesheet">
 <script defer
@@ -517,8 +517,8 @@ body, input {
 	<div class="hospital_map">
 		<div>
 			<p class="hospital_map_p">醫院地圖</p>
-			<figure class="img_inner" id="map_canvas">
-				<iframe
+			<figure class="img_inner" id="map_canvas" style=" margin-right: 150px ; ">
+				<iframe 
 					src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Brooklyn,+New+York,+NY,+United+States&amp;aq=0&amp;sll=37.0625,-95.677068&amp;sspn=61.282355,146.513672&amp;ie=UTF8&amp;hq=&amp;hnear=Brooklyn,+Kings,+New+York&amp;ll=40.649974,-73.950005&amp;spn=0.01628,0.025663&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>
 			</figure>
 		</div>
