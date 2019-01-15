@@ -69,13 +69,14 @@ Create TABLE BusinessInformation--商家資料
 	businessAddress nvarchar(30),--地址
 	businessScore decimal(2,1),--評分
 	businessGooglemap nvarchar(max),--googlemap鑲嵌
-	latitude varchar(max)--經緯度
+	longitude float,--經緯度
+    latitude float,
 	PRIMARY KEY (businessid)
 )  --豪
 
 CREATE TABLE [dbo].[Petencyclopedia]  (     --寵物百科
 	[petencyclopediaId] [int] IDENTITY(1,1) NOT NULL,  --寵物百科標號流水號
-	[petvariety] [nvarchar](10) NULL,  --寵物名稱	
+	[petvariety] [nvarchar](500) NULL,  --寵物名稱	
 	[scientific] [varchar](50) NULL,  --寵物學名
 	[petSize] [nvarchar](10) NULL,  --寵物種類 大型犬/小型犬/中型犬
 	[petPicture] [varchar](max) NULL,  --寵物照片
