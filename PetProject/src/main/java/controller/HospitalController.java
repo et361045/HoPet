@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import misc.PrimitiveNumberEditor;
+import model.dao.hospital.HospitalDaoHibernate;
 import model.hospital.HospitalBean;
 import model.hospital.HospitalService;
 
@@ -46,10 +47,38 @@ public class HospitalController {
 		System.out.println(beans);
 		return beans;
 	}
-//	@RequestMapping("/pages/hospital.controller")
-//	public String hospitalDisplayPage() {
-//		return "hospital.select";
-//	}
+	
+	
+	@ResponseBody
+	@RequestMapping("/pages/hospital/update.controller")
+	public String updatehospital(Integer hospitalId , String hospitalName,String hospitalAddress,
+									String hospitalphone,String hospitalowner,Double longitude,Double latitude) {
+		System.out.println(hospitalId);
+		System.out.println(hospitalName);
+		System.out.println(hospitalAddress);
+		System.out.println(longitude);
+		
+		HospitalBean temp = hospitalService.findone(hospitalId);
+		System.out.println(hospitalName);
+		if(!hospitalName.isEmpty()) {
+			temp.setHospitalName(hospitalName);
+		}if(!hospitalAddress.isEmpty()) {
+			temp.setHospitalAddress(hospitalAddress);
+		}if(!hospitalphone.isEmpty()) {
+			temp.setHospitalphone(hospitalphone);
+		}if(!hospitalowner.isEmpty()) {
+			temp.setHospitalowner(hospitalowner);
+		}if(longitude!=null) {
+			temp.setLongitude(longitude);
+		}if(latitude!=null) {
+			temp.setLatitude(latitude);
+		}
+		HospitalBean result = hospitalService.update(temp);
+		
+		System.out.println("result"+result);
+		return result+"";
+	}
+
 	@ResponseBody
 	@RequestMapping("/pages/hospital/delete.controller")
 	public String deletehospital(@RequestParam Integer hospitalId) {
@@ -61,49 +90,36 @@ public class HospitalController {
 	}
 	
 	
-	@RequestMapping("/pages/hospital.controller")
+	@RequestMapping("/hospitaltest.controller")
 	public String method(String hospital, HospitalBean bean, BindingResult bindingResult, Model model) {
 		System.out.println("bean=" + bean);
 		System.out.println("bindingResult=" + bindingResult);
+		System.out.println(hospital);
 
 		Map<String, String> errors = new HashMap<>();
 		model.addAttribute("errors", errors);
-
-		if (bindingResult != null && bindingResult.hasFieldErrors()) {
-
-//轉換資料
-
-			if (bindingResult.hasFieldErrors("hospitalId")) {
-
-				errors.put("hospitalId", "hospitalId must be an integer");
+		
+		if("Insert".equals(hospital) || "Update".equals(hospital) || "Delete".equals(hospital)) {
+			if ( bean.getHospitalName()==null||bean.getHospitalName().trim()=="") {
+				errors.put("hospitalName", "請輸入名稱 ");
+				System.out.println(errors);
 			}
-			if (bindingResult.hasFieldErrors("hospitalName")) {
-
-				errors.put("hospitalName", "Please enter hospitalName for");
+			if ( bean.getHospitalAddress()==null||bean.getHospitalAddress().trim()=="") {
+				errors.put("hospitalAddress", "請輸入地址");
+				System.out.println(errors);
 			}
-			if (bindingResult.hasFieldErrors("hospitalAddress")) {
-
-				errors.put("hospitalAddress", "Please enter hospitalAddress for");
+			if ( bean.getHospitalphone()==null||bean.getHospitalphone().trim()=="") {
+				errors.put("hospitalphone", "請輸入電話");
+				System.out.println(errors);
 			}
-
-			if (bindingResult.hasFieldErrors("hospitalphone")) {
-
-				errors.put("hospitalphone", "Please enter hospitalphone for");
+			if ( bean.getHospitalowner()==null||bean.getHospitalowner().trim()=="") {
+				errors.put("hospitalowner", "請輸入擁有人");
+				System.out.println(errors);
 			}
-			if (bindingResult.hasFieldErrors("hospitalowner")) {
-
-				errors.put("hospitalowner", "Please enter hospitalphone for");
-			}
-			if (bindingResult.hasFieldErrors("longitude")) {
-
-				errors.put("longitude", "Please enter longitude for");
-			}
-			if (bindingResult.hasFieldErrors("latitude")) {
-
-				errors.put("latitude", "Please enter latitude for");
-			}
-
 		}
+		
+		
+		
 
 	
 		if (errors != null && !errors.isEmpty()) {
@@ -119,25 +135,13 @@ public class HospitalController {
 		} else if ("Insert".equals(hospital)) {
 			System.out.println("enter inset "+ bean);
 			HospitalBean result = hospitalService.insert(bean);
+			System.out.println("result"+result);
 			if (result == null) {
+				System.out.println("result"+result);
 				errors.put("action", "insert failed");
 			} else {
 				model.addAttribute("insert", result);
 			}
-			return "hospital.errors";
-
-		} else if ("Update".equals(hospital)) {
-			HospitalBean result = hospitalService.update(bean);
-			if (result == null) {
-				errors.put("action", "update failed");
-			} else {
-				model.addAttribute("insert", result);
-			}
-			return "hospital.errors";
-
-		} else if ("Delete".equals(hospital)) {
-			boolean result = hospitalService.delete(bean);
-			model.addAttribute("delete", result);
 			return "hospital.errors";
 
 		} else {

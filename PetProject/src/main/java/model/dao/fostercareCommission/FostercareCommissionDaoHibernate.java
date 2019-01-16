@@ -56,7 +56,7 @@ public class FostercareCommissionDaoHibernate implements FostercareCommissionDao
 	}
 	@Override
 	public FostercareCommissionBean update(String name,
-			String variety, String area,Date starttime,Date endtime,Integer owner,String reason,byte[] picture,String remark,Integer fostercareCommissionid) {
+			String variety, String area,Date starttime,Date endtime,Integer owner,String reason,String picture,String remark,Integer fostercareCommissionid) {
 		//利用id作為primary key修改product table資料
 		//id存在=>修改成功、傳回裝滿資料的ProductBean物件
 		//id不存在=>修改失敗、傳回null
