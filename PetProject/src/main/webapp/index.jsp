@@ -39,7 +39,13 @@
 <!-- login Style -->
 <link href="/PetProject/assets/css/login/login.css" rel="stylesheet">
 
-
+<!-- alert -->
+<link
+	href="//cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.10/alertify.core.css"
+	rel="stylesheet">
+<link
+	href="//cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.10/alertify.default.css"
+	rel="stylesheet">
 
 <!-- Fonts -->
 
@@ -1272,6 +1278,12 @@
 
 	<!-- Custom js -->
 	<script type="text/javascript" src="/PetProject/assets/js/custom.js"></script>
+	<!-- alert -->
+		<script
+		src="//cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.10/alertify.min.js"></script>
+		
+
+</body>
 
 </body>
 </html>

@@ -197,7 +197,7 @@ $('#picture').submit(function() {
 	}
 })
 
-function selectpet() {
+function selectpet1() {
 	
 	$.ajax({   method : "POST",
 				url : "checkpet",
@@ -243,7 +243,9 @@ function selectpet() {
 												+ "疫苗:"
 												+ json[i].vaccine
 												+ "</span><br /><br /> <span style='float: right;'><button class='btn btn-link'  name='deletebutton' onclick='deletea("+json[i].petId+")'><i class='fas fa-trash-alt'></i></button>"
-												+ "<button class='btn btn-link'  name='updatebutton' value='"+json[i].petId+"'onclick='update("+json[i].petId+")'><i class='fas fa-pen'></i></button></span></div></div></div></div>"
+												+ "<button class='btn btn-link'  name='updatebutton' value='"+json[i].petId+"'onclick='update("+json[i].petId+")' data-target='#update-pet'" +
+												"data-toggle='modal'>" +
+												"<i class='fas fa-pen'></i></button></span></div></div></div></div>"
 
 								);
 						
@@ -253,7 +255,7 @@ function selectpet() {
 }
 
 $(function() {
-	selectpet()
+	selectpet1()
 })
 
 function deletea(a){
@@ -268,7 +270,7 @@ $.ajax({
 		},
 		success : function() {
 			$(".append").remove();
-			selectpet()
+			selectpet1()
 		}
 	
 	
@@ -277,7 +279,8 @@ $.ajax({
 }
 
 function update(a){
-	$('#collapseTwo1').html()
+	alert("hi")
+	$("#email2").val(a)
 }
 
 

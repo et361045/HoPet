@@ -601,10 +601,43 @@
 		</div>
 	</section>
 	<!-- end about -->
+<!-- update pet -->
+   	<div aria-hidden="false" role="dialog" tabindex="-1" id="update-pet"
+		                         class="modal leread-modal fade in">
+		<div class="modal-dialog">
+			<!-- Start login section -->
+			<div id="update-petFrom" class="modal-content">
+				<div class="modal-header">
+					<button aria-label="Close" data-dismiss="modal" class="close"
+						type="button">
+						<span aria-hidden="true"><i class="fas fa-times"></i></span>
+					</button>
+					<h4 class="text">
+						<i class="fas fa-wrench"></i>修改寵物資料
+					</h4>
+				</div>
+				<div class="modal-body">
+					<form id="updatepeta">
+						<div class="form-group">
+							<input type="email" placeholder="User email" id="email2"
+								class="form-control" title="請輸入信箱">
+						</div>
+						<div class="form-group">
+							<input type="password" placeholder="Password" name="password"
+								class="form-control" title="請輸入密碼">
+						</div>
 
-
-
-
+						<div class="loginbox">
+							<label><input type="checkbox"><span>Remember
+									me</span></label> <input type="submit" class="btn signin-btn" value="SIGN IN"><span
+								class="errorspan" id="errorspan"></span>
+						</div>
+					</form>
+				</div>
+			
+			</div>
+		</div>
+	</div>
 
 
 
@@ -629,7 +662,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>		
 	</footer>
 	<!-- End footer -->
 
