@@ -208,7 +208,7 @@ function selectpet() {
 					console.log(json)
 					for (var i = 0; i < json.length; i++) {
 						$("#insetaa")
-								.append(
+								.append("<div class='append' style='margin-bottom:10px'>"+
 										"<div class='panel panel-default'>"
 												+ "<div class='panel-heading'>"
 												+ "<h4 class='panel-title'>"
@@ -243,42 +243,43 @@ function selectpet() {
 												+ "疫苗:"
 												+ json[i].vaccine
 												+ "</span><br /><br /> <span style='float: right;'><button class='btn btn-link'  name='deletebutton' onclick='deletea("+json[i].petId+")'><i class='fas fa-trash-alt'></i></button>"
-												+ "<button class='btn btn-link'  name='updatebutton' value='"+json[i].petId+"'><i class='fas fa-pen'></i></button></span></div></div></div>"
+												+ "<button class='btn btn-link'  name='updatebutton' value='"+json[i].petId+"'onclick='update("+json[i].petId+")'><i class='fas fa-pen'></i></button></span></div></div></div></div>"
 
 								);
+						
 					}
 				}
 			})
 }
 
 $(function() {
-	
 	selectpet()
 })
 
-//function deletea(a){
-//alert(a)
-//$.ajax({ 
-//	 method : "POST",
-//		url : "deletea",
-//		cache : false,
-//		async : false,
-//		data : {
-//          id: a
-//		},
-//		dataType : "json",
-//		success : function(json) {
-//			
-//		
-//		}
-//	
-//	
-//})
-//
-//}
+function deletea(a){
+
+$.ajax({ 
+	 method : "POST",
+		url : "deletea",
+		cache : false,
+		async : false,
+		data : {
+          id: a
+		},
+		success : function() {
+			$(".append").remove();
+			selectpet()
+		}
+	
+	
+})
+
+}
+
+function update(a){
+	$('#collapseTwo1').html()
+}
 
 
 
-$('body').on("click", 'input[name="updatebutton"]', function () {
-    alert('用on綁定就沒有問題!!');
-});
+

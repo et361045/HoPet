@@ -634,9 +634,15 @@
 	<!-- End footer -->
 
 	<!-- jQuery library -->
+		
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	
+		<!-- updatemember js -->
+	<script type="text/javascript" src="/PetProject/assets/js/update.js"></script>
+	
+	
 	<!-- Bootstrap -->
 	<script src="/PetProject/assets/js/bootstrap.js"></script>
 	<!-- Slick Slider -->
@@ -666,8 +672,7 @@
 	<!-- Custom js -->
 	<script type="text/javascript" src="/PetProject/assets/js/custom.js"></script>
 
-	<!-- updatemember js -->
-	<script type="text/javascript" src="/PetProject/assets/js/update.js"></script>
+
 
 	<!-- alert -->
 

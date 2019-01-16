@@ -104,14 +104,11 @@ public class PetController {
 	
 	@ResponseBody
 	@RequestMapping(value = {"*/deletea","deletea"},produces={"application/json; charset=UTF-8"})
-	public 	 List<PetBean> method4(Model model,@RequestParam("id") Integer id) {
+	public 	 void method4(Model model,@RequestParam("id") Integer id) {
 		System.out.println("hi enter deletea");
 		System.out.println("id="+id);
-		MemberBean userBean =  (MemberBean) model.asMap().get("user");
-	    List<PetBean>	result =petService.selectByMemberID(userBean.getMemberId());
-		System.out.println(result);
-		model.addAttribute("pet", result);
-		return result;
+	    System.out.println(petService.delete(id));
+	
 	}
 	
 	

@@ -58,7 +58,10 @@ $('#login').submit(function() {
 
 				if (json[0].password === 'exist') {
 
+					selectpet()
+					
 					window.location.reload()
+					
 
 				}
 
@@ -100,3 +103,18 @@ $('#forgotpsw').click(function() {
 	}
 
 })
+
+
+function selectpet() {
+	alert("enter selectpet")
+	$.ajax({    method : "POST",
+				url : "checkpet",
+				cache : false,
+				async : false,
+				dataType : "json",
+				success : function(json) {
+					console.log(json)
+					
+				}
+			})
+}

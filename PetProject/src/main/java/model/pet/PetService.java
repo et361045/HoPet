@@ -29,6 +29,13 @@ public class PetService {
 		return false;
 	}
 	
-	
+	public boolean delete(Integer id) {
+		PetBean petbean =  petDAO.findpetBean(id);
+		if(petbean!=null) {
+			petDAO.delete(petbean);
+			return true;
+		}
+		return false;
+	}
 	
 }
