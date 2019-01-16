@@ -37,6 +37,9 @@
 <link href="/PetProject/assets/css/style.css" rel="stylesheet">
 <!-- login Style -->
 <link href="/PetProject/assets/css/login/login.css" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+
 
 
 
@@ -57,21 +60,7 @@
     <![endif]-->
     
     
-    <script>
-    
-    
-		function deleteRow(hospitalid){
-			console.log(hospitalid);
-			$.get("/PetProject/pages/hospital/delete.controller",{"hospitalId":hospitalid}, function(data){
-				if (data == 'true'){
-					$("#tr"+hospitalid).html("");
-// 					window.location.reload();
-					console.log("deleteTrue")
-				}
-			})
-		}
-
-</script>
+   
 </head>
 <body>
 
@@ -110,8 +99,10 @@
   <td>${bean.hospitalowner}</td>
   <td>${bean.longitude}</td>
   <td>${bean.latitude}</td>
-  <td><button  id="buttonAdd" onclick="deleteRow(${bean.hospitalId})" type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-      <button  id="buttonUpdate" type="button" class="btn btn-success"><i class="fa fa-wrench"></i></button></td>
+  <td><button  id="buttonAdd" onclick="deleteRow(${bean.hospitalId})" type="button" class="btn btn-link"><i class="fa fa-trash"></i></button>
+      <button  id="buttonUpdate" onclick="updateTest(${bean.hospitalId})" type="button" class="btn  btn-link"><i class="fas fa-pencil-alt"></i></button>
+      <button  id="buttonUpdatecheck" onclick="updateTest2(${bean.hospitalId})" type="button" class="btn btn-link"><i class="fas fa-check"></i></button>
+  </td>
  </tr> 
  
  </c:forEach>
@@ -122,7 +113,7 @@
 
 
 
-<h3><a href="<c:url value="/pages/hospital.jsp" />">hospital Table</a></h3>
+<h3><a href="<c:url value="/hospitaltest.jsp" />">hospital Table</a></h3>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -154,6 +145,88 @@
 
 	<!-- Custom js -->
 	<script type="text/javascript" src="/PetProject/assets/js/custom.js"></script>
+ <script>
+    
+    
+		function deleteRow(hospitalid){
+			console.log(hospitalid);
+			$.get("/PetProject/pages/hospital/delete.controller",{"hospitalId":hospitalid}, function(data){
+				if (data == 'true'){
+					$("#tr"+hospitalid).html("");
+					window.location.reload();
+					console.log("deleteTrue")
+				}
+			})
+		}
+		
+		
+		function updateTest(hospitalId){
+			var hospitalName=$("#tr"+hospitalId+">td:nth-child(2)").text()
+			var hospitalAddress=$("#tr"+hospitalId+">td:nth-child(3)").text()
+			var hospitalphone=$("#tr"+hospitalId+">td:nth-child(4)").text()
+			var hospitalowner=$("#tr"+hospitalId+">td:nth-child(5)").text()
+			var longitude=$("#tr"+hospitalId+">td:nth-child(6)").text()
+			var latitude=$("#tr"+hospitalId+">td:nth-child(7)").text()
+			$("#tr"+hospitalId+">td:nth-child(2)").prop("outerHTML","<td>"+"<input type='text' id='hospitalName' value='"+hospitalName+"' />"+"</td>");
+			$("#tr"+hospitalId+">td:nth-child(3)").prop("outerHTML","<td>"+"<input type='text' id='hospitalAddress' value='"+hospitalAddress+"' />"+"</td>");
+			$("#tr"+hospitalId+">td:nth-child(4)").prop("outerHTML","<td>"+"<input type='text' id='hospitalphone' value='"+hospitalphone+"' />"+"</td>");
+			$("#tr"+hospitalId+">td:nth-child(5)").prop("outerHTML","<td>"+"<input type='text' id='hospitalowner' value='"+hospitalowner+"' />"+"</td>");
+			$("#tr"+hospitalId+">td:nth-child(6)").prop("outerHTML","<td>"+"<input type='text' id='longitude' value='"+longitude+"' />"+"</td>");
+			$("#tr"+hospitalId+">td:nth-child(7)").prop("outerHTML","<td>"+"<input type='text' id='latitude' value='"+latitude+"' />"+"</td>");	
+		}
+		function updateTest2(hospitalId){
+			var hospitalName=$("#hospitalName").val()
+			var hospitalAddress=$("#hospitalAddress").val()
+			var hospitalphone=$("#hospitalphone").val()
+			var hospitalowner=$("#hospitalowner").val()
+			var longitude=$("#longitude").val()
+			var latitude=$("#latitude").val()
+			console.log('hospitalName'+hospitalName)
+			$.ajax({
+	            type: "GET", //傳送方式
+	            url: "/PetProject/pages/hospital/update.controller", 
+	            dataType: "json", 
+	            data: {'hospitalId':hospitalId,'hospitalName':hospitalName,'hospitalAddress':hospitalAddress,'hospitalphone':hospitalphone,'hospitalowner':hospitalowner,'longitude':longitude,'latitude':latitude
+	            },
+	            done: function(data) {
+	 				console.log(data);
+	            }
+       		 });
+			$("#tr"+hospitalId+">td:nth-child(2)").prop("outerHTML","<td>"+hospitalName+"</td>");
+			$("#tr"+hospitalId+">td:nth-child(3)").prop("outerHTML","<td>"+hospitalAddress+"</td>");
+			$("#tr"+hospitalId+">td:nth-child(4)").prop("outerHTML","<td>"+hospitalphone+"</td>");
+			$("#tr"+hospitalId+">td:nth-child(5)").prop("outerHTML","<td>"+hospitalowner+"</td>");
+			$("#tr"+hospitalId+">td:nth-child(6)").prop("outerHTML","<td>"+longitude+"</td>");
+			$("#tr"+hospitalId+">td:nth-child(7)").prop("outerHTML","<td>"+latitude+"</td>");	
+		
+		}
+		
+// 		function updateRow(hospitalid){
+// 			console.log(hospitalid);
 
+// 			var hospitalName = $("#tr"+hospitalid+">td:nth-child(2)");
+			
+		
+			
+// 			$.get("/PetProject/pages/hospital/update.controller",{"hospitalId":hospitalid
+// 			,"hospitalName":hospitalName.text(),"hospitalAddress":hospitalAddress.text(),
+// 			"hospitalphone":hospitalphone.text(),"hospitalowner":hospitalowner.text(),
+// 			"longitude":longitude.text(),"latitude":latitude.text()}
+// 			, function(data){
+// 				if (data == 'true'){
+// // 					$('#hospitalId').val(hospitalId).next('span').text(hospitalId);
+// 				   	hospitalName.val(hospitalName.text())
+// 				    $('#hospitalAddress').val(hospitalAddress)
+// 				    $('#hospitalphone').val(hospitalphone)
+// 				    $('#hospitalowner').val(hospitalowner)
+// 				    $('#longitude').val(longitude)
+// 				    $('#latitude').val(latitude)
+// 					console.log("updateTrue")
+// 				}
+// 			})
+// 		}
+		
+
+</script>
 </body>
 </html>

@@ -18,6 +18,13 @@ public class HospitalService {
 		this.hospitalDao = hospitalDao;
 	}
 	
+	public HospitalBean findone(Integer hospitalId)
+	{	
+		HospitalBean temp = hospitalDao.findByPrimaryKey(hospitalId);
+		return temp;
+	}
+	
+	
 	
 	public List<HospitalBean> select(HospitalBean bean) {
 		List<HospitalBean> result = null;
