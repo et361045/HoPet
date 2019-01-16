@@ -10,26 +10,19 @@ public class FosterFormService {
 
 	public FosterFormBean searchFosterFormId(Integer fosterFormId) {
 		FosterFormBean bean = fosterFormDao.findByFosterFormId(fosterFormId);
-		if (bean != null) {
-			return bean;
-		}
-		return null;
+		return bean;
 	}
 
 	public FosterFormBean updateFosterForm(FosterFormBean fosterFormBean) {
 		FosterFormBean bean = fosterFormDao.update(fosterFormBean);
-		if (bean != null) {
-			return bean;
-		}
-		return null;
+
+		return bean;
 	}
 
 	public FosterFormBean insertFosterForm(FosterFormBean fosterFormBean) {
 		FosterFormBean bean = fosterFormDao.insert(fosterFormBean);
-		if (bean != null) {
-			return bean;
-		}
-		return null;
+
+		return bean;
 	}
 
 	public boolean deleteFosterForm(FosterFormBean fosterFormBean) {
