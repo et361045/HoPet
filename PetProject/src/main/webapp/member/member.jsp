@@ -285,7 +285,8 @@
 					</ul>
 				</div>
 				<!--/.nav-collapse -->
-				<a href="#" id="search-icon"> <i class="fa fa-search" style=""> </i>
+				<a href="#" id="search-icon"> <i class="fa fa-search" style="">
+				</i>
 				</a>
 			</div>
 		</nav>
@@ -400,83 +401,83 @@
 								<div class="why-choose-us">
 									<h2 class="code">您的寵物資料</h2>
 
-								
+
 									<!-- 									start -->
 									<div class="panel-group why-choose-group" id="accordion">
 										<div id="insetaa"></div>
-										
-										
-<!-- 										<div class="panel panel-default"> -->
-<!-- 											<div class="panel-heading"> -->
-<!-- 												<h4 class="panel-title"> -->
-<!-- 													<a data-toggle="collapse" data-parent="#accordion" -->
-<!-- 														href="#collapseOne" class="title"> Awesome Design -->
-<!-- 														Layout <span class="fa fa-minus-square"></span> -->
-<!-- 													</a> -->
-<!-- 												</h4> -->
-<!-- 											</div> -->
-<!-- 											<div id="collapseOne" class="panel-collapse collapse in"> -->
-<!-- 												<div class="panel-body"> -->
-<!-- 													<img class="why-choose-img" src="assets/images/testi1.jpg" -->
-<!-- 														alt="img"> -->
-<!-- 													<p id="sds">Anim pariatur cliche reprehenderit, enim -->
-<!-- 														eiusmod high life accusamus terry richardson ad squid. 3 -->
-<!-- 														wolf moon officia aute, non cupidatat skateboard dolor -->
-<!-- 														brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch -->
-<!-- 														3 wolf moon tempor, sunt aliqua put a bird on it squid -->
-<!-- 														single-origin coffee nulla assumenda shoreditch et. Nihil -->
-<!-- 														anim keffiyeh helvetica, craft beer labore wes anderson -->
-<!-- 														cred nesciunt sapiente ea proident. Ad vegan excepteur -->
-<!-- 														butcher vice lomo. Leggings occaecat craft beer -->
-<!-- 														farm-to-table, raw denim aesthetic synth nesciunt you -->
-<!-- 														probably haven't heard of them accusamus labore -->
-<!-- 														sustainable VHS.Anim pariatur cliche reprehenderit, enim -->
-<!-- 														eiusmod high life accusamus terry richardson ad squid. 3 -->
-<!-- 														wolf moon officia aute, non cupidatat skateboard dolor -->
-<!-- 														brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch -->
-<!-- 														3 wolf moon tempor, sunt aliqua put a bird on it squid -->
-<!-- 														single-origin coffee nulla assumenda shoreditch et. Nihil -->
-<!-- 														anim keffiyeh helvetica, craft beer labore wes anderson -->
-<!-- 														cred nesciunt sapiente ea proident. Ad vegan excepteur -->
-<!-- 														butcher vice lomo. Leggings occaecat craft beer -->
-<!-- 														farm-to-table, raw denim aesthetic synth nesciunt you -->
-<!-- 														probably haven't heard of them accusamus labore -->
-<%-- 														sustainable VHS. ${param.pet}</p> --%>
-<!-- 												</div> -->
-<!-- 											</div> -->
-<!-- 										</div> -->
-<p></p>
-<!-- 										<div class="panel panel-default "> -->
-<!-- 											<div class="panel-heading"> -->
-<!-- 												<h4 class="panel-title"> -->
-<!-- 													<a data-toggle="collapse" data-parent="#accordion" -->
-<!-- 														href="#collapseTwo"> 寵物名子 -->
-<!-- 														<span class="fa fa-plus-square"></span> -->
-<!-- 													</a> -->
-<!-- 												</h4> -->
-<!-- 											</div> -->
-<!-- 											<div id="collapseTwo" class="panel-collapse collapse"> -->
-<!-- 												<div class="panel-body"> -->
-<!-- 													<p style="display: none">petid</p> -->
-<!-- 													<img src="/PetProject/assets/images/22573c5d604bad1.jpg" -->
-<!-- 														width="100px" style="border: #8e8e8e solid thin;" /> <br /> -->
-<!-- 													<br /> <span class="text" style="margin-right: 80px">寵物大小:</span> -->
-<!-- 													<span class="text" style="margin-right: 80px">寵物品種:</span> -->
-<!-- 													<span class="text">寵物年齡:</span> <br /> -->
-<!-- 													<br /> <span class="text" style="font-size: 22px;"> -->
-<!-- 														備註:</span> <br /> -->
-<!-- 													<br /> <span class="text">疫苗:</span><br /> -->
-<!-- 													<br /> <span style="float: right;"><button -->
-<!-- 															class="btn btn-link"> -->
-<!-- 															<i class="fas fa-trash-alt"></i> -->
-<!-- 														</button> -->
-<!-- 														<button class="btn btn-link"> -->
-<!-- 															<i class="fas fa-pen"></i> -->
-<!-- 														</button></span> -->
-<!-- 												</div> -->
-<!-- 											</div> -->
-<!-- 										</div> -->
-										
+
+
+										<!-- 										<div class="panel panel-default"> -->
+										<!-- 											<div class="panel-heading"> -->
+										<!-- 												<h4 class="panel-title"> -->
+										<!-- 													<a data-toggle="collapse" data-parent="#accordion" -->
+										<!-- 														href="#collapseOne" class="title"> Awesome Design -->
+										<!-- 														Layout <span class="fa fa-minus-square"></span> -->
+										<!-- 													</a> -->
+										<!-- 												</h4> -->
+										<!-- 											</div> -->
+										<!-- 											<div id="collapseOne" class="panel-collapse collapse in"> -->
+										<!-- 												<div class="panel-body"> -->
+										<!-- 													<img class="why-choose-img" src="assets/images/testi1.jpg" -->
+										<!-- 														alt="img"> -->
+										<!-- 													<p id="sds">Anim pariatur cliche reprehenderit, enim -->
+										<!-- 														eiusmod high life accusamus terry richardson ad squid. 3 -->
+										<!-- 														wolf moon officia aute, non cupidatat skateboard dolor -->
+										<!-- 														brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch -->
+										<!-- 														3 wolf moon tempor, sunt aliqua put a bird on it squid -->
+										<!-- 														single-origin coffee nulla assumenda shoreditch et. Nihil -->
+										<!-- 														anim keffiyeh helvetica, craft beer labore wes anderson -->
+										<!-- 														cred nesciunt sapiente ea proident. Ad vegan excepteur -->
+										<!-- 														butcher vice lomo. Leggings occaecat craft beer -->
+										<!-- 														farm-to-table, raw denim aesthetic synth nesciunt you -->
+										<!-- 														probably haven't heard of them accusamus labore -->
+										<!-- 														sustainable VHS.Anim pariatur cliche reprehenderit, enim -->
+										<!-- 														eiusmod high life accusamus terry richardson ad squid. 3 -->
+										<!-- 														wolf moon officia aute, non cupidatat skateboard dolor -->
+										<!-- 														brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch -->
+										<!-- 														3 wolf moon tempor, sunt aliqua put a bird on it squid -->
+										<!-- 														single-origin coffee nulla assumenda shoreditch et. Nihil -->
+										<!-- 														anim keffiyeh helvetica, craft beer labore wes anderson -->
+										<!-- 														cred nesciunt sapiente ea proident. Ad vegan excepteur -->
+										<!-- 														butcher vice lomo. Leggings occaecat craft beer -->
+										<!-- 														farm-to-table, raw denim aesthetic synth nesciunt you -->
+										<!-- 														probably haven't heard of them accusamus labore -->
+										<%-- 														sustainable VHS. ${param.pet}</p> --%>
+										<!-- 												</div> -->
+										<!-- 											</div> -->
+										<!-- 										</div> -->
+										<p></p>
+										<!-- 										<div class="panel panel-default "> -->
+										<!-- 											<div class="panel-heading"> -->
+										<!-- 												<h4 class="panel-title"> -->
+										<!-- 													<a data-toggle="collapse" data-parent="#accordion" -->
+										<!-- 														href="#collapseTwo"> 寵物名子 -->
+										<!-- 														<span class="fa fa-plus-square"></span> -->
+										<!-- 													</a> -->
+										<!-- 												</h4> -->
+										<!-- 											</div> -->
+										<!-- 											<div id="collapseTwo" class="panel-collapse collapse"> -->
+										<!-- 												<div class="panel-body"> -->
+										<!-- 													<p style="display: none">petid</p> -->
+										<!-- 													<img src="/PetProject/assets/images/22573c5d604bad1.jpg" -->
+										<!-- 														width="100px" style="border: #8e8e8e solid thin;" /> <br /> -->
+										<!-- 													<br /> <span class="text" style="margin-right: 80px">寵物大小:</span> -->
+										<!-- 													<span class="text" style="margin-right: 80px">寵物品種:</span> -->
+										<!-- 													<span class="text">寵物年齡:</span> <br /> -->
+										<!-- 													<br /> <span class="text" style="font-size: 22px;"> -->
+										<!-- 														備註:</span> <br /> -->
+										<!-- 													<br /> <span class="text">疫苗:</span><br /> -->
+										<!-- 													<br /> <span style="float: right;"><button -->
+										<!-- 															class="btn btn-link"> -->
+										<!-- 															<i class="fas fa-trash-alt"></i> -->
+										<!-- 														</button> -->
+										<!-- 														<button class="btn btn-link"> -->
+										<!-- 															<i class="fas fa-pen"></i> -->
+										<!-- 														</button></span> -->
+										<!-- 												</div> -->
+										<!-- 											</div> -->
+										<!-- 										</div> -->
+
 										<div class="panel panel-default">
 											<div class="panel-heading">
 												<h4 class="panel-title">
@@ -502,9 +503,14 @@
 															<i class="fa fa-photo"></i>選擇照片
 														</label><br /> <label class="text">寵物名子:</label><br /> <input
 															type="text" name="petName" class="form-control">
-														<label class="text">寵物大小:</label><br /> <input
-															type="text" name="petSize" class="form-control">
-														<label class="text">寵物品種:</label><br />
+														<label class="text">寵物大小:</label><br /> <select
+															name="petSize" class="form-control">
+															<option value="">請選擇</option>
+															<option value="小型犬">小型犬</option>
+															<option value="中型犬">中型犬</option>
+															<option value="大型犬">大型犬</option>
+
+														</select> <label class="text">寵物品種:</label><br />
 														<!-- 															<input type="text" name="petVariety" class="form-control">  -->
 														<select id="termType" name="petVariety"
 															class="form-control">
@@ -577,13 +583,13 @@
 															<option value="高加索山犬">高加索山犬</option>
 														</select> <label class="text">寵物年齡:</label><br /> <input
 															type="text" name="age" class="form-control"> <label
-															class="text">寵物特癥:</label><br /> <input type="text"
+															class="text">寵物特徵:</label><br /> <input type="text"
 															name="Remark" class="form-control"> <label
 															class="text">寵物疫苗:</label><br /> <input type="text"
-															name="vaccine" class="form-control"><br />
-														<label class="text">備註:</label><br />
-														<input type="text" name="petRemarks" class="form-control"><br />
-														<input type="submit" value="送出" class="btn btn-primary "
+															name="vaccine" class="form-control"><br /> <label
+															class="text">備註:</label><br /> <input type="text"
+															name="petRemarks" class="form-control"><br /> <input
+															type="submit" value="送出" class="btn btn-primary "
 															style="font-family: 'cwTeXYen'; font-size: 18px">
 														<input type="reset" value="清除" class="btn btn-default"
 															style="font-family: 'cwTeXYen'; font-size: 18px">
@@ -601,9 +607,9 @@
 		</div>
 	</section>
 	<!-- end about -->
-<!-- update pet -->
-   	<div aria-hidden="false" role="dialog" tabindex="-1" id="update-pet"
-		                         class="modal leread-modal fade in">
+	<!-- update pet -->
+	<div aria-hidden="false" role="dialog" tabindex="-1" id="update-pet"
+		class="modal leread-modal fade in">
 		<div class="modal-dialog">
 			<!-- Start login section -->
 			<div id="update-petFrom" class="modal-content">
@@ -634,7 +640,7 @@
 						</div>
 					</form>
 				</div>
-			
+
 			</div>
 		</div>
 	</div>
@@ -662,20 +668,20 @@
 					</div>
 				</div>
 			</div>
-		</div>		
+		</div>
 	</footer>
 	<!-- End footer -->
 
 	<!-- jQuery library -->
-		
+
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	
-		<!-- updatemember js -->
+
+	<!-- updatemember js -->
 	<script type="text/javascript" src="/PetProject/assets/js/update.js"></script>
-	
-	
+
+
 	<!-- Bootstrap -->
 	<script src="/PetProject/assets/js/bootstrap.js"></script>
 	<!-- Slick Slider -->
