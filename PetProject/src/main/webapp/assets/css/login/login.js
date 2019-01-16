@@ -113,7 +113,6 @@ function selectpet() {
 				dataType : "json",
 				success : function(json) {
 					console.log(json)
-					
 				}
 			})
 }

@@ -81,10 +81,16 @@
 		<property name="url"
 			value="/pages/businessInformationdisplay.jsp"></property>
 	</bean>
-	<bean class="org.springframework.web.servlet.view.InternalResourceView" id="dogItem">
+	<bean id="dogItem"
+		class="org.springframework.web.servlet.view.InternalResourceView">
         <property value="/dogItem.jsp" name="url"/>
     </bean>
-    <bean class="org.springframework.web.servlet.view.InternalResourceView" id="fosterCommission">
+    <bean id="fosterCommission"
+    	class="org.springframework.web.servlet.view.InternalResourceView">
+		<property value="/foster.jsp" name="url"/>
+	</bean>
+    <bean  id="fosterForm" 
+    	class="org.springframework.web.servlet.view.InternalResourceView">
 		<property value="/foster.jsp" name="url"/>
 	</bean>
 
