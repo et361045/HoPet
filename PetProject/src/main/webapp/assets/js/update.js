@@ -144,6 +144,28 @@ function readURLpet(input) {
 	}
 }
 
+
+$("#updatepetpicture").change(function() {
+	// 當檔案改變後，做一些事
+
+	readURLpet1(this); // this代表<input id="imgInp">
+
+});
+
+function readURLpet1(input) {
+	if (input.files && input.files[0]) {
+
+		var reader = new FileReader();
+		reader.onload = function(e) {
+
+			$("#petpicture1").attr('src', e.target.result);
+		}
+		reader.readAsDataURL(input.files[0]);
+	}
+}
+
+
+
 $('#send').click(function() {
 
 	$.ajax({
@@ -207,6 +229,8 @@ function selectpet1() {
 				success : function(json) {
 					console.log(json)
 					for (var i = 0; i < json.length; i++) {
+					
+					   
 						$("#insetaa")
 								.append("<div class='append' style='margin-bottom:10px'>"+
 										"<div class='panel panel-default'>"
@@ -215,6 +239,7 @@ function selectpet1() {
 												+ "<a data-toggle='collapse' data-parent='#accordion'href='#collapseTwo"
 												+ i
 												+ "'"
+												+"id='temppetname"+i+"'"
 												+ "> "
 												+ json[i].petName
 												+ "<span class='fa fa-plus-square'></span></a></h4></div>"
@@ -226,24 +251,25 @@ function selectpet1() {
 												+ json[i].petId
 												+ "</p><img src='"
 												+ json[i].petPicture
-												+ "'width='100px' style='border: #8e8e8e solid thin;' /> <br />"
+												+ "'width='100px'" + "id='tempPicture"+i+"'"+
+												 " style='border: #8e8e8e solid thin;' /> <br />"
 												+ "<br /> <span class='text' style='margin-right: 20px'>"
-												+ "寵物大小:"
-												+ json[i].petSize
+												+ "寵物大小:" + "<span  id='temppetsize"+i+"'>"
+												+ json[i].petSize+"</span>"
 												+ "</span><span class='text' style='margin-right: 20px'>"
-												+ "寵物品種:"
-												+ json[i].petVariety
+												+ "寵物品種:" + "<span  id='temppetVariety"+i+"'>"
+												+ json[i].petVariety+"</span>"
 												+ "</span><span class='text'>"
-												+ "寵物年齡:"
-												+ json[i].age
+												+ "寵物年齡:"+ "<span  id='temppetage"+i+"'>"
+												+ json[i].age+"</span>"
 												+ "</span> <br /><br /> <span class='text' style='font-size: 22px;'>"
-												+ "備註:"
-												+ json[i].petRemarks
+												+ "備註:"+"<span  id='temppetRemarks"+i+"'>"
+												+ json[i].petRemarks+"</span>"
 												+ "</span> <br /><br /> <span class='text'>"
-												+ "疫苗:"
-												+ json[i].vaccine
+												+ "疫苗:"+"<span  id='tempvaccine"+i+"'>"
+												+ json[i].vaccine +"</span>"
 												+ "</span><br /><br /> <span style='float: right;'><button class='btn btn-link'  name='deletebutton' onclick='deletea("+json[i].petId+")'><i class='fas fa-trash-alt'></i></button>"
-												+ "<button class='btn btn-link'  name='updatebutton' value='"+json[i].petId+"'onclick='update("+json[i].petId+")' data-target='#update-pet'" +
+												+ "<button class='btn btn-link'  name='updatebutton' value='"+json[i].petId+"'onclick='update("+i+","+json[i].petId+")' data-target='#update-pet'" +
 												"data-toggle='modal'>" +
 												"<i class='fas fa-pen'></i></button></span></div></div></div></div>"
 
@@ -278,11 +304,40 @@ $.ajax({
 
 }
 
-function update(a){
-	alert("hi")
-	$("#email2").val(a)
+function update(i,b){
+
+//alert(b)
+$("#updatepetId").val(b)
+
+//alert($("#temppetname"+i+":first-child").text())
+$("#updatepetName").val($("#temppetname"+i+":first-child").text())
+//alert($("#tempPicture"+i).attr("src"))
+$("#petpicture1").attr('src',$("#tempPicture"+i).attr("src"))
+//alert($("#temppetsize"+i).text())
+$("#updatepetSize").val($("#temppetsize"+i).text())
+
+//alert($("#temppetVariety"+i).text())
+$("#updatepetVariety").val($("#temppetVariety"+i).text())
+
+
+//alert($("#temppetage"+i).text())
+$("#updateage").val($("#temppetage"+i).text())
+
+
+//alert($("#temppetRemarks"+i).text())
+$("#updatepetRemarks").val($("#temppetRemarks"+i).text())
+
+
+//alert($("#tempvaccine"+i).text())
+$("#updatevaccine").val($("#tempvaccine"+i).text())
 }
 
+$("#updatepeta").submit(function(){
+	
+	if( $("#updatepetpicture").val()===''){
+		
+	}
 
+})
 
 

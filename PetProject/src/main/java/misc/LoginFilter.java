@@ -49,7 +49,8 @@ public class LoginFilter implements Filter {
 		     out.print("<script>alert('請先登入' )   </script>"+
 		    		" <script>"
 		    		 + "document.location.href='/PetProject/index.jsp';"
-		    		 + "</script>"
+		    		 + "</script>"+
+		    		 "	alertify.error('驗證失敗,請重新輸入驗證碼或寄出驗證信')"
 		    		 + "<script> "
 		    		 + "document.addEventListener('DOMContentLoaded', function () {"
 		    		 + "var evt = document.createEvent('MouseEvents');"

@@ -124,7 +124,7 @@
 		</div>
 	</header>
 	<!-- End header -->
-
+	
 	<!-- Start login modal window -->
 	<div aria-hidden="false" role="dialog" tabindex="-1" id="login-form"
 		class="modal leread-modal fade in">
@@ -209,7 +209,6 @@
 							<input type="text" placeholder="cellphone-number "
 								class="form-control" title="請輸入手機" name="memberPhone">
 						</div>
-
 
 						<div class="signupbox">
 							<span>Already got account? <a id="login-btn" href="#">Sign

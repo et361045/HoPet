@@ -111,5 +111,78 @@ public class PetController {
 	
 	}
 	
+	@RequestMapping(value = {"*/update","update"})
+	public  String  method5(@RequestParam("file2") MultipartFile[] files,Model model,PetBean bean) {
+		int k=0;
+		System.out.println("bean = "+bean);
+	    System.out.println("JOJO");
+		System.out.println(model.asMap().get("user"));
+		MemberBean temp  = (MemberBean) model.asMap().get("user");
+		bean.setMemberid(temp.getMemberId());
+		       
+		      
+//		       
+		       //存放目錄
+		        File uploadRootDir = new File("C:\\Users\\User\\git\\Hopet\\PetProject\\src\\main\\webapp\\assets\\picture\\pet");
+		        //
+		        // Create directory if it not exists.
+		        if (!uploadRootDir.exists()) {
+		            uploadRootDir.mkdirs();
+		        }
+		        //
+		        List<File> uploadedFiles = new ArrayList<File>();
+		        for (int i = 0; i < files.length; i++) {
+		            MultipartFile file = files[i];
+		            System.out.println("file =" +file);
+		            System.out.println("file.isEmpty() = "+file.isEmpty());
+		         
+		            // Client File Name
+		            String filename = file.getOriginalFilename();
+		            System.out.println("filename = "+filename);
+		            if(filename.trim()=="") {
+		            	k=1;
+		            	break;
+		            }
+		            System.out.println("Client File Name = " + filename);
+		            //照片名稱
+		            String picturename="member"+temp.getMemberId()+"picture"+ filename.substring(filename.indexOf(".")); 		
+		 
+		            if (filename != null && filename.length() > 0) {
+		                try {
+		                    byte[] bytes = file.getBytes();
+		 
+		                    // Create the file on server
+		                    File serverFile = new File(uploadRootDir.getAbsolutePath()
+		                            + File.separator + filename);
+		 
+		                    // Stream to write data to file in server.
+		                    BufferedOutputStream stream = new BufferedOutputStream(
+		                            new FileOutputStream(serverFile));
+		                    stream.write(bytes);
+		                    stream.close();
+		                    //
+		                    uploadedFiles.add(serverFile);
+		                    System.out.println("Write file: " + serverFile);
+		                } catch (Exception e) {
+		                    System.out.println("Error Write file: " + filename);
+		                }
+		            }
+		        
+		            bean.setPetPicture("/PetProject/assets/picture/pet/"+filename);
+		        }
+		        System.out.println("k = "+k);
+		        if(k==1) {
+		        	PetBean tempbean = petService.findpetBeanbypk(bean.getPetId());
+		        	bean.setPetPicture(tempbean.getPetPicture());
+		        }
+		        System.out.println(petService.update(bean));
+		          
+		       
+	     return "member";
+	}
+	
+	
+
+	
 	
 }

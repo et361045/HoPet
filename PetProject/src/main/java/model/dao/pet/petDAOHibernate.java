@@ -40,11 +40,12 @@ public class petDAOHibernate implements PetDAO {
 			PetBean result = this.getSession().get(PetBean.class, Bean.getPetId());
 			if (result != null) {
 				result.setAge(Bean.getAge());
+				result.setPetPicture((Bean.getPetPicture()));;
 				result.setMemberid(Bean.getMemberid());
 				result.setPetName(Bean.getPetName());
 				result.setPetRemarks(Bean.getPetRemarks());
 				result.setPetSize(Bean.getPetSize());
-				result.setPetVariety(Bean.getVaccine());
+				result.setPetVariety(Bean.getPetVariety());
 				result.setVaccine(Bean.getVaccine());
 				result.setWafer(Bean.getWafer());
 				return true;

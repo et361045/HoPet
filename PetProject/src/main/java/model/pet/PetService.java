@@ -43,4 +43,9 @@ public class PetService {
 		
 	}
 	
+	public boolean update(PetBean bean ) {
+	   return petDAO.update(bean);
+		
+	}
+	
 }
