@@ -269,7 +269,7 @@
 							data-toggle="dropdown">寄養&領養<span class="fa fa-angle-down"></span></a>
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="">寄養</a></li>
-								<li><a href="foster.jsp" id="findallpet">領養</a></li>
+								<li><a href="findFosterForm">領養</a></li>
 								<li><a href="" data-toggle="modal"
 									data-target="#fosterModal">申請送養</a></li>
 							</ul></li>
@@ -475,26 +475,26 @@
 									</div>
 								</div>
 							</div>
-<%-- 							<c:forEach var="pets" items="${findallbean}" > --%>
-<!-- 							<div class="col-md-3 col-sm-6 col-xs-12"> -->
-<!-- 								<div class="single-team-member"> -->
-<!-- 									<div class="team-member-img"> -->
-<!-- 										<img src="assets/images/foster01.jpg" alt="team member img"> -->
-<!-- 									</div> -->
-<!-- 									<div class="foster_dog_name">										 -->
-<%-- 										<p>${pets.area}</p> --%>
-<!-- 									</div> -->
-<%-- 									<p>${pets.variety}</p> --%>
-<!-- 									<div class="team-member-link"> -->
-<!-- 										<a href="#" data-toggle="modal" -->
-<!-- 									data-target="#adoptionModal" ><i class="fa fa-heart fa-2x foster_heart" -->
-<!-- 											title="我想要領養"></i></a>  -->
-<!-- 										<a href="#" data-toggle="modal" -->
-<!-- 									data-target="#fosterDogDetails" ><i class="fa fa-dog fa-2x foster_dog" title="詳細資料"></i></a> -->
-<!-- 									</div> -->
-<!-- 								</div> -->
-<!-- 							</div> -->
-<%-- 							</c:forEach> --%>
+							<c:forEach var="pets" items="${findallbean}" >
+							<div class="col-md-3 col-sm-6 col-xs-12">
+								<div class="single-team-member">
+									<div class="team-member-img">
+										<img src="${pets.picture}" alt="team member img">
+									</div>
+									<div class="foster_dog_name">										
+										<p>${pets.area}</p>
+									</div>
+									<p>${pets.variety}</p>
+									<div class="team-member-link">
+										<a id="heart${pets.petId}" href="#" data-toggle="modal" onclick="test1(${pets.petId})"
+									data-target="#adoptionModal" ><i class="fa fa-heart fa-2x foster_heart"
+											title="我想要領養"></i></a> 
+										<a id="dog${pets.petId}" href="#" data-toggle="modal"
+									data-target="#fosterDogDetails" ><i class="fa fa-dog fa-2x foster_dog" title="詳細資料"></i></a>
+									</div>
+								</div>
+							</div>
+							</c:forEach>
 							<!-- Start single team member -->
 						</div>
 					</div>
@@ -611,14 +611,25 @@
 					</ul>
 				</div>
 				</div>
-				<div>				
-					<ul class="fosterDogDetails_ul2">
-						<li>備註：<span></span></li>
-						<li><span>　</span></li>
-						<li><span>　</span></li>
-						<li><span>　</span></li>
-						<li><span>　</span></li>
-					</ul>
+				<div style="padding-top:10px;">
+					<div style="display: inline-block;">				
+						<ul class="fosterDogDetails_ul2">
+							<li>送養原因：<span></span></li>
+							<li><span>　</span></li>
+							<li><span>　</span></li>
+							<li><span>　</span></li>
+							<li><span>　</span></li>
+						</ul>
+					</div>
+					<div style="display: inline-block;">				
+						<ul class="fosterDogDetails_ul3">
+							<li>備註：<span></span></li>
+							<li><span>　</span></li>
+							<li><span>　</span></li>
+							<li><span>　</span></li>
+							<li><span>　</span></li>
+						</ul>
+					</div>
 				</div>
 				<div class="fosterDogDetails_footer">
 					<button type="button" class="btn btn-primary" id="adoption_send1"  data-toggle="modal"
@@ -704,6 +715,7 @@
 				url : "fosterCommission?" + form,
 				type : "GET",
 			}).done(function(response) {
+				alert(response)
 				alert("送養成功")
 				window.location.reload();
 				$("#fosterModal").modal('hide');
@@ -727,10 +739,10 @@
 				$("#fosterDogDetails").modal('hide');
 			})
 		
-// 		$("#findallpet").click(function(){
-// 			window.location.href="findFosterForm";
-			
-// 		})
+		function test1(id){
+			console.log(id)
+					
+		}
 		
 			
 	</script>

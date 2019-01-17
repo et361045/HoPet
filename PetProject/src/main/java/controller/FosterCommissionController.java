@@ -28,7 +28,7 @@ public class FosterCommissionController {
 		System.out.println(fosterCommissionBean);
 		model.addAttribute("newBean",newBean);
 		System.out.println(newBean);
-		return "fosterCommission";
+		return "ghkdx";
 		
 	}
 	
@@ -36,17 +36,24 @@ public class FosterCommissionController {
 	@RequestMapping("insertFosterForm")
 	public String insertFosterForm(FosterFormBean fosterFormBean ) {
 		System.out.println("132123");
-		fosterFormService.insertFosterForm(fosterFormBean);
+//		fosterFormService.insertFosterForm(fosterFormBean);
 		
 		return "123";
 		
 	}
 	@RequestMapping("findFosterForm")
 	public String findAll(Model model) {
-		model.addAttribute("findallbean", fosterCommissionService.searchAllFosterCommission());
+	model.addAttribute("findallbean", fosterCommissionService.searchAllFosterCommission());
 	System.out.println(fosterCommissionService.searchAllFosterCommission());
-	System.out.println("15615615115616");
 		return "fosterCommission";
 	}
+	
+	@RequestMapping("findPetId")
+	public String findPetId(Integer petId) {
+		
+
+		return "fosterCommission";
+	}
+	
 
 }

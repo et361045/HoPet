@@ -89,10 +89,6 @@
     	class="org.springframework.web.servlet.view.InternalResourceView">
 		<property value="/foster.jsp" name="url"/>
 	</bean>
-    <bean  id="fosterForm" 
-    	class="org.springframework.web.servlet.view.InternalResourceView">
-		<property value="/foster.jsp" name="url"/>
-	</bean>
 
 <!-- 	<bean id="businessInformation.errors" -->
 <!-- 		class="org.springframework.web.servlet.view.InternalResourceView"> -->

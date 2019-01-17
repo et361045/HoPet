@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import model.fosterCommission.FosterCommissionBean;
 import model.fosterCommission.FosterCommissionDao;
+
 @Repository
 public class FosterCommissionDaoHibernate implements FosterCommissionDao {
 	@Autowired
@@ -17,13 +18,17 @@ public class FosterCommissionDaoHibernate implements FosterCommissionDao {
 	public Session getSession() {
 		return sessionFactory.getCurrentSession();
 	}
-	
+
 	@Override
-	public List<FosterCommissionBean> findAllFosterCommission() {
-		
-		return this.getSession().createQuery("from FosterCommissionBean",FosterCommissionBean.class).list();
+	public FosterCommissionBean findByPetId(Integer PetId) {
+		return this.getSession().get(FosterCommissionBean.class, PetId);
 	}
 
+	@Override
+	public List<FosterCommissionBean> findAllFosterCommission() {
+
+		return this.getSession().createQuery("from FosterCommissionBean", FosterCommissionBean.class).list();
+	}
 
 	@Override
 	public FosterCommissionBean findByFosterCommissionId(Integer fosterCommissionId) {
