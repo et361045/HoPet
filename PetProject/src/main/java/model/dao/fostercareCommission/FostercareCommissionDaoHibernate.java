@@ -5,11 +5,13 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import model.fostercareCommission.FostercareCommissionBean;
 import model.fostercareCommission.FostercareCommissionDao;
+import model.pet.PetBean;
 
 @Repository
 public class FostercareCommissionDaoHibernate implements FostercareCommissionDao {
@@ -24,6 +26,20 @@ public class FostercareCommissionDaoHibernate implements FostercareCommissionDao
 	public Session getSession() {
 		return this.sessionFactory.getCurrentSession();
 	} 
+	
+	@Override
+	public  FostercareCommissionBean findByPetId(Integer petid) {		
+		Query<FostercareCommissionBean> query = this.getSession().createQuery("from FostercareCommissionBean where petid='"+petid+"'");
+		FostercareCommissionBean CommissionBean = query.uniqueResult();
+		return CommissionBean;
+	}
+	
+//	@Override
+//	public List<FostercareCommissionBean> findByPetId(Integer petid) {
+//		return this.getSession().createQuery("from FostercareCommissionBean where petid = '" + petid + "'", FostercareCommissionBean.class)
+//				.setMaxResults(50).list();
+//	}
+	
 
 	@Override
 	public FostercareCommissionBean findByPrimaryKey(Integer fostercareCommissionid) {

@@ -1,4 +1,4 @@
-package model.fosterCommission;
+package model.fostercareCommission;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

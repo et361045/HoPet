@@ -3,8 +3,12 @@ package model.fostercareCommission;
 import java.sql.Date;
 import java.util.List;
 
+import model.fosterCommission.FosterCommissionBean;
+
 public interface FostercareCommissionDao {
 	public abstract FostercareCommissionBean findByPrimaryKey(Integer fostercareCommissionid);
+	
+	public abstract FostercareCommissionBean findByPetId(Integer petid);
 
 	public abstract List<FostercareCommissionBean> findAll();
 

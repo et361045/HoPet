@@ -82,7 +82,7 @@
  </thead>
  <tbody>
  <c:forEach var="bean" items="${select}">
-  <c:url value="/pages/hospital.jsp" var="path">
+  <c:url value="/hospitaltest.jsp" var="path">
    <c:param name="hospitalId" value="${bean.hospitalId}" />
    <c:param name="hospitalName" value="${bean.hospitalName}" />
    <c:param name="hospitalAddress" value="${bean.hospitalAddress}" />

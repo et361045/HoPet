@@ -515,8 +515,9 @@
 									<p>${care.remark}</p>
 									<div class="team-member-link">
 										<a href="#"><i class="fa fa-heart fa-2x foster_heart"
-											title="我想要領養"></i></a> <a href="#"><i
-											id="alldata" class="fa fa-dog fa-2x foster_dog" title="詳細資料"></i></a>
+											title="我想要領養"></i></a> <a href="#" id="dog${care.petid}" onclick="finddogdetail(${care.petid})" data-toggle="modal"
+											data-target="#fostercareDogDetails"><i
+											id="fostercareDogDetails" class="fa fa-dog fa-2x foster_dog" title="詳細資料"></i></a>
 									</div>
 								</div>
 							</div>
@@ -528,6 +529,51 @@
 			</div>
 		</div>
 	</section>
+<!-- 	詳細視窗 -->
+	<div class="modal fade foster_table" id="fostercareDogDetails" tabindex="-1"
+		role="dialog" aria-labelledby="exampleModalLabel6" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="foster_modal_content">
+				<div class="modal-header">
+					<i class="modal_title" id="exampleModalLabel6">狗狗資料</i>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="fosterDogDetails">
+				<div class="fosterDogDetails_img">
+					<img id=dogdetailpicture src="">
+				</div>				
+				<div class="fosterDogDetails_ul">				
+					<ul>
+						<li>主人名字：<div id=dogdetailname></div></li>
+						<li>狗狗名字：<div id=dogdetaildogname></div></li>
+						<li>地區：<div id=dogdetailarea></div></li>
+						<li>品種：<div id=dogdetailvariety></div></li>
+						<li>年紀：<div id=dogdetailage></div></li>
+					</ul>
+				</div>
+				</div>
+				<div style="padding-top:10px;">
+					<div style="display: inline-block;">				
+						<ul class="fosterDogDetails_ul2">
+							<li>寄養原因：<span id=dogdetailreason></span></li>
+						</ul>
+					</div>
+					<div style="display: inline-block;">				
+						<ul class="fosterDogDetails_ul3">
+							<li>備註：<span id=dogdetailremark>$</span></li>
+						</ul>
+					</div>
+				</div>
+				<div class="fosterDogDetails_footer">
+					<button type="button" class="btn btn-primary" id="adoption_send1"  data-toggle="modal"
+									data-target="#adoptionModal">我要領養</button>
+				</div>
+			</div>
+		</div>
+	</div>
 	<!-- End Pricing table -->
 
 	<!-- Start footer -->
@@ -638,6 +684,27 @@
 				window.location.href= '/PetProject/fostercarecommission';
 			})
 		})
+		
+		
+		function finddogdetail(id){
+			console.log(id);
+			$.ajax({
+			url:"findcarePetId?id="+id,
+			type : "GET",
+			data:"JSON"
+			}).done(function(responsedogdetail){
+				$("#dogdetailname").text(responsedogdetail.memberName);
+				$("#dogdetaildogname").text(responsedogdetail.petName);
+				$("#dogdetailarea").text(responsedogdetail.area);
+				$("#dogdetailvariety").text(responsedogdetail.variety);
+				$("#dogdetailage").text(responsedogdetail.age);
+				$("#dogdetailreason").text(responsedogdetail.reason);
+				$("#dogdetailremark").text(responsedogdetail.remark);
+				$("#dogdetailpicture").attr("src",responsedogdetail.picture);			
+			})
+			
+
+		}
 		
 	</script>
 </body>

@@ -10,10 +10,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import model.fosterCommission.FosterCommissionBean;
+import model.fosterCommission.PetDetailBean;
 import model.fostercareCommission.FostercareCommissionBean;
 import model.fostercareCommission.FostercareCommissionService;
 import model.hospital.HospitalBean;
@@ -62,6 +64,13 @@ public class FostercareCommissionController {
 		System.out.println(beans);
 		model.addAttribute("select1",beans);
 		return "fostercarecommission";
+	}
+	
+	@ResponseBody
+	@RequestMapping("findcarePetId")
+	public PetDetailBean findPetId(Model model,@RequestParam Integer id) {
+		return fostercareservice.searchPetId(id);
+
 	}
 	
 	
