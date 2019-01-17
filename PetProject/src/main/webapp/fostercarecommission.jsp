@@ -486,23 +486,23 @@
 					<div class="our-team-content">
 						<div class="row">
 							<!-- Start single team member -->
-							<div class="col-md-3 col-sm-6 col-xs-12">
-								<div class="single-team-member">
-									<div class="team-member-img">
-										<img src=" ">
-									</div>
-									<div class="team-member-name">
-										<p></p>
-										<span>阿吉</span>
-									</div>
-									<p>可愛 親人</p>
-									<div class="team-member-link">
-										<a href="#"><i class="fa fa-heart fa-2x foster_heart"
-											title="我想要領養"></i></a> <a href="#"><i
-											class="fa fa-dog fa-2x foster_dog" title="詳細資料"></i></a>
-									</div>
-								</div>
-							</div>
+<!-- 							<div class="col-md-3 col-sm-6 col-xs-12"> -->
+<!-- 								<div class="single-team-member"> -->
+<!-- 									<div class="team-member-img"> -->
+<!-- 										<img src=" "> -->
+<!-- 									</div> -->
+<!-- 									<div class="team-member-name"> -->
+<!-- 										<p></p> -->
+<!-- 										<span>阿吉</span> -->
+<!-- 									</div> -->
+<!-- 									<p>可愛 親人</p> -->
+<!-- 									<div class="team-member-link"> -->
+<!-- 										<a href="#"><i class="fa fa-heart fa-2x foster_heart" -->
+<!-- 											title="我想要領養"></i></a> <a href="#"><i -->
+<!-- 											class="fa fa-dog fa-2x foster_dog" title="詳細資料"></i></a> -->
+<!-- 									</div> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
 							<c:forEach var="care" items="${select1}">
 							<div class="col-md-3 col-sm-6 col-xs-12">
 								<div class="single-team-member">
@@ -511,13 +511,12 @@
 									</div>
 									<div class="team-member-name">
 										<p>${care.variety}</p>
-										<span>阿吉</span>
 									</div>
-									<p>可愛 親人</p>
+									<p>${care.remark}</p>
 									<div class="team-member-link">
 										<a href="#"><i class="fa fa-heart fa-2x foster_heart"
 											title="我想要領養"></i></a> <a href="#"><i
-											class="fa fa-dog fa-2x foster_dog" title="詳細資料"></i></a>
+											id="alldata" class="fa fa-dog fa-2x foster_dog" title="詳細資料"></i></a>
 									</div>
 								</div>
 							</div>
