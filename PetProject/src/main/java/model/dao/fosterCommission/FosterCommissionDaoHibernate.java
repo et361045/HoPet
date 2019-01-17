@@ -4,11 +4,13 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import model.fosterCommission.FosterCommissionBean;
 import model.fosterCommission.FosterCommissionDao;
+import model.member.MemberBean;
 
 @Repository
 public class FosterCommissionDaoHibernate implements FosterCommissionDao {
@@ -20,8 +22,10 @@ public class FosterCommissionDaoHibernate implements FosterCommissionDao {
 	}
 
 	@Override
-	public FosterCommissionBean findByPetId(Integer PetId) {
-		return this.getSession().get(FosterCommissionBean.class, PetId);
+	public FosterCommissionBean findByPetId(Integer petId) {		
+		Query<FosterCommissionBean> query = this.getSession().createQuery("from FosterCommissionBean where petId='"+petId+"'");
+		FosterCommissionBean CommissionBean = query.uniqueResult();
+		return CommissionBean;
 	}
 
 	@Override

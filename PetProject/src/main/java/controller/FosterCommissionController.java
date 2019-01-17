@@ -6,10 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import model.fosterCommission.FosterCommissionBean;
 import model.fosterCommission.FosterCommissionService;
+import model.fosterCommission.PetDetailBean;
 import model.fosterForm.FosterFormBean;
 import model.fosterForm.FosterFormService;
 
@@ -25,9 +27,9 @@ public class FosterCommissionController {
 	public String insertFosterCommission(Model model,FosterCommissionBean fosterCommissionBean ) {
 		FosterCommissionBean newBean = 
 		fosterCommissionService.insertFosterCommission(fosterCommissionBean);
-		System.out.println(fosterCommissionBean);
+//		System.out.println(fosterCommissionBean);
 		model.addAttribute("newBean",newBean);
-		System.out.println(newBean);
+//		System.out.println(newBean);
 		return "ghkdx";
 		
 	}
@@ -35,7 +37,7 @@ public class FosterCommissionController {
 	@ResponseBody
 	@RequestMapping("insertFosterForm")
 	public String insertFosterForm(FosterFormBean fosterFormBean ) {
-		System.out.println("132123");
+//		System.out.println("132123");
 //		fosterFormService.insertFosterForm(fosterFormBean);
 		
 		return "123";
@@ -44,15 +46,15 @@ public class FosterCommissionController {
 	@RequestMapping("findFosterForm")
 	public String findAll(Model model) {
 	model.addAttribute("findallbean", fosterCommissionService.searchAllFosterCommission());
-	System.out.println(fosterCommissionService.searchAllFosterCommission());
+//	System.out.println(fosterCommissionService.searchAllFosterCommission());
 		return "fosterCommission";
 	}
 	
+	@ResponseBody
 	@RequestMapping("findPetId")
-	public String findPetId(Integer petId) {
-		
+	public PetDetailBean findPetId(Model model,@RequestParam Integer id) {
+		return fosterCommissionService.searchPetId(id);
 
-		return "fosterCommission";
 	}
 	
 

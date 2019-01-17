@@ -5,7 +5,7 @@ import java.util.List;
 public interface FosterCommissionDao {
 	public abstract FosterCommissionBean findByFosterCommissionId(Integer fosterCommissionId);
 
-	public abstract FosterCommissionBean findByPetId(Integer PetId);
+	public abstract FosterCommissionBean findByPetId(Integer petId);
 
 	public abstract List<FosterCommissionBean> findAllFosterCommission();
 

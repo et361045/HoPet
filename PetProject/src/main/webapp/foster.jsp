@@ -486,10 +486,10 @@
 									</div>
 									<p>${pets.variety}</p>
 									<div class="team-member-link">
-										<a id="heart${pets.petId}" href="#" data-toggle="modal" onclick="test1(${pets.petId})"
+										<a id="heart${pets.petId}" href="#" data-toggle="modal" onclick="finddogdetail(${pets.petId})"
 									data-target="#adoptionModal" ><i class="fa fa-heart fa-2x foster_heart"
 											title="我想要領養"></i></a> 
-										<a id="dog${pets.petId}" href="#" data-toggle="modal"
+										<a id="dog${pets.petId}" href="#" data-toggle="modal" onclick="finddogdetail(${pets.petId})"
 									data-target="#fosterDogDetails" ><i class="fa fa-dog fa-2x foster_dog" title="詳細資料"></i></a>
 									</div>
 								</div>
@@ -599,35 +599,28 @@
 				</div>
 				<div class="fosterDogDetails">
 				<div class="fosterDogDetails_img">
-					<img src="/PetProject/assets/images/dogPicture/01.png">
+					<img id=dogdetailpicture src="">
 				</div>				
 				<div class="fosterDogDetails_ul">				
 					<ul>
-						<li>主人名字：<span></span></li>
-						<li>狗狗名字：<span></span></li>
-						<li>品種：<span></span></li>
-						<li>年紀：<span></span></li>
-						<li>疫苗：<span></span></li>
+						<li>主人名字：<div id=dogdetailname></div></li>
+						<li>狗狗名字：<div id=dogdetaildogname></div></li>
+						<li>地區：<div id=dogdetailarea></div></li>
+						<li>品種：<div id=dogdetailvariety></div></li>
+						<li>年紀：<div id=dogdetailage></div></li>
+						<li>疫苗：<div id=dogdetailvaccine></div></li>
 					</ul>
 				</div>
 				</div>
 				<div style="padding-top:10px;">
 					<div style="display: inline-block;">				
 						<ul class="fosterDogDetails_ul2">
-							<li>送養原因：<span></span></li>
-							<li><span>　</span></li>
-							<li><span>　</span></li>
-							<li><span>　</span></li>
-							<li><span>　</span></li>
+							<li>送養原因：<span id=dogdetailreason></span></li>
 						</ul>
 					</div>
 					<div style="display: inline-block;">				
 						<ul class="fosterDogDetails_ul3">
-							<li>備註：<span></span></li>
-							<li><span>　</span></li>
-							<li><span>　</span></li>
-							<li><span>　</span></li>
-							<li><span>　</span></li>
+							<li>備註：<span id=dogdetailremark>$</span></li>
 						</ul>
 					</div>
 				</div>
@@ -739,9 +732,24 @@
 				$("#fosterDogDetails").modal('hide');
 			})
 		
-		function test1(id){
-			console.log(id)
-					
+		function finddogdetail(id){
+			$.ajax({
+			url:"findPetId?id="+id,
+			type : "GET",
+			data:"JSON"
+			}).done(function(responsedogdetail){
+				$("#dogdetailname").text(responsedogdetail.memberName);
+				$("#dogdetaildogname").text(responsedogdetail.petName);
+				$("#dogdetailarea").text(responsedogdetail.area);
+				$("#dogdetailvariety").text(responsedogdetail.variety);
+				$("#dogdetailage").text(responsedogdetail.age);
+				$("#dogdetailvaccine").text(responsedogdetail.vaccine);
+				$("#dogdetailreason").text(responsedogdetail.reason);
+				$("#dogdetailremark").text(responsedogdetail.remark);
+				$("#dogdetailpicture").attr("src",responsedogdetail.picture);			
+			})
+			
+
 		}
 		
 			

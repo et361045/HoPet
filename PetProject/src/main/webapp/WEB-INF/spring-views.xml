@@ -97,6 +97,10 @@
     	class="org.springframework.web.servlet.view.InternalResourceView">
 		<property value="/foster.jsp" name="url"/>
 	</bean>
+    <bean id="findPetId"
+    	class="org.springframework.web.servlet.view.InternalResourceView">
+		<property value="/foster.jsp" name="url"/>
+	</bean>
 
 <!-- 	<bean id="businessInformation.errors" -->
 <!-- 		class="org.springframework.web.servlet.view.InternalResourceView"> -->
