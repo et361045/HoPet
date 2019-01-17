@@ -507,6 +507,7 @@
 							<div class="col-md-3 col-sm-6 col-xs-12">
 								<div class="single-team-member">
 									<div class="team-member-img">
+										<p style="display:none">${ care.fostercareCommissionid}</p>
 										<img src="${care.picture} ">
 									</div>
 									<div class="team-member-name">
@@ -514,13 +515,15 @@
 									</div>
 									<p>${care.remark}</p>
 									<div class="team-member-link">
-										<a href="#"><i class="fa fa-heart fa-2x foster_heart"
+										<a href="#" id="heart${care.petid}" data-toggle="modal" onclick="finddogdetail(${care.petid})"
+									data-target="#adoptionModal5"  ><i class="fa fa-heart fa-2x foster_heart"
 											title="我想要領養"></i></a> <a href="#" id="dog${care.petid}" onclick="finddogdetail(${care.petid})" data-toggle="modal"
 											data-target="#fostercareDogDetails"><i
-											id="fostercareDogDetails" class="fa fa-dog fa-2x foster_dog" title="詳細資料"></i></a>
+											 class="fa fa-dog fa-2x foster_dog" title="詳細資料"></i></a>
 									</div>
 								</div>
 							</div>
+						
 							</c:forEach>
 							<!-- Start single team member -->
 						</div>
@@ -529,6 +532,70 @@
 			</div>
 		</div>
 	</section>
+	<div class="modal fade foster_table" id="adoptionModal5" tabindex="-1"
+		role="dialog" aria-labelledby="exampleModalLabel10" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="foster_modal_content">
+				<div class="modal-header">
+					<i class="modal_title" id="exampleModalLabel10">領養申請表 ( 僅供送養者參考 )</i>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form id="adoption_form10">
+						<div class=".form_group">
+							<label for="recipient-name" class="col-form-label">收養者姓名 :</label>
+							<span>${user.memberName}</span>
+							<input class="adoption_name"id="hostName" value="${user.memberName}" type="hidden">
+						</div>
+						<div class=".form_group">
+							<label for="recipient-name" class="col-form-label">您的職業 :</label>
+							<select id="job" name="job" class="adoption_form_variety_select">
+									<option>請選擇</option>
+									<option value="軍公教人員 (公立學校教師)">軍公教人員 (公立學校教師)</option>
+									<option value="民意代表、企業主管及經理人員">民意代表、企業主管及經理人員</option>
+									<option value="專業人員(醫師、律師、建築師、會計師、私立學校教師…)">專業人員(醫師、律師、建築師、會計師、私立學校教師…)</option>
+									<option value="技術員及助理專業人員">技術員及助理專業人員</option>
+									<option value="事務工作人員">事務工作人員</option>
+									<option value="服務工作人員及售貨員">服務工作人員及售貨員</option>
+									<option value="農、林、漁、牧工作人員">農、林、漁、牧工作人員</option>
+									<option value="生產有關工人、機械設備操作工及體力工">生產有關工人、機械設備操作工及體力工</option>
+									<option value="家庭管理 (料理家務)">家庭管理 (料理家務)</option>
+									<option value="未就業、待業中">未就業、待業中</option>
+									<option value="退休人員">退休人員</option>
+									<option value="學生">學生</option>								
+							</select>
+						</div>
+						<div class=".form_group">
+							<label for="message-text" class="col-form-label">有無飼養寵物經驗 :</label>
+								<select id="experience" name="experience" class="adoption_form_variety_select">
+									<option>請選擇</option>
+									<option>無</option>
+									<option>1年以下</option>
+									<option>1年～3年</option>
+									<option>3年～5年</option>
+									<option>5年以上</option>								
+								</select>
+						</div>
+						<div class=".form_group">
+							<label for="recipient-name" class="col-form-label">有無收養寵物經驗 :</label>
+							<span><input type="checkbox" name="pettime" value="yes">有</span>
+							<span><input type="checkbox" name="pettime" value="no">無</span>
+						</div>
+						<input type="text" name="fostercareCommissionid" id="fostercareCommissionIIIDDD"/>
+						
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">取消</button>
+					<button type="button" class="btn btn-primary" id="adoption_send10">送出</button>
+				</div>
+			</div>
+		</div>
+	</div>
 <!-- 	詳細視窗 -->
 	<div class="modal fade foster_table" id="fostercareDogDetails" tabindex="-1"
 		role="dialog" aria-labelledby="exampleModalLabel6" aria-hidden="true">
@@ -568,7 +635,7 @@
 					</div>
 				</div>
 				<div class="fosterDogDetails_footer">
-					<button type="button" class="btn btn-primary" id="adoption_send1"  data-toggle="modal"
+					<button type="button" class="btn btn-primary" id="adoption_send11"  data-toggle="modal"
 									data-target="#adoptionModal">我要領養</button>
 				</div>
 			</div>
@@ -684,6 +751,27 @@
 				window.location.href= '/PetProject/fostercarecommission';
 			})
 		})
+		
+		$("#adoption_send10").click(function(){
+			var form = $("#adoption_form10").serialize();
+			console.log(petId);
+			$.ajax({
+				url : "insertFostercareForm?" + form,
+				type : "GET",
+			}).done(function(response) {
+				alert(response)
+				$("#adoptionModal").modal('hide');
+			})
+		})
+
+			$("#adoption_send11").click(function() {
+				$("#fosterDogDetails").modal('hide');
+			})
+		
+		
+		
+		
+		
 		
 		
 		function finddogdetail(id){

@@ -1,24 +1,20 @@
 package controller;
 
 import java.sql.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import model.fosterCommission.FosterCommissionBean;
 import model.fosterCommission.PetDetailBean;
 import model.fostercareCommission.FostercareCommissionBean;
 import model.fostercareCommission.FostercareCommissionService;
-import model.hospital.HospitalBean;
+import model.fostercareForm.FostercareFormBean;
 import model.member.MemberBean;
 import model.pet.PetBean;
 import model.pet.PetService;
@@ -33,7 +29,17 @@ public class FostercareCommissionController {
 	@Autowired
 	private PetService petService;
 	
-	
+	@ResponseBody
+	@RequestMapping("insertFostercareForm")
+	public String insertFosterForm(Model model,FostercareFormBean fostercareFormBean ) {
+		System.out.println("fostercareFormBean"+fostercareFormBean);
+		MemberBean usertemp  = (MemberBean) model.asMap().get("user");
+		fostercareFormBean.setCarer(usertemp.getMemberId());
+//		fostercareFormBean.setFostercareCommissionid(fostercareCommissionid);
+
+		return "申請成功";
+		
+	}
 	
 	@RequestMapping("/xxxxx")
 	public String insertFostercareCommission(Model model,FostercareCommissionBean bean,Date starttime,Date endtime,String city,String town,Integer petId ) {
