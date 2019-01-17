@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -9,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>多地標Google地圖</title>
+<title>Intensely : Home</title>
 <!-- Favicon -->
 <link rel="shortcut icon" type="image/icon"
 	href="/PetProject/assets/images/favicon.ico" />
@@ -35,17 +34,14 @@
 	rel="stylesheet">
 
 <!-- Main Style -->
-<link href="/PetProject/assets/css/memberstyle.css" rel="stylesheet">
+<link href="/PetProject/assets/css/style.css" rel="stylesheet">
 <!-- login Style -->
 <link href="/PetProject/assets/css/login/login.css" rel="stylesheet">
 <script defer
 	src="https://use.fontawesome.com/releases/v5.6.3/js/all.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2.js'></script>
-<script src="https://maps.google.com/maps/api/js?sensor=false"></script>
 <script
 	src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.14/jquery.twzipcode.min.js"></script>
-<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 <!-- Fonts -->
 
 <!-- Open Sans for body font -->
@@ -54,150 +50,14 @@
 <!-- Lato for Title -->
 <link href='https://fonts.googleapis.com/css?family=Lato'
 	rel='stylesheet' type='text/css'>
-<link href="/PetProject/assets/css/hospital/hospital.css"
-	rel="stylesheet">
+
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-<style>
-body, input {
-	font-size: 10px;
-}
-
-#map_canvas {
-	height: 100%;
-	border-radius: 5px;
-}
-</style>
-<script type="text/javascript"
-	src="https://maps.googleapis.com/maps/api/js?key&AIzaSyD5yTSd7qAEyeoxcOIEK1K4M3X-H6bKiis">
-	
-</script>
-<!-- <script type="text/javascript" -->
-<!--      src="https://maps.googleapis.com/maps/api/js?callback=initialize&key=AIzaSyD_dGEr_Cm5zksGOql-xQ3Tie8j7CGZDdw"> -->
-<!-- </script> -->
-<script type="text/javascript">
-	function initialize() {
-		geocoder = new google.maps.Geocoder();
-	}
-
-	function doClick() {
-		var address = document.getElementById("address").value;
-		if (geocoder) {
-			geocoder
-					.geocode(
-							{
-								"address" : address
-							},
-							function(results, status) {
-								if (status != google.maps.GeocoderStatus.OK) {
-									alert("Geocoder Failed: " + status);
-								} else {
-									console.log("location="
-											+ results[0].geometry.location)
-
-									document.getElementById("lat").value = results[0].geometry.location
-											.lat();
-									document.getElementById("lng").value = results[0].geometry.location
-											.lng();
-								}
-							});
-		}
-	}
-
-	function clearForm() {
-		var inputs = document.getElementsByTagName("input");
-		for (var i = 0; i < inputs.length; i++) {
-			if (inputs[i].type == "text") {
-				inputs[i].value = "";
-			}
-		}
-	}
-	initialize()
-</script>
-
-
-<script>
-	$(function() {
-
-		var latlng1 = new google.maps.LatLng(25.0293159, 121.5217353);//博愛醫院
-		//設定地圖參數
-		var mapOptions = {
-			zoom : 16, //初始放大倍數
-			center : latlng1, //中心點所在位置
-			mapTypeId : google.maps.MapTypeId.ROADMAP
-		//正常2D道路模式
-		};
-		var imageUrl = "assets/images/hospital.png"; //空字串就會使用預設圖示
-		//在指定DOM元素中嵌入地圖
-		geocoder = new google.maps.Geocoder();
-		var map = new google.maps.Map(document.getElementById("map_canvas"),
-				mapOptions);
-		var infowindow = new google.maps.InfoWindow();
-
-		$
-				.ajax({
-					data : "GET",
-					url : "/PetProject/query",
-					dataType : "json",
-					success : function(json) {
-						console.log(json)
-						$
-								.each(
-										json,
-										function(idx, val) {
-											var latitude = new google.maps.LatLng(
-													val.longitude, val.latitude);
-											var hospitalName = val.hospitalName;
-											var hospitalAddress = val.hospitalAddress;
-											var hospitalphone = val.hospitalphone;
-											var marker = new google.maps.Marker(
-													{
-														position : latitude, //經緯度
-														title : hospitalName, //顯示文字
-														icon : imageUrl,
-														map : map,
-														html : hospitalAddress,
-														html1 : hospitalphone
-													//指定要放置的地圖對象
-													});
-											google.maps.event
-													.addListener(
-															marker,
-															'click',
-															function() {
-
-																/*this就是指marker*/
-																infowindow
-																		.setContent("<H4 style='color: blue'>"
-																				+ this.title
-																				+ "</H4>"
-																				+ "<p style='color:black'>"
-																				+ "地址:"
-																				+ "<a href='http://www.poaipets.com.tw/front/bin/home.phtml'>"
-																				+ this.html
-																				+ "</a>"
-																				+ "</p>"
-																				+ "<p style='color:black'>"
-																				+ "電話:"
-																				+ this.html1
-																				+ "</p>");
-																infowindow
-																		.open(
-																				map,
-																				this);
-
-															})
-										})
-					}
-				});
-
-	});
-</script>
-
+<link href="/PetProject/assets/css/foster/foster.css" rel="stylesheet">
 
 </head>
 <body>
@@ -407,10 +267,14 @@ body, input {
 								<li><a href="">Cat</a></li>
 							</ul></li>
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown">寄養&送養<span class="fa fa-angle-down"></span></a>
+							data-toggle="dropdown">寄養&領養<span class="fa fa-angle-down"></span></a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="">寄養</a></li>
-								<li><a href="">送養</a></li>
+								<li><a href="/PetProject/fostercarecommission">寄養</a></li>
+								<li><a href="">領養</a></li>
+								<li><a href="" data-toggle="modal"
+									data-target="#exampleModal">申請送養</a></li>
+								<li><a href="" data-toggle="modal"
+									data-target="#exampleModal5">申請寄養</a></li>
 							</ul></li>
 						<li><a href="">寵物旅遊</a></li>
 						<li><a href="">寵物商城</a></li>
@@ -423,211 +287,249 @@ body, input {
 			</div>
 		</nav>
 	</section>
-	<!-- END MENU -->
-
-	<!-- 	<div id="hospital_search"> -->
-	<!-- 		<div class="map_search_select" data-role="county"></div> -->
-	<!-- 		<div class="map_search_select" data-role="district"></div> -->
-	<!-- 	</div> -->
-	<!-- 	<input name="Address" type="text" class="f13 address form-control"> -->
-
-
-	<div class="map_search">
-		<div class="">
-			<div class="map_search_tital">
-				<p>條件查詢</p>
-			</div>
-			<form method="get" id="select">
-				<div class="form-group mx-sm-3 mb-3">
-					<div id="hospital_search">
-						<div class="map_search_select">
-							<label>縣市 :</label>
-							<div class="map_search_select" data-role="county"></div>
-							<label>區域:</label>
-							<div class="map_search_select" data-role="district"></div>
-
-
+	<!--送養申請彈出視窗 -->
+	<div class="modal fade foster_table" id="exampleModal5" tabindex="-1"
+		role="dialog" aria-labelledby="exampleModalLabel5" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="foster_modal_content">
+				<div class="modal-header">
+					<i class="modal_title" id="exampleModalLabel5">寄養申請表</i>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form action="<c:url value="/PetProject/xxxxx" />" method="get" id="foster_form5">
+						<div class=".form_group">
+							<label for="recipient-name" class="col-form-label">主人姓名 :</label>
+							<span id="hostName5">${user.memberName}</span>
+						</div>
+						<div class=".form_group">
+							<label for="recipient-name" class="col-form-label">寵物 :</label> <span><select
+								id="petId" name="petId" class="foster_form_variety_select">
+									<option>請選擇</option>
+									 <c:forEach items="${pet}" var="pet">
+									<option value="${pet.petId}">${pet.petName}</option>
+									</c:forEach>
+							</select></span>
+						</div>
+				
+						<div id="foster_form_select">
+						<label>寵物所在地區 :</label>
+						<div  class="foster_form_select" data-role="county"></div>
+						<div  class="foster_form_select" data-role="district"></div>
+						</div>
+						<div>			
+						<label>寄養日期:</label>
+        				<input name="starttime" type="date" id="start" value="" name="trip-start" min="2018-01-01" max="2050-12-31">
+        				<label>結束日期:</label>
+        				<input name="endtime" type="date" id="end" name="trip-end" min="2018-01-01" max="2050-12-31">
+        				<label class="st1" id=idp></label>
 						</div>
 						<script>
+						document.addEventListener("DOMContentLoaded", function () {
+						    now();
+						    document.getElementById("start").addEventListener("change", ans);
+						    document.getElementById("end").addEventListener("change", ans);
+						})
+						function ans() {
+						    var start = document.getElementById("start").value;
+						    var end = document.getElementById("end").value;
+						    var ans = Date.parse(end) - Date.parse(start);
+						    ans = ans / (1000 * 60 * 24 * 60) + 1;
+						    document.getElementById("idp").innerHTML =
+						        "共" + ans + "天"
+						}
+						function now() {
+						    document.getElementById("start").valueAsDate = new Date();
+						}
+						</script>	
+						
+						<script>
 							//自動產生縣市 
-							$("#hospital_search").twzipcode({
+							$("#foster_form_select").twzipcode({
 								"zipcodeIntoDistrict" : true,
 								"countyName" : "city", // 指定城市 select name
 								"districtName" : "town" // 指定地區 select name
 							});
 						</script>
-						<input type="hidden" value="" placeholder="missionstatus"
-							id="missionstatus" name="missionstatus" /> <input type="button"
-							value="搜尋" id="searchButt"
-							class="btn btn-primary btn hospital_map_search">
-					</div>
-
+						<div class=".form_group">
+							<label for="message-text" class="col-form-label">寄養原因 :</label>
+							<textarea class="form-control" name="reason" id="reason"></textarea>
+						</div>
+						<div class=".form_group">
+							<label for="recipient-name" class="col-form-label">備註 ( 如 :寵物個性、飼養習慣．．．) :</label>
+							<textarea class="form-control" name="remark" id="remark"></textarea>
+						</div>
+						<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">取消</button>
+					<button type="button" class="btn btn-primary" id="foster_send5">送出</button>
 				</div>
-			</form>
-			<div class="map_search_select_behide">
-			
-<form action="<c:url value="/hospitaltest.controller" />"method="get">
-<table>
- <tr>
-  <td style="color:#7E9EC9"><h5>醫院名稱 :</h5> </td>
-  <td><input type="text" name="hospitalName" value="${param.hospitalName}"></td>
-  <td><span class="error">${errors.hospitalName}</span></td>
- </tr>
- <tr>
-  <td style="color:#7E9EC9"><h5>醫院地址 :</h5> </td>
-  <td><input type="text" id="address"name="hospitalAddress" value="${param.hospitalAddress}"></td>
-  <td><span class="error">${errors.hospitalAddress}</span></td>
- </tr>
- 
- <tr>
-  <td style="color:#7E9EC9"><h5>醫院電話 :</h5> </td>
-  <td><input type="text" name="hospitalphone" value="${param.hospitalphone}"></td>
-  <td><span class="error">${errors.hospitalphone}</span></td>
- </tr>
- <tr>
-  <td style="color:#7E9EC9"><h5>醫院主人 :</h5> </td>
-  <td><input type="text" name="hospitalowner" value="${param.hospitalowner}"></td>
-  <td><span class="error">${errors.hospitalowner}</span></td>
- </tr>
- <tr>
-  <td style="color:#7E9EC9"><h5>經度 :</h5> </td>
-  <td><input type="text" id="lat" name="longitude" value="${param.longitude}"></td>
-  <td><span class="error">${errors.longitude}</span></td>
- </tr>
- <tr>
-  <td style="color:#7E9EC9"><h5>緯度 :</h5> </td>
-  <td><input type="text" id="lng" name="latitude" value="${param.latitude}"></td>
-  <td><span class="error">${errors.latitude}</span></td>
- </tr>
- <tr>
-  <td>
-   <input type="submit" name="hospital" value="Insert">
-  </td>
-  <td>
-   <input type="submit" name="hospital" value="Select">
-   <input type="button" value="Clear" onclick="clearForm()">
-   <input type="button" value="Go!" onclick="doClick()" />
-  </td>
- </tr>
-</table>
-				</form>
-<c:if test="${not empty insert}">
- <h3>新增成功</h3>
- <script type="text/javascript">clearForm()</script>
-</c:if>
+					</form>
+				</div>
 				
 			</div>
 		</div>
 	</div>
-	<div class="hospital_map">
-		<div>
-			<p class="hospital_map_p">醫院地圖</p>
-			<figure class="img_inner" id="map_canvas" style=" margin-right: 150px ; ">
-				<iframe 
-					src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Brooklyn,+New+York,+NY,+United+States&amp;aq=0&amp;sll=37.0625,-95.677068&amp;sspn=61.282355,146.513672&amp;ie=UTF8&amp;hq=&amp;hnear=Brooklyn,+Kings,+New+York&amp;ll=40.649974,-73.950005&amp;spn=0.01628,0.025663&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>
-			</figure>
+	<!-- END MENU -->
+	<!-- Start Pricing table -->
+	<section id="our-team">
+		<div class="foster_search">
+			<div class="">
+				<div class="foster_search_tital">
+					<p>條件查詢</p>
+				</div>
+				<form>
+					<div class="form-group mx-sm-3 mb-3">
+						<div class="foster_search_select" id="foster_search_select">
+							<label>縣市 :</label>
+							<div class="foster_search_select" data-role="county"></div>
+							<div class="foster_search_select" style="display: none;"
+								data-role="district"></div>
+							<script>
+								//自動產生縣市 
+								$("#foster_search_select").twzipcode({
+									"zipcodeIntoDistrict" : true,
+									"countyName" : "city", // 指定城市 select name
+									"districtName" : "town" // 指定地區 select name
+								});
+							</script>
+							<label>品種 :</label> <select id="termType" name="termType"
+								class="form-control">
+								<option value="">請選擇</option>
+								<option value="24">柴犬</option>
+								<option value="25">巴哥</option>
+								<option value="26">貴賓犬</option>
+								<option value="27">吉娃娃</option>
+								<option value="28">紅貴賓</option>
+								<option value="29">絲毛梗</option>
+								<option value="30">北京犬</option>
+								<option value="31">拉薩犬</option>
+								<option value="32">博美犬</option>
+								<option value="33">比熊犬</option>
+								<option value="34">約克夏</option>
+								<option value="35">日本狆</option>
+								<option value="36">西施犬</option>
+								<option value="37">雪納瑞</option>
+								<option value="38">蝴蝶犬</option>
+								<option value="39">米格魯</option>
+								<option value="40">波士頓梗</option>
+								<option value="41">威爾斯梗</option>
+								<option value="42">馬爾濟斯</option>
+								<option value="43">長毛臘腸犬</option>
+								<option value="44">傑克羅素梗</option>
+								<option value="45">單第丁蒙梗</option>
+								<option value="46">中國冠毛犬</option>
+								<option value="47">西部高地白梗</option>
+								<option value="48">查理王長毛獵犬</option>
+								<option value="49">迷你杜賓</option>
+								<option value="50">巴吉度</option>
+								<option value="51">鬆獅犬</option>
+								<option value="52">柯基犬</option>
+								<option value="53">牛頭梗</option>
+								<option value="51">沙皮犬</option>
+								<option value="55">惠比特犬</option>
+								<option value="56">貝林登梗</option>
+								<option value="57">蘇格蘭梗</option>
+								<option value="58">英國鬥牛犬</option>
+								<option value="59">法國鬥牛犬</option>
+								<option value="60">英國可卡獵犬</option>
+								<option value="61">美國可卡獵犬</option>
+								<option value="62">喜樂蒂牧羊犬</option>
+								<option value="63">杜賓犬</option>
+								<option value="64">挪威納</option>
+								<option value="65">拳師犬</option>
+								<option value="66">威瑪犬</option>
+								<option value="67">秋田犬</option>
+								<option value="68">拉不拉多</option>
+								<option value="69">黃金獵犬</option>
+								<option value="70">大麥町犬</option>
+								<option value="71">薩摩耶犬</option>
+								<option value="72">尋血獵犬</option>
+								<option value="73">德國狼犬</option>
+								<option value="74">馬士提夫</option>
+								<option value="75">阿富汗獵犬</option>
+								<option value="76">蘇俄牧羊犬</option>
+								<option value="77">可麗牧羊犬</option>
+								<option value="78">愛爾蘭雪達犬</option>
+								<option value="79">西伯利亞哈士奇</option>
+								<option value="80">阿拉斯加雪橇犬</option>
+								<option value="81">英國古代牧羊犬</option>
+								<option value="82">大丹犬</option>
+								<option value="83">土佐犬</option>
+								<option value="84">西藏獒犬</option>
+								<option value="85">大白熊犬</option>
+								<option value="86">聖伯納犬</option>
+								<option value="87">紐芬蘭犬</option>
+								<option value="88">伯恩山犬</option>
+								<option value="89">高加索山犬</option>
+							</select> <input type="hidden" value="" placeholder="missionstatus"
+								id="missionstatus" name="missionstatus" /> <input type="button"
+								value="搜尋" id="searchButt" class="btn btn-primary btn">
+
+
+						</div>
+					</div>
+				</form>
+			</div>
 		</div>
-	</div>
-	<script>
-		$('#searchButt')
-				.click(
-						function() {
-							$
-									.ajax({
-										method : "POST",
-										data : {
-											town : $('select[name="town"]')
-													.val(),
-										},
-										url : "/PetProject/oooo",
-										dataType : "json",
-										cache : false,
-										async : false,
-										success : function(json) {
-											console.log(json);
-											var latlng1 = new google.maps.LatLng(
-													25.0576256, 121.5167654);//博愛醫院
-											var mapOptions = {
-												zoom : 16, //初始放大倍數
-												center : latlng1, //中心點所在位置
-												mapTypeId : google.maps.MapTypeId.ROADMAP
-											};
-											var imageUrl = "assets/images/hospital.png"; //空字串就會使用預設圖示
-											//在指定DOM元素中嵌入地圖
-											geocoder = new google.maps.Geocoder();
-											var map = new google.maps.Map(
-													document
-															.getElementById("map_canvas"),
-													mapOptions);
-											var infowindow = new google.maps.InfoWindow();
-											$
-													.each(
-															json,
-															function(idx, val) {
-																var latitude = new google.maps.LatLng(
-																		val.longitude,
-																		val.latitude);
-																var hospitalName = val.hospitalName;
-																var hospitalAddress = val.hospitalAddress;
-																var hospitalphone = val.hospitalphone;
-																var marker = new google.maps.Marker(
-																		{
-																			position : latitude, //經緯度
-																			title : hospitalName, //顯示文字
-																			icon : imageUrl,
-																			map : map,
-																			html : hospitalAddress,
-																			html1 : hospitalphone
-																		//指定要放置的地圖對象
-																		});
-																google.maps.event
-																		.addListener(
-																				marker,
-																				'click',
-																				function() {
-
-																					/*this就是指marker*/
-																					infowindow
-																							.setContent("<H4 style='color: blue'>"
-																									+ this.title
-																									+ "</H4>"
-																									+ "<p style='color:black'>"
-																									+ "地址:"
-																									+ "<a href='http://www.poaipets.com.tw/front/bin/home.phtml'>"
-																									+ this.html
-																									+ "</a>"
-																									+ "</p>"
-																									+ "<p style='color:black'>"
-																									+ "電話:"
-																									+ this.html1
-																									+ "</p>");
-																					infowindow
-																							.open(
-																									map,
-																									this);
-
-																				})
-															})
-
-										}
-									})
-
-						})
-	</script>
-	<script>
-	$('#productTable>tbody').on('click','tr button:nth-child(1)',function(){
-		
-		 var row=$(this).parents('tr');
-		 var hospitalId=row.find('td:nth-child(1)').text();
-		 alert(hospitalId)
-		 $.get("HospitalController",{'hospitalId':hospitalId},function(data){
-			 loadProduct(1);
-		 })
-	})
-	
-	
-	</script>
-
+		<div class="container_foster">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="title-area_foster">
+						<h2 class="title_foster">寄養</h2>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="our-team-content">
+						<div class="row">
+							<!-- Start single team member -->
+							<div class="col-md-3 col-sm-6 col-xs-12">
+								<div class="single-team-member">
+									<div class="team-member-img">
+										<img src=" ">
+									</div>
+									<div class="team-member-name">
+										<p></p>
+										<span>阿吉</span>
+									</div>
+									<p>可愛 親人</p>
+									<div class="team-member-link">
+										<a href="#"><i class="fa fa-heart fa-2x foster_heart"
+											title="我想要領養"></i></a> <a href="#"><i
+											class="fa fa-dog fa-2x foster_dog" title="詳細資料"></i></a>
+									</div>
+								</div>
+							</div>
+							<c:forEach var="care" items="${select1}">
+							<div class="col-md-3 col-sm-6 col-xs-12">
+								<div class="single-team-member">
+									<div class="team-member-img">
+										<img src="${care.picture} ">
+									</div>
+									<div class="team-member-name">
+										<p>${care.variety}</p>
+										<span>阿吉</span>
+									</div>
+									<p>可愛 親人</p>
+									<div class="team-member-link">
+										<a href="#"><i class="fa fa-heart fa-2x foster_heart"
+											title="我想要領養"></i></a> <a href="#"><i
+											class="fa fa-dog fa-2x foster_dog" title="詳細資料"></i></a>
+									</div>
+								</div>
+							</div>
+							</c:forEach>
+							<!-- Start single team member -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Pricing table -->
 
 	<!-- Start footer -->
 	<footer id="footer">
@@ -686,5 +588,58 @@ body, input {
 
 	<!-- Custom js -->
 	<script type="text/javascript" src="/PetProject/assets/js/custom.js"></script>
+	<script>
+		$(document)
+				.ready(
+						function() {
+							$(".team-member-link a:first-child")
+									.mouseenter(
+											function() {
+												$(this)
+														.empty()
+														.append(
+																"<i class='fa fa-heart fa-2x fa-spin foster_heart'title='我想要領養'></i>")
+											});
+							$(".team-member-link a:first-child")
+									.mouseleave(
+											function() {
+												$(this)
+														.empty()
+														.append(
+																"<i class='fa fa-heart fa-2x foster_heart'title='我想要領養'></i>")
+											});
+							$(".team-member-link a:nth-child(2)")
+									.mouseenter(
+											function() {
+												$(this)
+														.empty()
+														.append(
+																"<i class='fa fa-dog fa-2x fa-spin foster_dog' title='詳細資料'></i>")
+											});
+							$(".team-member-link a:nth-child(2)")
+									.mouseleave(
+											function() {
+												$(this)
+														.empty()
+														.append(
+																"<i class='fa fa-dog fa-2x foster_dog' title='詳細資料'></i>")
+											});
+
+						});
+		
+		$("#foster_send5").click(function() {
+			var form5 = $("#foster_form5").serialize();
+			console.log(form5);
+			$.ajax({
+				url : "xxxxx?" + form5,
+				type : "GET",
+			}).done(function(response) {
+				alert("寄養成功")
+				$("#fosterModal").modal('hide');
+				window.location.href= '/PetProject/fostercarecommission';
+			})
+		})
+		
+	</script>
 </body>
 </html>

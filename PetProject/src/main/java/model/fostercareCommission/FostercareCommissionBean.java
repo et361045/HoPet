@@ -22,11 +22,6 @@ import model.fostercareForm.FostercareFormBean;
 @Table(name="FostercareCommission")
 public class FostercareCommissionBean {
 	
-//	@OneToMany(
-//			    mappedBy="fostercareCommissionid",
-//                cascade= {CascadeType.REMOVE})	
-//	private  List<FostercareFormBean> fostercareFromBean;
-
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer fostercareCommissionid;
@@ -37,15 +32,9 @@ public class FostercareCommissionBean {
 	private Date endtime;
 	private Integer owner;
 	private String reason;
-	private byte[] picture;
+	private String picture;
 	private String remark;
 	private Integer petid;
-//	public List<FostercareFormBean> getFostercareFromBean() {
-//		return fostercareFromBean;
-//	}
-//	public void setFostercareFromBean(List<FostercareFormBean> fostercareFromBean) {
-//		this.fostercareFromBean = fostercareFromBean;
-//	}
 	public Integer getFostercareCommissionid() {
 		return fostercareCommissionid;
 	}
@@ -94,10 +83,10 @@ public class FostercareCommissionBean {
 	public void setReason(String reason) {
 		this.reason = reason;
 	}
-	public byte[] getPicture() {
+	public String getPicture() {
 		return picture;
 	}
-	public void setPicture(byte[] picture) {
+	public void setPicture(String picture) {
 		this.picture = picture;
 	}
 	public String getRemark() {
@@ -116,16 +105,9 @@ public class FostercareCommissionBean {
 	public String toString() {
 		return "FostercareCommissionBean [fostercareCommissionid=" + fostercareCommissionid + ", name=" + name
 				+ ", variety=" + variety + ", area=" + area + ", starttime=" + starttime + ", endtime=" + endtime
-				+ ", owner=" + owner + ", reason=" + reason + ", picture=" + Arrays.toString(picture) + ", remark="
-				+ remark + ", petid=" + petid + "]";
+				+ ", owner=" + owner + ", reason=" + reason + ", picture=" + picture + ", remark=" + remark + ", petid="
+				+ petid + "]";
 	}
-	
-	
-
-	
-	
-
-
 
 	
 }

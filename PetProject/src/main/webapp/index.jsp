@@ -39,7 +39,13 @@
 <!-- login Style -->
 <link href="/PetProject/assets/css/login/login.css" rel="stylesheet">
 
-
+<!-- alert -->
+<link
+	href="//cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.10/alertify.core.css"
+	rel="stylesheet">
+<link
+	href="//cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.10/alertify.default.css"
+	rel="stylesheet">
 
 <!-- Fonts -->
 
@@ -118,7 +124,7 @@
 		</div>
 	</header>
 	<!-- End header -->
-
+	
 	<!-- Start login modal window -->
 	<div aria-hidden="false" role="dialog" tabindex="-1" id="login-form"
 		class="modal leread-modal fade in">
@@ -203,7 +209,6 @@
 							<input type="text" placeholder="cellphone-number "
 								class="form-control" title="請輸入手機" name="memberPhone">
 						</div>
-
 
 						<div class="signupbox">
 							<span>Already got account? <a id="login-btn" href="#">Sign
@@ -1272,6 +1277,12 @@
 
 	<!-- Custom js -->
 	<script type="text/javascript" src="/PetProject/assets/js/custom.js"></script>
+	<!-- alert -->
+		<script
+		src="//cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.10/alertify.min.js"></script>
+		
+
+</body>
 
 </body>
 </html>

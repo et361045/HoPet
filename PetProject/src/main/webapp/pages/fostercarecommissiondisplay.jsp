@@ -20,9 +20,11 @@
 	<tr>
 		<th>name</th>
 		<th>variety</th>
-		<th>area</th>
-		<th>reason</th>
 		<th>picture</th>
+		<th>area</th>
+		<th>starttime</th>
+		<th>endtime</th>
+		<th>reason</th>
 		<th>remark</th>
 	</tr>
 	</thead>
@@ -31,17 +33,21 @@
 		<c:url value="/pages/fostercarecommission.jsp" var="path">
 			<c:param name="name" value="${bean.name}" />
 			<c:param name="variety" value="${bean.variety}" />
-			<c:param name="area" value="${bean.area}" />
-			<c:param name="reason" value="${bean.reason}" />
 			<c:param name="picture" value="${bean.picture}" />
+			<c:param name="area" value="${bean.area}" />
+			<c:param name="area" value="${bean.starttime}" />
+			<c:param name="area" value="${bean.endtime}" />
+			<c:param name="reason" value="${bean.reason}" />
 			<c:param name="remark" value="${bean.remark}" />
 		</c:url>
 	<tr>
 		<td>${bean.name}</td>
 		<td>${bean.variety}</td>
-		<td>${bean.area}</td>
-		<td>${bean.reason}</td>
 		<td>${bean.picture}</td>
+		<td>${bean.area}</td>
+		<td>${bean.starttime}</td>
+		<td>${bean.endtime}
+		<td>${bean.reason}</td>	
 		<td>${bean.remark}</td>
 	</tr>	
 	</c:forEach>

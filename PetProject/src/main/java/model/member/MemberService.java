@@ -55,4 +55,9 @@ public class MemberService {
 	return	memberDao.update(bean);		
 	}
 	
+	
+	public MemberBean selectbymembreID(int id ) {
+	  return memberDao.findMemberBean(id);
+	}
+	
 }

@@ -82,7 +82,7 @@ $('#Logout').click(function() {
 
 $('#forgotpsw').click(function() {
 	if ($("input[name='email']").val() == "") {
-		alert("請輸入信箱")
+		alertify.log('請輸入信箱');  
 	} else {
 
 		$.ajax({
@@ -95,8 +95,7 @@ $('#forgotpsw').click(function() {
 			cache : false,
 			async : false,
 			success : function(text) {
-
-				alert("密碼以寄至您的信箱")
+				alertify.log('密碼以寄至您的信箱');  
 			}
 		});
 		
@@ -106,7 +105,7 @@ $('#forgotpsw').click(function() {
 
 
 function selectpet() {
-	alert("enter selectpet")
+
 	$.ajax({    method : "POST",
 				url : "checkpet",
 				cache : false,

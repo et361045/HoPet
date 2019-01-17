@@ -214,7 +214,7 @@ Create Table FosterCommission--送養委託
 	name nvarchar(10),--姓名
 	variety nvarchar(50),--品種
 	area nvarchar(50),--地區
-	owner int unique , --送養會員編號
+	owner int , --送養會員編號
 	reason nvarchar(max),--送養事由
 	picture varchar(max), --照片路徑
 	remark nvarchar(max),--備註
@@ -293,6 +293,15 @@ memberid int,--按讚會員
 PRIMARY KEY (Competitionpointid),
 FOREIGN KEY (Messageboardid) REFERENCES Messageboard(Messageboardid),
 FOREIGN KEY (memberid) REFERENCES member(memberid),					
+)
+
+
+create Table  Messageboardpicture (
+Messageboardpictureid  int Identity,--留言板照片流水號
+messageboardid  int  ,--留言板編號(第幾則貼文)
+picture    varchar(max),--照片路徑
+	PRIMARY KEY (Messageboardpictureid),
+	FOREIGN KEY (messageboardid) REFERENCES Messageboard(messageboardid),
 )
 
 Create Table Returnmessage--回留言板內容

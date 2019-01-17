@@ -38,4 +38,14 @@ public class PetService {
 		return false;
 	}
 	
+	public PetBean findpetBeanbypk(Integer petid) {
+		return petDAO.findpetBean(petid);
+		
+	}
+	
+	public boolean update(PetBean bean ) {
+	   return petDAO.update(bean);
+		
+	}
+	
 }

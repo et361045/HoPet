@@ -18,17 +18,16 @@
 	</bean>
 
 
-	<bean id="fostercarecommission.errors"
-		class="org.springframework.web.servlet.view.InternalResourceView">
-		<property name="url" value="/pages/fostercarecommission.jsp"></property>
-	</bean>
-
 	<bean id="fostercarecommission.select"
 		class="org.springframework.web.servlet.view.InternalResourceView">
 		<property name="url"
 			value="/pages/fostercarecommissiondisplay.jsp"></property>
 	</bean>
 
+	<bean id="fostercarecommission"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/fostercarecommission.jsp"></property>
+	</bean>
 
 
 
@@ -55,10 +54,19 @@
 		class="org.springframework.web.servlet.view.InternalResourceView">
 		<property name="url" value="/hospitaltest.jsp" />
 	</bean>
+<!-- 	<bean id="member" -->
+<!-- 		class="org.springframework.web.servlet.view.InternalResourceView"> -->
+<!-- 		<property name="url" value="/member/member.jsp" /> -->
+<!-- 	</bean> -->
+	
+	
 	<bean id="member"
-		class="org.springframework.web.servlet.view.InternalResourceView">
-		<property name="url" value="/member/member.jsp" />
+	class="org.springframework.web.servlet.view.RedirectView">
+	<property name="contextRelative" value="true"></property>
+	<property name="url" value="/member/member.jsp" />
 	</bean>
+	
+	
 
 	<bean id="activityCommission.errors"
 		class="org.springframework.web.servlet.view.InternalResourceView">
