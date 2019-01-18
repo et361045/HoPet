@@ -273,8 +273,8 @@
 								<li><a href="">領養</a></li>
 								<li><a href="" data-toggle="modal"
 									data-target="#exampleModal">申請送養</a></li>
-								<li><a href="" data-toggle="modal"
-									data-target="#exampleModal5">申請寄養</a></li>
+								<li><a  id="application_fostercare" onclick="check()" data-toggle="" data-target="" 
+									>申請寄養</a></li>
 							</ul></li>
 						<li><a href="">寵物旅遊</a></li>
 						<li><a href="">寵物商城</a></li>
@@ -469,7 +469,6 @@
 								id="missionstatus" name="missionstatus" /> <input type="button"
 								value="搜尋" id="searchButt" class="btn btn-primary btn">
 
-
 						</div>
 					</div>
 				</form>
@@ -515,7 +514,7 @@
 									</div>
 									<p>${care.remark}</p>
 									<div class="team-member-link">
-										<a href="#" id="heart${care.petid}" data-toggle="modal" onclick="finddogdetail(${care.petid})"
+										<a href="#" id="heart${care.petid}" data-toggle="hide" onclick="adoption(${care.petid})"
 									data-target="#adoptionModal5"  ><i class="fa fa-heart fa-2x foster_heart"
 											title="我想要領養"></i></a> <a href="#" id="dog${care.petid}" onclick="finddogdetail(${care.petid})" data-toggle="modal"
 											data-target="#fostercareDogDetails"><i
@@ -537,7 +536,7 @@
 		<div class="modal-dialog" role="document">
 			<div class="foster_modal_content">
 				<div class="modal-header">
-					<i class="modal_title" id="exampleModalLabel10">領養申請表 ( 僅供送養者參考 )</i>
+					<i class="modal_title" id="exampleModalLabel10">領養申請表 ( 僅供領養者參考 )</i>
 					<button type="button" class="close" data-dismiss="modal"
 						aria-label="Close">
 						<span aria-hidden="true">&times;</span>
@@ -584,8 +583,7 @@
 							<span><input type="checkbox" name="pettime" value="yes">有</span>
 							<span><input type="checkbox" name="pettime" value="no">無</span>
 						</div>
-						<input type="text" name="fostercareCommissionid" id="fostercareCommissionIIIDDD"/>
-						
+						<input type="text" id="fuck"  name="petid" style=" display: none">
 					</form>
 				</div>
 				<div class="modal-footer">
@@ -619,6 +617,8 @@
 						<li>地區：<div id=dogdetailarea></div></li>
 						<li>品種：<div id=dogdetailvariety></div></li>
 						<li>年紀：<div id=dogdetailage></div></li>
+						<li>寄養日期：<div id=dogdetailstarttime></div></li>
+						<li>結束日期：<div id=dogdetailendtime></div></li>
 					</ul>
 				</div>
 				</div>
@@ -635,8 +635,8 @@
 					</div>
 				</div>
 				<div class="fosterDogDetails_footer">
-					<button type="button" class="btn btn-primary" id="adoption_send11"  data-toggle="modal"
-									data-target="#adoptionModal">我要領養</button>
+<!-- 					<button type="button" class="btn btn-primary" id="adoption_send11"  data-toggle="modal" -->
+<!-- 									data-target="#adoptionModal5">我要領養</button> -->
 				</div>
 			</div>
 		</div>
@@ -667,39 +667,6 @@
 		</div>
 	</footer>
 	<!-- End footer -->
-
-	<!-- jQuery library -->
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<!-- Bootstrap -->
-	<script src="/PetProject/assets/js/bootstrap.js"></script>
-	<!-- Slick Slider -->
-	<script type="text/javascript" src="/PetProject/assets/js/slick.js"></script>
-	<!-- mixit slider -->
-	<script type="text/javascript"
-		src="/PetProject/assets/js/jquery.mixitup.js"></script>
-	<!-- Add fancyBox -->
-	<script type="text/javascript"
-		src="/PetProject/assets/js/jquery.fancybox.pack.js"></script>
-	<!-- counter -->
-	<script src="assets/js/waypoints.js"></script>
-	<script src="assets/js/jquery.counterup.js"></script>
-	<!-- Wow animation -->
-	<script type="text/javascript" src="/PetProject/assets/js/wow.js"></script>
-	<!-- progress bar   -->
-	<script type="text/javascript"
-		src="/PetProject/assets/js/bootstrap-progressbar.js"></script>
-	<!--login   -->
-	<script type="text/javascript"
-		src="/PetProject/assets/css/login/login.js"></script>
-	<!--Signon   -->
-	<script type="text/javascript"
-		src="/PetProject/assets/css/SignOn/SignOn.js"></script>
-
-
-	<!-- Custom js -->
-	<script type="text/javascript" src="/PetProject/assets/js/custom.js"></script>
 	<script>
 		$(document)
 				.ready(
@@ -739,6 +706,27 @@
 
 						});
 		
+		function adoption(petId){
+			if('${user}'){
+				$("#adoptionModal5").modal("show");
+				$("#fuck").attr("value",petId);
+			}else{
+			
+				Swal({
+					  type: 'warning',
+					  title: '請先登入會員',
+					  text: 'Something went wrong!',
+					  confirmButtonColor:"#FFA600",
+					  showConfirmButton:false,
+					})	
+			}		
+		}
+		
+		
+		
+		
+		
+		
 		$("#foster_send5").click(function() {
 			var form5 = $("#foster_form5").serialize();
 			console.log(form5);
@@ -759,21 +747,16 @@
 				url : "insertFostercareForm?" + form,
 				type : "GET",
 			}).done(function(response) {
-				alert(response)
+				alert("成功")
 				$("#adoptionModal").modal('hide');
+				window.location.href= '/PetProject/fostercarecommission';
 			})
 		})
 
 			$("#adoption_send11").click(function() {
 				$("#fosterDogDetails").modal('hide');
 			})
-		
-		
-		
-		
-		
-		
-		
+			
 		function finddogdetail(id){
 			console.log(id);
 			$.ajax({
@@ -781,6 +764,8 @@
 			type : "GET",
 			data:"JSON"
 			}).done(function(responsedogdetail){
+				var starttime=new Date(responsedogdetail.starttime).toLocaleDateString();
+				var endtime=new Date(responsedogdetail.endtime).toLocaleDateString();
 				$("#dogdetailname").text(responsedogdetail.memberName);
 				$("#dogdetaildogname").text(responsedogdetail.petName);
 				$("#dogdetailarea").text(responsedogdetail.area);
@@ -788,12 +773,76 @@
 				$("#dogdetailage").text(responsedogdetail.age);
 				$("#dogdetailreason").text(responsedogdetail.reason);
 				$("#dogdetailremark").text(responsedogdetail.remark);
-				$("#dogdetailpicture").attr("src",responsedogdetail.picture);			
+				$("#dogdetailpicture").attr("src",responsedogdetail.picture);
+				$("#dogdetailstarttime").text(starttime);
+				$("#dogdetailendtime").text(endtime);
 			})
 			
 
 		}
 		
+		
+		
+		function  findfuck(a) {
+			
+			$('#fuck').val(a)
+		}
+		
+		
+		function check(){
+			if('${user}'){
+				$("#application_fostercare").attr("data-toggle","modal");
+				$("#application_fostercare").attr("data-target","#exampleModal5");
+			}else{
+				Swal({
+					  type: 'warning',
+					  title: '請先登入會員',
+					  text: 'Something went wrong!',
+					  confirmButtonColor:"#FFA600",
+					  showConfirmButton:false,
+					})	
+			}
+		}
+		
+
+		
+		
+		
 	</script>
+	<!-- jQuery library -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<!-- Bootstrap -->
+	<script src="/PetProject/assets/js/bootstrap.js"></script>
+	<!-- Slick Slider -->
+	<script type="text/javascript" src="/PetProject/assets/js/slick.js"></script>
+	<!-- mixit slider -->
+	<script type="text/javascript"
+		src="/PetProject/assets/js/jquery.mixitup.js"></script>
+	<!-- Add fancyBox -->
+	<script type="text/javascript"
+		src="/PetProject/assets/js/jquery.fancybox.pack.js"></script>
+	<!-- counter -->
+	<script src="assets/js/waypoints.js"></script>
+	<script src="assets/js/jquery.counterup.js"></script>
+	<!-- Wow animation -->
+	<script type="text/javascript" src="/PetProject/assets/js/wow.js"></script>
+	<!-- progress bar   -->
+	<script type="text/javascript"
+		src="/PetProject/assets/js/bootstrap-progressbar.js"></script>
+	<!--login   -->
+	<script type="text/javascript"
+		src="/PetProject/assets/css/login/login.js"></script>
+	<!--Signon   -->
+	<script type="text/javascript"
+		src="/PetProject/assets/css/SignOn/SignOn.js"></script>
+
+
+	<!-- Custom js -->
+	<script type="text/javascript" src="/PetProject/assets/js/custom.js"></script>
+	
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.all.min.js"></script>
+
 </body>
 </html>

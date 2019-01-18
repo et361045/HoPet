@@ -1,12 +1,13 @@
 package model.fostercareCommission;
 
+import java.sql.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
-@Entity
+
 public class PetDetailBean {
-	@Id
+	
 	private String memberName;
 	private String petName;
 	private String variety;
@@ -16,6 +17,24 @@ public class PetDetailBean {
 	private String picture;
 	private String reason;
 	private String remark;
+	private Date starttime;
+	private Date endtime;
+
+	public Date getStarttime() {
+		return starttime;
+	}
+
+	public void setStarttime(Date starttime) {
+		this.starttime = starttime;
+	}
+
+	public Date getEndtime() {
+		return endtime;
+	}
+
+	public void setEndtime(Date endtime) {
+		this.endtime = endtime;
+	}
 
 	public String getMemberName() {
 		return memberName;
@@ -93,7 +112,8 @@ public class PetDetailBean {
 	public String toString() {
 		return "PetDetailBean [memberName=" + memberName + ", petName=" + petName + ", variety=" + variety + ", area="
 				+ area + ", age=" + age + ", vaccine=" + vaccine + ", picture=" + picture + ", reason=" + reason
-				+ ", remark=" + remark + "]";
+				+ ", remark=" + remark + ", starttime=" + starttime + ", endtime=" + endtime + "]";
 	}
 
+	
 }

@@ -9,7 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import model.fosterCommission.FosterCommissionBean;
-import model.fosterCommission.PetDetailBean;
+import  model.fostercareCommission.PetDetailBean;
+
 import model.member.MemberBean;
 import model.member.MemberDAO;
 import model.pet.PetBean;
@@ -43,6 +44,8 @@ public class FostercareCommissionService {
 		detailBean.setPicture(CommissionBean.getPicture());
 		detailBean.setReason(CommissionBean.getReason());
 		detailBean.setRemark(CommissionBean.getRemark());
+		detailBean.setStarttime(CommissionBean.getStarttime());
+		detailBean.setEndtime(CommissionBean.getEndtime());
 		return detailBean;
 	}
 	

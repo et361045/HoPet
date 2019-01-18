@@ -12,9 +12,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import model.fosterCommission.PetDetailBean;
+import model.fosterForm.FosterFormBean;
+import model.fosterForm.FosterFormService;
 import model.fostercareCommission.FostercareCommissionBean;
 import model.fostercareCommission.FostercareCommissionService;
 import model.fostercareForm.FostercareFormBean;
+import model.fostercareForm.FostercareFormService;
 import model.member.MemberBean;
 import model.pet.PetBean;
 import model.pet.PetService;
@@ -28,18 +31,30 @@ public class FostercareCommissionController {
 	
 	@Autowired
 	private PetService petService;
+	@Autowired
+	private FostercareFormService fostercareFormService;
 	
 	@ResponseBody
 	@RequestMapping("insertFostercareForm")
-	public String insertFosterForm(Model model,FostercareFormBean fostercareFormBean ) {
-		System.out.println("fostercareFormBean"+fostercareFormBean);
+	public String insertFosterForm(Model model,FostercareFormBean fostercareFormBean,
+			Integer petid) {
+		System.out.println("hihiiihi");
 		MemberBean usertemp  = (MemberBean) model.asMap().get("user");
 		fostercareFormBean.setCarer(usertemp.getMemberId());
+		System.out.println(fostercareFormBean);
+	System.out.println("petid ="+petid);
+		FostercareFormBean  temp =fostercareFormService.insertFostercareForm(fostercareFormBean, petid);
+		temp.setStatus("0");
+         System.out.println("temp ="+temp);
+         
+         fostercareFormService.insert(temp);
+		return "fostercarecommission";
 //		fostercareFormBean.setFostercareCommissionid(fostercareCommissionid);
-
-		return "申請成功";
 		
 	}
+	
+	
+	
 	
 	@RequestMapping("/xxxxx")
 	public String insertFostercareCommission(Model model,FostercareCommissionBean bean,Date starttime,Date endtime,String city,String town,Integer petId ) {
@@ -74,7 +89,7 @@ public class FostercareCommissionController {
 	
 	@ResponseBody
 	@RequestMapping("findcarePetId")
-	public PetDetailBean findPetId(Model model,@RequestParam Integer id) {
+	public model.fostercareCommission.PetDetailBean findPetId(Model model,@RequestParam Integer id) {	
 		return fostercareservice.searchPetId(id);
 
 	}
