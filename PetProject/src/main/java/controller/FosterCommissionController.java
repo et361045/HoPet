@@ -1,7 +1,5 @@
 package controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,45 +15,50 @@ import model.fosterForm.FosterFormService;
 
 @Controller
 public class FosterCommissionController {
-	
+
 	@Autowired
 	private FosterCommissionService fosterCommissionService;
 	@Autowired
 	private FosterFormService fosterFormService;
+
 	@ResponseBody
 	@RequestMapping("fosterCommission")
-	public String insertFosterCommission(Model model,FosterCommissionBean fosterCommissionBean ) {
-		FosterCommissionBean newBean = 
-		fosterCommissionService.insertFosterCommission(fosterCommissionBean);
+	public void insertFosterCommission(Model model, FosterCommissionBean fosterCommissionBean) {
+		FosterCommissionBean newBean = fosterCommissionService.insertFosterCommission(fosterCommissionBean);
 //		System.out.println(fosterCommissionBean);
-		model.addAttribute("newBean",newBean);
+		model.addAttribute("newBean", newBean);
 //		System.out.println(newBean);
-		return "ghkdx";
-		
+
 	}
-	
+
 	@ResponseBody
 	@RequestMapping("insertFosterForm")
-	public String insertFosterForm(FosterFormBean fosterFormBean ) {
-//		System.out.println("132123");
-//		fosterFormService.insertFosterForm(fosterFormBean);
-		
-		return "123";
-		
-	}
-	@RequestMapping("findFosterForm")
-	public String findAll(Model model) {
-	model.addAttribute("findallbean", fosterCommissionService.searchAllFosterCommission());
-//	System.out.println(fosterCommissionService.searchAllFosterCommission());
+	public String insertFosterForm(FosterFormBean fosterFormBean,
+			@RequestParam(value = "adoptionpetId") Integer petId) {
+		fosterFormService.insertFosterForm(fosterFormBean, petId);
+
 		return "fosterCommission";
 	}
-	
+
+	@RequestMapping("findFosterForm")
+	public String findAll(Model model) {
+		model.addAttribute("findallbean", fosterCommissionService.searchAllFosterCommission());
+		System.out.println(fosterCommissionService.searchAllFosterCommission());
+		return "fosterCommission";
+	}
+
 	@ResponseBody
 	@RequestMapping("findPetId")
-	public PetDetailBean findPetId(Model model,@RequestParam Integer id) {
+	public PetDetailBean findPetId(Model model, @RequestParam Integer id) {
 		return fosterCommissionService.searchPetId(id);
 
 	}
-	
+
+	@RequestMapping("foster_search")
+	public String fosterSearch(FosterCommissionBean fosterCommissionBean, Model model) {
+		model.addAttribute("findallbean", fosterCommissionService.searchFosterCommission(fosterCommissionBean.getArea(),
+				fosterCommissionBean.getVariety()));
+		return "fosterCommission";
+	}
 
 }

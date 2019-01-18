@@ -10,6 +10,8 @@
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <title>Intensely : Home</title>
 <!-- Favicon -->
+<!-- <script src="dist/sweetalert.min.js"></script> -->
+<!-- <link href="dist/sweetalert.css" rel="stylesheet" type="text/css" /> -->
 <link rel="shortcut icon" type="image/icon"
 	href="/PetProject/assets/images/favicon.ico" />
 <!-- Font Awesome -->
@@ -270,8 +272,8 @@
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="">寄養</a></li>
 								<li><a href="findFosterForm">領養</a></li>
-								<li><a href="" data-toggle="modal"
-									data-target="#fosterModal">申請送養</a></li>
+<!-- 								<li><a id ="xxx" href="" onclick='check()' data-toggle="" data-target="">申請送養</a></li> -->
+								<li><a id="application_foster" onclick="check()" data-toggle="" data-target="">申請送養</a></li>
 							</ul></li>
 						<li><a href="">寵物旅遊</a></li>
 						<li><a href="">寵物商城</a></li>
@@ -321,8 +323,8 @@
 							//自動產生縣市 
 							$("#foster_form_select").twzipcode({
 								"zipcodeIntoDistrict" : true,
-								"countyName" : "city", // 指定城市 select name
-								"districtName" : "area" // 指定地區 select name
+								"countyName" : "area", // 指定城市 select name
+								"districtName" : "town" // 指定地區 select name
 							});
 						</script>
 						<div class=".form_group">
@@ -352,7 +354,7 @@
 				<div class="foster_search_tital">
 					<p>條件查詢</p>
 				</div>
-				<form>
+				<form id="foster_search_form">
 					<div class="form-group mx-sm-3 mb-3">
 						<div class="foster_search_select" id="foster_search_select">
 							<label>縣市 :</label>
@@ -363,84 +365,81 @@
 								//自動產生縣市 
 								$("#foster_search_select").twzipcode({
 									"zipcodeIntoDistrict" : true,
-									"countyName" : "city", // 指定城市 select name
+									"countyName" : "area", // 指定城市 select name
 									"districtName" : "town" // 指定地區 select name
 								});
 							</script>
-							<label>品種 :</label> <select id="termType" name="termType"
+							<label>品種 :</label> <select id="termType" name="variety"
 								class="form-control">
 								<option value="">請選擇</option>
-								<option value="24">柴犬</option>
-								<option value="25">巴哥</option>
-								<option value="26">貴賓犬</option>
-								<option value="27">吉娃娃</option>
-								<option value="28">紅貴賓</option>
-								<option value="29">絲毛梗</option>
-								<option value="30">北京犬</option>
-								<option value="31">拉薩犬</option>
-								<option value="32">博美犬</option>
-								<option value="33">比熊犬</option>
-								<option value="34">約克夏</option>
-								<option value="35">日本狆</option>
-								<option value="36">西施犬</option>
-								<option value="37">雪納瑞</option>
-								<option value="38">蝴蝶犬</option>
-								<option value="39">米格魯</option>
-								<option value="40">波士頓梗</option>
-								<option value="41">威爾斯梗</option>
-								<option value="42">馬爾濟斯</option>
-								<option value="43">長毛臘腸犬</option>
-								<option value="44">傑克羅素梗</option>
-								<option value="45">單第丁蒙梗</option>
-								<option value="46">中國冠毛犬</option>
-								<option value="47">西部高地白梗</option>
-								<option value="48">查理王長毛獵犬</option>
-								<option value="49">迷你杜賓</option>
-								<option value="50">巴吉度</option>
-								<option value="51">鬆獅犬</option>
-								<option value="52">柯基犬</option>
-								<option value="53">牛頭梗</option>
-								<option value="51">沙皮犬</option>
-								<option value="55">惠比特犬</option>
-								<option value="56">貝林登梗</option>
-								<option value="57">蘇格蘭梗</option>
-								<option value="58">英國鬥牛犬</option>
-								<option value="59">法國鬥牛犬</option>
-								<option value="60">英國可卡獵犬</option>
-								<option value="61">美國可卡獵犬</option>
-								<option value="62">喜樂蒂牧羊犬</option>
-								<option value="63">杜賓犬</option>
-								<option value="64">挪威納</option>
-								<option value="65">拳師犬</option>
-								<option value="66">威瑪犬</option>
-								<option value="67">秋田犬</option>
-								<option value="68">拉不拉多</option>
-								<option value="69">黃金獵犬</option>
-								<option value="70">大麥町犬</option>
-								<option value="71">薩摩耶犬</option>
-								<option value="72">尋血獵犬</option>
-								<option value="73">德國狼犬</option>
-								<option value="74">馬士提夫</option>
-								<option value="75">阿富汗獵犬</option>
-								<option value="76">蘇俄牧羊犬</option>
-								<option value="77">可麗牧羊犬</option>
-								<option value="78">愛爾蘭雪達犬</option>
-								<option value="79">西伯利亞哈士奇</option>
-								<option value="80">阿拉斯加雪橇犬</option>
-								<option value="81">英國古代牧羊犬</option>
-								<option value="82">大丹犬</option>
-								<option value="83">土佐犬</option>
-								<option value="84">西藏獒犬</option>
-								<option value="85">大白熊犬</option>
-								<option value="86">聖伯納犬</option>
-								<option value="87">紐芬蘭犬</option>
-								<option value="88">伯恩山犬</option>
-								<option value="89">高加索山犬</option>
-							</select> <input type="hidden" value="" placeholder="missionstatus"
-								id="missionstatus" name="missionstatus" /> <input type="button"
-								value="搜尋" id="searchButt" class="btn btn-primary btn">
-
-
+								<option value="柴犬">柴犬</option>
+								<option value="巴哥">巴哥</option>
+								<option value="貴賓犬">貴賓犬</option>
+								<option value="吉娃娃">吉娃娃</option>
+								<option value="紅貴賓">紅貴賓</option>
+								<option value="絲毛梗">絲毛梗</option>
+								<option value="北京犬">北京犬</option>
+								<option value="拉薩犬">拉薩犬</option>
+								<option value="博美犬">博美犬</option>
+								<option value="比熊犬">比熊犬</option>
+								<option value="約克夏">約克夏</option>
+								<option value="日本狆">日本狆</option>
+								<option value="西施犬">西施犬</option>
+								<option value="雪納瑞">雪納瑞</option>
+								<option value="蝴蝶犬">蝴蝶犬</option>
+								<option value="米格魯">米格魯</option>
+								<option value="波士頓梗">波士頓梗</option>
+								<option value="威爾斯梗">威爾斯梗</option>
+								<option value="馬爾濟斯">馬爾濟斯</option>
+								<option value="長毛臘腸犬">長毛臘腸犬</option>
+								<option value="傑克羅素梗">傑克羅素梗</option>
+								<option value="單第丁蒙梗">單第丁蒙梗</option>
+								<option value="中國冠毛犬">中國冠毛犬</option>
+								<option value="西部高地白梗">西部高地白梗</option>
+								<option value="查理王長毛獵犬">查理王長毛獵犬</option>
+								<option value="迷你杜賓">迷你杜賓</option>
+								<option value="巴吉度">巴吉度</option>
+								<option value="鬆獅犬">鬆獅犬</option>
+								<option value="柯基犬">柯基犬</option>
+								<option value="牛頭梗">牛頭梗</option>
+								<option value="沙皮犬">沙皮犬</option>
+								<option value="惠比特犬">惠比特犬</option>
+								<option value="貝林登梗">貝林登梗</option>
+								<option value="蘇格蘭梗">蘇格蘭梗</option>
+								<option value="英國鬥牛犬">英國鬥牛犬</option>
+								<option value="法國鬥牛犬">法國鬥牛犬</option>
+								<option value="英國可卡獵犬">英國可卡獵犬</option>
+								<option value="美國可卡獵犬">美國可卡獵犬</option>
+								<option value="喜樂蒂牧羊犬">喜樂蒂牧羊犬</option>
+								<option value="杜賓犬">杜賓犬</option>
+								<option value="挪威納">挪威納</option>
+								<option value="拳師犬">拳師犬</option>
+								<option value="威瑪犬">威瑪犬</option>
+								<option value="秋田犬">秋田犬</option>
+								<option value="拉不拉多">拉不拉多</option>
+								<option value="黃金獵犬">黃金獵犬</option>
+								<option value="大麥町犬">大麥町犬</option>
+								<option value="薩摩耶犬">薩摩耶犬</option>
+								<option value="尋血獵犬">尋血獵犬</option>
+								<option value="德國狼犬">德國狼犬</option>
+								<option value="馬士提夫">馬士提夫</option>
+								<option value="阿富汗獵犬">阿富汗獵犬</option>
+								<option value="蘇俄牧羊犬">蘇俄牧羊犬</option>
+								<option value="可麗牧羊犬">可麗牧羊犬</option>
+								<option value="愛爾蘭雪達犬">愛爾蘭雪達犬</option>
+								<option value="西伯利亞哈士奇">西伯利亞哈士奇</option>
+								<option value="阿拉斯加雪橇犬">阿拉斯加雪橇犬</option>
+								<option value="英國古代牧羊犬">英國古代牧羊犬</option>
+								<option value="大丹犬">大丹犬</option>
+								<option value="土佐犬">土佐犬</option>
+								<option value="西藏獒犬">西藏獒犬</option>
+								<option value="大白熊犬">大白熊犬</option>
+								<option value="聖伯納犬">聖伯納犬</option>
+								<option value="紐芬蘭犬">紐芬蘭犬</option>
+								<option value="伯恩山犬">伯恩山犬</option>
+								<option value="高加索山犬">高加索山犬</option>
+							</select> <input type="hidden" value="" placeholder="missionstatus"/> 
+							<input id="foster_search" name="foster_search" type="button" value="搜尋" class="btn btn-primary btn">
 						</div>
 					</div>
 				</form>
@@ -486,10 +485,9 @@
 									</div>
 									<p>${pets.variety}</p>
 									<div class="team-member-link">
-										<a id="heart${pets.petId}" href="#" data-toggle="modal" onclick="finddogdetail(${pets.petId})"
-									data-target="#adoptionModal" ><i class="fa fa-heart fa-2x foster_heart"
+										<a id="heart${pets.petId}" onclick="adoption(${pets.petId})"><i class="fa fa-heart fa-2x foster_heart"
 											title="我想要領養"></i></a> 
-										<a id="dog${pets.petId}" href="#" data-toggle="modal" onclick="finddogdetail(${pets.petId})"
+										<a id="dog${pets.petId}" data-toggle="modal" onclick="finddogdetail(${pets.petId})"
 									data-target="#fosterDogDetails" ><i class="fa fa-dog fa-2x foster_dog" title="詳細資料"></i></a>
 									</div>
 								</div>
@@ -519,13 +517,12 @@
 						<div class=".form_group">
 							<label for="recipient-name" class="col-form-label">收養者姓名 :</label>
 							<span>${user.memberName}</span>
-							<input class="adoption_name"id="hostName" value="${user.memberName}" type="hidden">
-						</div>
-						<input name="status" value="未送養">						
+							<input name="carer"class="adoptionName"id="hostName" value="${user.memberId}" type="hidden">					
+						</div>				
 						<div class=".form_group">
 							<label for="recipient-name" class="col-form-label">是否成年 :</label>
-							<span><input type="checkbox" name="age" value="yes">是</span>
-							<span><input type="checkbox" name="age" value="no">否</span>
+							<span><input type="radio" name="age" value="yes">是</span>
+							<span><input type="radio" name="age" value="no">否</span>
 						</div>
 						<div class=".form_group">
 							<label for="recipient-name" class="col-form-label">您的職業 :</label>
@@ -572,10 +569,12 @@
 						</div>
 						<div class=".form_group">
 							<label for="recipient-name" class="col-form-label">有無收養寵物經驗 :</label>
-							<span><input type="checkbox" name="pettime" value="yes">有</span>
-							<span><input type="checkbox" name="pettime" value="no">無</span>
+							<span><input type="radio" name="pettime" value="yes">有</span>
+							<span><input type="radio" name="pettime" value="no">無</span>
 						</div>
+					<input type="hidden" name="status" value="0">
 					</form>
+					<input type="hidden" id="adoptionpetId" value="">
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary"
@@ -620,12 +619,12 @@
 					</div>
 					<div style="display: inline-block;">				
 						<ul class="fosterDogDetails_ul3">
-							<li>備註：<span id=dogdetailremark>$</span></li>
+							<li>備註：<span id=dogdetailremark></span></li>
 						</ul>
 					</div>
 				</div>
 				<div class="fosterDogDetails_footer">
-					<button type="button" class="btn btn-primary" id="adoption_send1"  data-toggle="modal"
+					<button type="button" class="btn btn-primary" id="adoption_send1" onclick="check()"  data-toggle="modal"
 									data-target="#adoptionModal">我要領養</button>
 				</div>
 			</div>
@@ -688,6 +687,7 @@
 		src="/PetProject/assets/css/SignOn/SignOn.js"></script>
 	<!-- Custom js -->
 	<script type="text/javascript" src="/PetProject/assets/js/custom.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.all.min.js"></script>
 
 	<script>
 		$(document).ready(function() {
@@ -700,34 +700,56 @@
 			$(".team-member-link a:nth-child(2)").mouseleave(function() {
 				$(this).empty().append("<i class='fa fa-dog fa-2x foster_dog' title='詳細資料'></i>")});
 		});
-
+		
+		function adoption(petId){
+			if('${user}'){
+				$("#adoptionModal").modal("show");
+				$("#adoptionpetId").attr("value",petId);
+			}else{
+				Swal({
+					  type: 'warning',
+					  title: '請先登入會員',
+					  text: 'Something went wrong!',
+					  confirmButtonColor:"#FFA600",
+					  showConfirmButton:false,
+					})	
+			}		
+		}
+		
 		$("#foster_send").click(function() {
 			var form = $("#foster_form").serialize();
-			console.log(form);
 			$.ajax({
 				url : "fosterCommission?" + form,
 				type : "GET",
-			}).done(function(response) {
-				alert(response)
-				alert("送養成功")
-				window.location.reload();
-				$("#fosterModal").modal('hide');
+			}).done(function() {
+				Swal({
+					  type: 'success',
+					  title: '送養申請成功',
+					  showConfirmButton:false,
+
+					}).then(function(){
+					window.location.reload();
+					});			 
 			})
 		})
 		
-		
+		$("#foster_search").click(function() {
+			var form = $("#foster_search_form").serialize();
+			console.log(form)
+			window.location.href="foster_search?" + form;
+		})
+			
 		$("#adoption_send").click(function(){
 			var form = $("#adoption_form").serialize();
-			console.log(petId);
+			var adoptionpetId = $("#adoptionpetId").val();
 			$.ajax({
-				url : "insertFosterForm?" + form,
+				url : "insertFosterForm?" + form +"&adoptionpetId="+ adoptionpetId,
 				type : "GET",
 			}).done(function(response) {
 				alert(response)
 				$("#adoptionModal").modal('hide');
 			})
 		})
-
 			$("#adoption_send1").click(function() {
 				$("#fosterDogDetails").modal('hide');
 			})
@@ -748,11 +770,27 @@
 				$("#dogdetailremark").text(responsedogdetail.remark);
 				$("#dogdetailpicture").attr("src",responsedogdetail.picture);			
 			})
-			
-
 		}
 		
-			
+		function check(){
+			if('${user}'){
+				$("#application_foster").attr("data-toggle","modal");
+				$("#application_foster").attr("data-target","#fosterModal");
+			}else{
+				Swal({
+					  type: 'warning',
+					  title: '請先登入會員',
+					  text: 'Something went wrong!',
+					  confirmButtonColor:"#FFA600",
+					  showConfirmButton:false,
+					})	
+			}
+		}
+
+		
+		
+		
+
 	</script>
 </body>
 </html>

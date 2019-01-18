@@ -22,6 +22,19 @@ public class FosterCommissionService {
 	private PetDAO petDAO;
 	@Autowired
 	private MemberDAO memberDAO;
+	
+
+		public List<FosterCommissionBean> searchFosterCommission(String area, String variety) {
+			if(area == "" && variety == "") {
+				return fosterCommissionDao.findAllFosterCommission();
+			}else if(area != "" && variety == "") {
+				return fosterCommissionDao.findByAreaFosterCommission(area);
+			}else if(area == "" && variety != "") {
+				return fosterCommissionDao.findByVarietyFosterCommission(variety);
+			}else
+				return  fosterCommissionDao.findByAreaAndVarietyFosterCommission(area, variety);
+		}	
+		
 
 	public PetDetailBean searchPetId(Integer petId) {
 		FosterCommissionBean CommissionBean = fosterCommissionDao.findByPetId(petId);

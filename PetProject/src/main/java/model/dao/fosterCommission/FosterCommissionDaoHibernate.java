@@ -29,6 +29,20 @@ public class FosterCommissionDaoHibernate implements FosterCommissionDao {
 	}
 
 	@Override
+	public List<FosterCommissionBean> findByVarietyFosterCommission(String variety) {
+		return this.getSession().createQuery("from FosterCommissionBean where variety='"+variety+"'").list();
+	}
+
+	@Override
+	public List<FosterCommissionBean> findByAreaAndVarietyFosterCommission(String area,String variety) {
+		return this.getSession().createQuery("from FosterCommissionBean where area='"+area+"' and variety='"+variety+"'").list();
+	}
+
+	@Override
+	public List<FosterCommissionBean> findByAreaFosterCommission(String area) {
+		return this.getSession().createQuery("from FosterCommissionBean where area='"+area+"'").list();
+	}
+	@Override
 	public List<FosterCommissionBean> findAllFosterCommission() {
 
 		return this.getSession().createQuery("from FosterCommissionBean", FosterCommissionBean.class).list();

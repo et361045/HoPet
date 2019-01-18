@@ -9,6 +9,12 @@ public interface FosterCommissionDao {
 
 	public abstract List<FosterCommissionBean> findAllFosterCommission();
 
+	public abstract List<FosterCommissionBean> findByAreaFosterCommission(String area);
+
+	public abstract List<FosterCommissionBean> findByVarietyFosterCommission(String variety);
+
+	public abstract List<FosterCommissionBean> findByAreaAndVarietyFosterCommission(String area,String variety);
+
 	public abstract FosterCommissionBean update(FosterCommissionBean fosterCommissionBean);
 
 	public abstract FosterCommissionBean insert(FosterCommissionBean fosterCommissionBean);
