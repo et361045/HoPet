@@ -72,13 +72,13 @@ body, input {
 	border-radius: 5px;
 }
 </style>
-<script type="text/javascript"
-	src="https://maps.googleapis.com/maps/api/js?key&AIzaSyD5yTSd7qAEyeoxcOIEK1K4M3X-H6bKiis">
-	
-</script>
 <!-- <script type="text/javascript" -->
-<!--      src="https://maps.googleapis.com/maps/api/js?callback=initialize&key=AIzaSyD_dGEr_Cm5zksGOql-xQ3Tie8j7CGZDdw"> -->
+<!-- 	src="https://maps.googleapis.com/maps/api/js?key&AIzaSyD5yTSd7qAEyeoxcOIEK1K4M3X-H6bKiis"> -->
+	
 <!-- </script> -->
+<script type="text/javascript"
+     src="https://maps.googleapis.com/maps/api/js?callback=initialize&key=AIzaSyD_dGEr_Cm5zksGOql-xQ3Tie8j7CGZDdw">
+</script>
 <script type="text/javascript">
 	function initialize() {
 		geocoder = new google.maps.Geocoder();
