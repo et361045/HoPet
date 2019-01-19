@@ -53,6 +53,3 @@ public class ActivityFormService{
 		return result;
 	}
 }
-	
-	
-

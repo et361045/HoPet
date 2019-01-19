@@ -1,6 +1,8 @@
 package model.activityForm;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -9,6 +11,7 @@ import javax.persistence.Table;
 public class ActivityFormBean {
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer activityformid; //活動報名表流水號
 	private Integer participate;	//活動報名表填寫人會員id
 	private String remarks;			//備註

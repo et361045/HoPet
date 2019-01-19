@@ -55,20 +55,21 @@ public class BusinessInformationDaoHibernate implements BusinessInformationDao{
 		return null;
 	}
 	@Override
-	public BusinessInformationBean update(String companyname,
-			String businessAddress, String businessPhone,String idname,String businessGooglemap,String Latitude,Integer businessId) {
+	public BusinessInformationBean update(String externalname,
+			String businessAddress, String businessPhone,String idname,String businessGooglemap,Double longitude ,Double latitude,Integer businessId) {
 		//利用id作為primary key修改product table資料
 		//id存在=>修改成功、傳回裝滿資料的ProductBean物件
 		//id不存在=>修改失敗、傳回null
 		
 		BusinessInformationBean temp = this.getSession().get(BusinessInformationBean.class, businessId);
 		if(temp!=null) {	
-			temp.setCompanyname(companyname);
+			temp.setCompanyname(externalname);
 			temp.setBusinessAddress(businessAddress);
 			temp.setBusinessPhone(businessPhone);
 			temp.setIdname(idname);
 			temp.setBusinessGooglemap(businessGooglemap);
-			temp.setLatitude(Latitude);
+			temp.setLongitude(longitude);
+			temp.setLatitude(latitude);
 			temp.setBusinessId(businessId);
 			return temp;
 		}

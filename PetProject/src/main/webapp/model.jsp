@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>多地標Google地圖</title>
+<title>Intensely : Home</title>
 <!-- Favicon -->
 <link rel="shortcut icon" type="image/icon"
 	href="/PetProject/assets/images/favicon.ico" />
@@ -34,18 +34,33 @@
 	href="/PetProject/assets/css/theme-color/default-theme.css"
 	rel="stylesheet">
 
+<!-- member css -->
+
+<link href="/PetProject/assets/css/member.css" rel="stylesheet">
+
 <!-- Main Style -->
-<link href="/PetProject/assets/css/style.css" rel="stylesheet">
+<link href="/PetProject/assets/css/memberstyle.css" rel="stylesheet">
 <!-- login Style -->
 <link href="/PetProject/assets/css/login/login.css" rel="stylesheet">
-<script defer
-	src="https://use.fontawesome.com/releases/v5.6.3/js/all.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2.js'></script>
-<script src="https://maps.google.com/maps/api/js?sensor=false"></script>
-<script
-	src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.14/jquery.twzipcode.min.js"></script>
-<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<!-- icon -->
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+	integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+	crossorigin="anonymous">
+<!-- alert -->
+<link
+	href="//cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.10/alertify.core.css"
+	rel="stylesheet">
+<link
+	href="//cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.10/alertify.default.css"
+	rel="stylesheet">
+
+<!--  活動主畫面 -->
+
+<link rel="stylesheet" href="assets/css/activityhomeframe.css">
+
+
+
 <!-- Fonts -->
 
 <!-- Open Sans for body font -->
@@ -55,85 +70,14 @@
 <link href='https://fonts.googleapis.com/css?family=Lato'
 	rel='stylesheet' type='text/css'>
 
+
+
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-<style>
-body, input {
-	font-size: 10px;
-}
-
-#map_canvas {
-	height: 100%;
-	border-radius: 5px;
-}
-</style>
-<script type="text/javascript"
-	src="https://maps.googleapis.com/maps/api/js?key&AIzaSyBpZmGolfotLrG4xt6jVDhY87zi_vWWV1Y">
-	
-</script>
-
-
-<script>
-	var a = -1;
-	$(function() {
-
-		var latlng1 = new google.maps.LatLng(25.0256226,121.5340202,17);//北歐寵物旅館
-		//設定地圖參數
-		var mapOptions = {
-			zoom : 16, //初始放大倍數
-			center : latlng1, //中心點所在位置
-			mapTypeId : google.maps.MapTypeId.ROADMAP
-		//正常2D道路模式
-		};
-		var imageUrl = "assets/images/storemap01.png"; //空字串就會使用預設圖示
-		//在指定DOM元素中嵌入地圖
-		geocoder = new google.maps.Geocoder();
-		var map = new google.maps.Map(document.getElementById("map_canvas"),
-				mapOptions);
-
-		$.ajax({
-			data : "GET",
-			url : "/PetProject/query",
-			dataType : "json",
-			success : function(json) {
-				console.log(json)
-				$.each(json, function(idx, val) {
-					var latitude = new google.maps.LatLng(val.longitude,
-							val.latitude);
-					;
-					var storeName = val.storeName;
-					new google.maps.Marker({
-						position : latitude, //經緯度
-						title : storeName, //顯示文字
-						icon : imageUrl,
-						map : map
-					//指定要放置的地圖對象
-					});
-				})
-			}
-		});
-
-		//   var infowindow = new google.maps.InfoWindow({
-		//     content: '<h1>博愛動物醫院</h1>'
-		//   });
-
-		//            marker.addListener('click',function(){
-		//         a = a * -1;
-		//         if(a > 0){
-		//          infowindow.open(map, marker);
-		//         }else{
-		//         infowindow.close();
-		//         }
-		//         });
-
-	});
-</script>
-
-
 </head>
 <body>
 
@@ -178,14 +122,14 @@ body, input {
 									value="<span class='Username' >HI, ${user.memberName} </span>"
 									escapeXml="false" />
 								<c:out
-									value="  <a class='login modal-form' id='Logout'> Logout</button>"
+									value="  <a class='login modal-form' id='Logout'> Logout</a>"
 									escapeXml="false" />
 							</c:if>
 
 							<c:if test="${empty  user}">
 								<c:out
 									value=" <a class='login modal-form' data-target='#login-form'
-								data-toggle='modal' href='#' id='Login'>Login / Sign Up</a>"
+								data-toggle='modal' href='#'>Login / Sign Up</a>"
 									escapeXml="false" />
 							</c:if>
 						</div>
@@ -249,7 +193,7 @@ body, input {
 					</h4>
 				</div>
 				<div class="modal-body">
-					<form id="signon" action="<c:url value='/signon'/>">
+					<form id="signon" action="<c:url value='signon'/>">
 						<div class="form-group">
 							<input type="email" placeholder="User email" class="form-control"
 								title="請輸入信箱" name="email">
@@ -312,7 +256,9 @@ body, input {
 					</button>
 					<!-- LOGO -->
 					<!-- TEXT BASED LOGO -->
-					<img src="assets/images/logo.png" class="logo_img">
+					<a href="/PetProject/index.jsp"> <img
+						src="/PetProject/assets/images/logo.png" class="logo_img">
+					</a>
 					<!-- IMG BASED LOGO  -->
 					<!-- <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" alt="logo"></a> -->
 				</div>
@@ -321,16 +267,10 @@ body, input {
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown">會員中心 <span class="fa fa-angle-down"></span></a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="/PetProject/member/member.jsp">會員資料</a></li>
+								<li><a href="member.jsp">會員資料</a></li>
 								<li><a href=""><span class="fa fa-search"></span>搜尋好友 </a></li>
 							</ul></li>
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown">寵物生活館 <span class="fa fa-angle-down"></span></a>
-							<ul class="dropdown-menu" role="menu">
-								<li><a href="">醫院</a></li>
-								<li><a href="">商家</a></li>
-								<li><a href="">景點</a></li>
-							</ul></li>
+						<li><a href="">寵物生活館</a></li>
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown">寵物百科 <span class="fa fa-angle-down"></span></a>
 							<ul class="dropdown-menu" role="menu">
@@ -349,64 +289,171 @@ body, input {
 					</ul>
 				</div>
 				<!--/.nav-collapse -->
-				<a href="#" id="search-icon"> <i class="fa fa-search"> </i>
+				<a href="#" id="search-icon"> <i class="fa fa-search" style="">
+				</i>
 				</a>
 			</div>
 		</nav>
 	</section>
-	<!-- END MENU -->
-
-	<!-- 	<div id="hospital_search"> -->
-	<!-- 		<div class="map_search_select" data-role="county"></div> -->
-	<!-- 		<div class="map_search_select" data-role="district"></div> -->
-	<!-- 	</div> -->
-	<!-- 	<input name="Address" type="text" class="f13 address form-control"> -->
 
 
-	<div class="map_search">
-		<div class="">
-			<div class="map_search_tital">
-				<p>條件查詢</p>
-			</div>
-			<form>
-				<div class="form-group mx-sm-3 mb-3">
-					<div id="store_search">
-						<div class="map_search_select">
-							<label>縣市 :</label>
-							<div class="map_search_select" data-role="county"></div>
-							<label>區域:</label>
-							<div class="map_search_select" data-role="district"></div>
-							<label>商家名稱:</label>
-							<input name="Address" type="text" class="form-control">
-							<label>地址:</label>
-							<input name="Address" type="text" class="form-control">
-						</div>
-						<script>
-							//自動產生縣市 
-							$("#store_search").twzipcode({
-								"zipcodeIntoDistrict" : true,
-								"countyName" : "city", // 指定城市 select name
-								"districtName" : "town" // 指定地區 select name
-							});
-						</script>
-						<input type="hidden" value="" placeholder="missionstatus"
-							id="missionstatus" name="missionstatus" /> <input type="button"
-							value="搜尋" id="searchButt"
-							class="btn btn-primary btn store_map_search">
-					</div>
+<div class="content page1">
+  <div class="container_12_new">
+  	
+  	<div class="col-xs-12">
+		<ul>
+			<li><a href="http://www.yahoo.com" target="" title="" style="color:black;">創建文章</a></li>
+			<li><a href="http://www.yahoo.com" target="" title="" style="color:black;">瀏覽文章</a></li>
+			<li><a href="http://www.yahoo.com" target="" title="" style="color:black;">今日最新</a></li>
+			<li><a href="http://www.yahoo.com" target="" title="" style="color:black;">瀏覽最高</a></li>
+		</ul>				
+	</div>
+	
+	<div class="col-xs-22">
+		<ul>
+			<li><a href="http://www.yahoo.com" target="" title="" style="color:black;">New活動登記表</a></li>
+			<li><a href="http://www.yahoo.com" target="" title="" style="color:black;">正在參加的活動</a></li>
+		</ul>
+	</div>
+	
+	
+	
+<div id="page" class="container">
+			<div id="content">
+				<div id="box1">
+					<h2 class="title">
+						<a href="#">活動挖挖挖</a>
+					</h2>
+					<p>
+						
+					</p>
 				</div>
-			</form>
+				<div>
+					<ul class="style1">
+						<li class="first">
+							<h3>
+								<em><img src="images/girl1.jpg" alt="" width="130"
+									height="130" class="alignleft border" /></em>劉德安小三
+							</h3>
+							<p>挖靠有活動.....................</p>
+							<p>
+								<a href="#" class="button-style">Read More</a>
+							</p>
+						</li>
+						<li>
+							<h3>
+								<em><img src="images/girl2.jpg" alt="" width="130"
+									height="130" class="alignleft border" /></em>建良老婆
+							</h3>
+							<p>挖靠有活動~~~~~~~~~~~~~~~~~~~</p>
+							<p>
+								<a href="#" class="button-style">Read More</a>
+							</p>
+						</li>
+						<li>
+							<h3>
+								<em><img src="images/girl3.jpg" alt="" width="130"
+									height="130" class="alignleft border" /></em>劉偉師小三
+							</h3>
+							<p>挖靠有活動!!!!!!!!!!!!!!!!!!!!!</p>
+							<p>
+								<a href="#" class="button-style">Read More</a>
+							</p>
+						</li>
+						<li>
+							<h3>
+								<em><img src="images/girl4.jpg" alt="" width="130"
+									height="130" class="alignleft border" /></em>JACK小三
+							</h3>
+							<p>挖靠有活動!!!!!!!!!!!!!!!!!!!!!</p>
+							<p>
+								<a href="#" class="button-style">Read More</a>
+							</p>
+						</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+			<div id="sidebar">
+				<h2>好友新訊息</h2>
+				<ul class="style3">
+					<li class="first">
+						<p class="date">12-22-2018</p>
+						<p>
+							<a href="#">今晚出來溜狗吃飯啊</a>
+						</p>
+					</li>
+					<li>
+						<p class="date">12-23-2018</p>
+						<p>
+							<a href="#">你的狗太可愛了吧</a>
+						</p>
+					</li>
+					<li>
+						<p class="date">12-24-2018</p>
+						<p>
+							<a href="#">不如跳舞</a>
+						</p>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
-	<div class="store_map">
-		<div>
-			<p class="store_map_p">商家地圖</p>
-			<figure class="img_inner" id="map_canvas">
-				<iframe
-					src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Brooklyn,+New+York,+NY,+United+States&amp;aq=0&amp;sll=37.0625,-95.677068&amp;sspn=61.282355,146.513672&amp;ie=UTF8&amp;hq=&amp;hnear=Brooklyn,+Kings,+New+York&amp;ll=40.649974,-73.950005&amp;spn=0.01628,0.025663&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>
-			</figure>
-		</div>
-	</div>
+</div>
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
 
 	<!-- Start footer -->
 	<footer id="footer">
@@ -434,9 +481,15 @@ body, input {
 	<!-- End footer -->
 
 	<!-- jQuery library -->
+
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
+
+	<!-- updatemember js -->
+	<script type="text/javascript" src="/PetProject/assets/js/update.js"></script>
+
+
 	<!-- Bootstrap -->
 	<script src="/PetProject/assets/js/bootstrap.js"></script>
 	<!-- Slick Slider -->
@@ -448,8 +501,8 @@ body, input {
 	<script type="text/javascript"
 		src="/PetProject/assets/js/jquery.fancybox.pack.js"></script>
 	<!-- counter -->
-	<script src="assets/js/waypoints.js"></script>
-	<script src="assets/js/jquery.counterup.js"></script>
+	<script src="/PetProject/assets/js/waypoints.js"></script>
+	<script src="/PetProject/assets/js/jquery.counterup.js"></script>
 	<!-- Wow animation -->
 	<script type="text/javascript" src="/PetProject/assets/js/wow.js"></script>
 	<!-- progress bar   -->
@@ -465,6 +518,13 @@ body, input {
 
 	<!-- Custom js -->
 	<script type="text/javascript" src="/PetProject/assets/js/custom.js"></script>
+
+
+
+	<!-- alert -->
+
+	<script
+		src="//cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.10/alertify.min.js"></script>
 
 </body>
 </html>
