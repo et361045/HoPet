@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import model.fosterCommission.FosterCommissionBean;
 import  model.fostercareCommission.PetDetailBean;
-
+import model.hospital.HospitalBean;
 import model.member.MemberBean;
 import model.member.MemberDAO;
 import model.pet.PetBean;
@@ -28,6 +28,44 @@ public class FostercareCommissionService {
 	public FostercareCommissionService(FostercareCommissionDao fostercareDao) {
 		this.fostercareDao = fostercareDao;
 	}
+	
+	
+	public List<FostercareCommissionBean> searchFostercareCommission(String area, String variety) {
+		if(area != "" && variety != "") {
+			return  fostercareDao.findByAreaAndVarietyFostercareCommission(area, variety);
+		}else	
+			return fostercareDao.findAll();
+	}	
+	
+	
+	public List<FostercareCommissionBean> searchAllFostercareCommission() {
+		List<FostercareCommissionBean> bean = fostercareDao.findAll();
+		return bean;
+	}
+	
+	
+	
+	public List<FostercareCommissionBean> selectarea(String  area) {
+		List<FostercareCommissionBean> result;
+		List<FostercareCommissionBean> temp =new ArrayList<FostercareCommissionBean>();
+		result = fostercareDao.findAll();
+		for(int i=0;i<result.size();i++)
+		{ 	
+			if(result.get(i).getArea().indexOf(area)>-1)
+			{
+				
+				temp.add(result.get(i));
+			}
+	
+	
+		}
+		System.out.println(temp);
+		return temp;
+	}
+	
+	
+	
+	
 	
 	
 	public PetDetailBean searchPetId(Integer petid) {

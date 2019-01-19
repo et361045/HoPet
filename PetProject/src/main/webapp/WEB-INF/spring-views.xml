@@ -123,6 +123,11 @@
 	<property name="url" value="/hospitaltest.jsp" />
 	</bean>
 	
+	<bean id="fostercaresearch"
+    	class="org.springframework.web.servlet.view.InternalResourceView">
+		<property value="/fostercarecommission" name="url"/>
+	</bean>
+	
 
 <!-- 	<bean id="businessInformation.errors" -->
 <!-- 		class="org.springframework.web.servlet.view.InternalResourceView"> -->
