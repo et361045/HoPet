@@ -251,7 +251,7 @@
 							data-toggle="dropdown">會員中心 <span class="fa fa-angle-down"></span></a>
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="/PetProject/member/member.jsp">會員資料</a></li>
-								<li><a href=""><span class="fa fa-search"></span>搜尋好友 </a></li>
+								<li><a href="/PetProject/member/membermessage.jsp"><span class="fa fa-search"></span>動態消息 </a></li>
 							</ul></li>
 						<li><a href="">寵物生活館</a></li>
 						<li class="dropdown"><a href="#" class="dropdown-toggle"

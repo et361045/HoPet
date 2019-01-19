@@ -32,6 +32,7 @@ import model.fostercareForm.FostercareFormBean;
 import model.fostercaredetail.FostercareDetailBean;
 import model.hospital.HospitalBean;
 import model.member.MemberBean;
+import model.messageboard.MessageboardBean;
 import model.pet.PetBean;
 import model.petEncyclopedia.PetEncyclopediaBean;
 import model.shoporder.ShoporderBean;
@@ -86,6 +87,9 @@ public class SpringJavaConfiguration {
 		builder.addAnnotatedClass(PetEncyclopediaBean.class);
 		builder.addAnnotatedClass(PetBean.class);
 		builder.addAnnotatedClass(PetDetailBean.class);
+		builder.addAnnotatedClass(MessageboardBean.class);
+
+
 
 		return builder.buildSessionFactory();
 	}
