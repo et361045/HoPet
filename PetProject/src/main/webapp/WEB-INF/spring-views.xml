@@ -75,6 +75,12 @@
 		<property name="url" value="/pages/activityform.jsp"></property>
 	</bean>
 	
+	<bean id="activityCommission"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/pages/activityCommission.jsp"></property>
+	</bean>
+	
+	
 	<bean id="activityCommission.select"
 		class="org.springframework.web.servlet.view.InternalResourceView">
 		<property name="url"

@@ -78,7 +78,7 @@ public class ActivityCommissionDaoHibernate implements ActivityCommissionDAO{
 	
 	
 	@Override
-	public ActivityCommissionBean update(String activityname, String activites,Integer limit, Integer signup, String status,Integer activitymemberid) {
+	public ActivityCommissionBean update(String activityname, String activites,Integer limit, Integer signup,String address,Integer phone, String status,Integer activitymemberid) {
 		//利用id作為primary key修改product table資料
 		//id存在=>修改成功、傳回裝滿資料的ProductBean物件
 		//id不存在=>修改失敗、傳回null
@@ -86,7 +86,7 @@ public class ActivityCommissionDaoHibernate implements ActivityCommissionDAO{
 		ActivityCommissionBean temp = this.getSession().get(ActivityCommissionBean.class, activitymemberid);
 		if(temp!=null) {	
 			temp.setActivityname(activityname);
-			temp.setActivities(activites);
+			temp.setActivites(activites);
 			temp.setLimit(limit);
 			temp.setSignup(signup);
 			temp.setStatus(status);

@@ -17,14 +17,19 @@ public class ActivityCommissionBean {
 	private String activites; //活動內容
 	private Integer limit; //限制人數
 	private Integer signup; //報名人數
+	private Integer phone; //電話
+	private String address;	//活動地址
 	private String status; //狀態
+	
 	 
+
 	@Override
 	public String toString() {
 		return "ActivityCommissionBean [activityid=" + activityid + ", activitymemberid=" + activitymemberid
-				+ ", activityname=" + activityname + ", activities=" + activites + ", limit=" + limit + ", signup="
-				+ signup + ", status=" + status + "]";
+				+ ", activityname=" + activityname + ", activites=" + activites + ", limit=" + limit + ", signup="
+				+ signup + ", phone=" + phone + ", address=" + address + ", status=" + status + "]";
 	}
+
 
 	public Integer getActivityid() {
 		return activityid;
@@ -50,12 +55,12 @@ public class ActivityCommissionBean {
 		this.activityname = activityname;
 	}
 
-	public String getActivities() {
+	public String getActivites() {
 		return activites;
 	}
 
-	public void setActivities(String activities) {
-		this.activites = activities;
+	public void setActivites(String activites) {
+		this.activites = activites;
 	}
 
 	public Integer getLimit() {
@@ -72,6 +77,22 @@ public class ActivityCommissionBean {
 
 	public void setSignup(Integer signup) {
 		this.signup = signup;
+	}
+
+	public Integer getPhone() {
+		return phone;
+	}
+
+	public void setPhone(Integer phone) {
+		this.phone = phone;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public String getStatus() {

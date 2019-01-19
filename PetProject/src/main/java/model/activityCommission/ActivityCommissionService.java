@@ -8,17 +8,18 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import model.member.MemberBean;
 import model.member.MemberDAO;
 
 @Service
 @Transactional
 public class ActivityCommissionService {
-	@Autowired
-	private MemberDAO memberDAO;
 	
 	@Autowired
 	private ActivityCommissionDAO activityCommissionDAO;
+	
+	@Autowired
+	private MemberDAO memberDAO;
+	
 	public ActivityCommissionService(ActivityCommissionDAO activityCommissionDAO) {
 		this.activityCommissionDAO = activityCommissionDAO;
 	}
@@ -73,8 +74,8 @@ public class ActivityCommissionService {
 	public ActivityCommissionBean update(ActivityCommissionBean bean) {
 		ActivityCommissionBean result = null;
 		if(bean!=null) {
-			result = activityCommissionDAO.update(bean.getActivityname(), bean.getActivities(),
-					bean.getLimit(),bean.getSignup(),bean.getStatus(),bean.getActivitymemberid());
+			result = activityCommissionDAO.update(bean.getActivityname(), bean.getActivites(),
+					bean.getLimit(),bean.getSignup(),bean.getAddress(),bean.getPhone(),bean.getStatus(),bean.getActivitymemberid());
 		}
 //		String activityname, String activities,Integer limit,Integer signup,Integer Activitymemberid
 		

@@ -57,7 +57,10 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-<link href="/PetProject/assets/css/foster/foster.css" rel="stylesheet">
+<link href="/PetProject/assets/css/foster/fosterpublic1.css" rel="stylesheet">
+
+<!--  活動主畫面 -->
+<link rel="stylesheet" href="assets/css/activityhomeframe.css">
 
 </head>
 <body>
@@ -113,10 +116,6 @@
 								data-toggle='modal' href='#' id='Login'>Login / Sign Up</a>"
 									escapeXml="false" />
 							</c:if>
-
-
-
-
 						</div>
 					</div>
 				</div>
@@ -293,7 +292,6 @@
 			</div>
 		</nav>
 	</section>
-	
 <!-- 	改 -->
 	
 	<!--送養申請彈出視窗 -->
@@ -309,53 +307,43 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<form action="<c:url value="/PetProject/xxxxx" />" method="get" id="foster_form5">
+					<form action="<c:url value="/PetProject/aaa" />" method="get" id="activity_form5">
 						<div class=".form_group">
 							<label for="recipient-name" class="col-form-label">會員名字 :</label>
 							<span id="hostName5">${user.memberName}</span>
 						</div>
-<!-- 						<div class=".form_group"> -->
-<!-- 							<label for="recipient-name" class="col-form-label">寵物 :</label> <span><select -->
-<!-- 								id="petId" name="petId" class="foster_form_variety_select"> -->
-<!-- 									<option>請選擇</option> -->
-<%-- 									 <c:forEach items="${pet}" var="pet"> --%>
-<%-- 									<option value="${pet.petId}">${pet.petName}</option> --%>
-<%-- 									</c:forEach> --%>
-<!-- 							</select></span> -->
-<!-- 						</div> -->
-				
-						<div id="foster_form_select">
-						<label>活動地點 :</label>
-						<div  class="foster_form_select" data-role="county"></div>
-						<div  class="foster_form_select" data-role="district"></div>
+						<div class=".form_group">
+							<label for="message-text" class="col-form-label">聯絡電話 :</label>
+							<textarea class="form-control" name="phone" id="reason"></textarea>
 						</div>
 						
-						<div>			
+						<div class=".form_group">
+							<label for="message-text" class="col-form-label">活動地點 :</label>
+							<textarea class="form-control" name="address" id="reason"></textarea>
+						</div>
+						
+						<div class=".form_group">
+							<label for="message-text" class="col-form-label">活動主題 :</label>
+							<textarea class="form-control" name="activityname" id="reason"></textarea>
+						</div>
+						
+						<div class=".form_group">
+							<label for="message-text" class="col-form-label">活動內容 :</label>
+							<textarea class="form-control" name="activites" id="reason"></textarea>
+						</div>
+						
+						
+					<div>			
 						<label>活動日期:</label>
-        				<input name="starttime" type="date" id="start" value="" name="trip-start" min="2018-01-01" max="2050-12-31">
+        					<input name="starttime" type="date" id="start" value="" name="trip-start" min="2018-01-01" max="2050-12-31">
         				<label>結束日期:</label>
-        				<input name="endtime" type="date" id="end" name="trip-end" min="2018-01-01" max="2050-12-31">
+        					<input name="endtime" type="date" id="end" name="trip-end" min="2018-01-01" max="2050-12-31">
         				<label class="st1" id=idp></label>
 						</div>
 						
 						<div>
-<!--         				<lable>總報名人數:</lable> -->
-<!--         				<input name="sighup" type="date" id="start" value="" name="trip-start" min="1" max="50"> -->
-<!-- 						<select name="sighup">  -->
-<!-- 							<option value="s1">1</option> -->
-<!-- 							<option value="s2">2</option> -->
-<!-- 							<option value="s3">3</option> -->
-<!-- 							<option value="s4">4</option> -->
-<!-- 							<option value="s5">5</option> -->
-<!-- 							<option value="s6">6</option> -->
-<!-- 							<option value="s7">7</option> -->
-<!-- 							<option value="s8">8</option> -->
-<!-- 							<option value="s9">9</option> -->
-<!-- 							<option value="s10">10</option> -->
-<!-- 						</select> -->
         				<lable>限制人數:</lable>
-<!--         				<input name="limit" type="date" id="start" value="" name="trip-start" max="50"> -->
-						<select name="limit"> 
+						<select name="limit" type="date" id="start" value=""> 
 							<option value="10">1-10人</option>
 							<option value="20">10-20人</option>
 							<option value="30">20-30人</option>
@@ -392,29 +380,19 @@
 								"districtName" : "town" // 指定地區 select name
 							});
 						</script>
-						<div class=".form_group">
-							<label for="message-text" class="col-form-label">活動主題 :</label>
-							<textarea class="form-control" name="reason" id="reason"></textarea>
-						</div>
-						<div class=".form_group">
-							<label for="message-text" class="col-form-label">活動內容 :</label>
-							<textarea class="form-control" name="reason" id="reason"></textarea>
-						</div>
 <!-- 						<div class=".form_group"> -->
 <!-- 							<label for="recipient-name" class="col-form-label">天數 ( 如 :一天；二天一夜；三天兩夜) :</label> -->
 <!-- 							<textarea class="form-control" name="remark" id="remark"></textarea> -->
 <!-- 						</div> -->
-						<div class=".form_group">
-							<label for="recipient-name" class="col-form-label">備註 ( 如 :) :</label>
-							<textarea class="form-control" name="remark" id="remark"></textarea>
-						</div>
-						
-						
+<!-- 						<div class=".form_group"> -->
+<!-- 							<label for="recipient-name" class="col-form-label">備註 ( 如 :) :</label> -->
+<!-- 							<textarea class="form-control" name="remark" id="remark"></textarea> -->
+<!-- 						</div> -->
 						
 						<div class="modal-footer">
 					<button type="button" class="btn btn-secondary"
 						data-dismiss="modal">取消</button>
-					<button type="button" class="btn btn-primary" id="foster_send5">送出</button>
+					<button type="button" class="btn btn-primary" id="activity_send5">送出</button>
 				</div>
 					</form>
 				</div>
@@ -425,43 +403,6 @@
 	<!-- END MENU -->
 	<!-- Start Pricing table -->
 	<section id="our-team">
-		<div class="foster_search">
-			<div class="">
-				<div class="foster_search_tital">
-					<p>條件查詢</p>
-				</div>
-				<form>
-					<div class="form-group mx-sm-3 mb-3">
-						<div class="foster_search_select" id="foster_search_select">
-							<label>縣市 :</label>
-							<div class="foster_search_select" data-role="county"></div>
-							<div class="foster_search_select" style="display: none;"
-								data-role="district"></div>
-							<script>
-								//自動產生縣市 
-								$("#foster_search_select").twzipcode({
-									"zipcodeIntoDistrict" : true,
-									"countyName" : "city", // 指定城市 select name
-									"districtName" : "town" // 指定地區 select name
-								});
-							</script>
-							<label>品種 :</label> <select id="termType" name="termType"
-								class="form-control">
-								<option value="">請選擇</option>
-								<option value="24">一天</option>
-								<option value="25">兩天一夜</option>
-								<option value="26">三天兩夜</option>
-							
-							</select> <input type="hidden" value="" placeholder="missionstatus"
-								id="missionstatus" name="missionstatus" /> <input type="button"
-								value="搜尋" id="searchButt" class="btn btn-primary btn">
-
-
-						</div>
-					</div>
-				</form>
-			</div>
-		</div>
 		<div class="container_foster">
 			<div class="row">
 				<div class="col-md-12">
@@ -472,33 +413,95 @@
 				<div class="col-md-12">
 					<div class="our-team-content">
 						<div class="row">
+
+<!-- <div class="content page1"> -->
+<!--   <div class="container_12_new"> -->
+  	
+<!--   	<div class="col-xs-12"> -->
+<!-- 		<ul> -->
+<!-- 			<li><a href="http://www.yahoo.com" target="" title="" style="color:black;">創建文章</a></li> -->
+<!-- 			<li><a href="http://www.yahoo.com" target="" title="" style="color:black;">瀏覽文章</a></li> -->
+<!-- 			<li><a href="http://www.yahoo.com" target="" title="" style="color:black;">今日最新</a></li> -->
+<!-- 			<li><a href="http://www.yahoo.com" target="" title="" style="color:black;">瀏覽最高</a></li> -->
+<!-- 		</ul>				 -->
+<!-- 	</div> -->
+	
+	
+	
+	
+		<div id="page" class="container">
+			<div id="content">
+				<div id="box1">
+					<h2 class="title"><a href="#">活動挖挖挖</a></h2>
+				</div>
+<!-- 				把資料放在位置 -->
+				<c:forEach var="activity" items="${select10}">
+				<div>
+					<ul class="style1">
+						<li class="first">
+							<h3><em><img src="images/girl1.jpg" alt="" width="130" height="130" class="alignleft border" /></em>${activity.activitymemberid}</h3>
+							<p>${activity.activityname}</p>
+							<p>${activity.limit}</p>
+							<p>${activity.phone}</p>
+							<p>${activity.address}</p>
+							<p><a href="#" class="button-style">Read More</a></p>
+						</li>
+<!-- 						<li> -->
+<%-- 							<h3><em><img src="images/girl2.jpg" alt="" width="130" height="130" class="alignleft border" /></em>${activity.activitymemberid}</h3> --%>
+<%-- 							<p>${activity.activityname}</p> --%>
+<%-- 							<p>${activity.limit}</p> --%>
+<%-- 							<p>${activity.phone}</p> --%>
+<%-- 							<p>${activity.address}</p> --%>
+<!-- 							<p><a href="#" class="button-style">Read More</a></p> -->
+<!-- 						</li> -->
+<!-- 						<li> -->
+<%-- 							<h3><em><img src="images/girl3.jpg" alt="" width="130"height="130" class="alignleft border" /></em>${activity.activitymemberid}</h3> --%>
+<%-- 							<p>${activity.activityname}</p> --%>
+<%-- 							<p>${activity.limit}</p> --%>
+<%-- 							<p>${activity.phone}</p> --%>
+<%-- 							<p>${activity.address}</p> --%>
+<!-- 							<p><a href="#" class="button-style">Read More</a></p> -->
+<!-- 						</li> -->
+<!-- 						<li> -->
+<%-- 							<h3><em><img src="images/girl4.jpg" alt="" width="130"height="130" class="alignleft border" /></em>${activity.activitymemberid}</h3> --%>
+<%-- 							<p>${activity.activityname}</p> --%>
+<%-- 							<p>${activity.limit}</p> --%>
+<%-- 							<p>${activity.phone}</p> --%>
+<%-- 							<p>${activity.address}</p> --%>
+<!-- 							<p><a href="#" class="button-style">Read More</a></p> -->
+<!-- 						</li> -->
+					</ul>
+		</div>
+			</c:forEach>
+		</div>
+		</div>	
+		</div>
+		</div>
+		</div>	
 							
-							<c:forEach var="care" items="${select1}">
-							<div class="col-md-3 col-sm-6 col-xs-12">
-								<div class="single-team-member">
-									<div class="team-member-img">
-										<img src="${care.picture} ">
-									</div>
-									<div class="team-member-name">
-										<p>${care.variety}</p>
-									</div>
-									<p>${care.remark}</p>
-									<div class="team-member-link">
-										<a href="#"><i class="fa fa-heart fa-2x foster_heart"
-											title="我想要領養"></i></a> <a href="#" id="dog${care.petid}" onclick="finddogdetail(${care.petid})" data-toggle="modal"
-											data-target="#fostercareDogDetails"><i
-											id="fostercareDogDetails" class="fa fa-dog fa-2x foster_dog" title="詳細資料"></i></a>
-									</div>
-								</div>
-							</div>
-							</c:forEach>
 							<!-- Start single team member -->
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 	</section>
+	
+	<div class="modal fade foster_table" id="adoptionModal5" tabindex="-1"
+		role="dialog" aria-labelledby="exampleModalLabel10" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="foster_modal_content">
+				
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">取消</button>
+					<button type="button" class="btn btn-primary" id="adoption_send10">送出</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	
 <!-- 	詳細視窗 -->
 	<div class="modal fade foster_table" id="fostercareDogDetails" tabindex="-1"
 		role="dialog" aria-labelledby="exampleModalLabel6" aria-hidden="true">
@@ -537,10 +540,10 @@
 						</ul>
 					</div>
 				</div>
-				<div class="fosterDogDetails_footer">
-					<button type="button" class="btn btn-primary" id="adoption_send1"  data-toggle="modal"
-									data-target="#adoptionModal">我要領養</button>
-				</div>
+<!-- 				<div class="fosterDogDetails_footer"> -->
+<!-- 					<button type="button" class="btn btn-primary" id="adoption_send1"  data-toggle="modal" -->
+<!-- 									data-target="#adoptionModal">我要領養</button> -->
+<!-- 				</div> -->
 			</div>
 		</div>
 	</div>
@@ -607,74 +610,81 @@
 		$(document)
 				.ready(
 						function() {
-							$(".team-member-link a:first-child")
-									.mouseenter(
-											function() {
-												$(this)
-														.empty()
-														.append(
-																"<i class='fa fa-heart fa-2x fa-spin foster_heart'title='我想要領養'></i>")
-											});
-							$(".team-member-link a:first-child")
-									.mouseleave(
-											function() {
-												$(this)
-														.empty()
-														.append(
-																"<i class='fa fa-heart fa-2x foster_heart'title='我想要領養'></i>")
-											});
-							$(".team-member-link a:nth-child(2)")
-									.mouseenter(
-											function() {
-												$(this)
-														.empty()
-														.append(
-																"<i class='fa fa-dog fa-2x fa-spin foster_dog' title='詳細資料'></i>")
-											});
-							$(".team-member-link a:nth-child(2)")
-									.mouseleave(
-											function() {
-												$(this)
-														.empty()
-														.append(
-																"<i class='fa fa-dog fa-2x foster_dog' title='詳細資料'></i>")
-											});
-
+							$(".team-member-link a:first-child").mouseenter(
+						function() {
+							$(this).empty().append("<i class='fa fa-heart fa-2x fa-spin foster_heart'title='我想要領養'></i>")
+								});
+							$(".team-member-link a:first-child").mouseleave(
+						function() {$(this).empty().append("<i class='fa fa-heart fa-2x foster_heart'title='我想要領養'></i>")
+								});
+							$(".team-member-link a:nth-child(2)").mouseenter(
+						function() {$(this).empty().append("<i class='fa fa-dog fa-2x fa-spin foster_dog' title='詳細資料'></i>")
+								});
+							$(".team-member-link a:nth-child(2)").mouseleave(
+						function() {$(this).empty().append("<i class='fa fa-dog fa-2x foster_dog' title='詳細資料'></i>")
+							});
 						});
+		
+		
+		//會員認證
+		
+		function adoption(Id){
+			if('${user}'){
+				$("#adoptionModal5").modal("show");
+				$("#fuck").attr("value",Id);
+			}else{
+			
+				Swal({
+					  type: 'warning',
+					  title: '請先登入會員',
+					  text: 'Something went wrong!',
+					  confirmButtonColor:"#FFA600",
+					  showConfirmButton:false,
+					})	
+			}		
+		}
+		
+		
+		
+		
+		
+		
+		
+		
 // 		改
-		$("#foster_send5").click(function() {
-			var form5 = $("#foster_form5").serialize();
+		$("#activity_send5").click(function() {
+			var form5 = $("#activity_form5").serialize();
 			console.log(form5);
 			$.ajax({
-				url : "xxxxx?" + form5,
+				url : "aaa?" + form5,
 				type : "GET",
 			}).done(function(response) {
-				alert("寄養成功")
+				alert("報名成功")
 				$("#fosterModal").modal('hide');
-				window.location.href= '/PetProject/fostercarecommission';
+				window.location.reload();
 			})
 		})
 		
 		
-		function finddogdetail(id){
+		function findactivitydetail(id){
 			console.log(id);
 			$.ajax({
-			url:"findcarePetId?id="+id,
+			url:"findactivitydetail?id="+id,
 			type : "GET",
 			data:"JSON"
-			}).done(function(responsedogdetail){
-				$("#dogdetailname").text(responsedogdetail.memberName);
-				$("#dogdetaildogname").text(responsedogdetail.petName);
-				$("#dogdetailarea").text(responsedogdetail.area);
-				$("#dogdetailvariety").text(responsedogdetail.variety);
-				$("#dogdetailage").text(responsedogdetail.age);
-				$("#dogdetailreason").text(responsedogdetail.reason);
-				$("#dogdetailremark").text(responsedogdetail.remark);
-				$("#dogdetailpicture").attr("src",responsedogdetail.picture);			
+			}).done(function(responsedetail){
+				$("#dogdetailname").text(responsedetail.memberName);
+				$("#dogdetaildogname").text(responsedetail.petName);
+				$("#dogdetailarea").text(responsedetail.area);
+				$("#dogdetailvariety").text(responsedetail.variety);
+				$("#dogdetailage").text(responsedetail.age);
+				$("#dogdetailreason").text(responsedetail.reason);
+				$("#dogdetailremark").text(responsedetail.remark);
+				$("#dogdetailpicture").attr("src",responsedetail.picture);			
 			})
 			
 
-		}
+ 		}
 		
 	</script>
 </body>
