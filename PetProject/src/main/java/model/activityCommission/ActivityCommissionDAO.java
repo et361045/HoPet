@@ -13,7 +13,7 @@ public interface ActivityCommissionDAO {
 
 	public abstract ActivityCommissionBean create(ActivityCommissionBean bean);
 
-	public abstract ActivityCommissionBean update(String activityname, String activites, Integer limit, Integer signup, String status, Integer Activitymemberid);
+	public abstract ActivityCommissionBean update(String activityname, String activites, Integer limit, Integer signup,String address,Integer phone, String status, Integer Activitymemberid);
 
 	public abstract boolean remove(Integer Activitymemberid);
 	

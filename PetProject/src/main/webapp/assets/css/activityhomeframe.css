@@ -57,12 +57,12 @@ a img {
 	border: none;
 }
 
-img.border {
-	border: 5px solid rgba(255,255,255,1);
-}
+/* img.border { */
+/* 	border: 5px solid rgba(255,255,255,1); */
+/* } */
 
 img.alignleft {
-	float: left;
+/* 	float: left; */
 	margin-right: 30px;
 }
 
@@ -204,7 +204,7 @@ hr {
 
 #content {
 	float: left;
-	width: 1000px;
+	width: 1800px;
 	padding: 20px;
 	background: rgba(0,0,0,0.70);
 	display: inline-block;

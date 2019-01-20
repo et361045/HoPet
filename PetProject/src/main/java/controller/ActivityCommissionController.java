@@ -19,14 +19,11 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import misc.PrimitiveNumberEditor;
 import model.activityCommission.ActivityCommissionBean;
 import model.activityCommission.ActivityCommissionService;
-import model.fosterCommission.PetDetailBean;
-import model.fostercareCommission.FostercareCommissionBean;
+import model.activityForm.ActivityFormService;
 import model.member.MemberBean;
-import model.pet.PetBean;
-import model.pet.PetService;
 
 @Controller
-@SessionAttributes("user")
+@SessionAttributes(value="user")
 public class ActivityCommissionController {
 	
 	@Autowired
@@ -35,37 +32,42 @@ public class ActivityCommissionController {
 //	@Autowired
 //	private PetService petService;
 //	
+	@Autowired
+	private ActivityFormService activityFormService;
 	
-	
-//	@RequestMapping("/xxx")
-//	public String insertFostercareCommission(Model model,ActivityCommissionBean bean,Date starttime,Date endtime,String city,String town,Integer activitymemberid ) {
-////		System.out.println("bean="+bean);
-////		System.out.println("starttime="+starttime);
-////		System.out.println("endtime="+endtime);
-////		System.out.println("area="+city+town);
-////		System.out.println("Petid="+activitymemberid);	
-//		MemberBean usertemp  = (MemberBean) model.asMap().get("user");
-////		System.out.println(temp);
-//		bean.setName(usertemp.getMemberName());
-//		bean.setActivitymemberid(activitymemberid);
-//		bean.setArea(city+town);
-//		bean.setOwner(temp.getMemberid());
-//		bean.setPicture(temp.getPetPicture());
-//		bean.setVariety(temp.getPetVariety());
-//		ActivityCommissionBean result = activityCommissionService.insert(bean);
-//		model.addAttribute("insert", result);
-//		return "fostercarecommission";
-//		
-//	}
+	@ResponseBody
+	@RequestMapping("/aaa")
+	public String insertActivityCommission(Model model,ActivityCommissionBean bean,String city,String town,String activityname,
+			String activites,Integer limit,String address,Integer phone,Integer activitymemberid ) {
+//		System.out.println("bean="+bean);
+//		System.out.println("starttime="+starttime);
+//		System.out.println("endtime="+endtime);
+//		System.out.println("area="+city+town);
+//		System.out.println("Petid="+activitymemberid);	
+		System.out.println(bean);
+		MemberBean usertemp  = (MemberBean) model.asMap().get("user");
+//		System.out.println(temp);
+		bean.setActivitymemberid(usertemp.getMemberId());
+		bean.setActivityname(activityname);
+		bean.setActivites(activites);
+		bean.setLimit(limit);
+		bean.setAddress(address);
+		bean.setPhone(phone);
+//		bean.setSignup(temp.getSignup());
+//		bean.setStatus(temp.getStatus());
+		ActivityCommissionBean result = activityCommissionService.insert(bean);
+		model.addAttribute("insert", result);
+		return "activityCommission";
+		
+	}
 
 
-//	@RequestMapping("/fostercarecommission")
-//	public String findall(FostercareCommissionBean bean,Model model){	
-//		List<FostercareCommissionBean>beans= fostercareservice.select(bean);
-//		System.out.println(beans);
-//		model.addAttribute("select1",beans);
-//		return "fostercarecommission";
-//	}
+	@RequestMapping("/activityCommission")
+	public String findall(ActivityCommissionBean bean,Model model){	
+		List<ActivityCommissionBean>beans= activityCommissionService.select(bean);
+		model.addAttribute("select10",beans);
+		return "activityCommission";
+	}
 //	
 //	@ResponseBody
 //	@RequestMapping("findcarePetId")

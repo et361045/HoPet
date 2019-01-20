@@ -381,93 +381,95 @@
 				<div class="foster_search_tital">
 					<p>條件查詢</p>
 				</div>
-				<form>
+				<form id="fostercare_search_form">
 					<div class="form-group mx-sm-3 mb-3">
-						<div class="foster_search_select" id="foster_search_select">
+						<div class="foster_search_select" id="fostercare_search_select">
 							<label>縣市 :</label>
 							<div class="foster_search_select" data-role="county"></div>
 							<div class="foster_search_select" style="display: none;"
 								data-role="district"></div>
 							<script>
 								//自動產生縣市 
-								$("#foster_search_select").twzipcode({
+								$("#fostercare_search_select").twzipcode({
 									"zipcodeIntoDistrict" : true,
-									"countyName" : "city", // 指定城市 select name
+									"countyName" : "city1", // 指定城市 select name
 									"districtName" : "town" // 指定地區 select name
 								});
 							</script>
-							<label>品種 :</label> <select id="termType" name="termType"
-								class="form-control">
-								<option value="">請選擇</option>
-								<option value="24">柴犬</option>
-								<option value="25">巴哥</option>
-								<option value="26">貴賓犬</option>
-								<option value="27">吉娃娃</option>
-								<option value="28">紅貴賓</option>
-								<option value="29">絲毛梗</option>
-								<option value="30">北京犬</option>
-								<option value="31">拉薩犬</option>
-								<option value="32">博美犬</option>
-								<option value="33">比熊犬</option>
-								<option value="34">約克夏</option>
-								<option value="35">日本狆</option>
-								<option value="36">西施犬</option>
-								<option value="37">雪納瑞</option>
-								<option value="38">蝴蝶犬</option>
-								<option value="39">米格魯</option>
-								<option value="40">波士頓梗</option>
-								<option value="41">威爾斯梗</option>
-								<option value="42">馬爾濟斯</option>
-								<option value="43">長毛臘腸犬</option>
-								<option value="44">傑克羅素梗</option>
-								<option value="45">單第丁蒙梗</option>
-								<option value="46">中國冠毛犬</option>
-								<option value="47">西部高地白梗</option>
-								<option value="48">查理王長毛獵犬</option>
-								<option value="49">迷你杜賓</option>
-								<option value="50">巴吉度</option>
-								<option value="51">鬆獅犬</option>
-								<option value="52">柯基犬</option>
-								<option value="53">牛頭梗</option>
-								<option value="51">沙皮犬</option>
-								<option value="55">惠比特犬</option>
-								<option value="56">貝林登梗</option>
-								<option value="57">蘇格蘭梗</option>
-								<option value="58">英國鬥牛犬</option>
-								<option value="59">法國鬥牛犬</option>
-								<option value="60">英國可卡獵犬</option>
-								<option value="61">美國可卡獵犬</option>
-								<option value="62">喜樂蒂牧羊犬</option>
-								<option value="63">杜賓犬</option>
-								<option value="64">挪威納</option>
-								<option value="65">拳師犬</option>
-								<option value="66">威瑪犬</option>
-								<option value="67">秋田犬</option>
-								<option value="68">拉不拉多</option>
-								<option value="69">黃金獵犬</option>
-								<option value="70">大麥町犬</option>
-								<option value="71">薩摩耶犬</option>
-								<option value="72">尋血獵犬</option>
-								<option value="73">德國狼犬</option>
-								<option value="74">馬士提夫</option>
-								<option value="75">阿富汗獵犬</option>
-								<option value="76">蘇俄牧羊犬</option>
-								<option value="77">可麗牧羊犬</option>
-								<option value="78">愛爾蘭雪達犬</option>
-								<option value="79">西伯利亞哈士奇</option>
-								<option value="80">阿拉斯加雪橇犬</option>
-								<option value="81">英國古代牧羊犬</option>
-								<option value="82">大丹犬</option>
-								<option value="83">土佐犬</option>
-								<option value="84">西藏獒犬</option>
-								<option value="85">大白熊犬</option>
-								<option value="86">聖伯納犬</option>
-								<option value="87">紐芬蘭犬</option>
-								<option value="88">伯恩山犬</option>
-								<option value="89">高加索山犬</option>
-							</select> <input type="hidden" value="" placeholder="missionstatus"
-								id="missionstatus" name="missionstatus" /> <input type="button"
-								value="搜尋" id="searchButt" class="btn btn-primary btn">
+<!-- 							<label>品種 :</label> <select id="termType" name="termType" -->
+<!-- 								class="form-control"> -->
+<!-- 								<option value="">請選擇</option> -->
+<!-- 								<option value="柴犬">柴犬</option> -->
+<!-- 								<option value="巴哥">巴哥</option> -->
+<!-- 								<option value="貴賓犬">貴賓犬</option> -->
+<!-- 								<option value="吉娃娃">吉娃娃</option> -->
+<!-- 								<option value="紅貴賓">紅貴賓</option> -->
+<!-- 								<option value="絲毛梗">絲毛梗</option> -->
+<!-- 								<option value="北京犬">北京犬</option> -->
+<!-- 								<option value="拉薩犬">拉薩犬</option> -->
+<!-- 								<option value="博美犬">博美犬</option> -->
+<!-- 								<option value="比熊犬">比熊犬</option> -->
+<!-- 								<option value="約克夏">約克夏</option> -->
+<!-- 								<option value="日本狆">日本狆</option> -->
+<!-- 								<option value="西施犬">西施犬</option> -->
+<!-- 								<option value="雪納瑞">雪納瑞</option> -->
+<!-- 								<option value="蝴蝶犬">蝴蝶犬</option> -->
+<!-- 								<option value="米格魯">米格魯</option> -->
+<!-- 								<option value="波士頓梗">波士頓梗</option> -->
+<!-- 								<option value="威爾斯梗">威爾斯梗</option> -->
+<!-- 								<option value="馬爾濟斯">馬爾濟斯</option> -->
+<!-- 								<option value="長毛臘腸犬">長毛臘腸犬</option> -->
+<!-- 								<option value="傑克羅素梗">傑克羅素梗</option> -->
+<!-- 								<option value="單第丁蒙梗">單第丁蒙梗</option> -->
+<!-- 								<option value="中國冠毛犬">中國冠毛犬</option> -->
+<!-- 								<option value="西部高地白梗">西部高地白梗</option> -->
+<!-- 								<option value="查理王長毛獵犬">查理王長毛獵犬</option> -->
+<!-- 								<option value="迷你杜賓">迷你杜賓</option> -->
+<!-- 								<option value="巴吉度">巴吉度</option> -->
+<!-- 								<option value="鬆獅犬">鬆獅犬</option> -->
+<!-- 								<option value="柯基犬">柯基犬</option> -->
+<!-- 								<option value="牛頭梗">牛頭梗</option> -->
+<!-- 								<option value="沙皮犬">沙皮犬</option> -->
+<!-- 								<option value="惠比特犬">惠比特犬</option> -->
+<!-- 								<option value="貝林登梗">貝林登梗</option> -->
+<!-- 								<option value="蘇格蘭梗">蘇格蘭梗</option> -->
+<!-- 								<option value="英國鬥牛犬">英國鬥牛犬</option> -->
+<!-- 								<option value="法國鬥牛犬">法國鬥牛犬</option> -->
+<!-- 								<option value="英國可卡獵犬">英國可卡獵犬</option> -->
+<!-- 								<option value="美國可卡獵犬">美國可卡獵犬</option> -->
+<!-- 								<option value="喜樂蒂牧羊犬">喜樂蒂牧羊犬</option> -->
+<%-- 								<option value="杜賓犬</">杜賓犬</option> --%>
+<!-- 								<option value="挪威納">挪威納</option> -->
+<!-- 								<option value="拳師犬">拳師犬</option> -->
+<!-- 								<option value="威瑪犬">威瑪犬</option> -->
+<!-- 								<option value="秋田犬">秋田犬</option> -->
+<!-- 								<option value="拉不拉多">拉不拉多</option> -->
+<!-- 								<option value="黃金獵犬">黃金獵犬</option> -->
+<!-- 								<option value="大麥町犬">大麥町犬</option> -->
+<!-- 								<option value="薩摩耶犬">薩摩耶犬</option> -->
+<!-- 								<option value="尋血獵犬">尋血獵犬</option> -->
+<!-- 								<option value="德國狼犬">德國狼犬</option> -->
+<!-- 								<option value="馬士提夫">馬士提夫</option> -->
+<!-- 								<option value="阿富汗獵犬">阿富汗獵犬</option> -->
+<!-- 								<option value="蘇俄牧羊犬">蘇俄牧羊犬</option> -->
+<!-- 								<option value="可麗牧羊犬">可麗牧羊犬</option> -->
+<!-- 								<option value="愛爾蘭雪達犬">愛爾蘭雪達犬</option> -->
+<!-- 								<option value="西伯利亞哈士奇">西伯利亞哈士奇</option> -->
+<!-- 								<option value="阿拉斯加雪橇犬">阿拉斯加雪橇犬</option> -->
+<!-- 								<option value="英國古代牧羊犬">英國古代牧羊犬</option> -->
+<!-- 								<option value="大丹犬">大丹犬</option> -->
+<!-- 								<option value="土佐犬">土佐犬</option> -->
+<!-- 								<option value="西藏獒犬">西藏獒犬</option> -->
+<!-- 								<option value="大白熊犬">大白熊犬</option> -->
+<!-- 								<option value="聖伯納犬">聖伯納犬</option> -->
+<!-- 								<option value="紐芬蘭犬">紐芬蘭犬</option> -->
+<!-- 								<option value="伯恩山犬">伯恩山犬</option> -->
+<!-- 								<option value="高加索山犬">高加索山犬</option> -->
+<!-- 							</select>  -->
+							<input type="hidden" value="" placeholder="missionstatus"
+								name="missionstatus" /> 
+							<input type="button"
+								value="搜尋" id="fostercare_search"  class="btn btn-primary btn">
 
 						</div>
 					</div>
@@ -502,7 +504,7 @@
 <!-- 									</div> -->
 <!-- 								</div> -->
 <!-- 							</div> -->
-							<c:forEach var="care" items="${select1}">
+							<c:forEach var="care" items="${allbean1}">
 							<div class="col-md-3 col-sm-6 col-xs-12">
 								<div class="single-team-member">
 									<div class="team-member-img">
@@ -510,7 +512,7 @@
 										<img src="${care.picture} ">
 									</div>
 									<div class="team-member-name">
-										<p>${care.variety}</p>
+										<p >${care.variety}</p>
 									</div>
 									<p>${care.remark}</p>
 									<div class="team-member-link">
@@ -804,8 +806,22 @@
 			}
 		}
 		
+		$('#fostercare_search').click(function() {
+				$.ajax({
+						data :{city : $('select[name=city1]').val()},
+						url : "/PetProject/findarea",
+						cache : false,
+						async : false,
+							}).done(function(){	
+								window.location.reload();
+							})
 
-		
+		})
+// 		$("#fostercare_search").click(function() {
+// 			var form = $("#fostercare_search_form").serialize();
+// 			console.log(form)
+// 			window.location.href="fostercare_search?" + form;
+// 		})
 		
 		
 	</script>

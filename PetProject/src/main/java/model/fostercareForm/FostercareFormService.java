@@ -8,8 +8,10 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import model.fosterCommission.FosterCommissionBean;
 import model.fosterCommission.FosterCommissionDao;
 import model.fosterForm.FosterFormBean;
+import model.fostercareCommission.FostercareCommissionBean;
 import model.fostercareCommission.FostercareCommissionDao;
 @Service
 @Transactional
@@ -22,6 +24,12 @@ public class FostercareFormService {
 	public FostercareFormService(FostercareFormDao fostercareFormDao) {
 		this.fostercareFormDao = fostercareFormDao;
 	}
+	
+	
+	
+	
+	
+	
 	public List<FostercareFormBean> select(FostercareFormBean bean) {
 		List<FostercareFormBean> result = null;
 		if(bean!=null && bean.getFostercareFormid()!=null) {

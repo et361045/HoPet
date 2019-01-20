@@ -8,6 +8,8 @@ import model.fosterCommission.FosterCommissionBean;
 public interface FostercareCommissionDao {
 	public abstract FostercareCommissionBean findByPrimaryKey(Integer fostercareCommissionid);
 	
+	public abstract List<FostercareCommissionBean> findByAreaAndVarietyFostercareCommission(String area,String variety);
+	
 	public abstract FostercareCommissionBean findByPetId(Integer petid);
 
 	public abstract List<FostercareCommissionBean> findAll();

@@ -11,13 +11,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import model.fosterCommission.PetDetailBean;
-import model.fosterForm.FosterFormBean;
-import model.fosterForm.FosterFormService;
+import model.fosterCommission.FosterCommissionBean;
 import model.fostercareCommission.FostercareCommissionBean;
 import model.fostercareCommission.FostercareCommissionService;
 import model.fostercareForm.FostercareFormBean;
 import model.fostercareForm.FostercareFormService;
+import model.hospital.HospitalBean;
 import model.member.MemberBean;
 import model.pet.PetBean;
 import model.pet.PetService;
@@ -82,8 +81,7 @@ public class FostercareCommissionController {
 	@RequestMapping("/fostercarecommission")
 	public String findall(FostercareCommissionBean bean,Model model){	
 		List<FostercareCommissionBean>beans= fostercareservice.select(bean);
-		System.out.println(beans);
-		model.addAttribute("select1",beans);
+		model.addAttribute("allbean1",beans);
 		return "fostercarecommission";
 	}
 	
@@ -95,46 +93,33 @@ public class FostercareCommissionController {
 	}
 	
 	
+	@ResponseBody
+	@RequestMapping("/findarea")
+	public List<FostercareCommissionBean> test456(@RequestParam(name = "city", required = false)  String city,Model model) {
+		System.out.println(city);
+		List<FostercareCommissionBean>beans=fostercareservice.selectarea(city);
+		model.addAttribute("allbean2",beans);
+		return beans;
+	}
 	
-//	@RequestMapping("/pages/fostercarecommmission.controller")
-//	public String method(String fostercare, FostercareCommissionBean bean, BindingResult bindingResult, Model model,Date starttime,Date endtime,String city,String town,Integer petId) {
-//		System.out.println("bean="+bean);
-//		System.out.println("starttime="+starttime);
-//		System.out.println("endtime="+endtime);
-//		System.out.println("area="+city+town);
-//		System.out.println("Petid="+petId);
-//		MemberBean usertemp  = (MemberBean) model.asMap().get("user");
-//		PetBean temp =petService.findpetBeanbypk(petId);
-//		System.out.println(temp);
-//		bean.setName(usertemp.getMemberName());
-//		bean.setPetid(petId);
-//		bean.setArea(city+town);
-//		bean.setOwner(temp.getMemberid());
-//		bean.setPicture(temp.getPetPicture());
-//		bean.setVariety(temp.getPetVariety());
-//		Map<String, String> errors = new HashMap<>();
-//		model.addAttribute("errors", errors);
-//	
-//
-//		if("Select".equals(fostercare)) {
-//			List<FostercareCommissionBean> result = fostercareservice.select(bean);
-//			model.addAttribute("select", result);
-//			return "fostercarecommission.select";
-//			
-//		} else if("Insert".equals(fostercare)) {
-//			System.out.println("hahaha");
-//			FostercareCommissionBean result = fostercareservice.insert(bean);
-//			model.addAttribute("insert", result);
-//			return "fostercarecommission";
-//			
-//		} else {
-//			errors.put("action", "unknown action: "+fostercare);
-//			return "fostercarecommission.errors";
-//		}
-//
+//	@RequestMapping("fostercare_search")
+//	public String fosterSearch(@RequestParam(name = "city1", required = false)  String city,@RequestParam(name = "termType", required = false)  String termType,FostercareCommissionBean fostercareCommissionBean, Model model) {
+//		System.out.println(city);
+//		System.out.println(termType);
+//		List<FostercareCommissionBean> areabean =fostercareservice.searchFostercareCommission(city,termType);
+//		model.addAttribute("allbean1",areabean);
 //		
-//
-//
+//		return "fostercaresearch";
 //	}
+	
+//	@RequestMapping("findFostercareForm")
+//	public String findAll(Model model) {
+//		List<FostercareCommissionBean>beans=fostercareservice.searchAllFostercareCommission();
+//		model.addAttribute("allbean1", beans);
+//		System.out.println(fostercareservice.searchAllFostercareCommission());
+//		return "fostercaresearch";
+//	}
+	
+
 }
 
