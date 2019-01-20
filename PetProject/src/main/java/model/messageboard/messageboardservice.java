@@ -24,4 +24,8 @@ public class messageboardservice {
 	public boolean insert(MessageboardBean bean) {
 	return dao.insert(bean);
 	}
+	
+	public boolean delete(MessageboardBean bean) {
+		return dao.delete(bean);
+	}
 }

@@ -1,3 +1,6 @@
-$().ready(function(){
-	alert("hi")
-})
+$().ready(function() {
+			showmessage();
+		})
+		
+		
+

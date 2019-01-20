@@ -28,14 +28,14 @@ public class MessageboardDAOHibernate implements messageboardDAO {
 	
 	@Override
 	public List<MessageboardBean> findbypermission(String permission) {
-		return this.getSession().createQuery("from MessageboardBean where permission = '" + permission + "'", MessageboardBean.class)
+		return this.getSession().createQuery("from MessageboardBean where permission = '" + permission + "' ORDER BY messagetime DESC", MessageboardBean.class)
 				.setMaxResults(50).list();
 	}
 
 	@Override
 	public List<MessageboardBean> findall() {
 		// TODO Auto-generated method stub
-		return this.getSession().createQuery("from MessageboardBean ", MessageboardBean.class)
+		return this.getSession().createQuery("from MessageboardBean ORDER BY messagetime DESC;", MessageboardBean.class)
 				.setMaxResults(50).list();
 	}
 
@@ -65,7 +65,7 @@ public class MessageboardDAOHibernate implements messageboardDAO {
 
 	@Override
 	public boolean delete(MessageboardBean bean) {
-		if (this.findbypk(bean.getMessageboardid()) != null) {
+		if (bean.getMessageboardid()!=null) {
 			this.getSession().delete(bean);
 			return true;
 		}

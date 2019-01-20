@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.hibernate.sql.Update;
@@ -38,8 +39,9 @@ public class LoginController {
 	
 	@RequestMapping(value = {"login","*/login"}, produces = { "application/json; charset=UTF-8" })
 	public String method(@RequestParam(name = "email", required = false) String email,
-			@RequestParam(name = "password", required = false) String password, Model model) {
-
+			@RequestParam(name = "password", required = false) String password, Model model,HttpServletResponse response) {
+//特解法1/20
+		response.reset();
 		System.out.println("username:" + email + " password:" + password);
 		Map<String, String> errors = new HashMap<>();
 		model.addAttribute("errors", errors);
