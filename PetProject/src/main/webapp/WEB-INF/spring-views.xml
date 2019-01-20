@@ -122,12 +122,15 @@
 	<property name="contextRelative" value="true"></property>
 	<property name="url" value="/hospitaltest.jsp" />
 	</bean>
+	
 
 		<bean id="message"
 	class="org.springframework.web.servlet.view.RedirectView">
 	<property name="contextRelative" value="true"></property>
 	<property name="url" value="/member/membermessage.jsp" />
 	</bean>
+	
+	
 	
 		<bean id="message.selcet"
 		class="org.springframework.web.servlet.view.InternalResourceView">
@@ -139,7 +142,7 @@
     	class="org.springframework.web.servlet.view.InternalResourceView">
 		<property value="/fostercarecommission" name="url"/>
 	</bean>
->>>>>>> branch 'master' of https://github.com/et361045/Hopet.git
+
 	
 
 <!-- 	<bean id="businessInformation.errors" -->
