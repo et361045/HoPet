@@ -417,7 +417,7 @@
 														</table>
 														<c:if test="${bean.memberid ==user.memberId}">
 															<div
-																style='width: 905px; border: black 2px solid; border-top: 0px; border-bottom-left-radius: 9px; border-bottom-right-radius: 9px;'>
+																style='width: 905px; border: black 2px solid; border-top: 0px;'>
 																<form action="<c:url value='membermessagedelete'/>"
 																	method="post">
 																	<input name="messageboardid" type="text"
@@ -427,14 +427,11 @@
 																			value='刪除' style='display: none'><i
 																			class='fas fa-trash-alt'></i></label></span>
 																</form>
-															</div>
-															
+															</div>															
 														</c:if>
-														
+														  <div style=" width: 905px; border: black 2px solid; border-top: 0px;"><input type="text" class="text" style="width:800px" placeholder="請輸入訊息" ><input class="btn btn-link" type="submit" value="送出" style="width: 100px; font-size: 18px"></div>														
 													</div>
-
 												</div>
-
 											</c:forEach>
 										</c:if>
 									</article>
