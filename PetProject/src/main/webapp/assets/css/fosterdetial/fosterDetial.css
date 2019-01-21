@@ -1,0 +1,94 @@
+@import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
+
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+
+.foster_detial_price {
+    background-color: #fff;
+    display: inline;
+    float: left;
+    text-align: center;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px 5px 0 0;
+    margin-bottom: 40px;
+}
+
+.foster_detial_header {
+	font-family: 'Noto Sans TC', sans-serif;
+	background-color: rgb(56, 56, 56);
+	color: #ccc;
+	display: inline;
+	float: left;
+	width: 100%;
+	font-size: 25px;
+	height: 90px;
+	border-radius: 5px 5px 0 0;
+}
+
+.foster_detial_title {
+	font-family: 'Noto Sans TC', sans-serif;
+	color: #5E86C1;
+	display: inline-block;
+	margin-top: -5px;
+	min-width: 150px;
+	text-transform: uppercase;
+	font-size: 18px;
+	padding: 13px 15px 10px;
+	background-color: #FFC559;
+	border-radius: 3px;
+}
+
+.foster_detial_down {
+	font-size: 20px;
+}
+
+.foster_detial_article {
+	display: inline;
+	float: left;
+	padding: 0 20px;
+	width: 100%;
+}
+
+.foster_detial_article ul li {
+	font-family: 'Noto Sans TC', sans-serif;
+	border-bottom: 1px solid #ccc;
+	color: #555;
+	padding: 15px 0;
+}
+
+.foster_detial_article ul li:last-child {
+	/* 	border: none; */
+	
+}
+
+.foster_detial_footer {
+	display: inline;
+	float: left;
+	width: 100%;
+}
+
+.foster_detial_btn {
+	font-family: 'Noto Sans TC', sans-serif;
+	background-color: #fff;
+	border: 2px solid #FFA600;
+	color: #5E86C1;
+	display: inline-block;
+	margin-bottom: -10px;
+	margin-top: 20px;
+	padding: 10px 20px;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 15px;
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+	border-radius: 3px;
+	font-size: 18px;
+}
+
+.foster_detial_btn:hover, .foster_detial_btn:focus {
+	background-color: #FFA600;
+	text-decoration: none;
+	outline: none;
+	color: #fff;
+}

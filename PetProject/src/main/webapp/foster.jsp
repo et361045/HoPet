@@ -624,8 +624,8 @@
 					</div>
 				</div>
 				<div class="fosterDogDetails_footer">
-					<button type="button" class="btn btn-primary" id="adoption_send1" onclick="check()"  data-toggle="modal"
-									data-target="#adoptionModal">我要領養</button>
+					<button type="button" class="btn btn-primary" id="adoption_send1" onclick="check()"
+									>我要領養</button>
 				</div>
 			</div>
 		</div>
@@ -750,8 +750,20 @@
 				$("#adoptionModal").modal('hide');
 			})
 		})
-			$("#adoption_send1").click(function() {
-				$("#fosterDogDetails").modal('hide');
+			$("#adoption_send1").click(function() {		
+				if('${user}'){
+					$("#adoptionModal").modal("show");
+					$("#fosterDogDetails").modal('hide');
+				}else{
+					Swal({
+						  type: 'warning',
+						  title: '請先登入會員',
+						  text: 'Something went wrong!',
+						  confirmButtonColor:"#FFA600",
+						  showConfirmButton:false,
+						})	
+						$("#fosterDogDetails").modal('hide');
+				}		
 			})
 		
 		function finddogdetail(id){

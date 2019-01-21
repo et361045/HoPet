@@ -251,6 +251,7 @@
 							data-toggle="dropdown">會員中心 <span class="fa fa-angle-down"></span></a>
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="/PetProject/member/member.jsp">會員資料</a></li>
+								<li><a id="fosteritem" onclick="fostercheck()">送養資料</a></li>
 								<li><a href=""><span class="fa fa-search"></span>搜尋好友 </a></li>
 							</ul></li>
 						<li><a href="">寵物生活館</a></li>
@@ -1278,11 +1279,27 @@
 	<!-- Custom js -->
 	<script type="text/javascript" src="/PetProject/assets/js/custom.js"></script>
 	<!-- alert -->
-		<script
-		src="//cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.10/alertify.min.js"></script>
-		
+	<script src="//cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.10/alertify.min.js"></script>
+	<!-- sweetalert -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.all.min.js"></script>	
+	
+	<script>
+		function fostercheck(){	
+			if('${user}'){
+			var id ='${user.memberId}';
+				$("#fosteritem").attr("href","/PetProject/findfosterdetial?owner="+id);
+			}else{
+				Swal({
+					  type: 'warning',
+					  title: '請先登入會員',
+					  text: 'Something went wrong!',
+					  confirmButtonColor:"#FFA600",
+					  showConfirmButton:false,
+					})	
+			}
+	}
+	</script>
 
-</body>
 
 </body>
 </html>

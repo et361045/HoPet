@@ -477,7 +477,6 @@
 										<!-- 												</div> -->
 										<!-- 											</div> -->
 										<!-- 										</div> -->
-
 										<div class="panel panel-default">
 											<div class="panel-heading">
 												<h4 class="panel-title">
@@ -809,6 +808,5 @@
 
 	<script
 		src="//cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.10/alertify.min.js"></script>
-
 </body>
 </html>

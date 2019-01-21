@@ -98,7 +98,10 @@
     	class="org.springframework.web.servlet.view.InternalResourceView">
 		<property value="/foster.jsp" name="url"/>
 	</bean>
-		
+    <bean id="fosterdetial"
+    	class="org.springframework.web.servlet.view.InternalResourceView">
+		<property value="/fosterdetial.jsp" name="url"/>
+	</bean>
 	<bean id="hospital.errors"
 	class="org.springframework.web.servlet.view.RedirectView">
 	<property name="contextRelative" value="true"></property>

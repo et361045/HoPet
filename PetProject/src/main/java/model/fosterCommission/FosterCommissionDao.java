@@ -6,6 +6,10 @@ public interface FosterCommissionDao {
 	public abstract FosterCommissionBean findByFosterCommissionId(Integer fosterCommissionId);
 
 	public abstract FosterCommissionBean findByPetId(Integer petId);
+	
+	public abstract void deleteByPetId(Integer petId);
+
+	public abstract List<FosterCommissionBean> findByOwner(Integer Owner);
 
 	public abstract List<FosterCommissionBean> findAllFosterCommission();
 
@@ -13,7 +17,7 @@ public interface FosterCommissionDao {
 
 	public abstract List<FosterCommissionBean> findByVarietyFosterCommission(String variety);
 
-	public abstract List<FosterCommissionBean> findByAreaAndVarietyFosterCommission(String area,String variety);
+	public abstract List<FosterCommissionBean> findByAreaAndVarietyFosterCommission(String area, String variety);
 
 	public abstract FosterCommissionBean update(FosterCommissionBean fosterCommissionBean);
 
