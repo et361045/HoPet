@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false"%>
 <!DOCTYPE html>
 <html lang="UTF-8">
 <head>
@@ -54,9 +55,6 @@
 	href="//cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.10/alertify.default.css"
 	rel="stylesheet">
 
-<!--  活動主畫面 -->
-
-<link rel="stylesheet" href="assets/css/activityhomeframe.css">
 
 
 <!-- Fonts -->
@@ -284,12 +282,6 @@
 						<li><a href="">寵物旅遊</a></li>
 						<li><a href="">寵物商城</a></li>
 						<li><a href="">寵物活動</a></li>
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-						    data-toggle="dropdown">寵物活動<span class="fa fa-angle-down"></span></a>
-						<ul class="dropdown-menu" role="menu">
-							<li><a href="ActivityHome.jsp">活動首頁</a></li>
-							<li><a href="/PetProject/activityCommission">一起去旅遊</a></li>
-							<li><a href="">查詢參加活動</a></li>
 					</ul>
 				</div>
 				<!--/.nav-collapse -->
@@ -301,138 +293,156 @@
 	</section>
 
 
-<div class="content page1">
-  <div class="container_12_new">
-  	
-  	<div class="col-xs-12">
-		<ul>
-			<li><a href="http://www.yahoo.com" target="" title="" style="color:black;">創建文章</a></li>
-			<li><a href="http://www.yahoo.com" target="" title="" style="color:black;">瀏覽文章</a></li>
-			<li><a href="http://www.yahoo.com" target="" title="" style="color:black;">今日最新</a></li>
-			<li><a href="http://www.yahoo.com" target="" title="" style="color:black;">瀏覽最高</a></li>
-		</ul>				
-	</div>
-	
-<!-- 	<div class="col-xs-22"> -->
-<!-- 		<ul> -->
-<!-- 			<li><a href="http://www.yahoo.com" target="" title="" style="color:black;">New活動登記表</a></li> -->
-<!-- 			<li><a href="http://www.yahoo.com" target="" title="" style="color:black;">正在參加的活動</a></li> -->
-<!-- 		</ul> -->
-<!-- 	</div> -->
-	
-	
-	
-<div id="page" class="container">
-			<div id="content">
-				<div id="box1">
-					<h2 class="title">
-						<a href="#">活動挖挖挖</a>
-					</h2>
-					<p>
-						
-					</p>
-				</div>
-				<div>
-					<ul class="style1">
-						<li class="first">
-							<h3>
-								<em><img src="images/girl1.jpg" alt="" width="130"
-									height="130" class="alignleft border" /></em>劉德安小三
-							</h3>
-							<p>挖靠有活動.....................</p>
-							<p>
-								<a href="#" class="button-style">Read More</a>
-							</p>
-						</li>
-						<li>
-							<h3>
-								<em><img src="images/girl2.jpg" alt="" width="130"
-									height="130" class="alignleft border" /></em>建良老婆
-							</h3>
-							<p>挖靠有活動~~~~~~~~~~~~~~~~~~~</p>
-							<p>
-								<a href="#" class="button-style">Read More</a>
-							</p>
-						</li>
-						<li>
-							<h3>
-								<em><img src="images/girl3.jpg" alt="" width="130"
-									height="130" class="alignleft border" /></em>劉偉師小三
-							</h3>
-							<p>挖靠有活動!!!!!!!!!!!!!!!!!!!!!</p>
-							<p>
-								<a href="#" class="button-style">Read More</a>
-							</p>
-						</li>
-						<li>
-							<h3>
-								<em><img src="images/girl4.jpg" alt="" width="130"
-									height="130" class="alignleft border" /></em>JACK小三
-							</h3>
-							<p>挖靠有活動!!!!!!!!!!!!!!!!!!!!!</p>
-							<p>
-								<a href="#" class="button-style">Read More</a>
-							</p>
-						</li>
-					</ul>
+
+	<!-- Start subscribe us -->
+	<section id="subscribe">
+		<div class="subscribe-overlay"
+			style="background-image: url(/PetProject/assets/images/search.jpg); opacity: 0.9">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="subscribe-area">
+							<h2 class="text" style="color: #e0e0e0; font-size: 24px">搜索會員帳號:</h2>
+							<form action="" class="subscrib-form">
+								<input type="text" placeholder="Enter Your E-mail..">
+								<button class="subscribe-btn" type="submit"
+									style="font-size: 24px; font-family: 'cwTeXYen';">搜尋</button>
+							</form>
+						</div>
+					</div>
 				</div>
 			</div>
-		</div>	
 		</div>
-	</div>
+	</section>
+	<!-- End subscribe us -->
+	<!-- Start blog archive -->
+	<section id="blog-archive">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="blog-archive-area">
+						<div class="row">
+								<c:if test="${!empty  user}">
+							<div class="col-md-4 hidden-sm hidden-xs">
+								<aside class="blog-side-bar"
+									style="border: black 3px solid; border-radius: 9px">
+									<!-- Start sidebar widget -->
+									<div class="sidebar-widget">
+										<h4 class="text" style="font-size: 25px; margin-left: 5px">動態消息</h4>
+										<ul class="widget--catg">
+											<li><a href="#" class="text"
+												style="font-size: 22px; margin-left: 3px">您的動態</a></li>
+											<li><a href="#" class="text"
+												style="font-size: 22px; margin-left: 3px">好友動態</a></li>
+										</ul>
+									</div>
+								</aside>
+							</div>
+							</c:if>
+							<div class="col-md-8">
+								<div class="blog-archive-left">
+									<!-- Start blog news single -->
+									<article class="blog-news-single">
+										<c:if test="${!empty  user}">
+											<div class="blog-news-img" style="margin-bottom: 55px">
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+												<form action="<c:url value='messgaeinsert'/>" ;method="post">
+													<div
+														style="width: 903px; height: 300px; border-radius: 9px">
 
 
+
+														<div
+															style="border-left: black 2px solid; border-top: black 2px solid; border-right: black 2px solid; background-color: #e0e0e0; width: 905px; height: 30px; border-top-left-radius: 9px; border-top-right-radius: 9px">
+															<span class="text" style="margin-left: 10px"><label
+																for="title2">標題:</label> <input id="title2" type="text"
+																class="text"
+																style="background-color: inherit; border-width: 0"
+																name="title"></span> <span style="margin-left: 470px">
+																<label class="text">權限:</label><select class="text"
+																name="permission"
+																style="background-color: inherit; border-width: 0"><option
+																		value="public">公開</option>
+																	<option value="friend">朋友</option></select>
+															</span>
+														</div>
+
+														<textarea rows="12" cols="110" Wrap="Hard"
+															style="border: black 2px solid; resize: none;"
+															name="message"></textarea>
+														<%-- 													<img id="memberpicture" src="${user.memberPicture}" --%>
+														<!-- 														width="150px" -->
+														<!-- 														style="border: #8e8e8e solid thin; width: 150px" /> -->
+													</div>
+													<input type="text" name="time1" style="display: none">
+													<div
+														style="width: 905px; border: black 2px solid; border-bottom-left-radius: 9px; border-bottom-right-radius: 9px;">
+														<span style="margin-left: 780px"><input
+															type="reset" value="清空" class="btn-link"><input
+															type="submit" value="送出" class="btn-link"> </span>
+													</div>
+												</form>
+											</div>
+										</c:if>
+										<!-- 										顯示訊息 -->
+										<c:if test="${not empty select}">
+											<c:forEach var="bean" items="${select}">
+												<div class="blog-news-img">
+													<div
+														style="width: 903px; height: 300px; border-radius: 9px">
+														<div
+															style="border-left: black 2px solid; border-top: black 2px solid; border-right: black 2px solid; background-color: #e0e0e0; width: 905px; height: 30px; border-top-left-radius: 9px; border-top-right-radius: 9px;"
+															class="text">${bean.title}</div>
+														<table style="border: black 2px solid">
+															<tr>
+																<td style="border-right: black 2px solid"><img
+																	id="memberpicture"
+																	src="${bean.memberbean.memberPicture}"
+																	style="height: 220px; width: 150px;" /></td>
+																<td>
+																	<div style="width: 749px" class="text">
+																		${bean.message}</div>
+																</td>
+															</tr>
+															<tr>
+																<td
+																	style="border-top: black 2px solid; border-right: black 2px solid"
+																	class="text">${bean.memberbean.memberName}</td>
+																<td style="border-top: black 2px solid"><span
+																	class="text">時間:${bean.messagetime}</span> <span
+																	class="text" style="margin-left: 20px">信箱:${bean.memberbean.email}</span>
+																	<span style="float: right;"> <span class="text">讚數:</span></span>
+																</td>
+															</tr>
+														</table>
+														<c:if test="${bean.memberid ==user.memberId}">
+															<div
+																style='width: 905px; border: black 2px solid; border-top: 0px;'>
+																<form action="<c:url value='membermessagedelete'/>"
+																	method="post">
+																	<input name="messageboardid" type="text"
+																		style="display: none" value="${bean.messageboardid}">
+																	<span style='margin-left: 870px'><label
+																		class='btn btn-light'><input type='submit'
+																			value='刪除' style='display: none'><i
+																			class='fas fa-trash-alt'></i></label></span>
+																</form>
+															</div>															
+														</c:if>
+														  <div style=" width: 905px; border: black 2px solid; border-top: 0px;"><input type="text" class="text" style="width:800px" placeholder="請輸入訊息" ><input class="btn btn-link" type="submit" value="送出" style="width: 100px; font-size: 18px"></div>														
+													</div>
+												</div>
+											</c:forEach>
+										</c:if>
+									</article>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
 	<!-- Start footer -->
 	<footer id="footer">
@@ -465,8 +475,8 @@
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 
-	<!-- updatemember js -->
-	<script type="text/javascript" src="/PetProject/assets/js/update.js"></script>
+	<!-- 	<!-- updatemember js -->
+	<!-- 	<script type="text/javascript" src="/PetProject/assets/js/update.js"></script> -->
 
 
 	<!-- Bootstrap -->
@@ -493,17 +503,13 @@
 	<!--Signon   -->
 	<script type="text/javascript"
 		src="/PetProject/assets/css/SignOn/SignOn.js"></script>
-
-
 	<!-- Custom js -->
 	<script type="text/javascript" src="/PetProject/assets/js/custom.js"></script>
-
-
-
 	<!-- alert -->
-
 	<script
 		src="//cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.10/alertify.min.js"></script>
+	<!-- message -->
+	<script src="/PetProject/assets/js/message.js"></script>
 
 </body>
 </html>

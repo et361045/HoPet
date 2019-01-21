@@ -251,8 +251,9 @@
 							data-toggle="dropdown">會員中心 <span class="fa fa-angle-down"></span></a>
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="/PetProject/member/member.jsp">會員資料</a></li>
+
 								<li><a id="fosteritem" onclick="fostercheck()">送養資料</a></li>
-								<li><a href=""><span class="fa fa-search"></span>搜尋好友 </a></li>
+								<li><a href="/PetProject/member/membermessage"><span class="fa fa-search"></span>動態消息 </a></li>
 							</ul></li>
 						<li><a href="">寵物生活館</a></li>
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
@@ -267,9 +268,15 @@
 								<li><a href="/PetProject/fostercarecommission">寄養</a></li>
 								<li><a href="foster.jsp">送養</a></li>
 							</ul></li>
-						<li><a href="">寵物旅遊</a></li>
-						<li><a href="">寵物商城</a></li>
-						<li><a href="">寵物活動</a></li>
+						
+<!-- 						<li><a href="">寵物旅遊</a></li> -->
+<!-- 						<li><a href="">寵物商城</a></li> -->
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+						    data-toggle="dropdown">寵物活動<span class="fa fa-angle-down"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="ActivityHome.jsp">活動首頁</a></li>
+							<li><a href="/PetProject/activityCommission">一起去旅遊</a></li>
+							<li><a href="">查詢參加活動</a></li>
 					</ul>
 				</div>
 				<!--/.nav-collapse -->

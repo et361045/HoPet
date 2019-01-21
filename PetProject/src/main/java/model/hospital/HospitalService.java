@@ -46,8 +46,7 @@ public class HospitalService {
 		result = hospitalDao.findAll();
 		for(int i=0;i<result.size();i++)
 		{ 
-		
-			
+
 			if(result.get(i).getHospitalAddress().indexOf(area)>-1)
 			{
 				

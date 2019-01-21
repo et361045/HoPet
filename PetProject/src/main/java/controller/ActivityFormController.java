@@ -40,7 +40,9 @@ import model.activityForm.ActivityFormService;
 			}
 			 if("Insert".equals(activityForm)) {
 				 ActivityFormBean result = activityFormService.insert(bean);
+				 System.out.println(result);
 				if(result==null) {
+					
 					errors.put("action", "insert failed");
 				} else {
 					model.addAttribute("insert", result);

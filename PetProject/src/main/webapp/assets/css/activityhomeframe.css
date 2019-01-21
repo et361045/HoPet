@@ -57,12 +57,12 @@ a img {
 	border: none;
 }
 
-img.border {
-	border: 5px solid rgba(255,255,255,1);
-}
+/* img.border { */
+/* 	border: 5px solid rgba(255,255,255,1); */
+/* } */
 
 img.alignleft {
-	float: left;
+/* 	float: left; */
 	margin-right: 30px;
 }
 
@@ -204,15 +204,16 @@ hr {
 
 #content {
 	float: left;
-	width: 1300px;
-	padding: 40px;
+	width: 1800px;
+	padding: 20px;
 	background: rgba(0,0,0,0.70);
+	display: inline-block;
 }
 
 #content h2 a
 {
-	display: block;
-	padding: 0px 0px 20px 0px;
+	
+	padding: 0px 0px 20px 20px;
 	text-decoration: none;
 	color: #FFFFFF;
 }
@@ -226,15 +227,16 @@ hr {
 
 #sidebar {
 	float: right;
-	width: 200px;
-	padding: 20px;
+	width: 300px;
+	padding: 10px;
 	color: black;
+	display: inline-block;
 }
 
 #sidebar h2
 {
 	padding: 0px 0px 20px 0px;
-	color: #FFFFFF;
+	color: #8000ff;
 }
 
 
@@ -266,8 +268,12 @@ ul.style1 p {
 }
 
 ul.style1 .button-style {
-	float: left;
+	float: right;
 	margin-top: 0px;
+	text-align: center;
+	padding: 1px;
+	
+	
 }
 
 ul.style1 .first {

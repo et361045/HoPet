@@ -108,6 +108,8 @@ Create TABLE Pet--會員寵物資料
 	vaccine nvarchar(MAX),--疫苗TEXT
 	wafer nvarchar(Max),--晶片TEXT
 	owner int,--有無主人
+	yesornofoster int default 0,--有無送養
+	yesornofostercare int  default 0,--有無寄養
 	FOREIGN KEY (memberid) REFERENCES member(memberid), 
 )   --sam
 

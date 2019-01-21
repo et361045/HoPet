@@ -7,14 +7,29 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import model.fosterCommission.FosterCommissionBean;
+import model.fosterCommission.FosterCommissionDao;
+import model.fosterForm.FosterFormBean;
+import model.fostercareCommission.FostercareCommissionBean;
+import model.fostercareCommission.FostercareCommissionDao;
 @Service
 @Transactional
 public class FostercareFormService {
 	@Autowired
 	private FostercareFormDao fostercareFormDao;
+	@Autowired
+	private FostercareCommissionDao fostercareCommissionDao;
+	
 	public FostercareFormService(FostercareFormDao fostercareFormDao) {
 		this.fostercareFormDao = fostercareFormDao;
 	}
+	
+	
+	
+	
+	
+	
 	public List<FostercareFormBean> select(FostercareFormBean bean) {
 		List<FostercareFormBean> result = null;
 		if(bean!=null && bean.getFostercareFormid()!=null) {
@@ -28,6 +43,14 @@ public class FostercareFormService {
 		}
 		return result;
 	}
+	
+	
+	public FostercareFormBean insertFostercareForm(FostercareFormBean fostercareFormBean,Integer petId) {
+		fostercareFormBean.setFostercareCommissionid(fostercareCommissionDao.findByPetId(petId).getFostercareCommissionid());
+		return fostercareFormBean;
+	}
+	
+	
 	public FostercareFormBean insert(FostercareFormBean bean) {
 		FostercareFormBean result = null;
 		if(bean!=null) {

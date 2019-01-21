@@ -62,12 +62,6 @@ function clearForm() {
 		<td><span class="error">${errors.participate}</span></td>
 	</tr>
 	
-<!-- 	<tr> -->
-<!-- 		<td>性別 : </td> -->
-<%-- 		<td><input type="text" name="gender" value="${param.gender}"></td> --%>
-<%-- 		<td><span class="error">${errors.gender}</span></td> --%>
-<!-- 	</tr> -->
-	
 <!-- 	mnumber參加人數 -->
 	<tr>
 		<td>參加人數 : </td>
@@ -86,12 +80,12 @@ function clearForm() {
 	
 	<tr>
 		<td>
-			<input type="submit" name="prodaction" value="Insert">
+			<input type="submit" name="activityForm" value="Insert">
 <!-- 			<input type="submit" name="prodaction" value="Update"> -->
 		</td>
 		<td>
-			<input type="submit" name="prodaction" value="Delete">
-			<input type="submit" name="prodaction" value="Select">
+			<input type="submit" name="activityForm" value="Delete">
+			<input type="submit" name="activityForm" value="Select">
 <!-- 			<input type="button" value="Clear" onclick="clearForm()"> -->
 		</td>
 	</tr>
@@ -112,11 +106,11 @@ function clearForm() {
 </c:if>
 
 <c:if test="${not empty insert}">
-	<h3>Insert product table success</h3>
-	<table border="1">
-		<tr><td>participate</td><td>${insert.participate}</td></tr>
-		<tr><td>remarks</td><td>${insert.remarks}</td></tr>
-		<tr><td>mnumber</td><td>${insert.mnumber}</td></tr>
+	<h3>報名成功</h3>
+	<table border="10">
+		<tr><td>會員編號</td><td>${insert.participate}</td></tr>
+		<tr><td>參加人數</td><td>${insert.remarks}</td></tr>
+		<tr><td>備註</td><td>${insert.mnumber}</td></tr>
 	</table>
 	<script type="text/javascript">clearForm()</script>
 </c:if>

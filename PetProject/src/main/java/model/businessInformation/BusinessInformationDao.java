@@ -10,8 +10,8 @@ public interface BusinessInformationDao {
 
 	public abstract BusinessInformationBean create(BusinessInformationBean bean);
 
-	public abstract BusinessInformationBean update(String companyname,
-			String businessAddress, String businessPhone,String idname,String businessGooglemap,String latitude,Integer businessId);
+	public abstract BusinessInformationBean update(String externalname,
+			String businessAddress, String businessPhone,String idname,String businessGooglemap,Double longitude,Double latitude,Integer businessId);
 
 	public abstract boolean remove(Integer businessId);
 }

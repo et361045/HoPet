@@ -9,6 +9,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import model.fosterCommission.FosterCommissionBean;
 import model.fostercareCommission.FostercareCommissionBean;
 import model.fostercareCommission.FostercareCommissionDao;
 import model.pet.PetBean;
@@ -32,6 +33,11 @@ public class FostercareCommissionDaoHibernate implements FostercareCommissionDao
 		Query<FostercareCommissionBean> query = this.getSession().createQuery("from FostercareCommissionBean where petid='"+petid+"'");
 		FostercareCommissionBean CommissionBean = query.uniqueResult();
 		return CommissionBean;
+	}
+	
+	@Override
+	public List<FostercareCommissionBean> findByAreaAndVarietyFostercareCommission(String area,String variety) {
+		return this.getSession().createQuery("from FostercareCommissionBean where area='"+area+"' and variety='"+variety+"'").list();
 	}
 	
 //	@Override

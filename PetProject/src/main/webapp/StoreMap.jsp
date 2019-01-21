@@ -1,245 +1,687 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="UTF-8">
 <head>
-<title>Contacts</title>
 <meta charset="utf-8">
-<link rel="icon" href="images/favicon.ico">
-<link rel="shortcut icon" href="images/favicon.ico">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/form.css">
-<script src="js/jquery.js"></script>
-<script src="js/forms.js"></script>
-<script src="js/jquery-migrate-1.1.1.js"></script>
-<script src="js/superfish.js"></script>
-<script src="js/jquery.equalheights.js"></script>
-<script src="js/jquery.easing.1.3.js"></script>
-<script src="js/jquery.ui.totop.js"></script>
-<script>
-jQuery(document).ready(function () {
-    $().UItoTop({
-        easingType: 'easeOutQuart'
-    });
-});
-</script>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<title>多地標Google地圖</title>
+<!-- Favicon -->
+<link rel="shortcut icon" type="image/icon"
+	href="/PetProject/assets/images/favicon.ico" />
+<!-- Font Awesome -->
+<link href="/PetProject/assets/css/font-awesome.css" rel="stylesheet">
+<!-- Bootstrap -->
+<link href="/PetProject/assets/css/bootstrap.css" rel="stylesheet">
+<!-- Slick slider -->
+<link rel="stylesheet" type="text/css"
+	href="/PetProject/assets/css/slick.css" />
+<!-- Fancybox slider -->
+<link rel="stylesheet" href="/PetProject/assets/css/jquery.fancybox.css"
+	type="text/css" media="screen" />
+<!-- Animate css -->
+<link rel="stylesheet" type="text/css"
+	href="/PetProject/assets/css/animate.css" />
+<!-- Progress bar  -->
+<link rel="stylesheet" type="text/css"
+	href="/PetProject/assets/css/bootstrap-progressbar-3.3.4.css" />
+<!-- Theme color -->
+<link id="switcher"
+	href="/PetProject/assets/css/theme-color/default-theme.css"
+	rel="stylesheet">
+
+<!-- Main Style -->
+<link href="/PetProject/assets/css/memberstyle.css" rel="stylesheet">
+<!-- login Style -->
+<link href="/PetProject/assets/css/login/login.css" rel="stylesheet">
+<script defer
+	src="https://use.fontawesome.com/releases/v5.6.3/js/all.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2.js'></script>
+<script src="https://maps.google.com/maps/api/js?sensor=false"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.14/jquery.twzipcode.min.js"></script>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<!-- Fonts -->
+
+<!-- Open Sans for body font -->
+<link href='https://fonts.googleapis.com/css?family=Open+Sans'
+	rel='stylesheet' type='text/css'>
+<!-- Lato for Title -->
+<link href='https://fonts.googleapis.com/css?family=Lato'
+	rel='stylesheet' type='text/css'>
+<link
+	href="/PetProject/assets/css/businessInformation/businessInformation.css"
+	rel="stylesheet">
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
-<script src="js/html5shiv.js"></script>
-<link rel="stylesheet" media="screen" href="css/ie.css">
-<![endif]-->
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<style>
+body, input {
+	font-size: 10px;
+}
 
-  <script src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2.js'></script>   
-    <script src="https://maps.google.com/maps/api/js?sensor=false"></script>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <meta charset="utf-8">
-    
-    <style>
-        body,input { font-size: 9pt; }
-        html { height: 100% }  
-        body { height: 100%; margin: 0px; padding: 0px }  
-        #map_canvas { height: 100% }        
-    </style>
-     <!-- <script type="text/javascript"
-     src="https://maps.googleapis.com/maps/api/js?key&AIzaSyBpZmGolfotLrG4xt6jVDhY87zi_vWWV1Y">
-   </script> -->
-    
-    <script>
-        $(function () {
-            
-            var latlng = new google.maps.LatLng(25.0256226,121.5340202,17);
-        	var latlng2 = new google.maps.LatLng(25.0483758,121.5444377,17);
-        	var latlng3 = new google.maps.LatLng(25.0705581,121.5901597,17);
-        	var latlng4 = new google.maps.LatLng(25.079591,121.5427499,17);
-        	var latlng5 = new google.maps.LatLng(25.045943,121.5017833,17);
-        	var latlng6 = new google.maps.LatLng(25.0674022,121.523676,17);
-        	var latlng7 = new google.maps.LatLng(25.030877,121.5549353,17);
-        	var latlng8 = new google.maps.LatLng(25.0576276,121.5217003,17);
-        	var latlng9 = new google.maps.LatLng(25.0834684,121.5816151,16);
-        	var latlng10 = new google.maps.LatLng(25.118797,121.5270423,17);
-        	var latlng11 = new google.maps.LatLng(23.4857501,120.0843006,7);
-        	var latlng12 = new google.maps.LatLng(24.9881626,121.5665122,17);
-        	var latlng13 = new google.maps.LatLng(25.1340726,121.49858,17);
-        	var latlng14 = new google.maps.LatLng(25.028117,121.5541138,17);
-        	var latlng15 = new google.maps.LatLng(25.022751,121.5240013,17);
-            //設定地圖參數
-            var mapOptions = {
-                zoom: 16, //初始放大倍數
-                center: latlng, //中心點所在位置
-                mapTypeId: google.maps.MapTypeId.ROADMAP //正常2D道路模式
-            };
-            
-            //變更圖示
-            var imageUrl1 = "images/Storemap01.png";  //旅館
-           
-            var imageUrl2 = "images/Storemap02.png";  //精品店
-            
-            var imageUrl3 = "images/Storemap03.png";  //美容店
-            
-            var imageUrl4 = "images/Storemap04.png";  //生活館
+#map_canvas {
+	height: 100%;
+	border-radius: 5px;
+}
+</style>
+<!-- <script type="text/javascript" -->
+<!-- 	src="https://maps.googleapis.com/maps/api/js?key&AIzaSyD5yTSd7qAEyeoxcOIEK1K4M3X-H6bKiis"> -->
+	
+<!-- </script>  -->
+<!-- <script type="text/javascript" -->
+<!--      src="https://maps.googleapis.com/maps/api/js?callback=initialize&key=AIzaSyD_dGEr_Cm5zksGOql-xQ3Tie8j7CGZDdw"> -->
+<!--  </script>   -->
+ 
+ 
+ <script type="text/javascript"
+     src="https://maps.googleapis.com/maps/api/js?callback=initialize&key=AIzaSyAqIP95gWVLSlvgM2xOS40S9sLm7qrTz-M">
+ </script>  
+<!--  AIzaSyAqIP95gWVLSlvgM2xOS40S9sLm7qrTz-M -->
+ 
+ 
+ 
+<script type="text/javascript">
+	function initialize() {
+		geocoder = new google.maps.Geocoder();
+	}
 
-            //在指定DOM元素中嵌入地圖
-            var map = new google.maps.Map(
-                document.getElementById("map_canvas"), mapOptions);
-            //加入標示點(Marker)
-            var marker = new google.maps.Marker({
-                position: latlng, //經緯度
-                title: "北歐寵物旅館", //顯示文字
-                icon: imageUrl1, //圖片
-                map: map //指定要放置的地圖對象
-            });
-       		var marker2 = new google.maps.Marker({
-                position: latlng2, //經緯度
-                title: "very旺寵物精品旅館", //顯示文字
-                icon: imageUrl1, //圖片
-                map: map //指定要放置的地圖對象
-            });
-       		var marker3 = new google.maps.Marker({
-                position: latlng3, //經緯度
-                title: "米雅寵物美容精品店", //顯示文字
-                icon: imageUrl2, //圖片
-                map: map //指定要放置的地圖對象
-            });
-       		var marker4 = new google.maps.Marker({
-                position: latlng4, //經緯度
-                title: "啵好寵物生活館", //顯示文字
-                icon: imageUrl4, //圖片
-                map: map //指定要放置的地圖對象
-            });
-       		var marker5 = new google.maps.Marker({
-                position: latlng5, //經緯度
-                title: "順生寵物店", //顯示文字
-                icon: imageUrl1, //圖片
-                map: map //指定要放置的地圖對象
-            });
-       		var marker6 = new google.maps.Marker({
-                position: latlng6, //經緯度
-                title: "哈利寵物精緻美容", //顯示文字
-                icon: imageUrl3, //圖片
-                map: map //指定要放置的地圖對象
-            });
-       		var marker7 = new google.maps.Marker({
-                position: latlng7, //經緯度
-                title: "維樂寵物美容店", //顯示文字
-                icon: imageUrl3, //圖片
-                map: map //指定要放置的地圖對象
-            });
-       		var marker8 = new google.maps.Marker({
-                position: latlng8, //經緯度
-                title: "Wang's Beauty旺城寵物精品美容林森店", //顯示文字
-                icon: imageUrl2, //圖片
-                map: map //指定要放置的地圖對象
-            });
-       		var marker9 = new google.maps.Marker({
-                position: latlng9, //經緯度
-                title: "黑鼻子寵物旅館", //顯示文字
-                icon: imageUrl1, //圖片
-                map: map //指定要放置的地圖對象
-            });
-       		var marker10 = new google.maps.Marker({
-                position: latlng10, //經緯度
-                title: "岱哥寵物精品", //顯示文字
-                icon: imageUrl2, //圖片
-                map: map //指定要放置的地圖對象
-            });
- 			var marker11 = new google.maps.Marker({
-                position: latlng11, //經緯度
-                title: "好時光寵物旅館", //顯示文字
-                icon: imageUrl1, //圖片
-                map: map //指定要放置的地圖對象
-            });
-       		var marker12 = new google.maps.Marker({
-                position: latlng12, //經緯度
-                title: "Lovely Dog 樂福犬寵物生活館", //顯示文字
-                icon: imageUrl4, //圖片
-                map: map //指定要放置的地圖對象
-            });
-       		var marker13 = new google.maps.Marker({
-                position: latlng13, //經緯度
-                title: "狗崽子寵物沙龍", //顯示文字
-                icon: imageUrl3, //圖片
-                map: map //指定要放置的地圖對象
-            });
-       		var marker14 = new google.maps.Marker({
-                position: latlng14, //經緯度
-                title: "禮來寵物生活館", //顯示文字
-                icon: imageUrl4, //圖片
-                map: map //指定要放置的地圖對象
-            });
-       		var marker15 = new google.maps.Marker({
-                position: latlng15, //經緯度
-                title: "多俐寵物用品坊", //顯示文字
-                icon: imageUrl2, //圖片
-                map: map //指定要放置的地圖對象
-            });
-        });
-    </script>
+	function doClick() {
+		var address = document.getElementById("address").value;
+		if (geocoder) {
+			geocoder
+					.geocode(
+							{
+								"address" : address
+							},
+							function(results, status) {
+								if (status != google.maps.GeocoderStatus.OK) {
+									alert("Geocoder Failed: " + status);
+								} else {
+									console.log("location="
+											+ results[0].geometry.location)
+
+									document.getElementById("lat").value = results[0].geometry.location
+											.lat();
+									document.getElementById("lng").value = results[0].geometry.location
+											.lng();
+								}
+							});
+		}
+	}
+
+	function clearForm() {
+		var inputs = document.getElementsByTagName("input");
+		for (var i = 0; i < inputs.length; i++) {
+			if (inputs[i].type == "text") {
+				inputs[i].value = "";
+			}
+		}
+	}
+	initialize()
+</script>
 
 
+<script>
+	$(function() {
 
+		var latlng1 = new google.maps.LatLng(25.0256226, 121.5340202);//北歐寵物旅館
+		//設定地圖參數
+		var mapOptions = {
+			zoom : 16, //初始放大倍數
+			center : latlng1, //中心點所在位置
+			mapTypeId : google.maps.MapTypeId.ROADMAP
+		//正常2D道路模式
+		};
+		var imageUrl = "assets/images/storemap.png"; //空字串就會使用預設圖示
+		//在指定DOM元素中嵌入地圖
+		geocoder = new google.maps.Geocoder();
+		var map = new google.maps.Map(document.getElementById("map_canvas"),
+				mapOptions);
+		var infowindow = new google.maps.InfoWindow();
 
+		$
+				.ajax({
+					data : "GET",
+					url : "/PetProject/query1",
+					dataType : "json",
+					success : function(json) {
+						console.log(json)
+						$
+								.each(
+										json,
+										function(idx, val) {
+											var latitude = new google.maps.LatLng(
+													val.longitude, val.latitude);
+											var externalname = val.externalname;
+											var businessAddress = val.businessAddress;
+											var businessPhone = val.businessPhone;
+											var marker = new google.maps.Marker(
+													{
+														position : latitude, //經緯度
+														title : externalname, //顯示文字
+														icon : imageUrl,
+														map : map,
+														html : businessAddress,
+														html1 : businessPhone
+													//指定要放置的地圖對象
+													});
+											google.maps.event
+													.addListener(
+															marker,
+															'click',
+															function() {
+
+																/*this就是指marker*/
+																infowindow
+																		.setContent("<H4 style='color: blue'>"
+																				+ this.title
+																				+ "</H4>"
+																				+ "<p style='color:black'>"
+																				+ "地址:"
+																				+ "<a href='http://www.poaipets.com.tw/front/bin/home.phtml'>"
+																				+ this.html
+																				+ "</a>"
+																				+ "</p>"
+																				+ "<p style='color:black'>"
+																				+ "電話:"
+																				+ this.html1
+																				+ "</p>");
+																infowindow
+																		.open(
+																				map,
+																				this);
+
+															})
+										})
+					}
+				});
+
+	});
+</script>
 
 
 </head>
 <body>
-<header>
-  <div class="container_12">
-    <div class="grid_12">
-      <h1><a href="index.html"><img src="images/logo.png"alt=""></a> </h1>
-      <div class="menu_block">
-        <nav>
-          <ul class="sf-menu">
-            <li><a href="">會員</a></li>
-            <li><a href="http://www.i-furkid.com/LifeData/Store_Search.aspx?CID=7">寵生活</a> </li>
-            <li><a href="">寵百科</a>
-              <ul>
-                <li><a href="Dog.html">Dog</a></li>
-                <li><a href="#">Cat</a></li>
-              </ul>
-            </li>
-            <li><a href="">寵 寄&送養</a>
-               <ul>
-                <li><a href="#">寄養</a></li>
-                <li><a href="#">送養</a></li>
-              </ul>
-            </li>
-            <li><a href="">寵旅遊</a></li>
-            <li><a href="">商城</a></li>
-            <li><a href="">活動</a></li>
 
-        </nav>
-        <div class="clear"></div>
-      </div>
-      <div class="clear"></div>
-    </div>
-     <div class="menu_block1">
-        <ul class="sf-menu">
-           <li><a href="">登入</a></li>
-        </ul>
-     </div>
-  </div>
-</header>
-<div class="content pt1">
-  <div class="container_12">
-<!--     <div class="grid_6"> -->
-      <h2>Contact Info</h2>
-      <br>
-      <div class="map">
-        <figure class="img_inner" id="map_canvas">
-          <iframe src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Brooklyn,+New+York,+NY,+United+States&amp;aq=0&amp;sll=37.0625,-95.677068&amp;sspn=61.282355,146.513672&amp;ie=UTF8&amp;hq=&amp;hnear=Brooklyn,+Kings,+New+York&amp;ll=40.649974,-73.950005&amp;spn=0.01628,0.025663&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>
-        </figure>
-      </div>
-<!--     </div> -->
-    </div>
-  </div>
+	<!-- BEGAIN PRELOADER -->
+	<div id="preloader">
+		<div id="status">&nbsp;</div>
+	</div>
+	<!-- END PRELOADER -->
 
-<footer>
-  <div class="container_12">
-    <div class="grid_12">
-      <div class="socials"> <a href="#"></a> <a href="#"></a> <a href="#"></a> <a href="#"></a> </div>
-      <p>Pet Club &copy; 2045 | <a href="#">Privacy Policy</a> | Design by: <a href="http://www.templatemonster.com/">TemplateMonster.com</a></p>
-    </div>
-    <div class="clear"></div>
-  </div>
-</footer>
+	<!-- SCROLL TOP BUTTON -->
+	<a class="scrollToTop" href="#"><i
+		class="glyphicon glyphicon-chevron-up"></i></a>
+	<!-- END SCROLL TOP BUTTON -->
+
+	<!-- Start header -->
+	<header id="header">
+		<!-- header top search -->
+		<div class="header-top">
+			<div class="container">
+				<form action="">
+					<div id="search">
+						<input type="text"
+							placeholder="Type your search keyword here and hit Enter..."
+							name="s" id="m_search" style="display: inline-block;">
+						<button type="submit">
+							<i class="fa fa-search"></i>
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<!-- header bottom -->
+		<div class="header-bottom">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6"></div>
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<div class="header-login">
+
+							<c:if test="${!empty  user}">
+								<c:out
+									value="<span class='Username' >HI, ${user.memberName} </span>"
+									escapeXml="false" />
+								<c:out
+									value="  <a class='login modal-form' id='Logout'> Logout</button>"
+									escapeXml="false" />
+							</c:if>
+
+							<c:if test="${empty  user}">
+								<c:out
+									value=" <a class='login modal-form' data-target='#login-form'
+								data-toggle='modal' href='#' id='Login'>Login / Sign Up</a>"
+									escapeXml="false" />
+							</c:if>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- End header -->
+
+	<!-- Start login modal window -->
+	<div aria-hidden="false" role="dialog" tabindex="-1" id="login-form"
+		class="modal leread-modal fade in">
+		<div class="modal-dialog">
+			<!-- Start login section -->
+			<div id="login-content" class="modal-content">
+				<div class="modal-header">
+					<button aria-label="Close" data-dismiss="modal" class="close"
+						type="button">
+						<span aria-hidden="true">×</span>
+					</button>
+					<h4 class="modal-title">
+						<i class="fa fa-unlock-alt"></i>Login
+					</h4>
+				</div>
+				<div class="modal-body">
+					<form id="login">
+						<div class="form-group">
+							<input type="email" placeholder="User email" name="email"
+								class="form-control" title="請輸入信箱">
+						</div>
+						<div class="form-group">
+							<input type="password" placeholder="Password" name="password"
+								class="form-control" title="請輸入密碼">
+						</div>
+
+						<div class="loginbox">
+							<label><input type="checkbox"><span>Remember
+									me</span></label> <input type="submit" class="btn signin-btn" value="SIGN IN"><span
+								class="errorspan" id="errorspan"></span>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer footer-box">
+					<a href="#">Forgot password ?</a>
+					<p>
+					<div>
+						No account ? <a id="signup-btn" href="#">Sign Up.</a>
+					</div>
+				</div>
+			</div>
+			<!-- Start signup section -->
+			<div id="signup-content" class="modal-content">
+				<div class="modal-header">
+					<button aria-label="Close" data-dismiss="modal" class="close"
+						type="button">
+						<span aria-hidden="true">×</span>
+					</button>
+					<h4 class="modal-title">
+						<i class="fa fa-lock"></i>Sign Up
+					</h4>
+				</div>
+				<div class="modal-body">
+					<form id="signon" action="<c:url value='/signon'/>">
+						<div class="form-group">
+							<input type="email" placeholder="User email" class="form-control"
+								title="請輸入信箱" name="email">
+						</div>
+						<div class="form-group">
+							<p class="Description" id="checkemail"></p>
+						</div>
+						<div class="form-group">
+							<input type="password" id="password" placeholder="password"
+								class="form-control" title="請輸入密碼" name="psw">
+						</div>
+						<div class="form-group">
+							<input type="password" id="checkpass" placeholder="checkpassword"
+								class="form-control" title="與密碼相附">
+						</div>
+						<div class="form-group">
+							<p class="Description" id="checkpassword"></p>
+						</div>
+						<div class="form-group">
+							<input type="text" placeholder="name" class="form-control"
+								title="請輸入暱稱" name="memberName">
+						</div>
+						<div class="form-group">
+							<input type="text" placeholder="address" class="form-control"
+								title="請輸入地址" name="address">
+						</div>
+						<div class="form-group">
+							<input type="text" placeholder="cellphone-number "
+								class="form-control" title="請輸入手機" name="memberPhone">
+						</div>
+
+
+						<div class="signupbox">
+							<span>Already got account? <a id="login-btn" href="#">Sign
+									In.</a></span>
+						</div>
+						<div class="loginbox">
+							<input type="submit" class="btn signin-btn" value="SIGN UP"><span
+								class="errorspan" id="errorspan"></span>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End login modal window -->
+
+	<!-- BEGIN MENU -->
+	<section id="menu-area">
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+						aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<!-- LOGO -->
+					<!-- TEXT BASED LOGO -->
+					<img src="assets/images/logo.png" class="logo_img">
+					<!-- IMG BASED LOGO  -->
+					<!-- <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" alt="logo"></a> -->
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown">會員中心 <span class="fa fa-angle-down"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="/PetProject/member/member.jsp">會員資料</a></li>
+								<li><a href=""><span class="fa fa-search"></span>搜尋好友 </a></li>
+							</ul></li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown">寵物生活館 <span class="fa fa-angle-down"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="">醫院</a></li>
+								<li><a href="">商家</a></li>
+								<li><a href="">景點</a></li>
+							</ul></li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown">寵物百科 <span class="fa fa-angle-down"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="">Dog</a></li>
+								<li><a href="">Cat</a></li>
+							</ul></li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown">寄養&送養<span class="fa fa-angle-down"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="">寄養</a></li>
+								<li><a href="">送養</a></li>
+							</ul></li>
+						<li><a href="">寵物旅遊</a></li>
+						<li><a href="">寵物商城</a></li>
+						<li><a href="">寵物活動</a></li>
+					</ul>
+				</div>
+				<!--/.nav-collapse -->
+				<a href="#" id="search-icon"> <i class="fa fa-search"> </i>
+				</a>
+			</div>
+		</nav>
+	</section>
+	<div class="map_search">
+		<div class="">
+			<div class="map_search_tital">
+				<p>條件查詢</p>
+			</div>
+			<form method="get" id="select">
+				<div class="form-group mx-sm-3 mb-3">
+					<div id="businessInformation_search">
+						<div class="map_search_select">
+							<label>縣市 :</label>
+							<div class="map_search_select" data-role="county"></div>
+							<label>區域:</label>
+							<div class="map_search_select" data-role="district"></div>
+
+						</div>
+						<script>
+							//自動產生縣市 
+							$("#businessInformation_search").twzipcode({
+								"zipcodeIntoDistrict" : true,
+								"countyName" : "city", // 指定城市 select name
+								"districtName" : "town" // 指定地區 select name
+							});
+						</script>
+						<input type="hidden" value="" placeholder="missionstatus"
+							id="missionstatus" name="missionstatus" /> <input type="button"
+							value="搜尋" id="searchButt"
+							class="btn btn-primary btn businessInformation_map_search">
+					</div>
+
+				</div>
+			</form>
+			<div class="map_search_select_behide">
+				<form
+					action="<c:url value="/businessInformation.controller" />"
+					method="get">
+					<table>
+						<tr>
+							<td style="color: #7E9EC9"><h5>商家名稱 :</h5></td>
+							<td><input type="text" name="externalname"
+								value="${param.externalname}"></td>
+							<td><span class="error">${errors.externalname}</span></td>
+						</tr>
+						<tr>
+							<td style="color: #7E9EC9"><h5>商家地址 :</h5></td>
+							<td><input type="text" id="address" name="businessAddress"
+								value="${param.businessAddress}"></td>
+							<td><span class="error">${errors.businessAddress}</span></td>
+						</tr>
+
+						<tr>
+							<td style="color: #7E9EC9"><h5>商家電話 :</h5></td>
+							<td><input type="text" name="businessPhone"
+								value="${param.businessPhone}"></td>
+							<td><span class="error">${errors.businessPhone}</span></td>
+						</tr>
+						<tr>
+							<td style="color: #7E9EC9"><h5>經度 :</h5></td>
+							<td><input type="text" id="lat" name="longitude"
+								value="${param.longitude}"></td>
+							<td><span class="error">${errors.longitude}</span></td>
+						</tr>
+						<tr>
+							<td style="color: #7E9EC9"><h5>緯度 :</h5></td>
+							<td><input type="text" id="lng" name="latitude"
+								value="${param.latitude}"></td>
+							<td><span class="error">${errors.latitude}</span></td>
+						</tr>
+						<tr>
+							<td>
+								<input type="submit" name="businessInformation" value="Insert"> 
+							</td>
+							<td>
+								<input type="submit" name="businessInformation" value="Select"> 
+								<input type="button" value="Clear" onclick="clearForm()"> 
+								<input type="button" value="Go!" onclick="doClick()" />
+							</td>
+						</tr>
+					</table>
+				</form>
+				<c:if test="${not empty insert}">
+ 					<h3>新增成功</h3>
+ 					<script type="text/javascript">clearForm()</script>
+				</c:if>
+			</div>
+		</div>
+	</div>
+	<div class="businessInformation_map">
+		<div>
+			<p class="businessInformation_map_p">商家地圖</p>
+			<figure class="img_inner" id="map_canvas"
+				style="margin-right: 150px;">
+				<iframe
+					src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Brooklyn,+New+York,+NY,+United+States&amp;aq=0&amp;sll=37.0625,-95.677068&amp;sspn=61.282355,146.513672&amp;ie=UTF8&amp;hq=&amp;hnear=Brooklyn,+Kings,+New+York&amp;ll=40.649974,-73.950005&amp;spn=0.01628,0.025663&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>
+			</figure>
+		</div>
+	</div>
+	<script>
+		$('#searchButt')
+				.click(
+						function() {
+							$
+									.ajax({
+										method : "POST",
+										data : {
+											town : $('select[name="town"]')
+													.val(),
+										},
+										url : "/PetProject/xxx",
+										dataType : "json",
+										cache : false,
+										async : false,
+										success : function(json) {
+											console.log(json);
+											var latlng1 = new google.maps.LatLng(
+													25.0256226, 121.5340202);//博愛醫院
+											var mapOptions = {
+												zoom : 16, //初始放大倍數
+												center : latlng1, //中心點所在位置
+												mapTypeId : google.maps.MapTypeId.ROADMAP
+											};
+											var imageUrl = "assets/images/storemap.png"; //空字串就會使用預設圖示
+											//在指定DOM元素中嵌入地圖
+											geocoder = new google.maps.Geocoder();
+											var map = new google.maps.Map(
+													document
+															.getElementById("map_canvas"),
+													mapOptions);
+											var infowindow = new google.maps.InfoWindow();
+											$
+													.each(
+															json,
+															function(idx, val) {
+																var latitude = new google.maps.LatLng(
+																		val.longitude,
+																		val.latitude);
+																var externalname = val.externalname;
+																var businessAddress = val.businessAddress;
+																var businessPhone = val.businessPhone;
+																var marker = new google.maps.Marker(
+																		{
+																			position : latitude, //經緯度
+																			title : externalname, //顯示文字
+																			icon : imageUrl,
+																			map : map,
+																			html : businessAddress,
+																			html1 : businessPhone
+																		//指定要放置的地圖對象
+																		});
+																google.maps.event
+																		.addListener(
+																				marker,
+																				'click',
+																				function() {
+
+																					/*this就是指marker*/
+																					infowindow
+																							.setContent("<H4 style='color: blue'>"
+																									+ this.title
+																									+ "</H4>"
+																									+ "<p style='color:black'>"
+																									+ "地址:"
+																									+ "<a href='http://www.poaipets.com.tw/front/bin/home.phtml'>"
+																									+ this.html
+																									+ "</a>"
+																									+ "</p>"
+																									+ "<p style='color:black'>"
+																									+ "電話:"
+																									+ this.html1
+																									+ "</p>");
+																					infowindow
+																							.open(
+																									map,
+																									this);
+
+																				})
+															})
+
+										}
+									})
+
+						})
+	</script>
+	<script>
+		$('#productTable>tbody').on('click', 'tr button:nth-child(1)',
+				function() {
+
+					var row = $(this).parents('tr');
+					var businessId = row.find('td:nth-child(1)').text();
+					alert(businessId)
+					$.get("BusinessInformationController", {
+						'businessId' : businessId
+					}, function(data) {
+						loadProduct(1);
+					})
+				})
+	</script>
+
+
+	<!-- Start footer -->
+	<footer id="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-sm-6">
+					<div class="footer-left">
+						<p>
+							Designed by <a href="http://www.markups.io/">MarkUps.io</a>
+						</p>
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-6">
+					<div class="footer-right">
+						<a href="index.html"><i class="fa fa-facebook"></i></a> <a
+							href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i
+							class="fa fa-google-plus"></i></a> <a href="#"><i
+							class="fa fa-linkedin"></i></a> <a href="#"><i
+							class="fa fa-pinterest"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- End footer -->
+
+	<!-- jQuery library -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<!-- Bootstrap -->
+	<script src="/PetProject/assets/js/bootstrap.js"></script>
+	<!-- Slick Slider -->
+	<script type="text/javascript" src="/PetProject/assets/js/slick.js"></script>
+	<!-- mixit slider -->
+	<script type="text/javascript"
+		src="/PetProject/assets/js/jquery.mixitup.js"></script>
+	<!-- Add fancyBox -->
+	<script type="text/javascript"
+		src="/PetProject/assets/js/jquery.fancybox.pack.js"></script>
+	<!-- counter -->
+	<script src="assets/js/waypoints.js"></script>
+	<script src="assets/js/jquery.counterup.js"></script>
+	<!-- Wow animation -->
+	<script type="text/javascript" src="/PetProject/assets/js/wow.js"></script>
+	<!-- progress bar   -->
+	<script type="text/javascript"
+		src="/PetProject/assets/js/bootstrap-progressbar.js"></script>
+	<!--login   -->
+	<script type="text/javascript"
+		src="/PetProject/assets/css/login/login.js"></script>
+	<!--Signon   -->
+	<script type="text/javascript"
+		src="/PetProject/assets/css/SignOn/SignOn.js"></script>
+
+
+	<!-- Custom js -->
+	<script type="text/javascript" src="/PetProject/assets/js/custom.js"></script>
 </body>
 </html>

@@ -6,10 +6,34 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.cache.spi.entry.ReferenceCacheEntryImpl;
+
+import model.member.MemberBean;
 @Entity
 @Table(name="Messageboard")
 public class MessageboardBean {
+	
+	
+	@ManyToOne
+	@JoinColumn(
+			name="memberId",
+			referencedColumnName="memberId",
+			insertable =false,updatable = false
+			)
+	private MemberBean memberbean;
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer messageboardid;
@@ -19,6 +43,8 @@ public class MessageboardBean {
 	private String message;
 	private String permission;
 	private Integer totlepoint;
+	
+	
 	public Integer getMessageboardid() {
 		return messageboardid;
 	}
@@ -61,11 +87,20 @@ public class MessageboardBean {
 	public void setTotlepoint(Integer totlepoint) {
 		this.totlepoint = totlepoint;
 	}
+	
+	
+	
+	public MemberBean getMemberbean() {
+		return memberbean;
+	}
+	public void setMemberbean(MemberBean memberbean) {
+		this.memberbean = memberbean;
+	}
 	@Override
 	public String toString() {
-		return "MessageboardBean [messageboardid=" + messageboardid + ", memberid=" + memberid + ", messagetime="
-				+ messagetime + ", title=" + title + ", message=" + message + ", permission=" + permission
-				+ ", totlepoint=" + totlepoint + "]";
+		return "MessageboardBean [memberbean=" + memberbean + ", messageboardid=" + messageboardid + ", memberid="
+				+ memberid + ", messagetime=" + messagetime + ", title=" + title + ", message=" + message
+				+ ", permission=" + permission + ", totlepoint=" + totlepoint + "]";
 	}
 	
 }

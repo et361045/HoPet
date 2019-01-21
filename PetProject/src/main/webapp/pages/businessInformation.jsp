@@ -12,40 +12,62 @@
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
-var contextPath = "${pageContext.request.contextPath}";
-$(document).ready(function() {
-	$('input[name="businessId"]').blur(function() {
-		$.ajax({
-			method: "GET",
-			url: contextPath+"/pages/bussinessInformation.view",
-			data: "id="+$('input[name="businessId"]').val(),
-			dataType: "json",
-			cache: false,
-			async: true,
-			success: function(json) {
-				$(".error").first().append(json[0].text);
-				if(json[0].hasMoreData) {
-					$("input[name='businessId']").val(json[1].businessId);
-					$("input[name='pointnumber']").val(json[1].pointnumber);
-					$("input[name='externalname']").val(json[1].externalname);
-					$("input[name='companyname']").val(json[1].companyname);
-					$("input[name='idname']").val(json[1].idname);
-					$("input[name='businessproject']").val(json[1].businessproject);
-					$("input[name='businessPhone']").val(json[1].businessPhone);
-					$("input[name='region']").val(json[1].region);
-					$("input[name='businessAddress']").val(json[1].businessAddress);
-					$("input[name='businessScore']").val(json[1].businessScore);
-					$("input[name='businessGooglemap']").val(json[1].businessGooglemap);
-					$("input[name='latitude']").val(json[1].latitude);
-				}
-			}
-		});
-	});
-	$("input[name='businessId']").focus(function() {
-		clearForm();
-		$(".error").first().html("");
-	});
-});
+// var contextPath = "${pageContext.request.contextPath}";
+// $(document).ready(function() {
+// 	$('input[name="businessId"]').blur(function() {
+// 		$.ajax({
+// 			method: "GET",
+// 			url: contextPath+"/pages/bussinessInformation.view",
+// 			data: "id="+$('input[name="businessId"]').val(),
+// 			dataType: "json",
+// 			cache: false,
+// 			async: true,
+// 			success: function(json) {
+// 				$(".error").first().append(json[0].text);
+// 				if(json[0].hasMoreData) {
+// 					$("input[name='businessId']").val(json[1].businessId);
+// 					$("input[name='externalname']").val(json[1].externalname);
+// 					$("input[name='companyname']").val(json[1].companyname);
+// 					$("input[name='idname']").val(json[1].idname);
+// 					$("input[name='businessproject']").val(json[1].businessproject);
+// 					$("input[name='businessPhone']").val(json[1].businessPhone);
+// 					$("input[name='region']").val(json[1].region);
+// 					$("input[name='businessAddress']").val(json[1].businessAddress);
+// 					$("input[name='businessGooglemap']").val(json[1].businessGooglemap);
+// 					$("input[name='longitude']").val(json[1].longitude);
+// 					$("input[name='latitude']").val(json[1].latitude);
+// 				}
+// 			}
+// 		});
+// 	});
+	function initialize() {
+	geocoder = new google.maps.Geocoder();
+}
+
+function doClick() {
+ var address = document.getElementById("address").value;
+ if(geocoder) {
+  geocoder.geocode({"address": address}, function(results, status) {
+   if(status != google.maps.GeocoderStatus.OK)  {
+    alert("Geocoder Failed: " + status);
+   } else {
+    console.log("location="+results[0].geometry.location)
+    
+    document.getElementById("lat").value=results[0].geometry.location.lat();
+    document.getElementById("lng").value=results[0].geometry.location.lng();
+   }
+  });
+ }
+}
+	
+	
+	
+	
+// 	$("input[name='businessId']").focus(function() {
+// 		clearForm();
+// 		$(".error").first().html("");
+// 	});
+// });
 function clearForm() {
 	var inputs = document.getElementsByTagName("input");
 	for(var i=0; i<inputs.length; i++) {
@@ -54,6 +76,7 @@ function clearForm() {
 		}
 	}
 } 
+initialize()
 </script>
 </head>
 <body>
@@ -103,12 +126,24 @@ function clearForm() {
 	</tr>
 	
 	<tr>
+  		<td>經度 : </td>
+ 		 <td><input type="text" id="lat" name="longitude" value="${param.longitude}"></td>
+  			<td><span class="error">${errors.longitude}</span></td>
+ 	</tr>
+ 	<tr>
+  		<td>緯度 : </td>
+  		<td><input type="text" id="lng" name="latitude" value="${param.latitude}"></td>
+  		<td><span class="error">${errors.latitude}</span></td>
+ 	</tr>
+	
+	<tr>
 		<td>
 			<input type="submit" name="businessInformation" value="Insert">
 		</td>
 		<td>
 			<input type="submit" name="businessInformation" value="Select">
 			<input type="button" value="Clear" onclick="clearForm()">
+			<input type="button" value="Go!" onclick="doClick()" />
 		</td>
 	</tr>
 </table>
@@ -127,7 +162,7 @@ function clearForm() {
 </c:if>
 
 <c:if test="${not empty insert}">
-	<h3>Insert businessinformation table success</h3>
+	<h3>Insert businessInformation table success</h3>
 	<table border="1">
 		<tr><td>externalname</td><td>${insert.externalname}</td></tr>
 		<tr><td>companyname</td><td>${insert.companyname}</td></tr>
@@ -136,6 +171,7 @@ function clearForm() {
 		<tr><td>businessPhone</td><td>${insert.businessPhone}</td></tr>
 		<tr><td>region</td><td>${insert.region}</td></tr>
 		<tr><td>businessAddress</td><td>${insert.businessAddress}</td></tr>
+		<tr><td>longitude</td><td>${insert.longitude}</td></tr> 
 		<tr><td>latitude</td><td>${insert.latitude}</td></tr>
 
 	</table>
@@ -143,7 +179,7 @@ function clearForm() {
 </c:if>
 
 <c:if test="${not empty update}">
-	<h3>Update businessinformation table success</h3>
+	<h3>Update businessInformation table success</h3>
 	<table border="1">
 		<tr><td>externalname</td><td>${update.externalname}</td></tr>
 		<tr><td>companyname</td><td>${update.companyname}</td></tr>
@@ -152,10 +188,10 @@ function clearForm() {
 		<tr><td>businessPhone</td><td>${update.businessPhone}</td></tr>
 		<tr><td>region</td><td>${update.region}</td></tr>
 		<tr><td>businessAddress</td><td>${update.businessAddress}</td></tr>
+		<tr><td>longitude</td><td>${update.longitude}</td></tr> 
 		<tr><td>latitude</td><td>${update.latitude}</td></tr>
 	</table>
 	<script type="text/javascript">clearForm()</script>
 </c:if>
-
 </body>
 </html>
