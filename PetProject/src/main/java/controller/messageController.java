@@ -22,6 +22,7 @@ import model.member.MemberBean;
 import model.member.MemberService;
 import model.messageboard.MessageboardBean;
 import model.messageboard.messageboardservice;
+import model.returnmessage.returnmessageService;
 
 
 @Controller
@@ -29,6 +30,8 @@ import model.messageboard.messageboardservice;
 public class messageController {
 	@Autowired
 	private messageboardservice service;
+	@Autowired
+	private  returnmessageService  returnmessage;
 
 	@Autowired
 	private ApplicationContext context;
@@ -67,6 +70,7 @@ public class messageController {
 	@RequestMapping(value = {"*/membermessagedelete"})
 	public String method2(Model model,MessageboardBean bean ) {
 	System.out.println("bean =" +bean);
+	  returnmessage.delete(bean.getMessageboardid());
 	 service.delete(bean);
      List<MessageboardBean>  temp = service.selectByPermission("public");
      System.out.println("temp =" +temp);

@@ -35,6 +35,7 @@ import model.member.MemberBean;
 import model.messageboard.MessageboardBean;
 import model.pet.PetBean;
 import model.petEncyclopedia.PetEncyclopediaBean;
+import model.returnmessage.ReturnMessageBean;
 import model.shoporder.ShoporderBean;
 import model.verificationCode.VerificationCodeBean;
 
@@ -88,7 +89,7 @@ public class SpringJavaConfiguration {
 		builder.addAnnotatedClass(PetBean.class);
 		builder.addAnnotatedClass(PetDetailBean.class);
 		builder.addAnnotatedClass(MessageboardBean.class);
-
+		builder.addAnnotatedClass(ReturnMessageBean.class);
 
 
 		return builder.buildSessionFactory();
