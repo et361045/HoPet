@@ -145,6 +145,11 @@
     	class="org.springframework.web.servlet.view.InternalResourceView">
 		<property value="/fostercarecommission" name="url"/>
 	</bean>
+	
+	<bean id="fostercareform"
+    	class="org.springframework.web.servlet.view.InternalResourceView">
+		<property value="/pages/testfff.jsp" name="url"/>
+	</bean>
 
 	
 

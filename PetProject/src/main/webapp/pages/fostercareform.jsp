@@ -12,31 +12,6 @@
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
-var contextPath = "${pageContext.request.contextPath}";
-$(document).ready(function() {
-	$('input[name="fostercareCommissionid"]').blur(function() {
-		$.ajax({
-			method: "GET",
-			url: contextPath+"/pages/fostercareform.view",
-			data: "id="+$('input[name="fostercareCommissionid"]').val(),
-			dataType: "json",
-			cache: false,
-			async: true,
-			success: function(json) {
-				$(".error").first().append(json[0].text);
-				if(json[0].hasMoreData) {
-					$("input[name='fostercareCommissionid']").val(json[1].fostercareCommissionid);
-					$("input[name='carer']").val(json[1].carer);
-					$("input[name='status']").val(json[1].status);	
-				}
-			}
-		});
-	});
-	$("input[name='fostercareCommissionid']").focus(function() {
-		clearForm();
-		$(".error").first().html("");
-	});
-});
 function clearForm() {
 	var inputs = document.getElementsByTagName("input");
 	for(var i=0; i<inputs.length; i++) {
@@ -76,6 +51,7 @@ function clearForm() {
 			<input type="submit" name="fostercareform" value="Insert">
 		</td>
 		<td>
+			<input type="submit" name="fostercareform" value="Select">
 			<input type="submit" name="fostercareform" value="Delete">
 			<input type="button" value="Clear" onclick="clearForm()">
 		</td>
