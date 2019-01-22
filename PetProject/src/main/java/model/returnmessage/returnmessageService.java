@@ -17,5 +17,11 @@ public class returnmessageService {
  }
  
  
+ public void delete(int t) {
+	 Dao.delete(t);
+	 
+ }
+ 
+ 
  
 }

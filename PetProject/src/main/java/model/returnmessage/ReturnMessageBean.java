@@ -18,6 +18,8 @@ public class ReturnMessageBean {
 	private String message;
 	private Integer messageboardid;
 	private Integer point;
+	
+	
 	public Integer getReturnmessageID() {
 		return returnmessageID;
 	}

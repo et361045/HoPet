@@ -65,5 +65,14 @@ public class ReturnMessageHibernate implements ReturnMessageDAO {
 		
 		return this.getSession().get(ReturnMessageBean.class, id);
 	}
+
+	@Override
+	public boolean delete(int Messageboardid) {
+	  List<ReturnMessageBean> temp = this.findbymessageboardid(Messageboardid);
+	  for(int i=0;i<temp.size();i++) {
+		   this.getSession().delete(temp.get(i));
+	  }
+		return false;
+	}
 	
 }
