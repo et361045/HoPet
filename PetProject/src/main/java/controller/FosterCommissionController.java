@@ -25,25 +25,20 @@ public class FosterCommissionController {
 	@RequestMapping("fosterCommission")
 	public void insertFosterCommission(Model model, FosterCommissionBean fosterCommissionBean) {
 		FosterCommissionBean newBean = fosterCommissionService.insertFosterCommission(fosterCommissionBean);
-//		System.out.println(fosterCommissionBean);
 		model.addAttribute("newBean", newBean);
-//		System.out.println(newBean);
 
 	}
 
 	@ResponseBody
 	@RequestMapping("insertFosterForm")
-	public String insertFosterForm(FosterFormBean fosterFormBean,
+	public void insertFosterForm(FosterFormBean fosterFormBean,
 			@RequestParam(value = "adoptionpetId") Integer petId) {
 		fosterFormService.insertFosterForm(fosterFormBean, petId);
-
-		return "fosterCommission";
 	}
 
 	@RequestMapping("findFosterForm")
 	public String findAll(Model model) {
 		model.addAttribute("findallbean", fosterCommissionService.searchAllFosterCommission());
-		System.out.println(fosterCommissionService.searchAllFosterCommission());
 		return "fosterCommission";
 	}
 

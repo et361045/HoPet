@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,23 +17,27 @@ import model.pet.PetDAO;
 public class FosterCommissionService {
 	@Autowired
 	private FosterCommissionDao fosterCommissionDao;
-	@Autowired 
+	@Autowired
 	private PetDAO petDAO;
 	@Autowired
 	private MemberDAO memberDAO;
-	
 
-		public List<FosterCommissionBean> searchFosterCommission(String area, String variety) {
-			if(area == "" && variety == "") {
-				return fosterCommissionDao.findAllFosterCommission();
-			}else if(area != "" && variety == "") {
-				return fosterCommissionDao.findByAreaFosterCommission(area);
-			}else if(area == "" && variety != "") {
-				return fosterCommissionDao.findByVarietyFosterCommission(variety);
-			}else
-				return  fosterCommissionDao.findByAreaAndVarietyFosterCommission(area, variety);
-		}	
-		
+	public void deleteFosterCommission(Integer petId) {
+		if (fosterCommissionDao.findByPetId(petId) != null) {
+			fosterCommissionDao.deleteByPetId(petId);
+		}
+	}
+
+	public List<FosterCommissionBean> searchFosterCommission(String area, String variety) {
+		if (area == "" && variety == "") {
+			return fosterCommissionDao.findAllFosterCommission();
+		} else if (area != "" && variety == "") {
+			return fosterCommissionDao.findByAreaFosterCommission(area);
+		} else if (area == "" && variety != "") {
+			return fosterCommissionDao.findByVarietyFosterCommission(variety);
+		} else
+			return fosterCommissionDao.findByAreaAndVarietyFosterCommission(area, variety);
+	}
 
 	public PetDetailBean searchPetId(Integer petId) {
 		FosterCommissionBean CommissionBean = fosterCommissionDao.findByPetId(petId);
@@ -52,7 +55,7 @@ public class FosterCommissionService {
 		detailBean.setRemark(CommissionBean.getRemark());
 		return detailBean;
 	}
-	
+
 	public FosterCommissionBean searchFosterCommissionId(Integer fosterCommissionId) {
 		FosterCommissionBean bean = fosterCommissionDao.findByFosterCommissionId(fosterCommissionId);
 		if (bean != null) {
@@ -60,6 +63,7 @@ public class FosterCommissionService {
 		}
 		return null;
 	}
+
 	public List<FosterCommissionBean> searchAllFosterCommission() {
 		List<FosterCommissionBean> bean = fosterCommissionDao.findAllFosterCommission();
 		return bean;
@@ -79,6 +83,7 @@ public class FosterCommissionService {
 		commissionBean.setVariety(petbean.getPetVariety());
 		commissionBean.setPicture(petbean.getPetPicture());
 		commissionBean.setOwner(petbean.getMemberid());
+		commissionBean.setPetName(petbean.getPetName());
 		commissionBean.setName(fosterCommissionBean.getName());
 		commissionBean.setArea(fosterCommissionBean.getArea());
 		commissionBean.setPetId(fosterCommissionBean.getPetId());

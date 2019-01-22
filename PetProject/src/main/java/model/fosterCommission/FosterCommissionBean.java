@@ -13,6 +13,7 @@ public class FosterCommissionBean {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer fosterCommissionId;
 	private String name;
+	private String petName;	
 	private String variety;
 	private String area;
 	private Integer owner;
@@ -31,6 +32,12 @@ public class FosterCommissionBean {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getPetName() {
+		return petName;
+	}
+	public void setPetName(String petName) {
+		this.petName = petName;
 	}
 	public String getVariety() {
 		return variety;
@@ -76,11 +83,12 @@ public class FosterCommissionBean {
 	}
 	@Override
 	public String toString() {
-		return "FosterCommissionBean [fosterCommissionId=" + fosterCommissionId + ", name=" + name + ", variety="
-				+ variety + ", area=" + area + ", owner=" + owner + ", reason=" + reason + ", picture=" + picture
-				+ ", remark=" + remark + ", petId=" + petId + "]";
+		return "FosterCommissionBean [fosterCommissionId=" + fosterCommissionId + ", name=" + name + ", petName="
+				+ petName + ", variety=" + variety + ", area=" + area + ", owner=" + owner + ", reason=" + reason
+				+ ", picture=" + picture + ", remark=" + remark + ", petId=" + petId + "]";
 	}
 
+	
 	
 	
 }

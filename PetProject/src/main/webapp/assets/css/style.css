@@ -1219,7 +1219,7 @@ img{
 }
 
 .price-article ul li:last-child{
-	border: none;
+/* 	border: none; */
 }
 
 .price-footer{

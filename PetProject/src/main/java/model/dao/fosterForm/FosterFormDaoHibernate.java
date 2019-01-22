@@ -1,5 +1,7 @@
 package model.dao.fosterForm;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import model.fosterForm.FosterFormBean;
 import model.fosterForm.FosterFormDao;
+
 @Repository
 public class FosterFormDaoHibernate implements FosterFormDao {
 
@@ -15,6 +18,24 @@ public class FosterFormDaoHibernate implements FosterFormDao {
 
 	public Session getSession() {
 		return sessionFactory.getCurrentSession();
+	}
+
+	@Override
+	public List<FosterFormBean> findByonwer(Integer owner) {
+		return this.getSession().createQuery("from FosterFormBean where owner='" + owner + "'").list();
+	}
+
+	@Override
+	public void deleteByPetId(Integer petId) {
+		List<FosterFormBean> temp= this.findByPetId(petId);
+		for(int i=0;i<temp.size();i++) {
+			this.getSession().delete(temp.get(i));
+		}     
+	}
+
+	@Override
+	public List<FosterFormBean> findByPetId(Integer petId) {
+		return this.getSession().createQuery("from FosterFormBean where petId='" + petId + "'",FosterFormBean.class).list();
 	}
 
 	@Override

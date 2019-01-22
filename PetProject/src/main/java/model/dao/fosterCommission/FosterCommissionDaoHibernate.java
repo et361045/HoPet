@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import model.fosterCommission.FosterCommissionBean;
 import model.fosterCommission.FosterCommissionDao;
-import model.member.MemberBean;
+import model.fosterForm.FosterFormBean;
 
 @Repository
 public class FosterCommissionDaoHibernate implements FosterCommissionDao {
@@ -22,26 +22,41 @@ public class FosterCommissionDaoHibernate implements FosterCommissionDao {
 	}
 
 	@Override
-	public FosterCommissionBean findByPetId(Integer petId) {		
-		Query<FosterCommissionBean> query = this.getSession().createQuery("from FosterCommissionBean where petId='"+petId+"'");
+	public void deleteByPetId(Integer petId) {
+		FosterCommissionBean temp = this.findByPetId(petId);
+		this.getSession().delete(temp);
+	}
+
+	@Override
+	public List<FosterCommissionBean> findByOwner(Integer Owner) {
+		return this.getSession().createQuery("from FosterCommissionBean where owner='" + Owner + "'").list();
+	}
+
+	@Override
+	public FosterCommissionBean findByPetId(Integer petId) {
+		Query<FosterCommissionBean> query = this.getSession()
+				.createQuery("from FosterCommissionBean where petId='" + petId + "'");
 		FosterCommissionBean CommissionBean = query.uniqueResult();
 		return CommissionBean;
 	}
 
 	@Override
 	public List<FosterCommissionBean> findByVarietyFosterCommission(String variety) {
-		return this.getSession().createQuery("from FosterCommissionBean where variety='"+variety+"'").list();
+		return this.getSession().createQuery("from FosterCommissionBean where variety='" + variety + "'").list();
 	}
 
 	@Override
-	public List<FosterCommissionBean> findByAreaAndVarietyFosterCommission(String area,String variety) {
-		return this.getSession().createQuery("from FosterCommissionBean where area='"+area+"' and variety='"+variety+"'").list();
+	public List<FosterCommissionBean> findByAreaAndVarietyFosterCommission(String area, String variety) {
+		return this.getSession()
+				.createQuery("from FosterCommissionBean where area='" + area + "' and variety='" + variety + "'")
+				.list();
 	}
 
 	@Override
 	public List<FosterCommissionBean> findByAreaFosterCommission(String area) {
-		return this.getSession().createQuery("from FosterCommissionBean where area='"+area+"'").list();
+		return this.getSession().createQuery("from FosterCommissionBean where area='" + area + "'").list();
 	}
+
 	@Override
 	public List<FosterCommissionBean> findAllFosterCommission() {
 
