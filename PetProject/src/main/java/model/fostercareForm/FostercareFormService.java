@@ -26,7 +26,15 @@ public class FostercareFormService {
 	}
 	
 	
-	
+	public List<FostercareFormBean> selectFostercareCommission (FostercareFormBean bean) {
+		List<FostercareFormBean> result = null;
+		if(bean!=null && bean.getFostercareCommissionid()!=null) {
+			FostercareFormBean temp = (FostercareFormBean) fostercareFormDao.findCommissionid(bean.getFostercareCommissionid());
+			return result;
+		}else {
+			return null;
+		}
+	}
 	
 	
 	
