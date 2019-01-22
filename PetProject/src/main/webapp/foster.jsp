@@ -275,8 +275,8 @@
 <!-- 								<li><a id ="xxx" href="" onclick='check()' data-toggle="" data-target="">申請送養</a></li> -->
 								<li><a id="application_foster" onclick="check()" data-toggle="" data-target="">申請送養</a></li>
 							</ul></li>
-						<li><a href="">寵物旅遊</a></li>
-						<li><a href="">寵物商城</a></li>
+<!-- 						<li><a href="">寵物旅遊</a></li> -->
+<!-- 						<li><a href="">寵物商城</a></li> -->
 						<li><a href="">寵物活動</a></li>
 					</ul>
 				</div>
@@ -745,8 +745,12 @@
 			$.ajax({
 				url : "insertFosterForm?" + form +"&adoptionpetId="+ adoptionpetId,
 				type : "GET",
-			}).done(function(response) {
-				alert(response)
+			}).done(function() {
+				Swal({
+					  type: 'success',
+					  title: '領養申請成功',
+					  showConfirmButton:false,
+					})
 				$("#adoptionModal").modal('hide');
 			})
 		})

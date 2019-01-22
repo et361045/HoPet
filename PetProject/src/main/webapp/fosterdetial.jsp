@@ -287,11 +287,8 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="title-area">
-						<h2 class="title">Our Pricing Tables</h2>
+						<h2 class="foster_title">送養詳細資料</h2>
 						<span class="line"></span>
-						<p>There are many variations of passages of Lorem Ipsum
-							available, but the majority have suffered alteration in some
-							form, by injected humour</p>
 					</div>
 				</div>
 				<div class="col-md-12">
@@ -312,6 +309,36 @@
 													onclick="deletefoster(${petnames.petId})"
 													class="fa fa-trash" style="margin-top: 4px; float: right;"
 													title="刪除送養"></a></li>
+											</c:forEach>
+										</ul>
+									</div>
+								</div>
+								<div class="foster_detial_price" data-wow-duration="0.5s"
+									data-wow-delay="0.5s">
+									<div class="foster_detial_header" style="height: 40px;">
+										<div>
+											<span class="foster_detial_down">送養成功</span>
+										</div>
+									</div>
+									<div class="foster_detial_article" style="margin-bottom: 10px;">
+										<ul>
+											<c:forEach var="fostersuccess" items="${fostersuccess}">
+												<li>${fostersuccess.petname}　送養給　${fostersuccess.carername}</li>
+											</c:forEach>
+										</ul>
+									</div>
+								</div>
+								<div class="foster_detial_price" data-wow-duration="0.5s"
+									data-wow-delay="0.5s">
+									<div class="foster_detial_header" style="height: 40px;">
+										<div>
+											<span class="foster_detial_down">收養成功</span>
+										</div>
+									</div>
+									<div class="foster_detial_article" style="margin-bottom: 10px;">
+										<ul>
+											<c:forEach var="adoptionsuccess" items="${adoptionsuccess}">
+												<li>您從　${adoptionsuccess.ownername}　收養　${adoptionsuccess.petname}</li>
 											</c:forEach>
 										</ul>
 									</div>
@@ -337,7 +364,7 @@
 											</ul>
 										</div>
 										<div class="foster_detial_footer">
-											<a class="foster_detial_btn" href="#">就是他了!!</a>
+											<a id="${foster_form.carer}"class="foster_detial_btn" onclick="fostersuccess(${foster_form.carer},${foster_form.petId})">就是他了!!</a>
 										</div>
 									</div>
 								</div>
@@ -440,6 +467,33 @@
 					 else {}
 					});		
 				}
+		
+		
+		function fostersuccess(carerId,petId){		
+			swal({
+				  title: "確認送養？",
+				  icon: "warning",
+				  buttons: true,
+				  dangerMode: true,
+				}).then((willcancel) => {
+					if (willcancel) {
+						$.ajax({
+							url : 'fostersuccess?carerId='+carerId+'&petId='+petId,
+			 				type : 'GET',
+						}).done(function(){								
+							swal({
+								title: "送養成功",
+								  icon: "success",
+								  button: "確認",
+								}).then(() => {								  
+									  window.location.reload();							
+								});												
+							})
+						}						
+					 else {}
+					});		
+				}		
+		
 	</script>
 </body>
 
