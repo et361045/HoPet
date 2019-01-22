@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import model.activityCommission.ActivityCommissionBean;
 import model.activityCommission.ActivityCommissionDAO;
+import model.fostercareCommission.FostercareCommissionBean;
 
 @Repository
 public class ActivityCommissionDaoHibernate implements ActivityCommissionDAO{
@@ -23,6 +24,14 @@ public class ActivityCommissionDaoHibernate implements ActivityCommissionDAO{
 	public Session getSession() {
 		return this.sessionFactory.getCurrentSession();
 	}
+	
+	@Override
+	public  ActivityCommissionBean findByactivityId(Integer activityid) {		
+		Query<ActivityCommissionBean> query = this.getSession().createQuery("from ActivityCommissionBean where activityid='"+activityid+"'");
+		ActivityCommissionBean CommissionBean = query.uniqueResult();
+		return CommissionBean;
+	}
+	
 	
 	
 	

@@ -1,5 +1,12 @@
 @import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
 
+/* 顯示 */
+.sendback{
+	
+	font-size: 20px;
+	}
+
+
 .col-xs-12{
 	width: 150px;
  	margin:5px;
@@ -20,7 +27,7 @@
 	font-weight: 800;
 	display: inline;
 	margin: 50px;
-	color:black;
+/* 	color:black; */
 	letter-spacing: 4px;
 }
 
@@ -204,10 +211,11 @@ hr {
 
 #content {
 	float: left;
-	width: 1800px;
+	width: 1000px;
 	padding: 20px;
-	background: rgba(0,0,0,0.70);
+/* 	background: rgba(0,0,0,0.70); */
 	display: inline-block;
+	border-style:dashed;
 }
 
 #content h2 a
@@ -215,7 +223,8 @@ hr {
 	
 	padding: 0px 0px 20px 20px;
 	text-decoration: none;
-	color: #FFFFFF;
+	color: #400080;
+	
 }
 
 #content #box1
@@ -252,19 +261,21 @@ ul.style1 li {
 	clear: both;
 	margin-bottom: 25px;
 	padding: 20px 0px 40px 0px;
-	border-top: 1px solid #000000;
+	border-top: 5px solid #000000;
 	box-shadow: inset 0 1px 0 rgba(255,255,255,.10);
+
 }
 
 ul.style1 h3 {
 	display: block;
 	padding: 10px 0px 10px 0px;
 	font-size: 14px;
-	color: #FFFFFF;
+	color: #400080;
 }
 
 ul.style1 p {
 	line-height: 150%;
+	font-size: 25px;
 }
 
 ul.style1 .button-style {
@@ -280,6 +291,7 @@ ul.style1 .first {
 	padding-top: 0px;
 	border-top: none;
 	box-shadow: none;
+	
 }
 
 /** LIST STYLE 3 */
