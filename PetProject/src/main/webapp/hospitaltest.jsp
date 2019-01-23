@@ -465,7 +465,7 @@ body, input {
 				</div>
 			</form>
 			<div class="map_search_select_behide">
-			
+<c:if test="${user.memberPermission == 'Manager'}">			
 <form action="<c:url value="/hospitaltest.controller" />"method="get">
 <table>
  <tr>
@@ -511,6 +511,7 @@ body, input {
  </tr>
 </table>
 				</form>
+				</c:if>
 <c:if test="${not empty insert}">
  <h3>新增成功</h3>
  <script type="text/javascript">clearForm()</script>

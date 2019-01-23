@@ -20,5 +20,7 @@ public interface FostercareCommissionDao {
 			String variety, String area,Date starttime,Date endtime,Integer owner,String reason,String picture,String remark,Integer fostercareCommissionid);
 
 	public abstract boolean remove(Integer fostercareCommissionid);
+	
+
 }
 

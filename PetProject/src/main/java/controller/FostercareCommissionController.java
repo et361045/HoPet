@@ -40,6 +40,7 @@ public class FostercareCommissionController {
 			Integer petid) {
 		System.out.println("hihiiihi");
 		MemberBean usertemp  = (MemberBean) model.asMap().get("user");
+		System.out.println(usertemp);
 		fostercareFormBean.setCarer(usertemp.getMemberId());
 		System.out.println(fostercareFormBean);
 		System.out.println("petid ="+petid);

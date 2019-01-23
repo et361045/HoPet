@@ -44,6 +44,7 @@ public class FostercareFormController {
 			return "fostercareform.errors";
 		}if ("Select".equals(fostercareform)) {
 			List<FostercareFormBean> result = fostercareFormService.select(bean);
+			System.out.println("select =" +result);
 			model.addAttribute("select", result);
 			return "fostercareform";
 
