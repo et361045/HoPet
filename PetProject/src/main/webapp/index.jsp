@@ -255,11 +255,18 @@
 								<li><a  href="/PetProject/fodd" >寄養委託查詢</a></li>
 								<li><a href="/PetProject/member/membermessage"><span class="fa fa-search"></span>動態消息 </a></li>
 							</ul></li>
-						<li><a href="">寵物生活館</a></li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown">寵物生活館 <span class="fa fa-angle-down"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="">醫院</a></li>
+								<li><a href="StoreMap.jsp">商家</a></li>
+								<li><a href="">景點</a></li>
+							</ul></li>
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown">寵物百科 <span class="fa fa-angle-down"></span></a>
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="dog.jsp">Dog</a></li>
+								
 							</ul></li>
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown">寄養&領養<span class="fa fa-angle-down"></span></a>
@@ -275,7 +282,6 @@
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 						    data-toggle="dropdown">寵物活動<span class="fa fa-angle-down"></span></a>
 						<ul class="dropdown-menu" role="menu">
-						
 							<li><a href="/PetProject/activityCommission">一起去旅遊</a></li>
 					
 					</ul>

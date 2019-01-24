@@ -151,7 +151,7 @@ public class BusinessInformationController {
 			} else {
 				model.addAttribute("insert", result);
 			}
-			return "businessInformation.errors";
+			return "businessInformation";
 
 		} else {
 			errors.put("action", "unknown action: " + businessInformation);
