@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>Intensely : Home</title>
+<title>HoPet留言板</title>
 <!-- Favicon -->
 <link rel="shortcut icon" type="image/icon"
 	href="/PetProject/assets/images/favicon.ico" />
@@ -407,21 +407,24 @@
 															</div>
 														</c:if>
 														<div
-															style="width: 905px; border: black 2px solid; border-top: 0px;">
-															<form action="<c:url value='insertreturn'/>" method="post">
-															<input type="text" style="display: none" name="messageboardid" value="${bean.messageboardid}">
-															<input type="text" class="text" name="message"
-																style="width: 800px; height: 32px; border: 0px; outline: none"
-																placeholder="請輸入訊息">
-																<input class="btn btn-link" type="submit" value="送出" style="width: 90px; font-size: 18px; font-family: 'cwTeXYen';">	
-														</form>
+															style="width: 905px; border: black 2px solid; border-top: 0px;border-bottom: 0px;">
+<%-- 															<form action="<c:url value='insertreturn'/>" method="post"> --%>
+<%-- 															<input type="text" style="display: none" name="messageboardid" value="${bean.messageboardid}"> --%>
+<!-- 															<input type="text" class="text" name="message" -->
+<!-- 																style="width: 800px; height: 32px; border: 0px; outline: none" -->
+<!-- 																placeholder="請輸入訊息"> -->
+<!-- 																<input class="btn btn-link" type="submit" value="送出" style="width: 90px; font-size: 18px; font-family: 'cwTeXYen';">	 -->
+<!-- 														</form> -->
 														</div>
-														
-														<div style="width: 905px; border: black 2px solid; border-top: 0px;">
-															安安
-														</div>
-														
-														
+<%-- 														<c:if  test='${!empty bean.returnMessageBeans}' > --%>
+<!-- 														<div style="width: 905px; border-top: 0px;margin: 0px;margin-bottom: 20px;border-bottom: 0px"> -->
+<%-- 														<c:forEach var="bean" items="${bean.returnMessageBeans}"> --%>
+<!-- 														<div style="width: 905px; margin: 0px; border: black 2px solid;"> -->
+<%-- 															${bean.message} --%>
+<!-- 														</div> -->
+<%-- 														</c:forEach> --%>
+<!-- 														</div> -->
+<%-- 														</c:if> --%>
 													</div>
 												</div>
 											</c:forEach>

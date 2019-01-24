@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>Intensely : Home</title>
+<title>HoPet會員資料</title>
 <!-- Favicon -->
 <link rel="shortcut icon" type="image/icon"
 	href="/PetProject/assets/images/favicon.ico" />
@@ -302,8 +302,7 @@
 				<div class="col-md-12">
 					<div class="title-area">
 						<c:if test="${user.checkSuccess == 0}">
-							<c:out
-								value='	<h2 class="code">請輸入信箱驗證碼</h2>
+							<h2 class="code">請輸入信箱驗證碼</h2>
 						<span class="line" style="width: 200px"></span>
 						<p class="text">
 							驗證碼:<input type="text" class="entercode" id="vcode"><input
@@ -311,8 +310,8 @@
 								style="font-size: 18px;"><input type="submit" value="提交"
 								class=" btn btn-success"
 								style="font-size: 18px; margin-left: 15px" id="check">
-						</p>'
-								escapeXml="false" />
+						</p>
+							
 						</c:if>
 					</div>
 				</div>

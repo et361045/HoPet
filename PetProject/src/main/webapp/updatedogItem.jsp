@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -9,8 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>Intensely : Home</title>
-<!-- Favicon -->
+<title>updatedogitem</title>
 <link rel="shortcut icon" type="image/icon"
 	href="/PetProject/assets/images/favicon.ico" />
 <!-- Font Awesome -->
@@ -34,33 +32,15 @@
 	href="/PetProject/assets/css/theme-color/default-theme.css"
 	rel="stylesheet">
 
-<!-- member css -->
-
-<link href="/PetProject/assets/css/member.css" rel="stylesheet">
-
 <!-- Main Style -->
-<link href="/PetProject/assets/css/memberstyle.css" rel="stylesheet">
+<link href="/PetProject/assets/css/style.css" rel="stylesheet">
 <!-- login Style -->
 <link href="/PetProject/assets/css/login/login.css" rel="stylesheet">
-<!-- icon -->
-<link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-	integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
-	crossorigin="anonymous">
-<!-- alert -->
-<link
-	href="//cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.10/alertify.core.css"
-	rel="stylesheet">
-<link
-	href="//cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.10/alertify.default.css"
-	rel="stylesheet">
-
-<!--  活動主畫面 -->
-
-<link rel="stylesheet" href="assets/css/activityhomeframe.css">
-
-
-
+<script defer
+	src="https://use.fontawesome.com/releases/v5.6.3/js/all.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.14/jquery.twzipcode.min.js"></script>
 <!-- Fonts -->
 
 <!-- Open Sans for body font -->
@@ -70,14 +50,27 @@
 <link href='https://fonts.googleapis.com/css?family=Lato'
 	rel='stylesheet' type='text/css'>
 
-
-
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+<link href="/PetProject/assets/css/dogItem/dog.css" rel="stylesheet">
+<style>
+p {
+	font-family:微軟正黑體;
+	font-size: 30px;
+	color: gray;
+}
+textarea {
+	font-family:微軟正黑體;
+	font-size: 20px;
+	font-weight: 800;
+	border-radius: 4px;
+	margin-bottom: 20px;
+}
+</style>
 </head>
 <body>
 
@@ -122,16 +115,20 @@
 									value="<span class='Username' >HI, ${user.memberName} </span>"
 									escapeXml="false" />
 								<c:out
-									value="  <a class='login modal-form' id='Logout'> Logout</a>"
+									value="  <a class='login modal-form' id='Logout'> Logout</button>"
 									escapeXml="false" />
 							</c:if>
 
 							<c:if test="${empty  user}">
 								<c:out
 									value=" <a class='login modal-form' data-target='#login-form'
-								data-toggle='modal' href='#'>Login / Sign Up</a>"
+								data-toggle='modal' href='#' id='Login'>Login / Sign Up</a>"
 									escapeXml="false" />
 							</c:if>
+
+
+
+
 						</div>
 					</div>
 				</div>
@@ -174,7 +171,7 @@
 					</form>
 				</div>
 				<div class="modal-footer footer-box">
-					<a href="#">Forgot password ?</a>
+					<a href="#" id="forgotpsw">Forgot password ?</a>
 					<p>
 					<div>
 						No account ? <a id="signup-btn" href="#">Sign Up.</a>
@@ -193,7 +190,7 @@
 					</h4>
 				</div>
 				<div class="modal-body">
-					<form id="signon" action="<c:url value='signon'/>">
+					<form id="signon" action="<c:url value='/signon'/>">
 						<div class="form-group">
 							<input type="email" placeholder="User email" class="form-control"
 								title="請輸入信箱" name="email">
@@ -256,9 +253,8 @@
 					</button>
 					<!-- LOGO -->
 					<!-- TEXT BASED LOGO -->
-					<a href="/PetProject/index.jsp"> <img
-						src="/PetProject/assets/images/logo.png" class="logo_img">
-					</a>
+					<a href="index.jsp"><img
+						src="/PetProject/assets/images/logo.png" class="logo_img"></a>
 					<!-- IMG BASED LOGO  -->
 					<!-- <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" alt="logo"></a> -->
 				</div>
@@ -267,194 +263,60 @@
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown">會員中心 <span class="fa fa-angle-down"></span></a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="member.jsp">會員資料</a></li>
-								<li><a href=""><span class="fa fa-search"></span>搜尋好友 </a></li>
+								<li><a href="/PetProject/member/member.jsp">會員資料</a></li>
+
+								<li><a id="fosteritem" onclick="fostercheck()">送養資料</a></li>
+								<li><a href="/PetProject/member/membermessage"><span class="fa fa-search"></span>動態消息 </a></li>
 							</ul></li>
 						<li><a href="">寵物生活館</a></li>
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown">寵物百科 <span class="fa fa-angle-down"></span></a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="">Dog</a></li>
-								<li><a href="">Cat</a></li>
+								<li><a href="dog.jsp">Dog</a></li>
 							</ul></li>
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown">寄養&送養<span class="fa fa-angle-down"></span></a>
+							data-toggle="dropdown">寄養&領養<span class="fa fa-angle-down"></span></a>
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="">寄養</a></li>
-								<li><a href="">送養</a></li>
+								<li><a href="findFosterForm">領養</a></li>
+<!-- 								<li><a id ="xxx" href="" onclick='check()' data-toggle="" data-target="">申請送養</a></li> -->
+								<li><a id="application_foster" onclick="check()" data-toggle="" data-target="">申請送養</a></li>
 							</ul></li>
-						<li><a href="">寵物旅遊</a></li>
-						<li><a href="">寵物商城</a></li>
-						<li><a href="">寵物活動</a></li>
+						
+<!-- 						<li><a href="">寵物旅遊</a></li> -->
+<!-- 						<li><a href="">寵物商城</a></li> -->
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+						    data-toggle="dropdown">寵物活動<span class="fa fa-angle-down"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="ActivityHome.jsp">活動首頁</a></li>
+							<li><a href="/PetProject/activityCommission">一起去旅遊</a></li>
+							<li><a href="">查詢參加活動</a></li>
 					</ul>
 				</div>
 				<!--/.nav-collapse -->
-				<a href="#" id="search-icon"> <i class="fa fa-search" style="">
-				</i>
+				<a href="#" id="search-icon"> <i class="fa fa-search"> </i>
 				</a>
 			</div>
 		</nav>
 	</section>
-
-
-<div class="content page1">
-  <div class="container_12_new">
-  	
-  	<div class="col-xs-12">
-		<ul>
-			<li><a href="http://www.yahoo.com" target="" title="" style="color:black;">創建文章</a></li>
-			<li><a href="http://www.yahoo.com" target="" title="" style="color:black;">瀏覽文章</a></li>
-			<li><a href="http://www.yahoo.com" target="" title="" style="color:black;">今日最新</a></li>
-			<li><a href="http://www.yahoo.com" target="" title="" style="color:black;">瀏覽最高</a></li>
-		</ul>				
-	</div>
-	
-	<div class="col-xs-22">
-		<ul>
-			<li><a href="http://www.yahoo.com" target="" title="" style="color:black;">New活動登記表</a></li>
-			<li><a href="http://www.yahoo.com" target="" title="" style="color:black;">正在參加的活動</a></li>
-		</ul>
-	</div>
-	
-	
-	
-<div id="page" class="container">
-			<div id="content">
-				<div id="box1">
-					<h2 class="title">
-						<a href="#">活動挖挖挖</a>
-					</h2>
-					<p>
-						
-					</p>
-				</div>
-				<div>
-					<ul class="style1">
-						<li class="first">
-							<h3>
-								<em><img src="images/girl1.jpg" alt="" width="130"
-									height="130" class="alignleft border" /></em>劉德安小三
-							</h3>
-							<p>挖靠有活動.....................</p>
-							<p>
-								<a href="#" class="button-style">Read More</a>
-							</p>
-						</li>
-						<li>
-							<h3>
-								<em><img src="images/girl2.jpg" alt="" width="130"
-									height="130" class="alignleft border" /></em>建良老婆
-							</h3>
-							<p>挖靠有活動~~~~~~~~~~~~~~~~~~~</p>
-							<p>
-								<a href="#" class="button-style">Read More</a>
-							</p>
-						</li>
-						<li>
-							<h3>
-								<em><img src="images/girl3.jpg" alt="" width="130"
-									height="130" class="alignleft border" /></em>劉偉師小三
-							</h3>
-							<p>挖靠有活動!!!!!!!!!!!!!!!!!!!!!</p>
-							<p>
-								<a href="#" class="button-style">Read More</a>
-							</p>
-						</li>
-						<li>
-							<h3>
-								<em><img src="images/girl4.jpg" alt="" width="130"
-									height="130" class="alignleft border" /></em>JACK小三
-							</h3>
-							<p>挖靠有活動!!!!!!!!!!!!!!!!!!!!!</p>
-							<p>
-								<a href="#" class="button-style">Read More</a>
-							</p>
-						</li>
-						
-						
-					</ul>
-				</div>
-			</div>
-			<div id="sidebar">
-				<h2>好友新訊息</h2>
-				<ul class="style3">
-					<li class="first">
-						<p class="date">12-22-2018</p>
-						<p>
-							<a href="#">今晚出來溜狗吃飯啊</a>
-						</p>
-					</li>
-					<li>
-						<p class="date">12-23-2018</p>
-						<p>
-							<a href="#">你的狗太可愛了吧</a>
-						</p>
-					</li>
-					<li>
-						<p class="date">12-24-2018</p>
-						<p>
-							<a href="#">不如跳舞</a>
-						</p>
-					</li>
-				</ul>
-			</div>
+	<!-- END MENU -->
+	<div style="padding:40px;">
+	<form id="updatedog">
+	    <input name="petEncyclopediaId" value="${bean.petEncyclopediaId}"type="hidden">
+		<p>修改介紹</p>
+		<textarea name="petData" rows="6" cols="100">${bean.petData}</textarea>
+		<p>修改特徵</p>
+		<textarea name="feature" rows="6" cols="100">${bean.feature}</textarea>
+		<p>修改起源與歷史</p>
+		<textarea name="origin" rows="6" cols="100">${bean.origin}</textarea>
+		<p>修改飼養要領</p>
+		<textarea name="essentials" rows="6" cols="100">${bean.essentials}</textarea>
+	</form>
+		<div style="float:right;padding-right: 300px;">
+		<input type="button" value="修改完成" id="updatesuccess"/>
 		</div>
 	</div>
-</div>
-
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-
-
 	<!-- Start footer -->
 	<footer id="footer">
 		<div class="container">
@@ -481,15 +343,9 @@
 	<!-- End footer -->
 
 	<!-- jQuery library -->
-
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
-
-	<!-- updatemember js -->
-	<script type="text/javascript" src="/PetProject/assets/js/update.js"></script>
-
-
 	<!-- Bootstrap -->
 	<script src="/PetProject/assets/js/bootstrap.js"></script>
 	<!-- Slick Slider -->
@@ -514,17 +370,26 @@
 	<!--Signon   -->
 	<script type="text/javascript"
 		src="/PetProject/assets/css/SignOn/SignOn.js"></script>
-
-
 	<!-- Custom js -->
 	<script type="text/javascript" src="/PetProject/assets/js/custom.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.all.min.js"></script>
+	<script>
+	$("#updatesuccess").click(function() {
+		var form = $("#updatedog").serialize();
+		$.ajax({
+			url : "dogItem?" + form,
+			type : "GET",
+		}).done(function() {
+			Swal({
+				  type: 'success',
+				  title: '資料更新成功',
+				  showConfirmButton:false,
 
-
-
-	<!-- alert -->
-
-	<script
-		src="//cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.10/alertify.min.js"></script>
-
+				}).then(function(){
+					window.location.href="dogItem?" + form;
+				});			 
+		})
+	})
+	</script>
 </body>
 </html>

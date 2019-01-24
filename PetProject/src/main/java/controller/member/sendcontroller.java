@@ -51,7 +51,7 @@ public class sendcontroller {
 	@Autowired
 	private ApplicationContext context;
 	
-@RequestMapping(value = {"send"})
+    @RequestMapping(value = {"*/send","send"})
    public void method(Model model) {
    System.out.println("entert email");
   

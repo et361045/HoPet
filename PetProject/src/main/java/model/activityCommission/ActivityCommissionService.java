@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import model.member.MemberBean;
 import model.member.MemberDAO;
 
 @Service
@@ -24,22 +25,25 @@ public class ActivityCommissionService {
 		this.activityCommissionDAO = activityCommissionDAO;
 	}
 	
-//	public PetDetailBean searchPetId(Integer petid) {
-//		FostercareCommissionBean CommissionBean = fostercareDao.findByPetId(petid);
+	public ActivityDetailBean searchformId(Integer activityid) {
+		ActivityCommissionBean CommissionBean = activityCommissionDAO.findByactivityId(activityid);
 //		PetBean petbean = petDAO.findpetBean(petid);
-//		MemberBean memberBean = memberDAO.findMemberBean(CommissionBean.getOwner());
-//		PetDetailBean detailBean = new PetDetailBean();
-//		detailBean.setMemberName(memberBean.getMemberName());
+		MemberBean memberBean = memberDAO.findMemberBean(CommissionBean.getActivitymemberid());
+		ActivityDetailBean detailBean = new ActivityDetailBean();
+		detailBean.setMemberName(memberBean.getMemberName());
 //		detailBean.setPetName(petbean.getPetName());
-//		detailBean.setArea(CommissionBean.getArea());
 //		detailBean.setVariety(petbean.getPetVariety());
 //		detailBean.setAge(petbean.getAge());
 //		detailBean.setVaccine(petbean.getVaccine());
-//		detailBean.setPicture(CommissionBean.getPicture());
-//		detailBean.setReason(CommissionBean.getReason());
-//		detailBean.setRemark(CommissionBean.getRemark());
-//		return detailBean;
-//	}
+		detailBean.setActivityname(CommissionBean.getActivityname());
+		detailBean.setActivites(CommissionBean.getActivites());
+		detailBean.setLimit(CommissionBean.getLimit());
+		detailBean.setPhone(CommissionBean.getPhone());
+		detailBean.setAddress(CommissionBean.getAddress());
+		
+		
+		return detailBean;
+	}
 	
 	
 	

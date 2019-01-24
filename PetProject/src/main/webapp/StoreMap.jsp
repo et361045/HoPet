@@ -147,8 +147,7 @@ body, input {
 				mapOptions);
 		var infowindow = new google.maps.InfoWindow();
 
-		$
-				.ajax({
+		$.ajax({
 					data : "GET",
 					url : "/PetProject/query1",
 					dataType : "json",
@@ -459,6 +458,7 @@ body, input {
 
 				</div>
 			</form>
+				<c:if test="${user.memberPermission =='Manager'}">
 			<div class="map_search_select_behide">
 				<form
 					action="<c:url value="/businessInformation.controller" />"
@@ -512,6 +512,7 @@ body, input {
  					<script type="text/javascript">clearForm()</script>
 				</c:if>
 			</div>
+			</c:if>
 		</div>
 	</div>
 	<div class="businessInformation_map">
@@ -627,7 +628,7 @@ body, input {
 
 
 	<!-- Start footer -->
-	<footer id="footer">
+	<footer id="footer" style="height: 105px">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 col-sm-6">

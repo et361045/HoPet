@@ -1,44 +1,53 @@
 package model.fosterDetail;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import model.fosterForm.FosterFormBean;
+import model.fosterForm.FosterFormDao;
+import model.member.MemberDAO;
 
 @Service
 public class FosterDetailService {
 	@Autowired
 	private FosterDetailDao fosterDetailDao;
+	@Autowired
+	private FosterFormDao fosterFormDao;
+	@Autowired
+	private MemberDAO memberDAO;
+
+	public FosterDetailBean updateFoster(FosterDetailBean fosterDetailBean) {
+		FosterDetailBean bean = fosterDetailDao.update(fosterDetailBean);
+		if (bean != null) {
+			return bean;
+		}
+		return null;
+	}
 	
-	public FosterDetailBean searchFosterId(Integer fosterId) {
-		FosterDetailBean bean = fosterDetailDao.findByFosterId(fosterId);
-		if(bean != null) {
-			return bean;
-		}		
-		return null;
+	public List<FosterDetailBean> findDetailByOwner(Integer owner) {
+		return fosterDetailDao.findByOwner(owner);
 	}
-	public FosterDetailBean searchCarer(Integer carer) {
-		FosterDetailBean bean = fosterDetailDao.findByFosterId(carer);
-		if(bean != null) {
-			return bean;
-		}		
-		return null;
+	public List<FosterDetailBean> findDetailByCarer(Integer owner) {
+		return fosterDetailDao.findByCarer(owner);
 	}
-	public FosterDetailBean updateFoster(FosterDetailBean fosterBean) {
-		FosterDetailBean bean = fosterDetailDao.update(fosterBean);
-		if(bean != null) {
-			return bean;
-		}		
-		return null;
+
+	public void insertFoster(Integer carer, Integer petId) {
+		FosterFormBean bean = fosterFormDao.findByPetIdAndCarer(petId, carer);
+		FosterDetailBean detailbean = new FosterDetailBean();
+		detailbean.setPetId(petId);
+		detailbean.setPetname(bean.getPetName());
+		detailbean.setOwner(bean.getOwner());
+		detailbean.setCarer(carer);
+		detailbean.setOwnername((memberDAO.findMemberBean(bean.getOwner())).getMemberName());
+		detailbean.setCarername(bean.getCarerName());
+		fosterDetailDao.insert(detailbean);
 	}
-	public FosterDetailBean insertFoster(FosterDetailBean fosterBean) {
-		FosterDetailBean bean = fosterDetailDao.insert(fosterBean);
-		if(bean != null) {
-			return bean;
-		}		
-		return null;
-	}
-	public boolean deleteFoster(FosterDetailBean fosterBean) {
-		if(fosterBean.getFosterDetailId() != null) {
-			return fosterDetailDao.delete(fosterBean);
+
+	public boolean deleteFoster(FosterDetailBean fosterDetailBean) {
+		if (fosterDetailBean.getFosterDetailId() != null) {
+			return fosterDetailDao.delete(fosterDetailBean);
 		}
 		return false;
 	}

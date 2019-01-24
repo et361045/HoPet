@@ -1,7 +1,11 @@
 @import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
 
 @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
-
+.foster_title{
+	color:#FFA600;
+	font-family: 'Noto Sans TC', sans-serif;
+	
+}
 .foster_detial_price {
     background-color: #fff;
     display: inline;

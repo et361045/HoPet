@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import model.activityCommission.ActivityCommissionBean;
 import model.activityCommission.ActivityCommissionDAO;
+import model.fostercareCommission.FostercareCommissionBean;
 
 @Repository
 public class ActivityCommissionDaoHibernate implements ActivityCommissionDAO{
@@ -23,6 +24,14 @@ public class ActivityCommissionDaoHibernate implements ActivityCommissionDAO{
 	public Session getSession() {
 		return this.sessionFactory.getCurrentSession();
 	}
+	
+	@Override
+	public  ActivityCommissionBean findByactivityId(Integer activityid) {		
+		Query<ActivityCommissionBean> query = this.getSession().createQuery("from ActivityCommissionBean where activityid='"+activityid+"'");
+		ActivityCommissionBean CommissionBean = query.uniqueResult();
+		return CommissionBean;
+	}
+	
 	
 	
 	
@@ -54,7 +63,7 @@ public class ActivityCommissionDaoHibernate implements ActivityCommissionDAO{
 	public List<ActivityCommissionBean> findAll() {
 		//取得product table的所有資料
 	
-		List<ActivityCommissionBean> result = this.getSession().createQuery("from ActivityCommissionBean", ActivityCommissionBean.class).list();
+		List<ActivityCommissionBean> result = this.getSession().createQuery("from ActivityCommissionBean ORDER BY activityid DESC", ActivityCommissionBean.class).list();
 		return result;
 	}
 	

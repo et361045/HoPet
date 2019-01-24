@@ -287,8 +287,7 @@
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 						    data-toggle="dropdown">寵物活動<span class="fa fa-angle-down"></span></a>
 						<ul class="dropdown-menu" role="menu">
-							<li><a href="ActivityHome.jsp">活動首頁</a></li>
-							<li><a href="/PetProject/activityCommission">一起去旅遊</a></li>
+							<li><a href="/PetProject/activityCommission">活動</a></li>
 							<li><a href="">查詢參加活動</a></li>
 					</ul>
 				</div>
@@ -304,14 +303,14 @@
 <div class="content page1">
   <div class="container_12_new">
   	
-  	<div class="col-xs-12">
-		<ul>
-			<li><a href="http://www.yahoo.com" target="" title="" style="color:black;">創建文章</a></li>
-			<li><a href="http://www.yahoo.com" target="" title="" style="color:black;">瀏覽文章</a></li>
-			<li><a href="http://www.yahoo.com" target="" title="" style="color:black;">今日最新</a></li>
-			<li><a href="http://www.yahoo.com" target="" title="" style="color:black;">瀏覽最高</a></li>
-		</ul>				
-	</div>
+<!--   	<div class="col-xs-12"> -->
+<!-- 		<ul> -->
+<!-- 			<li><a href="http://www.yahoo.com" target="" title="" style="color:black;">創建文章</a></li> -->
+<!-- 			<li><a href="http://www.yahoo.com" target="" title="" style="color:black;">瀏覽文章</a></li> -->
+<!-- 			<li><a href="http://www.yahoo.com" target="" title="" style="color:black;">今日最新</a></li> -->
+<!-- 			<li><a href="http://www.yahoo.com" target="" title="" style="color:black;">瀏覽最高</a></li> -->
+<!-- 		</ul>				 -->
+<!-- 	</div> -->
 	
 <!-- 	<div class="col-xs-22"> -->
 <!-- 		<ul> -->
@@ -325,57 +324,17 @@
 <div id="page" class="container">
 			<div id="content">
 				<div id="box1">
-					<h2 class="title">
-						<a href="#">活動挖挖挖</a>
-					</h2>
-					<p>
-						
-					</p>
+					<h2 class="title"><a href="#">活動挖挖挖</a></h2>
 				</div>
-				<div>
-					<ul class="style1">
-						<li class="first">
-							<h3>
-								<em><img src="images/girl1.jpg" alt="" width="130"
-									height="130" class="alignleft border" /></em>劉德安小三
-							</h3>
-							<p>挖靠有活動.....................</p>
-							<p>
-								<a href="#" class="button-style">Read More</a>
-							</p>
-						</li>
-						<li>
-							<h3>
-								<em><img src="images/girl2.jpg" alt="" width="130"
-									height="130" class="alignleft border" /></em>建良老婆
-							</h3>
-							<p>挖靠有活動~~~~~~~~~~~~~~~~~~~</p>
-							<p>
-								<a href="#" class="button-style">Read More</a>
-							</p>
-						</li>
-						<li>
-							<h3>
-								<em><img src="images/girl3.jpg" alt="" width="130"
-									height="130" class="alignleft border" /></em>劉偉師小三
-							</h3>
-							<p>挖靠有活動!!!!!!!!!!!!!!!!!!!!!</p>
-							<p>
-								<a href="#" class="button-style">Read More</a>
-							</p>
-						</li>
-						<li>
-							<h3>
-								<em><img src="images/girl4.jpg" alt="" width="130"
-									height="130" class="alignleft border" /></em>JACK小三
-							</h3>
-							<p>挖靠有活動!!!!!!!!!!!!!!!!!!!!!</p>
-							<p>
-								<a href="#" class="button-style">Read More</a>
-							</p>
-						</li>
-					</ul>
-				</div>
+<!-- 				<div> -->
+<!-- 					<ul class="style1"> -->
+<!-- 						<li class="first"> -->
+<!-- 							<h3><em></em>劉德安小三</h3> -->
+<!-- 							<p></p> -->
+<!-- 							<p><a href="#" class="button-style">Read More</a></p> -->
+<!-- 						</li> -->
+<!-- 					</ul> -->
+<!-- 				</div> -->
 			</div>
 		</div>	
 		</div>
@@ -383,56 +342,6 @@
 
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-
 
 	<!-- Start footer -->
 	<footer id="footer">
@@ -499,11 +408,40 @@
 	<script type="text/javascript" src="/PetProject/assets/js/custom.js"></script>
 
 
-
 	<!-- alert -->
 
-	<script
-		src="//cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.10/alertify.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.10/alertify.min.js"></script>
+	
+	<script type="text/javascript"></script>
+	<script>   
+// 	自己建立HTML 回傳到前端
+// 	$("#activity_send5").click(function() {
+// 		var form5 = $("#activity_form5").serialize();
+// 		console.log(form5);
+// 		$.ajax({
+// 			url : "aaa?" + form5,
+// 			type : "GET",
+// 		}).done(function(response) {
+// 			console.log(response)
+// 			alert("報名成功")
+// 			$("#exampleModal100").modal('hide');
+// 			var activity = '<li class="first">';
+// 			<div class="sendback">
+// 			activity += '<h3><em></em>'+response.activitymemberid+'</h3>';
+// 			activity += '<p>'+response.activityname+'</p>';
+// 			activity += '<p>'+response.limit+'</p>';
+// 			activity += '<p>'+response.phone+'</p>';
+// 			activity += '<p>'+response.address+'</p>';
+// 			activity += '<p><a href="#" class="button-style">Read More</a></p></li>';				
+// 			$(".style1").prepend(activity);
+			
+// 			</div>
+// 		})
+// 	})
+	
+	</script>
+	
+	
 
 </body>
 </html>

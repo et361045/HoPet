@@ -18,6 +18,7 @@ import org.springframework.web.method.support.ModelAndViewContainer;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import model.dao.messageboard.MessageboardDAOHibernate;
 import model.member.MemberBean;
 import model.member.MemberService;
 import model.messageboard.MessageboardBean;
@@ -32,6 +33,8 @@ public class messageController {
 	private messageboardservice service;
 	@Autowired
 	private  returnmessageService  returnmessage;
+	@Autowired
+	private MessageboardDAOHibernate dao;
 
 	@Autowired
 	private ApplicationContext context;
@@ -41,15 +44,20 @@ public class messageController {
 		MemberBean temp  = (MemberBean) model.asMap().get("user");
 		bean.setMemberid(temp.getMemberId());
 		bean.setTotlepoint(0);
+		bean.setPermission("public");
 		System.out.println(bean);
 		java.util.Date dateD = new java.util.Date();
 		Date date = new Date(dateD.getTime());
 		bean.setMessagetime(date);
 		System.out.println(bean);
 		service.insert(bean);
+		dao.getSession().getTransaction().commit();
+		
+		dao.getSession().getTransaction().begin();
 		List<MessageboardBean>  temp1 = service.selectByPermission("public");
 		 model.addAttribute("select", temp1);
 	     model.addAttribute("aaa", "132");
+	     System.out.println("temp1 = " +temp1);
 		
 		return "message.selcet";
 		
@@ -76,7 +84,7 @@ public class messageController {
      System.out.println("temp =" +temp);
      model.addAttribute("select", temp);
      model.addAttribute("aaa", "132");
-     System.out.println(model.toString());
+//     System.out.println(model.toString());
 	return "message.selcet";
 	 
 	}
