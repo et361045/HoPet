@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>Intensely : Home</title>
+<title>Home</title>
 <!-- Favicon -->
 <link rel="shortcut icon" type="image/icon"
 	href="/PetProject/assets/images/favicon.ico" />
@@ -260,13 +260,14 @@
 							data-toggle="dropdown">寵物百科 <span class="fa fa-angle-down"></span></a>
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="dog.jsp">Dog</a></li>
-								<li><a href="">Cat</a></li>
 							</ul></li>
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown">寄養&送養<span class="fa fa-angle-down"></span></a>
+							data-toggle="dropdown">寄養&領養<span class="fa fa-angle-down"></span></a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="/PetProject/fostercarecommission">寄養</a></li>
+								<li><a href="">寄養</a></li>
 								<li><a href="findFosterForm">領養</a></li>
+<!-- 								<li><a id ="xxx" href="" onclick='check()' data-toggle="" data-target="">申請送養</a></li> -->
+								<li><a id="application_foster" onclick="check()" data-toggle="" data-target="">申請送養</a></li>
 							</ul></li>
 						
 <!-- 						<li><a href="">寵物旅遊</a></li> -->

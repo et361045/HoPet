@@ -22,20 +22,20 @@ public class PetBean {
 	private String vaccine;
 	private String wafer;
 	private Integer owner;
-	private Integer yesornofoster;
-	public Integer getYesornofoster() {
-		return yesornofoster;
-	}
-	public void setYesornofoster(Integer yesornofoster) {
-		this.yesornofoster = yesornofoster;
-	}
-	public Integer getYesornofostercare() {
-		return yesornofostercare;
-	}
-	public void setYesornofostercare(Integer yesornofostercare) {
-		this.yesornofostercare = yesornofostercare;
-	}
-	private Integer yesornofostercare;
+//	private Integer yesornofoster;
+//	public Integer getYesornofoster() {
+//		return yesornofoster;
+//	}
+//	public void setYesornofoster(Integer yesornofoster) {
+//		this.yesornofoster = yesornofoster;
+//	}
+//	public Integer getYesornofostercare() {
+//		return yesornofostercare;
+//	}
+//	public void setYesornofostercare(Integer yesornofostercare) {
+//		this.yesornofostercare = yesornofostercare;
+//	}
+//	private Integer yesornofostercare;
 	public Integer getPetId() {
 		return petId;
 	}
@@ -107,8 +107,8 @@ public class PetBean {
 	public String toString() {
 		return "PetBean [petId=" + petId + ", petPicture=" + petPicture + ", petName=" + petName + ", memberid="
 				+ memberid + ", petSize=" + petSize + ", petVariety=" + petVariety + ", age=" + age + ", petRemarks="
-				+ petRemarks + ", vaccine=" + vaccine + ", wafer=" + wafer + ", owner=" + owner + ", yesornofoster="
-				+ yesornofoster + ", yesornofostercare=" + yesornofostercare + "]";
+				+ petRemarks + ", vaccine=" + vaccine + ", wafer=" + wafer + ", owner=" + owner + "]";
 	}
+	
 	
 }

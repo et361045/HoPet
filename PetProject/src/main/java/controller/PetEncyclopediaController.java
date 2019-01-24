@@ -17,8 +17,19 @@ public class PetEncyclopediaController {
 	
 	@RequestMapping({ "/PetEncyclopedia/findDogData" })
 	public String findDogData(@RequestParam Integer petEncyclopediaId, Model model) {
-		PetEncyclopediaBean bean = petEncyclopediaService.searchPetEncyclopediaId(petEncyclopediaId);
-		model.addAttribute("bean", bean);
+		model.addAttribute("bean", petEncyclopediaService.searchPetEncyclopediaId(petEncyclopediaId));
+		return "dogItem";
+	}
+	
+	@RequestMapping({"/dogItemUpdate"})
+	public String dogItem(@RequestParam Integer petEncyclopediaId, Model model) {
+		model.addAttribute("bean", petEncyclopediaService.searchPetEncyclopediaId(petEncyclopediaId));
+		return "dogItemUpdate";
+	}
+	@RequestMapping({"/dogItem"})
+	public String dogItemUpdate(PetEncyclopediaBean petEncyclopediaBean, Model model) {
+		petEncyclopediaService.updateDogItems(petEncyclopediaBean);
+		model.addAttribute("bean", petEncyclopediaService.searchPetEncyclopediaId(petEncyclopediaBean.getPetEncyclopediaId()));
 		return "dogItem";
 	}
 

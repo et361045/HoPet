@@ -81,7 +81,7 @@ public class PetController {
 				}
 
 				bean.setPetPicture("/PetProject/assets/picture/pet/" + filename);
-				bean.setYesornofoster(0);
+//				bean.setYesornofoster(0);
 			}
 
 		}

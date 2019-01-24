@@ -108,6 +108,10 @@
 		class="org.springframework.web.servlet.view.InternalResourceView">
         <property value="/dogItem.jsp" name="url"/>
     </bean>
+	<bean id="dogItemUpdate"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+        <property value="updatedogItem.jsp" name="url"/>
+    </bean>
     <bean id="fosterCommission"
     	class="org.springframework.web.servlet.view.InternalResourceView">
 		<property value="/foster.jsp" name="url"/>
