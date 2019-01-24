@@ -85,8 +85,23 @@
 					<div class="col-md-6 col-sm-6 col-xs-6"></div>
 					<div class="col-md-6 col-sm-6 col-xs-6">
 						<div class="header-login">
-							<a class="login modal-form" data-target="#login-form"
-								data-toggle="modal" href="#">Login / Sign Up</a>
+
+							<c:if test="${!empty  user}">
+								<c:out
+									value="<span class='Username' >HI, ${user.memberName} </span>"
+									escapeXml="false" />
+								<c:out
+									value="  <a class='login modal-form' id='Logout'> Logout</a>" 
+									escapeXml="false" /> 
+							</c:if>
+
+							<c:if test="${empty  user}">
+								<c:out
+								value=" <a class='login modal-form' data-target='#login-form'
+								data-toggle='modal' href='#' id='Login'>Login / Sign Up</a>"
+									escapeXml="false" />
+							</c:if>
+							
 						</div>
 					</div>
 				</div>
@@ -94,7 +109,7 @@
 		</div>
 	</header>
 	<!-- End header -->
-
+	
 	<!-- Start login modal window -->
 	<div aria-hidden="false" role="dialog" tabindex="-1" id="login-form"
 		class="modal leread-modal fade in">
@@ -111,24 +126,29 @@
 					</h4>
 				</div>
 				<div class="modal-body">
-					<form>
+					<form id="login">
 						<div class="form-group">
-							<input type="text" placeholder="User name" class="form-control">
+							<input type="email" placeholder="User email" name="email"
+								class="form-control" title="請輸入信箱">
 						</div>
 						<div class="form-group">
-							<input type="password" placeholder="Password"
-								class="form-control">
+							<input type="password" placeholder="Password" name="password"
+								class="form-control" title="請輸入密碼">
 						</div>
+
 						<div class="loginbox">
 							<label><input type="checkbox"><span>Remember
-									me</span></label>
-							<button class="btn signin-btn" type="button">SIGN IN</button>
+									me</span></label> <input type="submit" class="btn signin-btn" value="SIGN IN"><span
+								class="errorspan" id="errorspan"></span>
 						</div>
 					</form>
 				</div>
 				<div class="modal-footer footer-box">
-					<a href="#">Forgot password ?</a> <span>No account ? <a
-						id="signup-btn" href="#">Sign Up.</a></span>
+					<a href="#" id="forgotpsw">Forgot password ?</a>
+					<p>
+					<div>
+						No account ? <a id="signup-btn" href="#">Sign Up.</a>
+					</div>
 				</div>
 			</div>
 			<!-- Start signup section -->
@@ -143,28 +163,45 @@
 					</h4>
 				</div>
 				<div class="modal-body">
-					<form>
+					<form id="signon" action="<c:url value='/signon'/>">
 						<div class="form-group">
-							<input placeholder="Name" class="form-control">
+							<input type="email" placeholder="User email" class="form-control"
+								title="請輸入信箱" name="email">
 						</div>
 						<div class="form-group">
-							<input placeholder="Username" class="form-control">
+							<p class="Description" id="checkemail"></p>
 						</div>
 						<div class="form-group">
-							<input placeholder="Email" class="form-control">
+							<input type="password" id="password" placeholder="password"
+								class="form-control" title="請輸入密碼" name="psw">
 						</div>
 						<div class="form-group">
-							<input type="password" placeholder="Password"
-								class="form-control">
+							<input type="password" id="checkpass" placeholder="checkpassword"
+								class="form-control" title="與密碼相附">
 						</div>
+						<div class="form-group">
+							<p class="Description" id="checkpassword"></p>
+						</div>
+						<div class="form-group">
+							<input type="text" placeholder="name" class="form-control"
+								title="請輸入暱稱" name="memberName">
+						</div>
+						<div class="form-group">
+							<input type="text" placeholder="address" class="form-control"
+								title="請輸入地址" name="address">
+						</div>
+						<div class="form-group">
+							<input type="text" placeholder="cellphone-number "
+								class="form-control" title="請輸入手機" name="memberPhone">
+						</div>
+
 						<div class="signupbox">
 							<span>Already got account? <a id="login-btn" href="#">Sign
 									In.</a></span>
 						</div>
 						<div class="loginbox">
-							<label><input type="checkbox"><span>Remember
-									me</span><i class="fa"></i></label>
-							<button class="btn signin-btn" type="button">SIGN UP</button>
+							<input type="submit" class="btn signin-btn" value="SIGN UP"><span
+								class="errorspan" id="errorspan"></span>
 						</div>
 					</form>
 				</div>
@@ -188,7 +225,8 @@
 					</button>
 					<!-- LOGO -->
 					<!-- TEXT BASED LOGO -->
-					 <a href="index.jsp"><img src="/PetProject/assets/images/logo.png" class="logo_img"></a>
+					<a href="index.jsp"><img src="assets/images/logo.png"
+						class="logo_img"></a>
 					<!-- IMG BASED LOGO  -->
 					<!-- <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" alt="logo"></a> -->
 				</div>

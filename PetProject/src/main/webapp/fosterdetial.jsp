@@ -108,17 +108,17 @@
 									value="<span class='Username' >HI, ${user.memberName} </span>"
 									escapeXml="false" />
 								<c:out
-									value="  <a class='login modal-form' id='Logout'> Logout</a>"
-									escapeXml="false" />
+									value="  <a class='login modal-form' id='Logout'> Logout</a>" 
+									escapeXml="false" /> 
 							</c:if>
 
 							<c:if test="${empty  user}">
 								<c:out
-									value=" <a class='login modal-form' data-target='#login-form'
+								value=" <a class='login modal-form' data-target='#login-form'
 								data-toggle='modal' href='#' id='Login'>Login / Sign Up</a>"
 									escapeXml="false" />
 							</c:if>
-
+							
 						</div>
 					</div>
 				</div>
@@ -126,7 +126,7 @@
 		</div>
 	</header>
 	<!-- End header -->
-
+	
 	<!-- Start login modal window -->
 	<div aria-hidden="false" role="dialog" tabindex="-1" id="login-form"
 		class="modal leread-modal fade in">
@@ -295,9 +295,9 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="title-area">
-						<h2 class="foster_title">送養詳細資料</h2>
-						<span class="line"></span>
+					<div class="title-area" style="padding: 0px;">
+						<h3 class="foster_title" style="display: inline-block;float: left;">送養領養詳細資料</h3>
+						<h2 class="foster_title"style="display: inline-block;">領養人申請單</h2>
 					</div>
 				</div>
 				<div class="col-md-12">

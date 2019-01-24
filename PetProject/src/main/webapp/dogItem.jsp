@@ -101,20 +101,17 @@
 									value="<span class='Username' >HI, ${user.memberName} </span>"
 									escapeXml="false" />
 								<c:out
-									value="  <a class='login modal-form' id='Logout'> Logout</button>"
-									escapeXml="false" />
+									value="  <a class='login modal-form' id='Logout'> Logout</a>" 
+									escapeXml="false" /> 
 							</c:if>
 
 							<c:if test="${empty  user}">
 								<c:out
-									value=" <a class='login modal-form' data-target='#login-form'
+								value=" <a class='login modal-form' data-target='#login-form'
 								data-toggle='modal' href='#' id='Login'>Login / Sign Up</a>"
 									escapeXml="false" />
 							</c:if>
-
-
-
-
+							
 						</div>
 					</div>
 				</div>
@@ -122,7 +119,7 @@
 		</div>
 	</header>
 	<!-- End header -->
-
+	
 	<!-- Start login modal window -->
 	<div aria-hidden="false" role="dialog" tabindex="-1" id="login-form"
 		class="modal leread-modal fade in">
@@ -208,7 +205,6 @@
 								class="form-control" title="請輸入手機" name="memberPhone">
 						</div>
 
-
 						<div class="signupbox">
 							<span>Already got account? <a id="login-btn" href="#">Sign
 									In.</a></span>
@@ -223,6 +219,7 @@
 		</div>
 	</div>
 	<!-- End login modal window -->
+
 	<!-- BEGIN MENU -->
 	<section id="menu-area">
 		<nav class="navbar navbar-default" role="navigation">
@@ -238,8 +235,8 @@
 					</button>
 					<!-- LOGO -->
 					<!-- TEXT BASED LOGO -->
-					<a href="index.jsp"><img
-						src="/PetProject/assets/images/logo.png" class="logo_img"></a>
+					<a href="index.jsp"><img src="/PetProject/assets/images/logo.png"
+						class="logo_img"></a>
 					<!-- IMG BASED LOGO  -->
 					<!-- <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" alt="logo"></a> -->
 				</div>
