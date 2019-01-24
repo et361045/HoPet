@@ -106,16 +106,17 @@
 									value="<span class='Username' >HI, ${user.memberName} </span>"
 									escapeXml="false" />
 								<c:out
-									value="  <a class='login modal-form' id='Logout'> Logout</button>"
-									escapeXml="false" />
+									value="  <a class='login modal-form' id='Logout'> Logout</a>" 
+									escapeXml="false" /> 
 							</c:if>
 
 							<c:if test="${empty  user}">
 								<c:out
-									value=" <a class='login modal-form' data-target='#login-form'
+								value=" <a class='login modal-form' data-target='#login-form'
 								data-toggle='modal' href='#' id='Login'>Login / Sign Up</a>"
 									escapeXml="false" />
 							</c:if>
+							
 						</div>
 					</div>
 				</div>
@@ -123,7 +124,7 @@
 		</div>
 	</header>
 	<!-- End header -->
-
+	
 	<!-- Start login modal window -->
 	<div aria-hidden="false" role="dialog" tabindex="-1" id="login-form"
 		class="modal leread-modal fade in">
@@ -158,7 +159,7 @@
 					</form>
 				</div>
 				<div class="modal-footer footer-box">
-					<a href="#">Forgot password ?</a>
+					<a href="#" id="forgotpsw">Forgot password ?</a>
 					<p>
 					<div>
 						No account ? <a id="signup-btn" href="#">Sign Up.</a>
@@ -208,7 +209,6 @@
 							<input type="text" placeholder="cellphone-number "
 								class="form-control" title="請輸入手機" name="memberPhone">
 						</div>
-
 
 						<div class="signupbox">
 							<span>Already got account? <a id="login-btn" href="#">Sign
@@ -275,15 +275,12 @@
 								<li><a href="" data-toggle="modal"
 									data-target="#exampleModal5">申請寄養</a></li>
 							</ul></li>
-						<li><a href="">寵物旅遊</a></li>
-						<li><a href="">寵物商城</a></li>
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 						    data-toggle="dropdown">寵物活動<span class="fa fa-angle-down"></span></a>
 						<ul class="dropdown-menu" role="menu">
-							<li><a href="ActivityHome.jsp">活動首頁</a></li>
 							<li><a href="/PetProject/activityCommission"  data-toggle="modal"
 									data-target="#exampleModal100">活動申請</a></li>
-							<li><a href="">查詢參加活動</a></li>
+							
 					</ul>
 				</div>
 				<!--/.nav-collapse -->
@@ -336,7 +333,7 @@
 						
 					<div>			
 						<label>活動日期:</label>
-        					<input name="starttime" type="date" id="start" value="" name="trip-start" min="2018-01-01" max="2050-12-31">
+        					<input name="starttime" type="date" id="start1" value="" name="trip-start" min="2018-01-01" max="2050-12-31">
         				<label>結束日期:</label>
         					<input name="endtime" type="date" id="end" name="trip-end" min="2018-01-01" max="2050-12-31">
         				<label class="st1" id=idp></label>
@@ -428,27 +425,39 @@
 	
 	
 		<div id="page" class="container">
-			<div id="content">
+			<div id="content" style="border-bottom: 0px">
 				<div id="box1">
 				   <h2 class="title"><a href="#">活動挖挖挖</a></h2>
 				</div>
 <!-- 				把資料放在位置  從資料庫抓所有資料出來顯示-->
+				
+				<div>
+				<div>
+				   <ul id="firsttitle" class="style1" >
+				
+				</ul>
+				</div>
 				<c:forEach var="activity" items="${select10}">
-					<div>
+					<div style="border-bottom: solid black 2px; ">
 					<ul class="style1">
 						<li class="first">
-							<h3>會員編號: ${activity.activitymemberid}</h3>
+							<h3>會員名稱: ${activity.status}</h3>
 							<p>活動主題: ${activity.activityname}</p>
 							<p>活動地址: ${activity.address}</p>
 							<p>限制人數: ${activity.limit}</p>
 <%-- 						<p>${activity.phone}</p> --%>
-							<a href="#" id="dog${activity.activityid}" onclick="findactivitydetail(${activity.activityid})" data-toggle="modal"
-											data-target="#fostercareDogDetails"><i
-											 class="fa fa-dog fa-2x foster_dog" title="詳細資料"></i></a>
+<%-- 							<a href="#" id="dog${activity.activityid}" onclick="findactivitydetail(${activity.activityid})" data-toggle="modal" --%>
+<!-- 											data-target="#fostercareDogDetails"><i -->
+<!-- 											 class="fa fa-dog fa-2x foster_dog" title="詳細資料"></i></a> -->
+							<p><a href="#" class="button-style"  id="dog${activity.activityid}"  onclick="findactivitydetail(${activity.activityid})"
+								data-toggle="modal" data-target="#fostercareDogDetails">Read More</a></p>				 
+											 
 						</li>
 					</ul>
 					</div>
 				</c:forEach>
+				
+				</div>
 				
 				</div>
 			</div>	
@@ -516,7 +525,7 @@
 				<div style="padding-top:10px;">
 					<div style="display: inline-block;">				
 						<ul class="fosterDogDetails_ul3">
-							<li>備註：<span id=dogdetailremark>$</span></li>
+<!-- 							<li>備註：<span id=dogdetailremark></span></li> -->
 						</ul>
 					</div>
 				</div>
@@ -635,13 +644,15 @@
 				console.log(response)
 				alert("報名成功")
 				$("#exampleModal100").modal('hide');
-				var activity = '<li class="first">';
-				activity += '<h3>'+response.activitymemberid+'</h3>';
-				activity += '<p>'+response.activityname+'</p>';
-				activity += '<p>'+response.limit+'</p>';
-				activity += '<p>'+response.phone+'</p>';
-				activity += '<p>'+response.address+'</p>';
-				$(".style1").prepend(activity);
+// 				var activity = '<li class="first">';
+// 				activity += '<h3>'+'會員編號:'+response.activitymemberid+'</h3>';
+// 				activity += '<p>'+'活動主題:'+response.activityname+'</p>';
+// 				activity += '<p>'+'活動地址:'+response.address+'</p>';
+// 				activity += '<p>'+'限制人數:'+response.limit+'</p>';
+// 				activity += '<p>'+'連絡電話:'+response.phone+'</p>';
+				
+// 				$("#firsttitle").prepend(activity);
+				window.location.href= '/PetProject/activityCommission';
 			})
 		})
 		
@@ -682,7 +693,7 @@
 				$("#detailaddress").text(responsedetail.address);
 				$("#detailactivites").text(responsedetail.activites);
 				$("#detaillimit").text(responsedetail.limit);
-				$("#detailphone").text(responsedetail.phone);
+				$("#detailphone").text('0'+responsedetail.phone);
 			})
  		}
 		

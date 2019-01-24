@@ -63,7 +63,7 @@ public class ActivityCommissionDaoHibernate implements ActivityCommissionDAO{
 	public List<ActivityCommissionBean> findAll() {
 		//取得product table的所有資料
 	
-		List<ActivityCommissionBean> result = this.getSession().createQuery("from ActivityCommissionBean", ActivityCommissionBean.class).list();
+		List<ActivityCommissionBean> result = this.getSession().createQuery("from ActivityCommissionBean ORDER BY activityid DESC", ActivityCommissionBean.class).list();
 		return result;
 	}
 	

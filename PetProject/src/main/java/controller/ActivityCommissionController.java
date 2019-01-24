@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -78,8 +80,9 @@ public class ActivityCommissionController {
 	@ResponseBody
 	@RequestMapping("/aaa")
 	public ActivityCommissionBean insertActivityCommission(Model model,ActivityCommissionBean bean,String city,String town,String activityname,
-			String activites,Integer limit,String address,Integer phone,Integer activitymemberid ) {
+			String activites,Integer limit,String address,Integer phone,Integer activitymemberid ,HttpServletResponse response) {
 //		System.out.println(bean);
+		response.reset();
 		MemberBean usertemp  = (MemberBean) model.asMap().get("user");
 		System.out.println(usertemp);
 		bean.setActivitymemberid(usertemp.getMemberId());
@@ -88,12 +91,13 @@ public class ActivityCommissionController {
 		bean.setLimit(limit);
 		bean.setAddress(address);
 		bean.setPhone(phone);
+        bean.setStatus(usertemp.getMemberName());
 //		bean.setSignup(temp.getSignup());
 //		bean.setStatus(temp.getStatus());
-		ActivityCommissionBean result = activityCommissionService.insert(bean);
+		ActivityCommissionBean result1 = activityCommissionService.insert(bean);
 //		model.addAttribute("insert", result);
 //		return "activityCommission";
-		return result;
+		return result1;
 		
 		
 	}
@@ -103,6 +107,7 @@ public class ActivityCommissionController {
 	public String findall(ActivityCommissionBean bean,Model model){	
 		List<ActivityCommissionBean>beans= activityCommissionService.select(bean);
 		model.addAttribute("select10",beans);
+		
 		return "activityCommission";
 	}
 }
