@@ -169,7 +169,7 @@ $('#send').click(function() {
 		method : "POST",
 		url : "send",
 		cache : false,
-		async : false,
+		async : true,
 		success : function(text) {
 
 		}
