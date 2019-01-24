@@ -82,7 +82,8 @@ $('#Logout').click(function() {
 
 $('#forgotpsw').click(function() {
 	if ($("input[name='email']").val() == "") {
-		alertify.log('請輸入信箱');  
+//		alertify.log('請輸入信箱'); 
+		alertify.error('請輸入信箱')
 	} else {
 
 		$.ajax({
@@ -93,7 +94,7 @@ $('#forgotpsw').click(function() {
 			},
 			dataType : "text",
 			cache : false,
-			async : false,
+			async : true,
 			success : function(text) {
 				alertify.log('密碼以寄至您的信箱');  
 			}
