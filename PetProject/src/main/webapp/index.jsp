@@ -253,6 +253,7 @@
 								<li><a href="/PetProject/member/member.jsp">會員資料</a></li>
 
 								<li><a id="fosteritem" onclick="fostercheck()">送養資料</a></li>
+								<li><a  href="/PetProject/fodd" >寄養委託查詢</a></li>
 								<li><a href="/PetProject/member/membermessage"><span class="fa fa-search"></span>動態消息 </a></li>
 							</ul></li>
 						<li><a href="">寵物生活館</a></li>
