@@ -106,16 +106,17 @@
 									value="<span class='Username' >HI, ${user.memberName} </span>"
 									escapeXml="false" />
 								<c:out
-									value="  <a class='login modal-form' id='Logout'> Logout</button>"
-									escapeXml="false" />
+									value="  <a class='login modal-form' id='Logout'> Logout</a>" 
+									escapeXml="false" /> 
 							</c:if>
 
 							<c:if test="${empty  user}">
 								<c:out
-									value=" <a class='login modal-form' data-target='#login-form'
+								value=" <a class='login modal-form' data-target='#login-form'
 								data-toggle='modal' href='#' id='Login'>Login / Sign Up</a>"
 									escapeXml="false" />
 							</c:if>
+							
 						</div>
 					</div>
 				</div>
@@ -123,7 +124,7 @@
 		</div>
 	</header>
 	<!-- End header -->
-
+	
 	<!-- Start login modal window -->
 	<div aria-hidden="false" role="dialog" tabindex="-1" id="login-form"
 		class="modal leread-modal fade in">
@@ -158,7 +159,7 @@
 					</form>
 				</div>
 				<div class="modal-footer footer-box">
-					<a href="#">Forgot password ?</a>
+					<a href="#" id="forgotpsw">Forgot password ?</a>
 					<p>
 					<div>
 						No account ? <a id="signup-btn" href="#">Sign Up.</a>
@@ -209,7 +210,6 @@
 								class="form-control" title="請輸入手機" name="memberPhone">
 						</div>
 
-
 						<div class="signupbox">
 							<span>Already got account? <a id="login-btn" href="#">Sign
 									In.</a></span>
@@ -247,7 +247,7 @@
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown">會員中心 <span class="fa fa-angle-down"></span></a>
+							data-toggle="dropdown">會員中心<span class="fa fa-angle-down"></span></a>
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="/PetProject/member/member.jsp">會員資料</a></li>
 								<li><a href=""><span class="fa fa-search"></span>搜尋好友 </a></li>
@@ -275,15 +275,12 @@
 								<li><a href="" data-toggle="modal"
 									data-target="#exampleModal5">申請寄養</a></li>
 							</ul></li>
-						<li><a href="">寵物旅遊</a></li>
-						<li><a href="">寵物商城</a></li>
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 						    data-toggle="dropdown">寵物活動<span class="fa fa-angle-down"></span></a>
 						<ul class="dropdown-menu" role="menu">
-							<li><a href="ActivityHome.jsp">活動首頁</a></li>
 							<li><a href="/PetProject/activityCommission"  data-toggle="modal"
-									data-target="#exampleModal100">一起去旅遊</a></li>
-							<li><a href="">查詢參加活動</a></li>
+									data-target="#exampleModal100">活動申請</a></li>
+							
 					</ul>
 				</div>
 				<!--/.nav-collapse -->
@@ -292,7 +289,6 @@
 			</div>
 		</nav>
 	</section>
-<!-- 	改 -->
 	
 	<!--送養申請彈出視窗 -->
 	<div class="modal fade foster_table" id="exampleModal100" tabindex="-1"
@@ -306,12 +302,14 @@
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
+				
 				<div class="modal-body">
 					<form action="<c:url value="/PetProject/aaa" />" method="get" id="activity_form5">
 						<div class=".form_group">
 							<label for="recipient-name" class="col-form-label">會員名字 :</label>
 							<span id="hostName5">${user.memberName}</span>
 						</div>
+						
 						<div class=".form_group">
 							<label for="message-text" class="col-form-label">聯絡電話 :</label>
 							<textarea class="form-control" name="phone" id="reason"></textarea>
@@ -319,27 +317,27 @@
 						
 						<div class=".form_group">
 							<label for="message-text" class="col-form-label">活動地點 :</label>
-							<textarea class="form-control" name="address" id="reason"></textarea>
+							<textarea class="form-control" name="address" id="reason1"></textarea>
 						</div>
 						
 						<div class=".form_group">
 							<label for="message-text" class="col-form-label">活動主題 :</label>
-							<textarea class="form-control" name="activityname" id="reason"></textarea>
+							<textarea class="form-control" name="activityname" id="reason2"></textarea>
 						</div>
 						
 						<div class=".form_group">
 							<label for="message-text" class="col-form-label">活動內容 :</label>
-							<textarea class="form-control" name="activites" id="reason"></textarea>
-						</div>
+							<textarea class="form-control" name="activites" id="reason3"></textarea>
+					</div>
 						
 						
 					<div>			
 						<label>活動日期:</label>
-        					<input name="starttime" type="date" id="start" value="" name="trip-start" min="2018-01-01" max="2050-12-31">
+        					<input name="starttime" type="date" id="start1" value="" name="trip-start" min="2018-01-01" max="2050-12-31">
         				<label>結束日期:</label>
         					<input name="endtime" type="date" id="end" name="trip-end" min="2018-01-01" max="2050-12-31">
         				<label class="st1" id=idp></label>
-						</div>
+					</div>
 						
 						<div>
         				<lable>限制人數:</lable>
@@ -406,16 +404,14 @@
 		<div class="container_foster">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="title-area_foster">
-						<h2 class="title_foster">活動內容</h2>
-					</div>
+					<div class="title-area_foster"><h2 class="title_foster">活動內容</h2></div>
 				</div>
+				
 				<div class="col-md-12">
 					<div class="our-team-content">
 						<div class="row">
-
-<!-- <div class="content page1"> -->
-<!--   <div class="container_12_new"> -->
+<!-- 							<div class="content page1"> -->
+<!--   								<div class="container_12_new"> -->
   	
 <!--   	<div class="col-xs-12"> -->
 <!-- 		<ul> -->
@@ -428,78 +424,67 @@
 	
 	
 	
-	
 		<div id="page" class="container">
-			<div id="content">
+			<div id="content" style="border-bottom: 0px">
 				<div id="box1">
-					<h2 class="title"><a href="#">活動挖挖挖</a></h2>
+				   <h2 class="title"><a href="#">活動挖挖挖</a></h2>
 				</div>
-<!-- 				把資料放在位置 -->
-				<c:forEach var="activity" items="${select10}">
+<!-- 				把資料放在位置  從資料庫抓所有資料出來顯示-->
+				
 				<div>
+				<div>
+				   <ul id="firsttitle" class="style1" >
+				
+				</ul>
+				</div>
+				<c:forEach var="activity" items="${select10}">
+					<div style="border-bottom: solid black 2px; ">
 					<ul class="style1">
 						<li class="first">
-							<h3><em><img src="images/girl1.jpg" alt="" width="130" height="130" class="alignleft border" /></em>${activity.activitymemberid}</h3>
-							<p>${activity.activityname}</p>
-							<p>${activity.limit}</p>
-							<p>${activity.phone}</p>
-							<p>${activity.address}</p>
-							<p><a href="#" class="button-style">Read More</a></p>
+							<h3>會員名稱: ${activity.status}</h3>
+							<p>活動主題: ${activity.activityname}</p>
+							<p>活動地址: ${activity.address}</p>
+							<p>限制人數: ${activity.limit}</p>
+<%-- 						<p>${activity.phone}</p> --%>
+<%-- 							<a href="#" id="dog${activity.activityid}" onclick="findactivitydetail(${activity.activityid})" data-toggle="modal" --%>
+<!-- 											data-target="#fostercareDogDetails"><i -->
+<!-- 											 class="fa fa-dog fa-2x foster_dog" title="詳細資料"></i></a> -->
+							<p><a href="#" class="button-style"  id="dog${activity.activityid}"  onclick="findactivitydetail(${activity.activityid})"
+								data-toggle="modal" data-target="#fostercareDogDetails">Read More</a></p>				 
+											 
 						</li>
-<!-- 						<li> -->
-<%-- 							<h3><em><img src="images/girl2.jpg" alt="" width="130" height="130" class="alignleft border" /></em>${activity.activitymemberid}</h3> --%>
-<%-- 							<p>${activity.activityname}</p> --%>
-<%-- 							<p>${activity.limit}</p> --%>
-<%-- 							<p>${activity.phone}</p> --%>
-<%-- 							<p>${activity.address}</p> --%>
-<!-- 							<p><a href="#" class="button-style">Read More</a></p> -->
-<!-- 						</li> -->
-<!-- 						<li> -->
-<%-- 							<h3><em><img src="images/girl3.jpg" alt="" width="130"height="130" class="alignleft border" /></em>${activity.activitymemberid}</h3> --%>
-<%-- 							<p>${activity.activityname}</p> --%>
-<%-- 							<p>${activity.limit}</p> --%>
-<%-- 							<p>${activity.phone}</p> --%>
-<%-- 							<p>${activity.address}</p> --%>
-<!-- 							<p><a href="#" class="button-style">Read More</a></p> -->
-<!-- 						</li> -->
-<!-- 						<li> -->
-<%-- 							<h3><em><img src="images/girl4.jpg" alt="" width="130"height="130" class="alignleft border" /></em>${activity.activitymemberid}</h3> --%>
-<%-- 							<p>${activity.activityname}</p> --%>
-<%-- 							<p>${activity.limit}</p> --%>
-<%-- 							<p>${activity.phone}</p> --%>
-<%-- 							<p>${activity.address}</p> --%>
-<!-- 							<p><a href="#" class="button-style">Read More</a></p> -->
-<!-- 						</li> -->
 					</ul>
+					</div>
+				</c:forEach>
+				
+				</div>
+				
+				</div>
+			</div>	
 		</div>
-			</c:forEach>
-		</div>
-		</div>	
-		</div>
-		</div>
-		</div>	
+	</div>
+</div>	
 							
 							<!-- Start single team member -->
 						</div>
 					</div>
+				
 				</div>
 			</div>
 	</section>
-	
+			
+			<!-- 	adoption_send10  送出-->
 	<div class="modal fade foster_table" id="adoptionModal5" tabindex="-1"
 		role="dialog" aria-labelledby="exampleModalLabel10" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="foster_modal_content">
-				
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal">取消</button>
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
 					<button type="button" class="btn btn-primary" id="adoption_send10">送出</button>
 				</div>
 			</div>
 		</div>
 	</div>
-	
 	
 	
 <!-- 	詳細視窗 -->
@@ -508,45 +493,50 @@
 		<div class="modal-dialog" role="document">
 			<div class="foster_modal_content">
 				<div class="modal-header">
-					<i class="modal_title" id="exampleModalLabel6">狗狗資料</i>
+					<i class="modal_title" id="exampleModalLabel6">活動資料</i>
 					<button type="button" class="close" data-dismiss="modal"
 						aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
+				
+
 				<div class="fosterDogDetails">
-				<div class="fosterDogDetails_img">
-					<img id=dogdetailpicture src="">
+					<div class="">
+						<img id=dogdetailpicture src="">
 				</div>				
-				<div class="fosterDogDetails_ul">				
-					<ul>
-						<li>主人名字：<div id=dogdetailname></div></li>
-						<li>狗狗名字：<div id=dogdetaildogname></div></li>
-						<li>地區：<div id=dogdetailarea></div></li>
-						<li>品種：<div id=dogdetailvariety></div></li>
-						<li>年紀：<div id=dogdetailage></div></li>
-					</ul>
+					<div class="fosterDogDetails_ul">				
+						<ul>
+						<li>活動發起人：<div id=detailid></div></li>
+						<li>活動主題：<div id=detailactivityname></div></li>
+						<li>活動地點：<div id=detailaddress></div></li>
+						<li>活動內容：<div id=detailactivites></div></li>
+						<li>限制人數：<div id=detaillimit></div></li>
+						<li>連絡電話：<div id=detailphone></div></li>
+						</ul>
+					</div>
 				</div>
-				</div>
+
+
+
+
+
+
 				<div style="padding-top:10px;">
 					<div style="display: inline-block;">				
-						<ul class="fosterDogDetails_ul2">
-							<li>寄養原因：<span id=dogdetailreason></span></li>
-						</ul>
-					</div>
-					<div style="display: inline-block;">				
 						<ul class="fosterDogDetails_ul3">
-							<li>備註：<span id=dogdetailremark>$</span></li>
+<!-- 							<li>備註：<span id=dogdetailremark></span></li> -->
 						</ul>
 					</div>
 				</div>
-<!-- 				<div class="fosterDogDetails_footer"> -->
-<!-- 					<button type="button" class="btn btn-primary" id="adoption_send1"  data-toggle="modal" -->
-<!-- 									data-target="#adoptionModal">我要領養</button> -->
-<!-- 				</div> -->
+				<div class="fosterDogDetails_footer">
+					<button type="button" class="btn btn-primary" id="adoption_send100" onclick="success()"    data-toggle="modal"
+									data-target="#adoptionModal">我要參加</button>
+				</div>
 			</div>
 		</div>
 	</div>
+
 	<!-- End Pricing table -->
 
 	<!-- Start footer -->
@@ -555,9 +545,7 @@
 			<div class="row">
 				<div class="col-md-6 col-sm-6">
 					<div class="footer-left">
-						<p>
-							Designed by <a href="http://www.markups.io/">MarkUps.io</a>
-						</p>
+						<p>Designed by <a href="http://www.markups.io/">MarkUps.io</a></p>
 					</div>
 				</div>
 				<div class="col-md-6 col-sm-6">
@@ -606,7 +594,9 @@
 
 	<!-- Custom js -->
 	<script type="text/javascript" src="/PetProject/assets/js/custom.js"></script>
+	
 	<script>
+
 		$(document)
 				.ready(
 						function() {
@@ -626,14 +616,13 @@
 						});
 		
 		
-		//會員認證
+//會員認證
 		
 		function adoption(Id){
 			if('${user}'){
 				$("#adoptionModal5").modal("show");
 				$("#fuck").attr("value",Id);
 			}else{
-			
 				Swal({
 					  type: 'warning',
 					  title: '請先登入會員',
@@ -644,14 +633,7 @@
 			}		
 		}
 		
-		
-		
-		
-		
-		
-		
-		
-// 		改
+// 	自己建立HTML標籤   回傳到前端
 		$("#activity_send5").click(function() {
 			var form5 = $("#activity_form5").serialize();
 			console.log(form5);
@@ -659,32 +641,63 @@
 				url : "aaa?" + form5,
 				type : "GET",
 			}).done(function(response) {
+				console.log(response)
 				alert("報名成功")
-				$("#fosterModal").modal('hide');
-				window.location.reload();
+				$("#exampleModal100").modal('hide');
+// 				var activity = '<li class="first">';
+// 				activity += '<h3>'+'會員編號:'+response.activitymemberid+'</h3>';
+// 				activity += '<p>'+'活動主題:'+response.activityname+'</p>';
+// 				activity += '<p>'+'活動地址:'+response.address+'</p>';
+// 				activity += '<p>'+'限制人數:'+response.limit+'</p>';
+// 				activity += '<p>'+'連絡電話:'+response.phone+'</p>';
+				
+// 				$("#firsttitle").prepend(activity);
+				window.location.href= '/PetProject/activityCommission';
 			})
 		})
+		
+		
+//   
+// 		$("#adoption_send100").click(function(){
+// 			var form = $("#adoption_form100").serialize();
+// // 			console.log(activityId);
+// 			$.ajax({
+// 				url : "insertActivityForm?" + form,
+// 				type : "GET",
+// 			}).done(function(response) {
+// 				alert("成功")
+// 				$("#adoptionModal").modal('hide');
+// 				window.location.href= '/PetProject/activityCommission';
+// 			})
+// 		})
+
+		
+		function success(){
+			alert("成功")
+			window.location.href= '/PetProject/activityCommission';
+		}
+
+
+
 		
 		
 		function findactivitydetail(id){
 			console.log(id);
 			$.ajax({
-			url:"findactivitydetail?id="+id,
+			url:"findId?id="+id,
 			type : "GET",
 			data:"JSON"
 			}).done(function(responsedetail){
-				$("#dogdetailname").text(responsedetail.memberName);
-				$("#dogdetaildogname").text(responsedetail.petName);
-				$("#dogdetailarea").text(responsedetail.area);
-				$("#dogdetailvariety").text(responsedetail.variety);
-				$("#dogdetailage").text(responsedetail.age);
-				$("#dogdetailreason").text(responsedetail.reason);
-				$("#dogdetailremark").text(responsedetail.remark);
-				$("#dogdetailpicture").attr("src",responsedetail.picture);			
+				$("#detailid").text(responsedetail.memberName);
+				$("#detailactivityname").text(responsedetail.activityname);
+				$("#detailaddress").text(responsedetail.address);
+				$("#detailactivites").text(responsedetail.activites);
+				$("#detaillimit").text(responsedetail.limit);
+				$("#detailphone").text('0'+responsedetail.phone);
 			})
-			
-
  		}
+		
+		
 		
 	</script>
 </body>

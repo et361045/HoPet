@@ -9,6 +9,8 @@ public interface ActivityCommissionDAO {
 
 	public abstract ActivityCommissionBean findById(Integer activitymemberid);
 	
+	public abstract ActivityCommissionBean findByactivityId(Integer activityid);
+	
 	public abstract List<ActivityCommissionBean> findAll();
 
 	public abstract ActivityCommissionBean create(ActivityCommissionBean bean);
