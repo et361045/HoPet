@@ -16,6 +16,7 @@ import misc.PrimitiveNumberEditor;
 import model.fostercareCommission.FostercareCommissionBean;
 import model.fostercareForm.FostercareFormBean;
 import model.fostercareForm.FostercareFormService;
+import model.hospital.HospitalBean;
 @Controller
 public class FostercareFormController {
 	@Autowired
@@ -25,6 +26,9 @@ public class FostercareFormController {
 	{
 		webDataBinder.registerCustomEditor(int.class,new PrimitiveNumberEditor(java.lang.Integer.class,true));
 	}
+	
+	
+	
 	@RequestMapping("/pages/fostercareForm.controller")
 	public String method(String fostercareform, FostercareFormBean bean, BindingResult bindingResult, Model model) {
 		System.out.println("bean="+bean);
@@ -38,7 +42,13 @@ public class FostercareFormController {
 			
 			System.out.println("enter errors");
 			return "fostercareform.errors";
-		}
+		}if ("Select".equals(fostercareform)) {
+			List<FostercareFormBean> result = fostercareFormService.select(bean);
+			System.out.println("select =" +result);
+			model.addAttribute("select", result);
+			return "fostercareform";
+
+		} else
 		 if("Insert".equals(fostercareform)) {
 			 FostercareFormBean result = fostercareFormService.insert(bean);
 			if(result==null) {

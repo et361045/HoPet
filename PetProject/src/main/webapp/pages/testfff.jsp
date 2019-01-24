@@ -1,7 +1,8 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="UTF-8">
 <head>
@@ -9,7 +10,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>fosterDetial</title>
+<title>Intensely : Home</title>
 <!-- Favicon -->
 <link rel="shortcut icon" type="image/icon"
 	href="/PetProject/assets/images/favicon.ico" />
@@ -34,11 +35,19 @@
 	href="/PetProject/assets/css/theme-color/default-theme.css"
 	rel="stylesheet">
 
+<!-- member css -->
+
+<link href="/PetProject/assets/css/member.css" rel="stylesheet">
+
 <!-- Main Style -->
-<link href="/PetProject/assets/css/style.css" rel="stylesheet">
+<link href="/PetProject/assets/css/memberstyle.css" rel="stylesheet">
 <!-- login Style -->
 <link href="/PetProject/assets/css/login/login.css" rel="stylesheet">
-<!-- fosterDetial Style -->
+<!-- icon -->
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+	integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+	crossorigin="anonymous">
 <!-- alert -->
 <link
 	href="//cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.10/alertify.core.css"
@@ -46,6 +55,8 @@
 <link
 	href="//cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.10/alertify.default.css"
 	rel="stylesheet">
+
+
 
 <!-- Fonts -->
 
@@ -56,8 +67,8 @@
 <link href='https://fonts.googleapis.com/css?family=Lato'
 	rel='stylesheet' type='text/css'>
 
-<link href="/PetProject/assets/css/fosterdetial/fosterDetial.css"
-	rel="stylesheet">
+
+
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -108,17 +119,16 @@
 									value="<span class='Username' >HI, ${user.memberName} </span>"
 									escapeXml="false" />
 								<c:out
-									value="  <a class='login modal-form' id='Logout'> Logout</a>" 
-									escapeXml="false" /> 
+									value="  <a class='login modal-form' id='Logout'> Logout</a>"
+									escapeXml="false" />
 							</c:if>
 
 							<c:if test="${empty  user}">
 								<c:out
-								value=" <a class='login modal-form' data-target='#login-form'
-								data-toggle='modal' href='#' id='Login'>Login / Sign Up</a>"
+									value=" <a class='login modal-form' data-target='#login-form'
+								data-toggle='modal' href='#'>Login / Sign Up</a>"
 									escapeXml="false" />
 							</c:if>
-							
 						</div>
 					</div>
 				</div>
@@ -126,7 +136,7 @@
 		</div>
 	</header>
 	<!-- End header -->
-	
+
 	<!-- Start login modal window -->
 	<div aria-hidden="false" role="dialog" tabindex="-1" id="login-form"
 		class="modal leread-modal fade in">
@@ -161,7 +171,7 @@
 					</form>
 				</div>
 				<div class="modal-footer footer-box">
-					<a href="#" id="forgotpsw">Forgot password ?</a>
+					<a href="#">Forgot password ?</a>
 					<p>
 					<div>
 						No account ? <a id="signup-btn" href="#">Sign Up.</a>
@@ -180,7 +190,7 @@
 					</h4>
 				</div>
 				<div class="modal-body">
-					<form id="signon" action="<c:url value='/signon'/>">
+					<form id="signon" action="<c:url value='signon'/>">
 						<div class="form-group">
 							<input type="email" placeholder="User email" class="form-control"
 								title="請輸入信箱" name="email">
@@ -212,6 +222,7 @@
 								class="form-control" title="請輸入手機" name="memberPhone">
 						</div>
 
+
 						<div class="signupbox">
 							<span>Already got account? <a id="login-btn" href="#">Sign
 									In.</a></span>
@@ -242,8 +253,9 @@
 					</button>
 					<!-- LOGO -->
 					<!-- TEXT BASED LOGO -->
-					<a href="index.jsp"><img src="assets/images/logo.png"
-						class="logo_img"></a>
+					<a href="/PetProject/index.jsp"> <img
+						src="/PetProject/assets/images/logo.png" class="logo_img">
+					</a>
 					<!-- IMG BASED LOGO  -->
 					<!-- <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" alt="logo"></a> -->
 				</div>
@@ -252,140 +264,116 @@
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown">會員中心 <span class="fa fa-angle-down"></span></a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="/PetProject/member/member.jsp">會員資料</a></li>
-
-								<li><a id="fosteritem" onclick="fostercheck()">送養資料</a></li>
-								<li><a href="/PetProject/member/membermessage"><span class="fa fa-search"></span>動態消息 </a></li>
+								<li><a href="member.jsp">會員資料</a></li>
+								<li><a href=""><span class="fa fa-search"></span>搜尋好友 </a></li>
 							</ul></li>
 						<li><a href="">寵物生活館</a></li>
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown">寵物百科 <span class="fa fa-angle-down"></span></a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="dog.jsp">Dog</a></li>
+								<li><a href="">Dog</a></li>
+								<li><a href="">Cat</a></li>
 							</ul></li>
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown">寄養&領養<span class="fa fa-angle-down"></span></a>
+							data-toggle="dropdown">寄養&送養<span class="fa fa-angle-down"></span></a>
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="">寄養</a></li>
-								<li><a href="findFosterForm">領養</a></li>
-<!-- 								<li><a id ="xxx" href="" onclick='check()' data-toggle="" data-target="">申請送養</a></li> -->
-								<li><a id="application_foster" onclick="check()" data-toggle="" data-target="">申請送養</a></li>
+								<li><a href="">送養</a></li>
 							</ul></li>
-						
-<!-- 						<li><a href="">寵物旅遊</a></li> -->
-<!-- 						<li><a href="">寵物商城</a></li> -->
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-						    data-toggle="dropdown">寵物活動<span class="fa fa-angle-down"></span></a>
-						<ul class="dropdown-menu" role="menu">
-							<li><a href="ActivityHome.jsp">活動首頁</a></li>
-							<li><a href="/PetProject/activityCommission">一起去旅遊</a></li>
-							<li><a href="">查詢參加活動</a></li>
+						<li><a href="">寵物旅遊</a></li>
+						<li><a href="">寵物商城</a></li>
+						<li><a href="">寵物活動</a></li>
 					</ul>
 				</div>
 				<!--/.nav-collapse -->
-				<a href="#" id="search-icon"> <i class="fa fa-search"> </i>
+				<a href="#" id="search-icon"> <i class="fa fa-search" style="">
+				</i>
 				</a>
 			</div>
 		</nav>
 	</section>
-	<!-- END MENU -->
 
-	<!-- Start Pricing table -->
-	<section id="pricing-table">
+
+
+	
+	
+
+
+	<section id="blog-archive">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="title-area" style="padding: 0px;">
-						<h3 class="foster_title" style="display: inline-block;float: left;">送養領養詳細資料</h3>
-						<h2 class="foster_title"style="display: inline-block;">領養人申請單</h2>
-					</div>
-				</div>
-				<div class="col-md-12">
-					<div class="pricing-table-content">
+					<div class="blog-archive-area">
 						<div class="row">
-							<div class="col-md-3 col-sm-6 col-xs-12">
-								<div class="foster_detial_price" data-wow-duration="0.5s"
-									data-wow-delay="0.5s">
-									<div class="foster_detial_header" style="height: 40px;">
-										<div>
-											<span class="foster_detial_down">送養中的寵物</span>
-										</div>
-									</div>
-									<div class="foster_detial_article" style="margin-bottom: 10px;">
-										<ul>
-											<c:forEach var="petnames" items="${petNames}">
-												<li>${petnames.petName}<a
-													onclick="deletefoster(${petnames.petId})"
-													class="fa fa-trash" style="margin-top: 4px; float: right;"
-													title="刪除送養"></a></li>
-											</c:forEach>
-										</ul>
-									</div>
-								</div>
-								<div class="foster_detial_price" data-wow-duration="0.5s"
-									data-wow-delay="0.5s">
-									<div class="foster_detial_header" style="height: 40px;">
-										<div>
-											<span class="foster_detial_down">送養成功</span>
-										</div>
-									</div>
-									<div class="foster_detial_article" style="margin-bottom: 10px;">
-										<ul>
-											<c:forEach var="fostersuccess" items="${fostersuccess}">
-												<li>${fostersuccess.petname}　送養給　${fostersuccess.carername}</li>
-											</c:forEach>
-										</ul>
-									</div>
-								</div>
-								<div class="foster_detial_price" data-wow-duration="0.5s"
-									data-wow-delay="0.5s">
-									<div class="foster_detial_header" style="height: 40px;">
-										<div>
-											<span class="foster_detial_down">收養成功</span>
-										</div>
-									</div>
-									<div class="foster_detial_article" style="margin-bottom: 10px;">
-										<ul>
-											<c:forEach var="adoptionsuccess" items="${adoptionsuccess}">
-												<li>您從　${adoptionsuccess.ownername}　收養　${adoptionsuccess.petname}</li>
-											</c:forEach>
-										</ul>
-									</div>
-								</div>
+						
+							<div class="col-md-8">
+								<div class="blog-archive-left">
+									<!-- Start blog news single -->
+
+	<h3>Select fostercare Table Result : ${fn:length(select)} row(s)
+		selected</h3>
+
+	<c:if test="${not empty select}">
+		<table style=" width: 900px">
+			<thead>
+				<tr>
+					<th>編號</th>
+					<th>職業</th>
+					<th>養寵經驗</th>
+					<th>寄養經驗</th>
+					<th>送信確認</th>
+				</tr>
+			</thead>
+			<tbody>
+				<%--  <c:forEach var="bean" items="${fostercareformbean}"> --%>
+				<%--   <c:url value="/testfff.jsp" var="path"> --%>
+				<%--    <c:param name="FostercareCommissionid" value="${bean.FostercareCommissionid}" /> --%>
+				<%--    <c:param name="job" value="${bean.job}" /> --%>
+				<%--    <c:param name="experience" value="${bean.experience}" /> --%>
+				<%--    <c:param name="pettime" value="${bean.pettime}" /> --%>
+				<%--   </c:url> --%>
+				<%--  <tr id="tr${bean.FostercareCommissionid}"> --%>
+				<%--   <td>${bean.FostercareCommissionid}</td> --%>
+				<%--   <td>${bean.job}</td> --%>
+				<%--   <td>${bean.experience}</td> --%>
+				<%--   <td>${bean.pettime}</td> --%>
+				<!--  </tr>  -->
+				<%--  </c:forEach> --%>
+				<c:forEach var="bean" items="${select}">
+
+					<tr>
+						<td>${bean.fostercareCommissionid}</td>
+						<td>${bean.job}</td>
+						<td>${bean.experience}</td>
+						<td>${bean.pettime}</td>
+						<td>
+							<form action="foddemail" method="post">
+								<input type="hidden" value="${bean.carer}" name="memberid">
+									<input type="hidden" value="${bean.fostercareCommissionid}" name="fostercareCommissionid">
+								<label class="btn btn-light">
+								<i class="fas fa-envelope-square"></i>送出信件
+								<input type="submit" style="display: none" value="送出">
+								</label>
+							</form>
+						</td>
+					</tr>
+
+				</c:forEach>
+			</tbody>
+		</table>
+	</c:if>
+
+</div>
 							</div>
-							<c:forEach var="foster_form" items="${fosterform}">
-								<div class="col-md-3 col-sm-6 col-xs-12">
-									<div class="foster_detial_price" data-wow-duration="0.5s"
-										data-wow-delay="0.5s">
-										<div class="foster_detial_header">
-											<span class="foster_detial_title">${foster_form.carerName}</span>
-											<div>
-												<span class="foster_detial_down">${foster_form.petName}</span>
-											</div>
-										</div>
-										<div class="foster_detial_article">
-											<ul>
-												<li>是否成年 : ${foster_form.age}</li>
-												<li>工作 : ${foster_form.job}</li>
-												<li>薪水 : ${foster_form.salary}</li>
-												<li>養寵物經驗 : ${foster_form.experience}</li>
-												<li>收養經驗 : ${foster_form.pettime}</li>
-											</ul>
-										</div>
-										<div class="foster_detial_footer">
-											<a id="${foster_form.carer}"class="foster_detial_btn" onclick="fostersuccess(${foster_form.carer},${foster_form.petId})">就是他了!!</a>
-										</div>
-									</div>
-								</div>
-							</c:forEach>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-	<!-- End Pricing table -->
+</body>
 
+	<!-- End subscribe us -->
 
 	<!-- Start footer -->
 	<footer id="footer">
@@ -445,65 +433,10 @@
 	<!-- Custom js -->
 	<script type="text/javascript" src="/PetProject/assets/js/custom.js"></script>
 	<!-- alert -->
-	<script
-		src="//cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.10/alertify.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.10/alertify.min.js"></script>
+	<!-- sweetalert -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.all.min.js"></script>	
+	
 
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-
-	<script>
-		function deletefoster(petId) {
-			swal({
-				  title: "確定要刪除嗎？",
-				  icon: "warning",
-				  buttons: true,
-				  dangerMode: true,
-				}).then((willcancel) => {
-					if (willcancel) {
-						$.ajax({
-							url : 'deleteFosterForm?petId='+petId,
-			 				type : 'GET',
-						}).done(function(){								
-							swal({
-								title: "刪除成功",
-								  icon: "success",
-								  button: "確認",
-								}).then(() => {								  
-									  window.location.reload();							
-								});												
-							})
-						}						
-					 else {}
-					});		
-				}
-		
-		
-		function fostersuccess(carerId,petId){		
-			swal({
-				  title: "確認送養？",
-				  icon: "warning",
-				  buttons: true,
-				  dangerMode: true,
-				}).then((willcancel) => {
-					if (willcancel) {
-						$.ajax({
-							url : 'fostersuccess?carerId='+carerId+'&petId='+petId,
-			 				type : 'GET',
-						}).done(function(){								
-							swal({
-								title: "送養成功",
-								  icon: "success",
-								  button: "確認",
-								}).then(() => {								  
-									  window.location.reload();							
-								});												
-							})
-						}						
-					 else {}
-					});		
-				}		
-		
-	</script>
 </body>
-
 </html>

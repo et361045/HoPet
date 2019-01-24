@@ -297,18 +297,11 @@
 	<!-- Start subscribe us -->
 	<section id="subscribe">
 		<div class="subscribe-overlay"
-			style="background-image: url(/PetProject/assets/images/search.jpg); opacity: 0.9">
+			style="background-image: url(/PetProject/assets/images/search.jpg); opacity: 0.9 ;height: 300px">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<div class="subscribe-area">
-							<h2 class="text" style="color: #e0e0e0; font-size: 24px">搜索會員帳號:</h2>
-							<form action="" class="subscrib-form">
-								<input type="text" placeholder="Enter Your E-mail..">
-								<button class="subscribe-btn" type="submit"
-									style="font-size: 24px; font-family: 'cwTeXYen';">搜尋</button>
-							</form>
-						</div>
+						
 					</div>
 				</div>
 			</div>
@@ -322,23 +315,7 @@
 				<div class="col-md-12">
 					<div class="blog-archive-area">
 						<div class="row">
-								<c:if test="${!empty  user}">
-							<div class="col-md-4 hidden-sm hidden-xs">
-								<aside class="blog-side-bar"
-									style="border: black 3px solid; border-radius: 9px">
-									<!-- Start sidebar widget -->
-									<div class="sidebar-widget">
-										<h4 class="text" style="font-size: 25px; margin-left: 5px">動態消息</h4>
-										<ul class="widget--catg">
-											<li><a href="#" class="text"
-												style="font-size: 22px; margin-left: 3px">您的動態</a></li>
-											<li><a href="#" class="text"
-												style="font-size: 22px; margin-left: 3px">好友動態</a></li>
-										</ul>
-									</div>
-								</aside>
-							</div>
-							</c:if>
+						
 							<div class="col-md-8">
 								<div class="blog-archive-left">
 									<!-- Start blog news single -->
@@ -387,9 +364,9 @@
 										<!-- 										顯示訊息 -->
 										<c:if test="${not empty select}">
 											<c:forEach var="bean" items="${select}">
-												<div class="blog-news-img">
+												<div class="blog-news-img" style="margin-bottom: 100px ;">
 													<div
-														style="width: 903px; height: 300px; border-radius: 9px">
+														style="width: 903px; height: 300px; border-radius: 9px ;">
 														<div
 															style="border-left: black 2px solid; border-top: black 2px solid; border-right: black 2px solid; background-color: #e0e0e0; width: 905px; height: 30px; border-top-left-radius: 9px; border-top-right-radius: 9px;"
 															class="text">${bean.title}</div>
@@ -411,7 +388,7 @@
 																<td style="border-top: black 2px solid"><span
 																	class="text">時間:${bean.messagetime}</span> <span
 																	class="text" style="margin-left: 20px">信箱:${bean.memberbean.email}</span>
-																	<span style="float: right;"> <span class="text">讚數:</span></span>
+																	
 																</td>
 															</tr>
 														</table>
@@ -427,9 +404,24 @@
 																			value='刪除' style='display: none'><i
 																			class='fas fa-trash-alt'></i></label></span>
 																</form>
-															</div>															
+															</div>
 														</c:if>
-														  <div style=" width: 905px; border: black 2px solid; border-top: 0px;"><input type="text" class="text" style="width:800px" placeholder="請輸入訊息" ><input class="btn btn-link" type="submit" value="送出" style="width: 100px; font-size: 18px"></div>														
+														<div
+															style="width: 905px; border: black 2px solid; border-top: 0px;">
+															<form action="<c:url value='insertreturn'/>" method="post">
+															<input type="text" style="display: none" name="messageboardid" value="${bean.messageboardid}">
+															<input type="text" class="text" name="message"
+																style="width: 800px; height: 32px; border: 0px; outline: none"
+																placeholder="請輸入訊息">
+																<input class="btn btn-link" type="submit" value="送出" style="width: 90px; font-size: 18px; font-family: 'cwTeXYen';">	
+														</form>
+														</div>
+														
+														<div style="width: 905px; border: black 2px solid; border-top: 0px;">
+															安安
+														</div>
+														
+														
 													</div>
 												</div>
 											</c:forEach>

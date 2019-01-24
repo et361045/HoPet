@@ -9,13 +9,21 @@ import model.petEncyclopedia.PetEncyclopediaBean;
 import model.petEncyclopedia.PetEncyclopediaDao;
 
 @Repository
-public class PetEncyclopediaHibernate implements PetEncyclopediaDao {
+public class PetEncyclopediaDaoHibernate implements PetEncyclopediaDao {
+
 	@Autowired
 	private SessionFactory sessionFactory;
 
 	public Session getSession() {
 		return sessionFactory.getCurrentSession();
 	}
+
+	@Override
+	public PetEncyclopediaBean update(PetEncyclopediaBean petEncyclopediaBean) {
+		this.getSession().save(petEncyclopediaBean);
+		return this.getSession().get(PetEncyclopediaBean.class, petEncyclopediaBean.getPetEncyclopediaId());
+	}
+		
 
 	@Override
 	public PetEncyclopediaBean finBypetEncyclopediaId(Integer petEncyclopediaId) {

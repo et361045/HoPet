@@ -37,6 +37,16 @@ public class FostercareFormDaoHibernate implements FostercareFormDao{
 		List<FostercareFormBean> result = this.getSession().createQuery("from FostercareFormBean", FostercareFormBean.class).list();
 		return result;
 	}
+	
+	@Override
+	public List<FostercareFormBean>  findCommissionid(Integer fostercareCommissionid) {
+		//取得product table的所有資料
+		List<FostercareFormBean> result = this.getSession().createQuery("from FostercareFormBean where fostercareCommissionid='"+fostercareCommissionid+"'", FostercareFormBean.class).list();
+		return result;
+	}
+	
+	
+	
 	@Override
 	public FostercareFormBean create(FostercareFormBean bean) {
 		//將ProductBean物件的資料存入product table

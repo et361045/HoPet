@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>Intensely : Home</title>
+<title>Foster</title>
 <!-- Favicon -->
 <!-- <script src="dist/sweetalert.min.js"></script> -->
 <!-- <link href="dist/sweetalert.css" rel="stylesheet" type="text/css" /> -->
@@ -104,20 +104,17 @@
 									value="<span class='Username' >HI, ${user.memberName} </span>"
 									escapeXml="false" />
 								<c:out
-									value="  <a class='login modal-form' id='Logout'> Logout</button>"
-									escapeXml="false" />
+									value="  <a class='login modal-form' id='Logout'> Logout</a>" 
+									escapeXml="false" /> 
 							</c:if>
 
 							<c:if test="${empty  user}">
 								<c:out
-									value=" <a class='login modal-form' data-target='#login-form'
+								value=" <a class='login modal-form' data-target='#login-form'
 								data-toggle='modal' href='#' id='Login'>Login / Sign Up</a>"
 									escapeXml="false" />
 							</c:if>
-
-
-
-
+							
 						</div>
 					</div>
 				</div>
@@ -125,7 +122,7 @@
 		</div>
 	</header>
 	<!-- End header -->
-
+	
 	<!-- Start login modal window -->
 	<div aria-hidden="false" role="dialog" tabindex="-1" id="login-form"
 		class="modal leread-modal fade in">
@@ -211,7 +208,6 @@
 								class="form-control" title="請輸入手機" name="memberPhone">
 						</div>
 
-
 						<div class="signupbox">
 							<span>Already got account? <a id="login-btn" href="#">Sign
 									In.</a></span>
@@ -242,30 +238,26 @@
 					</button>
 					<!-- LOGO -->
 					<!-- TEXT BASED LOGO -->
-					<img src="assets/images/logo.png" class="logo_img">
+					<a href="index.jsp"><img src="assets/images/logo.png"
+						class="logo_img"></a>
 					<!-- IMG BASED LOGO  -->
 					<!-- <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" alt="logo"></a> -->
 				</div>
-				<div id="navbar" class="navbar-collapse collapse">
+			<div id="navbar" class="navbar-collapse collapse">
 					<ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown">會員中心 <span class="fa fa-angle-down"></span></a>
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="/PetProject/member/member.jsp">會員資料</a></li>
-								<li><a href=""><span class="fa fa-search"></span>搜尋好友 </a></li>
+
+								<li><a id="fosteritem" onclick="fostercheck()">送養資料</a></li>
+								<li><a href="/PetProject/member/membermessage"><span class="fa fa-search"></span>動態消息 </a></li>
 							</ul></li>
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown">寵物生活館 <span class="fa fa-angle-down"></span></a>
-							<ul class="dropdown-menu" role="menu">
-								<li><a href="">醫院</a></li>
-								<li><a href="">商家</a></li>
-								<li><a href="">景點</a></li>
-							</ul></li>
+						<li><a href="">寵物生活館</a></li>
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown">寵物百科 <span class="fa fa-angle-down"></span></a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="">Dog</a></li>
-								<li><a href="">Cat</a></li>
+								<li><a href="dog.jsp">Dog</a></li>
 							</ul></li>
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown">寄養&領養<span class="fa fa-angle-down"></span></a>
@@ -275,9 +267,15 @@
 <!-- 								<li><a id ="xxx" href="" onclick='check()' data-toggle="" data-target="">申請送養</a></li> -->
 								<li><a id="application_foster" onclick="check()" data-toggle="" data-target="">申請送養</a></li>
 							</ul></li>
-						<li><a href="">寵物旅遊</a></li>
-						<li><a href="">寵物商城</a></li>
-						<li><a href="">寵物活動</a></li>
+						
+<!-- 						<li><a href="">寵物旅遊</a></li> -->
+<!-- 						<li><a href="">寵物商城</a></li> -->
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+						    data-toggle="dropdown">寵物活動<span class="fa fa-angle-down"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="ActivityHome.jsp">活動首頁</a></li>
+							<li><a href="/PetProject/activityCommission">一起去旅遊</a></li>
+							<li><a href="">查詢參加活動</a></li>
 					</ul>
 				</div>
 				<!--/.nav-collapse -->
@@ -745,8 +743,12 @@
 			$.ajax({
 				url : "insertFosterForm?" + form +"&adoptionpetId="+ adoptionpetId,
 				type : "GET",
-			}).done(function(response) {
-				alert(response)
+			}).done(function() {
+				Swal({
+					  type: 'success',
+					  title: '領養申請成功',
+					  showConfirmButton:false,
+					})
 				$("#adoptionModal").modal('hide');
 			})
 		})
@@ -798,6 +800,20 @@
 					})	
 			}
 		}
+		function fostercheck(){	
+			if('${user}'){
+			var id ='${user.memberId}';
+				$("#fosteritem").attr("href","/PetProject/findfosterdetial?owner="+id);
+			}else{
+				Swal({
+					  type: 'warning',
+					  title: '請先登入會員',
+					  text: 'Something went wrong!',
+					  confirmButtonColor:"#FFA600",
+					  showConfirmButton:false,
+					})	
+			}
+	}
 
 		
 		

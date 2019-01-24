@@ -8,4 +8,5 @@ public interface ReturnMessageDAO {
 	public abstract boolean update(ReturnMessageBean bean);
     public abstract boolean delete(ReturnMessageBean bean);
     public abstract  ReturnMessageBean select(Integer id);
+    public abstract boolean delete(int id);
     }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="UTF-8">
 <head>
@@ -8,7 +9,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <title>Dog-Encyclopedia</title>
-<!-- Favicon -->
 <link rel="shortcut icon" type="image/icon"
 	href="/PetProject/assets/images/favicon.ico" />
 <!-- Font Awesome -->
@@ -34,8 +34,13 @@
 
 <!-- Main Style -->
 <link href="/PetProject/assets/css/style.css" rel="stylesheet">
-
-
+<!-- login Style -->
+<link href="/PetProject/assets/css/login/login.css" rel="stylesheet">
+<script defer
+	src="https://use.fontawesome.com/releases/v5.6.3/js/all.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.14/jquery.twzipcode.min.js"></script>
 <!-- Fonts -->
 
 <!-- Open Sans for body font -->
@@ -90,8 +95,23 @@
 					<div class="col-md-6 col-sm-6 col-xs-6"></div>
 					<div class="col-md-6 col-sm-6 col-xs-6">
 						<div class="header-login">
-							<a class="login modal-form" data-target="#login-form"
-								data-toggle="modal" href="#">Login / Sign Up</a>
+
+							<c:if test="${!empty  user}">
+								<c:out
+									value="<span class='Username' >HI, ${user.memberName} </span>"
+									escapeXml="false" />
+								<c:out
+									value="  <a class='login modal-form' id='Logout'> Logout</a>" 
+									escapeXml="false" /> 
+							</c:if>
+
+							<c:if test="${empty  user}">
+								<c:out
+								value=" <a class='login modal-form' data-target='#login-form'
+								data-toggle='modal' href='#' id='Login'>Login / Sign Up</a>"
+									escapeXml="false" />
+							</c:if>
+							
 						</div>
 					</div>
 				</div>
@@ -99,7 +119,7 @@
 		</div>
 	</header>
 	<!-- End header -->
-
+	
 	<!-- Start login modal window -->
 	<div aria-hidden="false" role="dialog" tabindex="-1" id="login-form"
 		class="modal leread-modal fade in">
@@ -116,24 +136,29 @@
 					</h4>
 				</div>
 				<div class="modal-body">
-					<form>
+					<form id="login">
 						<div class="form-group">
-							<input type="text" placeholder="User name" class="form-control">
+							<input type="email" placeholder="User email" name="email"
+								class="form-control" title="請輸入信箱">
 						</div>
 						<div class="form-group">
-							<input type="password" placeholder="Password"
-								class="form-control">
+							<input type="password" placeholder="Password" name="password"
+								class="form-control" title="請輸入密碼">
 						</div>
+
 						<div class="loginbox">
 							<label><input type="checkbox"><span>Remember
-									me</span></label>
-							<button class="btn signin-btn" type="button">SIGN IN</button>
+									me</span></label> <input type="submit" class="btn signin-btn" value="SIGN IN"><span
+								class="errorspan" id="errorspan"></span>
 						</div>
 					</form>
 				</div>
 				<div class="modal-footer footer-box">
-					<a href="#">Forgot password ?</a> <span>No account ? <a
-						id="signup-btn" href="#">Sign Up.</a></span>
+					<a href="#" id="forgotpsw">Forgot password ?</a>
+					<p>
+					<div>
+						No account ? <a id="signup-btn" href="#">Sign Up.</a>
+					</div>
 				</div>
 			</div>
 			<!-- Start signup section -->
@@ -148,28 +173,45 @@
 					</h4>
 				</div>
 				<div class="modal-body">
-					<form>
+					<form id="signon" action="<c:url value='/signon'/>">
 						<div class="form-group">
-							<input placeholder="Name" class="form-control">
+							<input type="email" placeholder="User email" class="form-control"
+								title="請輸入信箱" name="email">
 						</div>
 						<div class="form-group">
-							<input placeholder="Username" class="form-control">
+							<p class="Description" id="checkemail"></p>
 						</div>
 						<div class="form-group">
-							<input placeholder="Email" class="form-control">
+							<input type="password" id="password" placeholder="password"
+								class="form-control" title="請輸入密碼" name="psw">
 						</div>
 						<div class="form-group">
-							<input type="password" placeholder="Password"
-								class="form-control">
+							<input type="password" id="checkpass" placeholder="checkpassword"
+								class="form-control" title="與密碼相附">
 						</div>
+						<div class="form-group">
+							<p class="Description" id="checkpassword"></p>
+						</div>
+						<div class="form-group">
+							<input type="text" placeholder="name" class="form-control"
+								title="請輸入暱稱" name="memberName">
+						</div>
+						<div class="form-group">
+							<input type="text" placeholder="address" class="form-control"
+								title="請輸入地址" name="address">
+						</div>
+						<div class="form-group">
+							<input type="text" placeholder="cellphone-number "
+								class="form-control" title="請輸入手機" name="memberPhone">
+						</div>
+
 						<div class="signupbox">
 							<span>Already got account? <a id="login-btn" href="#">Sign
 									In.</a></span>
 						</div>
 						<div class="loginbox">
-							<label><input type="checkbox"><span>Remember
-									me</span><i class="fa"></i></label>
-							<button class="btn signin-btn" type="button">SIGN UP</button>
+							<input type="submit" class="btn signin-btn" value="SIGN UP"><span
+								class="errorspan" id="errorspan"></span>
 						</div>
 					</form>
 				</div>
@@ -193,8 +235,8 @@
 					</button>
 					<!-- LOGO -->
 					<!-- TEXT BASED LOGO -->
-					<a href="index.jsp"><img
-						src="/PetProject/assets/images/logo.png" class="logo_img"></a>
+					<a href="index.jsp"><img src="/PetProject/assets/images/logo.png"
+						class="logo_img"></a>
 					<!-- IMG BASED LOGO  -->
 					<!-- <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" alt="logo"></a> -->
 				</div>
@@ -203,25 +245,34 @@
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown">會員中心 <span class="fa fa-angle-down"></span></a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="">修改會員資料</a></li>
-								<li><a href=""><span class="fa fa-search"></span>搜尋好友 </a></li>
+								<li><a href="/PetProject/member/member.jsp">會員資料</a></li>
+
+								<li><a id="fosteritem" onclick="fostercheck()">送養資料</a></li>
+								<li><a href="/PetProject/member/membermessage"><span class="fa fa-search"></span>動態消息 </a></li>
 							</ul></li>
 						<li><a href="">寵物生活館</a></li>
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown">寵物百科 <span class="fa fa-angle-down"></span></a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="">Dog</a></li>
-								<li><a href="">Cat</a></li>
+								<li><a href="dog.jsp">Dog</a></li>
 							</ul></li>
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown">寄養&送養<span class="fa fa-angle-down"></span></a>
+							data-toggle="dropdown">寄養&領養<span class="fa fa-angle-down"></span></a>
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="">寄養</a></li>
-								<li><a href="">送養</a></li>
+								<li><a href="findFosterForm">領養</a></li>
+<!-- 								<li><a id ="xxx" href="" onclick='check()' data-toggle="" data-target="">申請送養</a></li> -->
+								<li><a id="application_foster" onclick="check()" data-toggle="" data-target="">申請送養</a></li>
 							</ul></li>
-						<li><a href="">寵物旅遊</a></li>
-						<li><a href="">寵物商城</a></li>
-						<li><a href="">寵物活動</a></li>
+						
+<!-- 						<li><a href="">寵物旅遊</a></li> -->
+<!-- 						<li><a href="">寵物商城</a></li> -->
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+						    data-toggle="dropdown">寵物活動<span class="fa fa-angle-down"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="ActivityHome.jsp">活動首頁</a></li>
+							<li><a href="/PetProject/activityCommission">一起去旅遊</a></li>
+							<li><a href="">查詢參加活動</a></li>
 					</ul>
 				</div>
 				<!--/.nav-collapse -->
@@ -231,6 +282,7 @@
 		</nav>
 	</section>
 	<!-- END MENU -->
+
 	<table class="dogItem_table">
 		<tbody>
 			<tr>
@@ -286,7 +338,13 @@
 		</tbody>
 	</table>
 	<div class="dogItem_button_div">
-		<button type="button" class="dogItem_button" onclick="history.back()">上一頁</button>
+		<c:if test="${user.memberId==4}">
+			<a class="dogItem_button"
+				style="text-align: center; padding-top: 5px;"
+				href="/PetProject/dogItemUpdate?petEncyclopediaId=${bean.petEncyclopediaId}">編輯</a>
+		</c:if>
+		<button type="button" class="dogItem_button" onclick="back()">上一頁</button>
+
 	</div>
 	<!-- Start footer -->
 	<footer id="footer">
@@ -335,7 +393,20 @@
 	<!-- progress bar   -->
 	<script type="text/javascript"
 		src="/PetProject/assets/js/bootstrap-progressbar.js"></script>
+	<!--login   -->
+	<script type="text/javascript"
+		src="/PetProject/assets/css/login/login.js"></script>
+	<!--Signon   -->
+	<script type="text/javascript"
+		src="/PetProject/assets/css/SignOn/SignOn.js"></script>
 	<!-- Custom js -->
 	<script type="text/javascript" src="/PetProject/assets/js/custom.js"></script>
+<script >
+	function back(){
+		window.location.href="/PetProject/dog.jsp";
+		
+	}
+
+</script>
 </body>
 </html>

@@ -28,6 +28,7 @@ public class FostercareCommissionController {
 	@Autowired
 	private FostercareCommissionService fostercareservice;
 	
+	
 	@Autowired
 	private PetService petService;
 	@Autowired
@@ -39,9 +40,10 @@ public class FostercareCommissionController {
 			Integer petid) {
 		System.out.println("hihiiihi");
 		MemberBean usertemp  = (MemberBean) model.asMap().get("user");
+		System.out.println(usertemp);
 		fostercareFormBean.setCarer(usertemp.getMemberId());
 		System.out.println(fostercareFormBean);
-	System.out.println("petid ="+petid);
+		System.out.println("petid ="+petid);
 		FostercareFormBean  temp =fostercareFormService.insertFostercareForm(fostercareFormBean, petid);
 		temp.setStatus("0");
          System.out.println("temp ="+temp);
@@ -52,7 +54,13 @@ public class FostercareCommissionController {
 		
 	}
 	
-	
+	@RequestMapping("/fostercarecommissionall")
+	public String findall(FostercareFormBean bean,Model model){	
+		List<FostercareFormBean>beans= fostercareFormService.selectFostercareCommission(bean);
+		model.addAttribute("fostercareformbean",beans);
+		return "fostercareform";
+	}
+
 	
 	
 	@RequestMapping("/xxxxx")
@@ -98,7 +106,6 @@ public class FostercareCommissionController {
 	public List<FostercareCommissionBean> test456(@RequestParam(name = "city", required = false)  String city,Model model) {
 		System.out.println(city);
 		List<FostercareCommissionBean>beans=fostercareservice.selectarea(city);
-		model.addAttribute("allbean2",beans);
 		return beans;
 	}
 	

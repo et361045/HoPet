@@ -485,7 +485,7 @@
 				</div>
 				<div class="col-md-12">
 					<div class="our-team-content">
-						<div class="row">
+						<div class="row" id="test">
 							<!-- Start single team member -->
 <!-- 							<div class="col-md-3 col-sm-6 col-xs-12"> -->
 <!-- 								<div class="single-team-member"> -->
@@ -812,14 +812,44 @@
 						url : "/PetProject/findarea",
 						cache : false,
 						async : false,
-							}).done(function(){	
-								window.location.reload();
+							}).done(function(Data){	
+								console.log(Data)
+								$('#test').html("")
+								$.each( Data, function( index , value ) {
+									$('#test').append(
+											'<div class="col-md-3 col-sm-6 col-xs-12">'
+											+'<div class="single-team-member">'
+												+'<div class="team-member-img">'
+													+'<p style="display:none">'+value.fostercareCommissionid+'</p>'
+													+'<img src='+value.picture+'>'
+												+'</div>'
+												+'<div class="team-member-name">'
+													+'<p >'+value.variety+'</p>'
+												+'</div>'
+												+'<p>'+value.remark+'</p>'
+												+'<div class="team-member-link">'
+													+'<a href="#" id="heart${care.petid}" data-toggle="hide" onclick="adoption('+value.petid+')"'
+												+'data-target="#adoptionModal5"><i class="fa fa-heart fa-2x foster_heart"title="我想要領養"></i></a>'
+												+'<a href="#" id="dog${care.petid}" onclick="finddogdetail('+value.petid+')" data-toggle="modal"'
+														+'data-target="#fostercareDogDetails"><i class="fa fa-dog fa-2x foster_dog" title="詳細資料"></i></a>'
+												+'</div>'
+											+'</div>'
+										+'</div>'
+									)
+
+								});
 							})
 
 		})
 // 		$("#fostercare_search").click(function() {
 // 			var form = $("#fostercare_search_form").serialize();
 // 			console.log(form)
+// 			$.ajax({
+// 				url:"fostercare_search?"+form,
+// 				type:"GET",		
+//          }).done(function(response){
+        	 
+//          })
 // 			window.location.href="fostercare_search?" + form;
 // 		})
 		
