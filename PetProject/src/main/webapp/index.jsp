@@ -258,9 +258,9 @@
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown">寵物生活館 <span class="fa fa-angle-down"></span></a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="">醫院</a></li>
-								<li><a href="StoreMap.jsp">商家</a></li>
-								<li><a href="">景點</a></li>
+								<li><a href="/PetProject/hospitaltest.jsp">醫院</a></li>
+								<li><a href="/PetProject/StoreMap.jsp">商家</a></li>
+								
 							</ul></li>
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown">寵物百科 <span class="fa fa-angle-down"></span></a>
@@ -271,7 +271,7 @@
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown">寄養&領養<span class="fa fa-angle-down"></span></a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="">寄養</a></li>
+								<li><a href="fostercarecommission">寄養</a></li>
 								<li><a href="findFosterForm">領養</a></li>
 <!-- 								<li><a id ="xxx" href="" onclick='check()' data-toggle="" data-target="">申請送養</a></li> -->
 								<li><a id="application_foster" onclick="check()" data-toggle="" data-target="">申請送養</a></li>
