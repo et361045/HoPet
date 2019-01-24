@@ -92,7 +92,7 @@ public class foaaController {
 
 	    Message message = new MimeMessage(session);
 	    message.setFrom(new InternetAddress("Hopet"));
-	    message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("et361045@hotmail.com"));
+	    message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(temp.getEmail()));
 	    message.setSubject("寄養委託.");
 	    message.setText("Dear,"+temp.getMemberName()+"你已被選為"+pb.getPetName()+"的寄養者");
 
