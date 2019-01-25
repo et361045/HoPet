@@ -97,7 +97,7 @@ public class foaaController {
 	    message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(temp.getEmail()));
 	    
 	    message.setSubject("Fostercare");
-	    message.setText("Dear,You were chosen as"+pb.getPetName()+"Caregiver");
+	    message.setText("Dear,You were chosen as "+pb.getPetName()+" Caregiver");
 	
 	    Transport transport = session.getTransport("smtp");
 	    transport.connect(host, port, username, password);

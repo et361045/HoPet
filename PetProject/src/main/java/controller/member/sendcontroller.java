@@ -89,7 +89,7 @@ public class sendcontroller {
     message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toemail));
     message.setSubject("test");
    
-    message.setText("Dear,"+temp.getEmail()+"your Verification code is"+targer.getRandomverificationcode());
+    message.setText("Dear,"+temp.getEmail()+"your Verification code is "+targer.getRandomverificationcode());
 
     Transport transport = session.getTransport("smtp");
     transport.connect(host, port, username, password);
@@ -155,7 +155,7 @@ public class sendcontroller {
 	    message.setFrom(new InternetAddress("Hopet"));
 	    message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
 	    message.setSubject("your password");
-	    message.setText("Dear,"+temp.getEmail()+"your password is"+temp.getPsw());
+	    message.setText("Dear,"+temp.getEmail()+"your password is "+temp.getPsw());
 
 	    Transport transport = session.getTransport("smtp");
 	    transport.connect(host, port, username, password);
