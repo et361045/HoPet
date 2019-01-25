@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="UTF-8">
 <head>
@@ -40,6 +41,8 @@
 <!-- Lato for Title -->
 <link href='https://fonts.googleapis.com/css?family=Lato'
 	rel='stylesheet' type='text/css'>
+<!-- login Style -->
+<link href="/PetProject/assets/css/login/login.css" rel="stylesheet">
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -91,17 +94,17 @@
 									value="<span class='Username' >HI, ${user.memberName} </span>"
 									escapeXml="false" />
 								<c:out
-									value="  <a class='login modal-form' id='Logout'> Logout</a>" 
-									escapeXml="false" /> 
+									value="  <a class='login modal-form' id='Logout'> Logout</a>"
+									escapeXml="false" />
 							</c:if>
 
 							<c:if test="${empty  user}">
 								<c:out
-								value=" <a class='login modal-form' data-target='#login-form'
+									value=" <a class='login modal-form' data-target='#login-form'
 								data-toggle='modal' href='#' id='Login'>Login / Sign Up</a>"
 									escapeXml="false" />
 							</c:if>
-							
+
 						</div>
 					</div>
 				</div>
@@ -109,7 +112,7 @@
 		</div>
 	</header>
 	<!-- End header -->
-	
+
 	<!-- Start login modal window -->
 	<div aria-hidden="false" role="dialog" tabindex="-1" id="login-form"
 		class="modal leread-modal fade in">
@@ -238,39 +241,41 @@
 								<li><a href="/PetProject/member/member.jsp">會員資料</a></li>
 
 								<li><a id="fosteritem" onclick="fostercheck()">送養資料</a></li>
-								<li><a  href="/PetProject/fodd" >寄養委託查詢</a></li>
-								<li><a href="/PetProject/member/membermessage"><span class="fa fa-search"></span>動態消息 </a></li>
+								<li><a href="/PetProject/fodd">寄養委託查詢</a></li>
+								<li><a href="/PetProject/member/membermessage"><span
+										class="fa fa-search"></span>動態消息 </a></li>
 							</ul></li>
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown">寵物生活館 <span class="fa fa-angle-down"></span></a>
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="/PetProject/hospitaltest.jsp">醫院</a></li>
 								<li><a href="/PetProject/StoreMap.jsp">商家</a></li>
-								
+
 							</ul></li>
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown">寵物百科 <span class="fa fa-angle-down"></span></a>
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="dog.jsp">Dog</a></li>
-								
+
 							</ul></li>
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown">寄養&領養<span class="fa fa-angle-down"></span></a>
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="fostercarecommission">寄養</a></li>
 								<li><a href="findFosterForm">領養</a></li>
-<!-- 								<li><a id ="xxx" href="" onclick='check()' data-toggle="" data-target="">申請送養</a></li> -->
-								<li><a id="application_foster" onclick="check()" data-toggle="" data-target="">申請送養</a></li>
+								<!-- 								<li><a id ="xxx" href="" onclick='check()' data-toggle="" data-target="">申請送養</a></li> -->
+								<li><a id="application_foster" onclick="check()"
+									data-toggle="" data-target="">申請送養</a></li>
 							</ul></li>
-						
-<!-- 						<li><a href="">寵物旅遊</a></li> -->
-<!-- 						<li><a href="">寵物商城</a></li> -->
+
+						<!-- 						<li><a href="">寵物旅遊</a></li> -->
+						<!-- 						<li><a href="">寵物商城</a></li> -->
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
-						    data-toggle="dropdown">寵物活動<span class="fa fa-angle-down"></span></a>
-						<ul class="dropdown-menu" role="menu">
-							<li><a href="/PetProject/activityCommission">一起去旅遊</a></li>
-					
-					</ul>
+							data-toggle="dropdown">寵物活動<span class="fa fa-angle-down"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="/PetProject/activityCommission">一起去旅遊</a></li>
+
+							</ul>
 				</div>
 				<!--/.nav-collapse -->
 				<a href="#" id="search-icon"> <i class="fa fa-search"> </i>
@@ -768,6 +773,12 @@
 	<script type="text/javascript" src="assets/js/bootstrap-progressbar.js"></script>
 	<!-- Custom js -->
 	<script type="text/javascript" src="assets/js/custom.js"></script>
+	<!--login   -->
+	<script type="text/javascript"
+		src="/PetProject/assets/css/login/login.js"></script>
+	<!--Signon   -->
+	<script type="text/javascript"
+		src="/PetProject/assets/css/SignOn/SignOn.js"></script>
 
 
 </body>

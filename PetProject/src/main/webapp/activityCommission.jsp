@@ -152,8 +152,7 @@
 						</div>
 
 						<div class="loginbox">
-							<label><input type="checkbox"><span>Remember
-									me</span></label> <input type="submit" class="btn signin-btn" value="SIGN IN"><span
+							 <input type="submit" class="btn signin-btn" value="SIGN IN"><span
 								class="errorspan" id="errorspan"></span>
 						</div>
 					</form>
@@ -240,7 +239,8 @@
 					</button>
 					<!-- LOGO -->
 					<!-- TEXT BASED LOGO -->
-					<img src="assets/images/logo.png" class="logo_img">
+					<a href="index.jsp"><img src="assets/images/logo.png"
+						class="logo_img"></a>
 					<!-- IMG BASED LOGO  -->
 					<!-- <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" alt="logo"></a> -->
 				</div>

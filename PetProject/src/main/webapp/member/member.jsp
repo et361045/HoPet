@@ -285,8 +285,8 @@
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown">寄養&領養<span class="fa fa-angle-down"></span></a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="fostercarecommission">寄養</a></li>
-								<li><a href="findFosterForm">領養</a></li>
+								<li><a href="../fostercarecommission">寄養</a></li>
+								<li><a href="../findFosterForm">領養</a></li>
 <!-- 								<li><a id ="xxx" href="" onclick='check()' data-toggle="" data-target="">申請送養</a></li> -->
 								<li><a id="application_foster" onclick="check()" data-toggle="" data-target="">申請送養</a></li>
 							</ul></li>

@@ -86,7 +86,7 @@ public class FostercareCommissionController {
 	}
 
 
-	@RequestMapping("/fostercarecommission")
+	@RequestMapping({"/fostercarecommission","*/fostercarecommission"})
 	public String findall(FostercareCommissionBean bean,Model model){	
 		List<FostercareCommissionBean>beans= fostercareservice.select(bean);
 		model.addAttribute("allbean1",beans);

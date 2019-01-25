@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -243,20 +242,17 @@ body, input {
 									value="<span class='Username' >HI, ${user.memberName} </span>"
 									escapeXml="false" />
 								<c:out
-									value="  <a class='login modal-form' id='Logout'> Logout</button>"
-									escapeXml="false" />
+									value="  <a class='login modal-form' id='Logout'> Logout</a>" 
+									escapeXml="false" /> 
 							</c:if>
 
 							<c:if test="${empty  user}">
 								<c:out
-									value=" <a class='login modal-form' data-target='#login-form'
+								value=" <a class='login modal-form' data-target='#login-form'
 								data-toggle='modal' href='#' id='Login'>Login / Sign Up</a>"
 									escapeXml="false" />
 							</c:if>
-
-
-
-
+							
 						</div>
 					</div>
 				</div>
@@ -264,7 +260,7 @@ body, input {
 		</div>
 	</header>
 	<!-- End header -->
-
+	
 	<!-- Start login modal window -->
 	<div aria-hidden="false" role="dialog" tabindex="-1" id="login-form"
 		class="modal leread-modal fade in">
@@ -292,14 +288,13 @@ body, input {
 						</div>
 
 						<div class="loginbox">
-							<label><input type="checkbox"><span>Remember
-									me</span></label> <input type="submit" class="btn signin-btn" value="SIGN IN"><span
+							 <input type="submit" class="btn signin-btn" value="SIGN IN"><span
 								class="errorspan" id="errorspan"></span>
 						</div>
 					</form>
 				</div>
 				<div class="modal-footer footer-box">
-					<a href="#">Forgot password ?</a>
+					<a href="#" id="forgotpsw">Forgot password ?</a>
 					<p>
 					<div>
 						No account ? <a id="signup-btn" href="#">Sign Up.</a>
@@ -350,7 +345,6 @@ body, input {
 								class="form-control" title="請輸入手機" name="memberPhone">
 						</div>
 
-
 						<div class="signupbox">
 							<span>Already got account? <a id="login-btn" href="#">Sign
 									In.</a></span>
@@ -381,7 +375,8 @@ body, input {
 					</button>
 					<!-- LOGO -->
 					<!-- TEXT BASED LOGO -->
-					<img src="assets/images/logo.png" class="logo_img">
+					<a href="index.jsp"><img src="assets/images/logo.png"
+						class="logo_img"></a>
 					<!-- IMG BASED LOGO  -->
 					<!-- <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" alt="logo"></a> -->
 				</div>
