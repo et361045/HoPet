@@ -305,7 +305,7 @@
 							<div class="col-md-6 col-sm-6">
 								<div class="slide-article">
 									<h1 class="wow fadeInUp" data-wow-duration="0.5s"
-										data-wow-delay="0.5s">Welcom HoPet</h1>
+										data-wow-delay="0.5s">Welcome HoPet</h1>
 									<p class="wow fadeInUp" data-wow-duration="0.5s"
 										data-wow-delay="0.75s">歡迎使用HoPet</p>
 									<a class="read-more-btn wow fadeInUp" data-wow-duration="1s"

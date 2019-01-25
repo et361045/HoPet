@@ -345,7 +345,7 @@
 		</tbody>
 	</table>
 	<div class="dogItem_button_div">
-		<c:if test="${user.memberId==4}">
+		<c:if test="${user.memberPermission == 'Manager'}">
 			<a class="dogItem_button"
 				style="text-align: center; padding-top: 5px;"
 				href="/PetProject/dogItemUpdate?petEncyclopediaId=${bean.petEncyclopediaId}">編輯</a>

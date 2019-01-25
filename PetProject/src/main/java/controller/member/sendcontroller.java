@@ -1,5 +1,6 @@
 package controller.member;
 
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -52,7 +53,7 @@ public class sendcontroller {
 	private ApplicationContext context;
 	
     @RequestMapping(value = {"*/send","send"})
-   public void method(Model model) {
+   public void method(Model model) throws UnsupportedEncodingException {
    System.out.println("entert email");
   
    
@@ -86,8 +87,9 @@ public class sendcontroller {
     Message message = new MimeMessage(session);
     message.setFrom(new InternetAddress("Hopet"));
     message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toemail));
-    message.setSubject("測試寄信.");
-    message.setText("Dear,"+temp.getEmail()+" 歡迎使用HoPet,您的驗證信碼為"+targer.getRandomverificationcode());
+    message.setSubject("test");
+   
+    message.setText("Dear,"+temp.getEmail()+"your Verification code is"+targer.getRandomverificationcode());
 
     Transport transport = session.getTransport("smtp");
     transport.connect(host, port, username, password);
@@ -152,8 +154,8 @@ public class sendcontroller {
 	    Message message = new MimeMessage(session);
 	    message.setFrom(new InternetAddress("Hopet"));
 	    message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
-	    message.setSubject("測試寄信.");
-	    message.setText("Dear,"+temp.getEmail()+" 歡迎使用HoPet,您的密碼為"+temp.getPsw());
+	    message.setSubject("your password");
+	    message.setText("Dear,"+temp.getEmail()+"your password is"+temp.getPsw());
 
 	    Transport transport = session.getTransport("smtp");
 	    transport.connect(host, port, username, password);

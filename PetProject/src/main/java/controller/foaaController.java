@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.Properties;
 
@@ -60,7 +61,7 @@ public class foaaController {
 	}
 	
 	@RequestMapping({"/foddemail","*/foddemail","*/*/foddemail"})
-	public String method1(Model model,Integer memberid,int fostercareCommissionid) {
+	public String method1(Model model,Integer memberid,int fostercareCommissionid)  {
 		System.out.println(memberid);
 	 MemberBean   temp =	memberS.selectbymembreID(memberid);
 	System.out.println(temp);
@@ -91,11 +92,13 @@ public class foaaController {
 	   try {
 
 	    Message message = new MimeMessage(session);
+	   
 	    message.setFrom(new InternetAddress("Hopet"));
 	    message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(temp.getEmail()));
-	    message.setSubject("寄養委託.");
-	    message.setText("Dear,"+temp.getMemberName()+"你已被選為"+pb.getPetName()+"的寄養者");
-
+	    
+	    message.setSubject("Fostercare");
+	    message.setText("Dear,You were chosen as"+pb.getPetName()+"Caregiver");
+	
 	    Transport transport = session.getTransport("smtp");
 	    transport.connect(host, port, username, password);
 
