@@ -44,18 +44,21 @@ Create Table Travelpicture--旅遊照片編號
 ) --豪
 
  
-Create TABLE hospital--醫院資料
+CREATE TABLE [dbo].[hospital](
+	[hospitalId] [int] IDENTITY(1,1) NOT NULL,
+	[hospitalName] [nvarchar](30) NULL,
+	[hospitalAddress] [nvarchar](100) NULL,
+	[hospitalphone] [varchar](15) NULL,
+	[hospitalowner] [nvarchar](5) NULL,
+	[hospitalgooglemap] [nvarchar](max) NULL,
+	[longitude] [float] NULL,
+	[latitude] [float] NULL,
+PRIMARY KEY CLUSTERED 
 (
- hospitalId int Identity,  --醫院編號流水號
- hospitalName nvarchar(30),--醫院名稱
- hospitalAddress nvarchar(100),--醫院地址
- hospitalphone varchar(15),--醫院電話
- hospitalowner nvarchar(5),--醫院負責人
- hospitalgooglemap nvarchar(max),--googlemap鑲嵌
- longitude float,--經緯度
- latitude float,
- PRIMARY KEY (hospitalid)
-)  --豪
+	[hospitalId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
 Create TABLE BusinessInformation--商家資料
 (
  businessId int Identity,--商家標號流水號
@@ -70,6 +73,7 @@ Create TABLE BusinessInformation--商家資料
  longitude float,--經度
     latitude float,--緯度
  PRIMARY KEY (businessid))
+ go
 
 CREATE TABLE [dbo].[Petencyclopedia]  (     --寵物百科
 	[petencyclopediaId] [int] IDENTITY(1,1) NOT NULL,  --寵物百科標號流水號
@@ -112,7 +116,7 @@ Create TABLE Pet--會員寵物資料
 	yesornofostercare int  default 0,--有無寄養
 	FOREIGN KEY (memberid) REFERENCES member(memberid), 
 )   --sam
-
+go
 Create TABLE  ProductInformation--會員拍賣商品
 (
 	productid int Identity,--商品標號
@@ -123,11 +127,11 @@ Create TABLE  ProductInformation--會員拍賣商品
 	PRIMARY KEY (productid),
 	FOREIGN KEY (memberid) REFERENCES member(memberid), 
 )  --安
-
+go
 Create TABLE  ActivityCommission--活動委託
  (
   activityid int Identity,--活動編號流水號
- activitymemberid int unique,--活動發起人 會員編號
+ activitymemberid int ,--活動發起人 會員編號
  activityname nvarchar(MAX),--活動名稱
  activites nvarchar(MAX), --活動內容
  limit int,--限制人數
@@ -139,6 +143,7 @@ Create TABLE  ActivityCommission--活動委託
 FOREIGN KEY (activitymemberid) REFERENCES member(memberid),
 	
 )  --豪
+go
 Create Table  ActivityForm--活動報名表
 (
 	activityformid int Identity,--活動報名表流水號
@@ -150,7 +155,7 @@ Create Table  ActivityForm--活動報名表
 	FOREIGN KEY (participate) REFERENCES member(memberid),
 	FOREIGN KEY (activityid) REFERENCES ActivityCommission(activityid),
 )  --豪
-
+go
 Create Table  ActivityDetail--活動參與者查詢
 (
  activitydetailid int unique identity,  --活動餐與者記錄編號 流水號
@@ -161,104 +166,194 @@ Create Table  ActivityDetail--活動參與者查詢
  FOREIGN KEY (activityformid) REFERENCES ActivityForm(activityformid),
 )
 
-Create Table FostercareCommission--寄養委託
+go
+
+CREATE TABLE [dbo].[FostercareCommission](
+	[fostercareCommissionid] [int] IDENTITY(1,1) NOT NULL,
+	[name] [nvarchar](10) NULL,
+	[variety] [nvarchar](50) NULL,
+	[area] [nvarchar](50) NULL,
+	[starttime] [date] NULL,
+	[endtime] [date] NULL,
+	[owner] [int] NULL,
+	[reason] [nvarchar](max) NULL,
+	[picture] [varchar](max) NULL,
+	[remark] [nvarchar](max) NULL,
+	[petid] [int] NULL,
+PRIMARY KEY CLUSTERED 
 (
-	fostercareCommissionid int unique identity, --寄養委託編號 
-	name nvarchar(10),--姓名
-	variety nvarchar(50),--品種
-	area nvarchar(50),--地區
-	starttime date,--開始時間
-	endtime date,--結束時間
-	owner int , --寵物主會員編號
-	reason nvarchar(max),--寄養事由
-	picture varchar(max), --照片路徑
-	remark nvarchar(max),--備註
-	petid int ,--寵物編號
-    FOREIGN KEY (owner) REFERENCES member(memberid),
-    FOREIGN KEY (petid) REFERENCES pet(petId),	
-	  primary key(FostercareCommissionid)
-)   --sam
-
-
-Create Table FostercareForm--寄養報名表
+	[fostercareCommissionid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
 (
-	FostercareFormid int identity,--寄養報名單編號
-	FostercareCommissionid int, --寄養編號 
-	carer int , --應徵者
-	status nvarchar(50),--狀態 (寄養中/寄養完成)
-	job  nvarchar(50),--職業
-	experience  nvarchar(max),--經歷
-	pettime  nvarchar(max),--收養經歷
-	primary key(FostercareFormid),
-    FOREIGN KEY (FostercareCommissionid) REFERENCES FostercareCommission(FostercareCommissionid),	
-	FOREIGN KEY (carer) REFERENCES member(memberId),				
-)      --sam
+	[fostercareCommissionid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
 
-Create Table Fostercaredetail--寄養
+ALTER TABLE [dbo].[FostercareCommission]  WITH CHECK ADD FOREIGN KEY([owner])
+REFERENCES [dbo].[member] ([memberId])
+GO
+
+ALTER TABLE [dbo].[FostercareCommission]  WITH CHECK ADD FOREIGN KEY([petid])
+REFERENCES [dbo].[Pet] ([petId])
+GO
+
+CREATE TABLE [dbo].[FostercareForm](
+	[FostercareFormid] [int] IDENTITY(1,1) NOT NULL,
+	[FostercareCommissionid] [int] NULL,
+	[carer] [int] NULL,
+	[status] [nvarchar](50) NULL,
+	[job] [nvarchar](50) NULL,
+	[experience] [nvarchar](max) NULL,
+	[pettime] [nvarchar](max) NULL,
+PRIMARY KEY CLUSTERED 
 (
-	fostercaredetail int unique identity, --寄養編號 
-	fostercareCommissionid int,--寄養委託編號
-	fostercareFormid int ,--寄養報名單編號
-	petid int ,--寵物編號
-    owner int , --寵物主會員編號
-	carer int, -- 收養人
-	primary key(Fostercaredetail),
-	FOREIGN KEY (petid) REFERENCES pet(petid),
-    FOREIGN KEY (FostercareFormid) REFERENCES FostercareForm(FostercareFormid),
-    FOREIGN KEY (FostercareCommissionid) REFERENCES FostercareCommission(FostercareCommissionid),	
-	FOREIGN KEY (owner) REFERENCES member(memberId),	
-    FOREIGN KEY (carer) REFERENCES member(memberId),	
-)        --sam
+	[FostercareFormid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
 
-Create Table FosterCommission--送養委託
+ALTER TABLE [dbo].[FostercareForm]  WITH CHECK ADD FOREIGN KEY([carer])
+REFERENCES [dbo].[member] ([memberId])
+GO
+
+ALTER TABLE [dbo].[FostercareForm]  WITH CHECK ADD FOREIGN KEY([FostercareCommissionid])
+REFERENCES [dbo].[FostercareCommission] ([fostercareCommissionid])
+GO
+
+
+
+CREATE TABLE [dbo].[Fostercaredetail](
+	[fostercaredetail] [int] IDENTITY(1,1) NOT NULL,
+	[fostercareCommissionid] [int] NULL,
+	[fostercareFormid] [int] NULL,
+	[petid] [int] NULL,
+	[owner] [int] NULL,
+	[carer] [int] NULL,
+PRIMARY KEY CLUSTERED 
 (
-    FosterCommissionid int identity unique,  --送養委託編號
-	name nvarchar(10),--姓名
-	variety nvarchar(50),--品種
-	area nvarchar(50),--地區
-	owner int , --送養會員編號
-	reason nvarchar(max),--送養事由
-	picture varchar(max), --照片路徑
-	remark nvarchar(max),--備註
-	petid int ,--寵物編號
-	  primary key(FosterCommissionid),
-    FOREIGN KEY (owner) REFERENCES member(memberid),
-    FOREIGN KEY (petid) REFERENCES pet(petId),	
-)    --sam
+	[fostercaredetail] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[fostercaredetail] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[Fostercaredetail]  WITH CHECK ADD FOREIGN KEY([carer])
+REFERENCES [dbo].[member] ([memberId])
+GO
+
+ALTER TABLE [dbo].[Fostercaredetail]  WITH CHECK ADD FOREIGN KEY([fostercareFormid])
+REFERENCES [dbo].[FostercareForm] ([FostercareFormid])
+GO
+
+ALTER TABLE [dbo].[Fostercaredetail]  WITH CHECK ADD FOREIGN KEY([fostercareCommissionid])
+REFERENCES [dbo].[FostercareCommission] ([fostercareCommissionid])
+GO
+
+ALTER TABLE [dbo].[Fostercaredetail]  WITH CHECK ADD FOREIGN KEY([owner])
+REFERENCES [dbo].[member] ([memberId])
+GO
+
+ALTER TABLE [dbo].[Fostercaredetail]  WITH CHECK ADD FOREIGN KEY([petid])
+REFERENCES [dbo].[Pet] ([petId])
+GO
 
 
-Create Table FosterForm--送養報名表
-(	
-	FosterFormid int identity,--送養報名單編號
-	Fosterid int, --送養編號 
-	carer int , --應徵者
-	status nvarchar(50),--狀態 (寄養中/寄養完成)
-	job  nvarchar(50),--職業
-	experience  nvarchar(max),--經歷
-	pettime  nvarchar(max),--收養經歷
-	primary key(FosterFormid),
-	FOREIGN KEY (Fosterid) REFERENCES FosterCommission(FosterCommissionid),	
-	FOREIGN KEY (carer) REFERENCES member(memberId),	
-)   --sam
 
 
-Create Table Fosterdetail--送養
-(	
-   Fosterdetailid int unique identity, --送養編號 
-    FosterCommissionid int,  --送養委託編號
-	FosterFormid int ,--送養報名單編號
-	petid int ,--寵物編號
-    owner int , --寵物主會員編號
-	carer int, -- 收養人
-	primary key(Fosterdetailid),
-	FOREIGN KEY (petid) REFERENCES pet(petid),
-    FOREIGN KEY (FosterCommissionid) REFERENCES FosterCommission(FosterCommissionid),
-    FOREIGN KEY (FosterFormid) REFERENCES FosterForm(FosterFormid),	
-    FOREIGN KEY (owner) REFERENCES member(memberID),
-    FOREIGN KEY (carer) REFERENCES member(memberID),	
-)   --sam
+CREATE TABLE [dbo].[FosterCommission](
+	[FosterCommissionid] [int] IDENTITY(1,1) NOT NULL,
+	[name] [nvarchar](10) NULL,
+	[petname] [nvarchar](50) NULL,
+	[variety] [nvarchar](50) NULL,
+	[area] [nvarchar](50) NULL,
+	[owner] [int] NULL,
+	[reason] [nvarchar](max) NULL,
+	[picture] [varchar](max) NULL,
+	[remark] [nvarchar](max) NULL,
+	[petid] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[FosterCommissionid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[FosterCommissionid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[FosterCommission]  WITH CHECK ADD FOREIGN KEY([owner])
+REFERENCES [dbo].[member] ([memberId])
+GO
+
+ALTER TABLE [dbo].[FosterCommission]  WITH CHECK ADD FOREIGN KEY([petid])
+REFERENCES [dbo].[Pet] ([petId])
+GO
+
+ CREATE TABLE [dbo].[FosterForm](
+	[FosterFormid] [int] IDENTITY(1,1) NOT NULL,
+	[Fosterid] [int] NULL,
+	[owner] [int] NULL,
+	[carer] [int] NULL,
+	[carername] [nvarchar](50) NULL,
+	[petname] [nvarchar](50) NULL,
+	[petid] [int] NULL,
+	[status] [nvarchar](50) NULL,
+	[age] [nvarchar](50) NULL,
+	[job] [nvarchar](max) NULL,
+	[salary] [nvarchar](50) NULL,
+	[experience] [nvarchar](max) NULL,
+	[pettime] [nvarchar](max) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[FosterFormid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[FosterForm]  WITH CHECK ADD FOREIGN KEY([carer])
+REFERENCES [dbo].[member] ([memberId])
+GO
+
+ALTER TABLE [dbo].[FosterForm]  WITH CHECK ADD FOREIGN KEY([Fosterid])
+REFERENCES [dbo].[FosterCommission] ([FosterCommissionid])
+GO
 
 
+CREATE TABLE [dbo].[Fosterdetail](
+	[Fosterdetailid] [int] IDENTITY(1,1) NOT NULL,
+	[petid] [int] NULL,
+	[owner] [int] NULL,
+	[carer] [int] NULL,
+	[petname] [nvarchar](50) NULL,
+	[ownername] [nvarchar](50) NULL,
+	[carername] [nvarchar](max) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Fosterdetailid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[Fosterdetailid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[Fosterdetail]  WITH CHECK ADD FOREIGN KEY([carer])
+REFERENCES [dbo].[member] ([memberId])
+GO
+
+ALTER TABLE [dbo].[Fosterdetail]  WITH CHECK ADD FOREIGN KEY([owner])
+REFERENCES [dbo].[member] ([memberId])
+GO
+
+ALTER TABLE [dbo].[Fosterdetail]  WITH CHECK ADD FOREIGN KEY([petid])
+REFERENCES [dbo].[Pet] ([petId])
+GO
 
 
 Create TABLE  Blacklist--管理者黑名單 
@@ -280,7 +375,7 @@ Create Table Messageboard--留言板  --安
 	messagetime datetime2,--發文時間
 	title  nvarchar(MAX),--發文標題
 	message nvarchar(MAX),--發文內容
-	permission varchar(20),--瀏覽權限
+	permission varchar(20) default'public' ,--瀏覽權限
 	totlepoint int,--案讚人數
 	PRIMARY KEY (Messageboardid),
 	FOREIGN KEY (memberid) REFERENCES member(memberid),
