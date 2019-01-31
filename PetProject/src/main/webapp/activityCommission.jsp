@@ -355,11 +355,11 @@
 						<script>
 						document.addEventListener("DOMContentLoaded", function () {
 						    now();
-						    document.getElementById("start").addEventListener("change", ans);
+						    document.getElementById("start1").addEventListener("change", ans);
 						    document.getElementById("end").addEventListener("change", ans);
 						})
 						function ans() {
-						    var start = document.getElementById("start").value;
+						    var start = document.getElementById("start1").value;
 						    var end = document.getElementById("end").value;
 						    var ans = Date.parse(end) - Date.parse(start);
 						    ans = ans / (1000 * 60 * 24 * 60) + 1;
@@ -367,7 +367,7 @@
 						        "共" + ans + "天"
 						}
 						function now() {
-						    document.getElementById("start").valueAsDate = new Date();
+						    document.getElementById("start1").valueAsDate = new Date();
 						}
 						</script>	
 						

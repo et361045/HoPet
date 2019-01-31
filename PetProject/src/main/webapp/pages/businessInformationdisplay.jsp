@@ -322,7 +322,7 @@
 <h3>Select businessInformation Table Result : ${fn:length(select)} row(s) selected</h3>
 
 <c:if test="${not empty select}">
-<table>
+<table style="width: 1350px">
 	<thead>
 	<tr>
 		<th>businessId</th>

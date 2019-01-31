@@ -335,7 +335,7 @@
 							<div class="col-md-8">
 								<div class="blog-archive-left">
 									<!-- Start blog news single -->
-									<article class="blog-news-single">
+									<article class="blog-news-single" style="background-color: inherit;">
 										<c:if test="${!empty  user}">
 											<div class="blog-news-img" style="margin-bottom: 55px">
 
@@ -361,7 +361,7 @@
 														</div>
 
 														<textarea rows="12" cols="110" Wrap="Hard"
-															style="border: black 2px solid; resize: none;"
+															style="border: black 2px solid; resize: none;background-color: inherit"
 															name="message"></textarea>
 														<%-- 													<img id="memberpicture" src="${user.memberPicture}" --%>
 														<!-- 														width="150px" -->
@@ -382,7 +382,7 @@
 											<c:forEach var="bean" items="${select}">
 												<div class="blog-news-img" style="margin-bottom: 100px ;">
 													<div
-														style="width: 903px; height: 300px; border-radius: 9px ;">
+														style="width: 903px; border-radius: 9px ;">
 														<div
 															style="border-left: black 2px solid; border-top: black 2px solid; border-right: black 2px solid; background-color: #e0e0e0; width: 905px; height: 30px; border-top-left-radius: 9px; border-top-right-radius: 9px;"
 															class="text">${bean.title}</div>
@@ -393,7 +393,7 @@
 																	src="${bean.memberbean.memberPicture}"
 																	style="height: 220px; width: 150px;" /></td>
 																<td>
-																	<div style="width: 749px" class="text">
+																	<div style="width: 749px;background-color: inherit;" class="text" >
 																		${bean.message}</div>
 																</td>
 															</tr>
